@@ -1,0 +1,29 @@
+package com.grupo13.inventario;
+
+import java.sql.Date;
+
+public class Descargos {
+    int idDescargos;
+    Date fechaDescargos;
+
+    public Descargos(int id, Date fecha){
+        this.idDescargos=id;
+        this.fechaDescargos=fecha;
+    }
+
+    public int getIdDescargos() {
+        return idDescargos;
+    }
+
+    public void setIdDescargos(int idDescargos) {
+        this.idDescargos = idDescargos;
+    }
+
+    public Date getFechaDescargos() {
+        return fechaDescargos;
+    }
+
+    public void setFechaDescargos(Date fechaDescargos) {
+        this.fechaDescargos = fechaDescargos;
+    }
+}
