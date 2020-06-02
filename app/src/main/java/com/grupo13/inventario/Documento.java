@@ -6,12 +6,12 @@ public class Documento {
 
     public  Documento(){}
 
-    public Documento(int id, String i, String e, String ed, String t){
-        this.idEscrito = id;
-        this.isbn = i;
-        this.edicion = e;
-        this.editorial = ed;
-        this.titulo = t;
+    public Documento(int idEscrito, String isbn, String edicion, String editorial, String titulo){
+        this.idEscrito = idEscrito;
+        this.isbn = isbn;
+        this.edicion = edicion;
+        this.editorial = editorial;
+        this.titulo = titulo;
     }
     public int getIdEscrito() {
         return idEscrito;

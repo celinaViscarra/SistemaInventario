@@ -6,10 +6,10 @@ public class Autor {
 
     public Autor(){}
 
-    public Autor(int i, String n, String a){
-        this.idAutor = i;
-        this.nomAutor = n;
-        this.apeAutor = a;
+    public Autor(int idAutor, String nomAutor, String apeAutor){
+        this.idAutor = idAutor;
+        this.nomAutor = nomAutor;
+        this.apeAutor = apeAutor;
     }
     public int getIdAutor() {
         return idAutor;

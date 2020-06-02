@@ -6,9 +6,9 @@ public class Descargos {
     int idDescargos;
     Date fechaDescargos;
 
-    public Descargos(int id, Date fecha){
-        this.idDescargos=id;
-        this.fechaDescargos=fecha;
+    public Descargos(int idDescargos, Date fechaDescargos){
+        this.idDescargos=idDescargos;
+        this.fechaDescargos=fechaDescargos;
     }
 
     public int getIdDescargos() {

@@ -8,10 +8,10 @@ public class HoraClase {
 
     public HoraClase(){}
 
-    public HoraClase(int id, Time hi, Time hf){
-        this.horaFin=hf;
-        this.horaInicio=hi;
-        this.idHora=id;
+    public HoraClase(int idHora, Time horaInicio, Time horaFin){
+        this.horaFin=horaFin;
+        this.horaInicio=horaInicio;
+        this.idHora=idHora;
     }
 
     public int getIdHora() {

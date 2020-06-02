@@ -4,9 +4,9 @@ public class Categorias {
     int idCategoria;
     String nomCategoria;
 
-    public Categorias(int id, String nom){
-        this.idCategoria=id;
-        this.nomCategoria=nom;
+    public Categorias(int idCategoria, String nomCategoria){
+        this.idCategoria=idCategoria;
+        this.nomCategoria=nomCategoria;
     }
 
     public int getIdCategoria() {

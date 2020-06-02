@@ -3,10 +3,10 @@ package com.grupo13.inventario;
 public class ParticipacionDocente {
     int idDocentes, idEscritos, idParticipacion;
 
-    public ParticipacionDocente(int id1, int id2, int id3){
-        this.idDocentes=id1;
-        this.idEscritos=id2;
-        this.idParticipacion=id3;
+    public ParticipacionDocente(int idDocentes, int idEscritos, int idParticipacion){
+        this.idDocentes=idDocentes;
+        this.idEscritos=idEscritos;
+        this.idParticipacion=idParticipacion;
     }
 
     public int getIdDocentes() {

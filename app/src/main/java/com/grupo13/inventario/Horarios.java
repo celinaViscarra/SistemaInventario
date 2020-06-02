@@ -4,9 +4,9 @@ public class Horarios {
     int idHora;
     String diaCod;
 
-    public Horarios(int id, String dia){
-        this.diaCod=dia;
-        this.idHora=id;
+    public Horarios(int idHora, String diaCod) {
+        this.diaCod = diaCod;
+        this.idHora = idHora;
     }
 
     public int getIdHora() {

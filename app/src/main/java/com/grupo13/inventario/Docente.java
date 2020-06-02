@@ -6,9 +6,9 @@ public class Docente {
 
     public Docente(){}
 
-    public Docente(int id, String nom){
-        this.idDocente=id;
-        this.nomDocente=nom;
+    public Docente(int idDocente, String nomDocente){
+        this.idDocente=idDocente;
+        this.nomDocente=nomDocente;
     }
 
     public int getIdDocente() {

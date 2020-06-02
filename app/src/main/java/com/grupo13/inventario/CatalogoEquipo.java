@@ -4,11 +4,11 @@ public class CatalogoEquipo {
     String idCatalogo, modeloEquipo;
     int memoria, cantEquipo;
 
-    public CatalogoEquipo(String id, String modelo, int m, int cant){
-        this.idCatalogo=id;
-        this.modeloEquipo=modelo;
-        this.memoria=m;
-        this.cantEquipo=cant;
+    public CatalogoEquipo(String idCatalogo, String modeloEquipo, int memoria, int cantEquipo){
+        this.idCatalogo=idCatalogo;
+        this.modeloEquipo=modeloEquipo;
+        this.memoria=memoria;
+        this.cantEquipo=cantEquipo;
     }
 
     public String getIdCatalogo() {

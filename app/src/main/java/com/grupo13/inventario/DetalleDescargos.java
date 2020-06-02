@@ -3,9 +3,9 @@ package com.grupo13.inventario;
 public class DetalleDescargos {
     int idDescargo, idEquipo;
 
-    public DetalleDescargos(int id1, int id2){
-        this.idDescargo=id1;
-        this.idEquipo=id2;
+    public DetalleDescargos(int idDescargo, int idEquipo){
+        this.idDescargo=idDescargo;
+        this.idEquipo=idEquipo;
     }
 
     public int getIdDescargo() {

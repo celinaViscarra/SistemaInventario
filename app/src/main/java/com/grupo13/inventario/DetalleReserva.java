@@ -4,10 +4,10 @@ public class DetalleReserva {
     String diaCod;
     int idHora, idPrestamos;
 
-    public DetalleReserva(String dia, int idh, int idp){
-        this.diaCod=dia;
-        this.idHora=idh;
-        this.idPrestamos=idp;
+    public DetalleReserva(String diaCod, int idHora, int idPrestamos){
+        this.diaCod=diaCod;
+        this.idHora=idHora;
+        this.idPrestamos=idPrestamos;
     }
 
     public String getDiaCod() {

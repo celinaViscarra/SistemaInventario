@@ -9,12 +9,12 @@ public class MovimientoInventario {
 
     public MovimientoInventario(){}
 
-    public MovimientoInventario(int id, Date inicio, Date fin, boolean pp, boolean pa){
+    public MovimientoInventario(int id, Date inicio, Date fin, boolean prestamoPermanente, boolean prestamoActivo){
         this.idPresatamo=id;
         this.prestamoFechaInicio=inicio;
         this.prestamoFechaFin=fin;
-        this.prestamoPermanente=pp;
-        this.prestamoActivo=pa;
+        this.prestamoPermanente=prestamoPermanente;
+        this.prestamoActivo=prestamoActivo;
     }
 
     public int getIdPresatamo() {

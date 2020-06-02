@@ -5,9 +5,9 @@ public class Dias {
 
     public Dias(){}
 
-    public Dias(String dc, String dn){
-        this.diaCod=dc;
-        this.diaNombre=dn;
+    public Dias(String diaCod, String diaNombre){
+        this.diaCod=diaCod;
+        this.diaNombre=diaNombre;
     }
 
     public String getDiaCod() {

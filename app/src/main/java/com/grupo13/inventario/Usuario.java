@@ -3,10 +3,10 @@ package com.grupo13.inventario;
 public class Usuario {
     String usuario, contra, nomUsuario;
 
-    public Usuario(String u, String c, String n){
-        this.usuario=u;
-        this.nomUsuario=n;
-        this.contra=c;
+    public Usuario(String usuario, String contra, String nomUsuario){
+        this.usuario=usuario;
+        this.nomUsuario=nomUsuario;
+        this.contra=contra;
     }
 
     public String getUsuario() {

@@ -4,10 +4,10 @@ public class AccesoUsuario {
     String usuario, idOpcion;
     int idAccesoUsuario;
 
-    public AccesoUsuario(String u, String i, int id){
-        this.idAccesoUsuario=id;
-        this.idOpcion=i;
-        this.usuario=u;
+    public AccesoUsuario(String usuario, String idOpcion, int idAccesoUsuario){
+        this.idAccesoUsuario=idAccesoUsuario;
+        this.idOpcion=idOpcion;
+        this.usuario=usuario;
     }
 
     public String getUsuario() {

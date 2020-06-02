@@ -5,8 +5,8 @@ public class DetalleAutor {
 
     public DetalleAutor(){}
 
-    public  DetalleAutor(boolean ep){
-        this.esPrincipal=ep;
+    public  DetalleAutor(boolean esPrincipal){
+        this.esPrincipal=esPrincipal;
     }
 
     public boolean isEsPrincipal() {
