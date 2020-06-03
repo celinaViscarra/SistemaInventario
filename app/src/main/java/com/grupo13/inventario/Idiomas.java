@@ -1,9 +1,15 @@
 package com.grupo13.inventario;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Idiomas {
-    int idIdioma;
+    @PrimaryKey(autoGenerate = true) int idIdioma;
     String nombreIdioma;
 
+    @Ignore
     public Idiomas(){}
 
     public Idiomas(int id, String nom){
