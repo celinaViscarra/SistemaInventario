@@ -11,6 +11,7 @@ public class Documento {
     @ColumnInfo(name = "escrito_id")
     private int idEscrito;
 
+    private int idioma_id;
     private String isbn;
     private String edicion;
     private String editorial;
@@ -19,13 +20,15 @@ public class Documento {
     @Ignore
     public  Documento(){}
 
-    public Documento(int idEscrito, String isbn, String edicion, String editorial, String titulo){
+    public Documento(int idEscrito, int idioma_id, String isbn, String edicion, String editorial, String titulo) {
         this.idEscrito = idEscrito;
+        this.idioma_id = idioma_id;
         this.isbn = isbn;
         this.edicion = edicion;
         this.editorial = editorial;
         this.titulo = titulo;
     }
+
     public int getIdEscrito() {
         return idEscrito;
     }
@@ -64,5 +67,13 @@ public class Documento {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public int getIdioma_id() {
+        return idioma_id;
+    }
+
+    public void setIdioma_id(int idioma_id) {
+        this.idioma_id = idioma_id;
     }
 }
