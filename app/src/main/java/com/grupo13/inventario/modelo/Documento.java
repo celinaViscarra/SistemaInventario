@@ -10,7 +10,7 @@ public class Documento {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "escrito_id")
     private int idEscrito;
-    
+
     private String isbn;
     private String edicion;
     private String editorial;
