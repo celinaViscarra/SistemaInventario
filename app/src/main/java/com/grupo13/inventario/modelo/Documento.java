@@ -1,9 +1,22 @@
 package com.grupo13.inventario.modelo;
 
-public class Documento {
-    int idEscrito;
-    String isbn, edicion, editorial, titulo;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
+@Entity
+public class Documento {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "escrito_id")
+    private int idEscrito;
+    
+    private String isbn;
+    private String edicion;
+    private String editorial;
+    private String titulo;
+
+    @Ignore
     public  Documento(){}
 
     public Documento(int idEscrito, String isbn, String edicion, String editorial, String titulo){
