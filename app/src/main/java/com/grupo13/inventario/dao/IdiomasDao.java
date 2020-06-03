@@ -5,15 +5,16 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
-
 import com.grupo13.inventario.modelo.Idiomas;
-
 import java.util.List;
 
 @Dao
 public interface IdiomasDao {
     @Query("SELECT * FROM Idiomas")
     List<Idiomas> obtenerIdiomas();
+
+    @Query("SELECT * FROM Idiomas where idioma_id = :idioma_id")
+    Idiomas consultarIdioma(int idioma_id);
 
     @Insert
     void insertarIdioma(Idiomas idioma);
