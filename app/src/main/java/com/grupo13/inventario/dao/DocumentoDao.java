@@ -20,5 +20,5 @@ public interface DocumentoDao {
     void actualizarDocumento(Documento documento);
 
     @Delete
-    void eliminarDocumento(Documento documentto);
+    void eliminarDocumento(Documento documento);
 }
