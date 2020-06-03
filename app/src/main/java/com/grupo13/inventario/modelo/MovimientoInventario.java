@@ -1,4 +1,4 @@
-package com.grupo13.inventario;
+package com.grupo13.inventario.modelo;
 
 import java.sql.Date;
 

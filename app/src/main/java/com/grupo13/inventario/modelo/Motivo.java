@@ -1,4 +1,4 @@
-package com.grupo13.inventario;
+package com.grupo13.inventario.modelo;
 
 public class Motivo {
     int idMotivo;

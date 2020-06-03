@@ -1,4 +1,4 @@
-package com.grupo13.inventario;
+package com.grupo13.inventario.modelo;
 
 import androidx.room.Entity;
 import androidx.room.Ignore;
