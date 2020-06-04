@@ -1,20 +1,44 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import java.sql.Date;
 
+@Entity
 public class MovimientoInventario {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "prestamo_id")
     int idPresatamo;
-    Date prestamoFechaInicio, prestamoFechaFin;
-    Boolean prestamoPermanente, prestamoActivo;
 
-    public MovimientoInventario(){}
+    @ColumnInfo(name = "prestamo_fecha_ini")
+    Date prestamoFechaInicio;
 
-    public MovimientoInventario(int id, Date inicio, Date fin, boolean prestamoPermanente, boolean prestamoActivo){
-        this.idPresatamo=id;
-        this.prestamoFechaInicio=inicio;
-        this.prestamoFechaFin=fin;
-        this.prestamoPermanente=prestamoPermanente;
-        this.prestamoActivo=prestamoActivo;
+    @ColumnInfo(name = "prestamo_fecha_fin")
+    Date prestamoFechaFin;
+
+    @ColumnInfo(name = "prestamo_permanente")
+    Boolean prestamoPermanente;
+
+    @ColumnInfo(name = "prestamo_activo")
+    Boolean prestamoActivo;
+
+    String descripcion;
+
+    @Ignore
+    public MovimientoInventario(){
+
+    }
+
+    public MovimientoInventario(int idPresatamo, Date prestamoFechaInicio, Date prestamoFechaFin, Boolean prestamoPermanente, Boolean prestamoActivo, String descripcion) {
+        this.idPresatamo = idPresatamo;
+        this.prestamoFechaInicio = prestamoFechaInicio;
+        this.prestamoFechaFin = prestamoFechaFin;
+        this.prestamoPermanente = prestamoPermanente;
+        this.prestamoActivo = prestamoActivo;
+        this.descripcion = descripcion;
     }
 
     public int getIdPresatamo() {
@@ -55,5 +79,13 @@ public class MovimientoInventario {
 
     public void setPrestamoActivo(Boolean prestamoActivo) {
         this.prestamoActivo = prestamoActivo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
