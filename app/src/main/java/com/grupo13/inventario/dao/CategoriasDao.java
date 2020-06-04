@@ -7,6 +7,7 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
 
+import com.grupo13.inventario.modelo.CategoriaConTipoProducto;
 import com.grupo13.inventario.modelo.Categorias;
 import com.grupo13.inventario.modelo.TipoProducto;
 
@@ -22,11 +23,11 @@ public interface CategoriasDao {
 
     @Transaction
     @Query("SELECT * FROM Categorias")
-    List<TipoProducto> obtenerTipoProductosPorCategorias();
+    List<CategoriaConTipoProducto> obtenerTipoProductosPorCategorias();
 
     @Transaction
     @Query("SELECT * FROM Categorias WHERE categoria_id = :categoria_id")
-    List<TipoProducto> consultarTipoProductosPorCategoria(int categoria_id);
+    List<CategoriaConTipoProducto> consultarTipoProductosPorCategoria(int categoria_id);
 
     @Insert
     void insertarCategoria(Categorias categorias);
