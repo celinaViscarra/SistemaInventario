@@ -1,10 +1,22 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.sql.Time;
 
+@Entity
 public class HoraClase {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "hora_id")
     int idHora;
-    Time horaInicio, horaFin;
+
+    @ColumnInfo(name = "hora_inicio")
+    Time horaInicio;
+
+    @ColumnInfo(name = "hora_fin")
+    Time horaFin;
 
     public HoraClase(){}
 
