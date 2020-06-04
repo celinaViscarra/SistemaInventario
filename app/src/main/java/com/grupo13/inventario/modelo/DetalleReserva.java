@@ -1,8 +1,16 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+
+@Entity(primaryKeys = {"dia_cod","hora_id","prestamo_id"})
 public class DetalleReserva {
+    @ColumnInfo(name = "dia_cod")
     String diaCod;
-    int idHora, idPrestamos;
+    @ColumnInfo(name = "hora_id")
+    int idHora;
+    @ColumnInfo(name = "prestamo_id")
+    int idPrestamos;
 
     public DetalleReserva(String diaCod, int idHora, int idPrestamos){
         this.diaCod=diaCod;
