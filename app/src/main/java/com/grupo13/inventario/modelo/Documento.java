@@ -13,25 +13,34 @@ import static androidx.room.ForeignKey.CASCADE;
                     parentColumns = "idioma_id",
                     childColumns = "idioma_id",
                     onDelete = CASCADE
+        ),
+        @ForeignKey(
+                entity = TipoProducto.class,
+                parentColumns = "tipo_producto_id",
+                childColumns = "tipo_producto_id",
+                onDelete = CASCADE
         )
 })
 public class Documento {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "escrito_id")
-    private int idEscrito;
+    public int idEscrito;
 
-    private int idioma_id;
-    private String isbn;
-    private String edicion;
-    private String editorial;
-    private String titulo;
+    public int idioma_id;
+    public int tipo_producto_id;
+
+    public String isbn;
+    public String edicion;
+    public String editorial;
+    public String titulo;
 
     @Ignore
     public  Documento(){}
 
-    public Documento(int idEscrito, int idioma_id, String isbn, String edicion, String editorial, String titulo) {
+    public Documento(int idEscrito, int idioma_id, int tipo_producto_id, String isbn, String edicion, String editorial, String titulo) {
         this.idEscrito = idEscrito;
         this.idioma_id = idioma_id;
+        this.tipo_producto_id = tipo_producto_id;
         this.isbn = isbn;
         this.edicion = edicion;
         this.editorial = editorial;
