@@ -1,8 +1,18 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Marca {
-    int idMarca;
-    String nomMarca;
+    @PrimaryKey(autoGenerate = true)
+
+    @ColumnInfo(name = "marca_id")
+    public int idMarca;
+
+    @ColumnInfo(name = "marca_nombre")
+    public String nomMarca;
 
     public Marca(int id, String nom){
         this.idMarca=id;

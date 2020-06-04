@@ -1,7 +1,18 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Usuario {
-    String usuario, contra, nomUsuario;
+    @PrimaryKey(autoGenerate = true)
+    public String usuario;
+
+    @ColumnInfo(name = "contraseña")
+    public String contra;
+    @ColumnInfo(name = "nombre_usuario")
+    public String nomUsuario;
 
     public Usuario(String usuario, String contra, String nomUsuario){
         this.usuario=usuario;

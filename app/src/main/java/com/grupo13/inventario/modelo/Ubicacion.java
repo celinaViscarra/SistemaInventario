@@ -1,9 +1,19 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Ubicacion {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "ubicacion_id")
     int idUbicacion;
+    @ColumnInfo(name = "ubicacion_nombre")
     String nomUbicacion;
 
+    @Ignore
     public Ubicacion(){}
 
     public Ubicacion(int id, String nom){
