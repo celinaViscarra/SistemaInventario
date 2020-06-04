@@ -1,9 +1,19 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+@Entity
 public class TipoParticipacion {
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "participacion_id")
     int idParticipacion;
+    @ColumnInfo(name = "participacion_nombre")
     String nomParticipacion;
 
+    @Ignore
     public  TipoParticipacion(){}
 
     public  TipoParticipacion(int id, String nom){

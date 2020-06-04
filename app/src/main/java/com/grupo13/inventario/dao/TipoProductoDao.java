@@ -27,7 +27,7 @@ public interface TipoProductoDao {
     @Transaction
     @Query("SELECT * FROM TipoProducto WHERE tipo_producto_id = :tipo_producto_id")
     List<Documento> consultarDocumentosPorTipoProducto(int tipo_producto_id);
-    
+
     @Insert
     void insertarTipoProducto(TipoProducto tipoProducto);
 
