@@ -25,7 +25,7 @@ public interface IdiomasDao {
 
     @Transaction
     @Query("SELECT * FROM Idiomas WHERE idioma_id = :idioma_id")
-    IdiomaConDocumentos consultarDocumentosPorIdioma(int idioma_id);
+    List<IdiomaConDocumentos> consultarDocumentosPorIdioma(int idioma_id);
 
     @Insert
     void insertarIdioma(Idiomas idioma);
