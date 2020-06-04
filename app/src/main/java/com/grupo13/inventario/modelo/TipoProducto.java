@@ -2,10 +2,20 @@ package com.grupo13.inventario.modelo;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(foreignKeys =
+    @ForeignKey(
+        entity = Categorias.class,
+        parentColumns = "categoria_id",
+        childColumns = "categoria_id",
+        onDelete = CASCADE
+    )
+)
 public class TipoProducto {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name="tipo_producto_id")
