@@ -1,9 +1,18 @@
 package com.grupo13.inventario.modelo;
 
-public class Autor {
-    int idAutor;
-    String nomAutor, apeAutor;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
+@Entity
+public class Autor {
+    @PrimaryKey(autoGenerate = true)
+    public int idAutor;
+    public String nomAutor;
+    public String apeAutor;
+
+    @Ignore
     public Autor(){}
 
     public Autor(int idAutor, String nomAutor, String apeAutor){
