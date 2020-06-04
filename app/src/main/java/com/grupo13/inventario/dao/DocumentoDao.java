@@ -9,8 +9,6 @@ import androidx.room.Update;
 
 import com.grupo13.inventario.modelo.DetalleAutor;
 import com.grupo13.inventario.modelo.Documento;
-import com.grupo13.inventario.modelo.DocumentoConDetalleAutor;
-
 import java.util.List;
 
 @Dao
@@ -23,11 +21,11 @@ public interface DocumentoDao {
 
     @Transaction
     @Query("SELECT * FROM Documento")
-    List<DocumentoConDetalleAutor> obtenerDetallesAutorPorDocumento();
+    List<DetalleAutor> obtenerDetallesAutorPorDocumento();
 
     @Transaction
     @Query("SELECT * FROM Documento WHERE escrito_id = :escrito_id")
-    List<DocumentoConDetalleAutor> consultarDetallesAutorPorIdioma(int escrito_id);
+    List<DetalleAutor> consultarDetallesAutorPorIdioma(int escrito_id);
 
     @Insert
     void insertarDocumento(Documento documento);
