@@ -4,7 +4,6 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.grupo13.inventario.modelo.Docente;
@@ -20,11 +19,9 @@ public interface DocenteDao {
     @Query("SELECT * FROM Docente WHERE docentes_id = :docentes_id")
     Docente consultarDocente(int docentes_id);
 
-    @Transaction
     @Query("SELECT * FROM Docente")
     List<DocenteConParticipacionesDocentes> obtenerDocentesConParticipacionesDocentes();
 
-    @Transaction
     @Query("SELECT * FROM Docente WHERE docentes_id = :docentes_id")
     List<DocenteConParticipacionesDocentes> obtenerParticipacionesDocentesPorDocente(int docentes_id);
 
