@@ -1,14 +1,38 @@
 package com.grupo13.inventario.modelo;
 
-public class CatalogoEquipo {
-    String idCatalogo, modeloEquipo;
-    int memoria, cantEquipo;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-    public CatalogoEquipo(String idCatalogo, String modeloEquipo, int memoria, int cantEquipo){
+@Entity
+public class CatalogoEquipo {
+    @PrimaryKey(autoGenerate = true)
+
+    @ColumnInfo(name = "catalogo_id")
+    public String idCatalogo;
+    @ColumnInfo(name = "marca_id")
+    public String idMarca;
+    @ColumnInfo(name = "modelo_equipo_generico")
+    public String modeloEquipo;
+
+    public int memoria;
+    @ColumnInfo(name = "cantidad_equipo")
+    public int cantEquipo;
+
+    public CatalogoEquipo(String idCatalogo, String marca, String modeloEquipo, int memoria, int cantEquipo){
         this.idCatalogo=idCatalogo;
+        this.idMarca=marca;
         this.modeloEquipo=modeloEquipo;
         this.memoria=memoria;
         this.cantEquipo=cantEquipo;
+    }
+
+    public String getIdMarca() {
+        return idMarca;
+    }
+
+    public void setIdMarca(String idMarca) {
+        this.idMarca = idMarca;
     }
 
     public String getIdCatalogo() {

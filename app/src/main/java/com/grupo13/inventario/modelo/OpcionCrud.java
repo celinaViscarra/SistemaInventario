@@ -1,8 +1,16 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class OpcionCrud {
-    String idOpcion, desOpcion;
-    int numCrud;
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id_opcion")
+    public String idOpcion;
+    public String desOpcion;
+    public int numCrud;
 
     public OpcionCrud(String id, String des, int num){
         this.idOpcion=id;
