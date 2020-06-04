@@ -8,6 +8,7 @@ import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.grupo13.inventario.modelo.Docente;
+import com.grupo13.inventario.modelo.DocenteConMovimientosInventario;
 import com.grupo13.inventario.modelo.DocenteConParticipacionesDocentes;
 
 import java.util.List;
@@ -27,6 +28,14 @@ public interface DocenteDao {
     @Transaction
     @Query("SELECT * FROM Docente WHERE docentes_id = :docentes_id")
     List<DocenteConParticipacionesDocentes> obtenerParticipacionesDocentesPorDocente(int docentes_id);
+
+    @Transaction
+    @Query("SELECT * FROM Docente")
+    List<DocenteConMovimientosInventario> obtenerDocentesConMovimientosInventario();
+
+    @Transaction
+    @Query("SELECT * FROM Docente WHERE docentes_id = :docentes_id")
+    List<DocenteConMovimientosInventario> obtenerMovimientosInventarioPorDocente(int docentes_id);
 
     @Insert
     void insertarDocente(Docente docente);

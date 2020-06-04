@@ -27,6 +27,8 @@ public class MovimientoInventario {
 
     String descripcion;
 
+    int docentes_id;
+
     @Ignore
     public MovimientoInventario(){
 
