@@ -7,6 +7,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.grupo13.inventario.modelo.Autor;
+import com.grupo13.inventario.modelo.AutorConDetalleAutor;
 import com.grupo13.inventario.modelo.DetalleAutor;
 
 import java.util.List;
@@ -20,10 +21,10 @@ public interface AutorDao {
     Autor consultarAutor(int idAutor);
 
     @Query("SELECT * FROM Autor")
-    List<DetalleAutor> obtenerDetalleAutorPorAutores();
+    List<AutorConDetalleAutor> obtenerDetalleAutorPorAutores();
 
     @Query("SELECT * FROM Autor WHERE idAutor = :idAutor")
-    List<DetalleAutor> consultarDetalleAutorPorAutor(int idAutor);
+    List<AutorConDetalleAutor> consultarDetalleAutorPorAutor(int idAutor);
 
     @Insert
     void insertarAutor(Autor autor);
