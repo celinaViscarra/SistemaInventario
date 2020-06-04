@@ -9,7 +9,6 @@ import androidx.room.Update;
 
 import com.grupo13.inventario.modelo.Documento;
 import com.grupo13.inventario.modelo.TipoProducto;
-import com.grupo13.inventario.modelo.TipoProductoConDocumentos;
 
 import java.util.List;
 
@@ -23,11 +22,11 @@ public interface TipoProductoDao {
 
     @Transaction
     @Query("SELECT * FROM TipoProducto")
-    List<TipoProductoConDocumentos> obtenerTiposConDocumentos();
+    List<Documento> obtenerTiposConDocumentos();
 
     @Transaction
     @Query("SELECT * FROM TipoProducto WHERE tipo_producto_id = :tipo_producto_id")
-    List<TipoProductoConDocumentos> consultarDocumentosPorTipoProducto(int tipo_producto_id);
+    List<Documento> consultarDocumentosPorTipoProducto(int tipo_producto_id);
 
     @Insert
     void insertarTipoProducto(TipoProducto tipoProducto);
