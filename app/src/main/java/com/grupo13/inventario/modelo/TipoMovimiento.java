@@ -37,4 +37,5 @@ public class TipoMovimiento {
     public void setNombreTipoMoviento(String nombreTipoMoviento) {
         this.nombreTipoMoviento = nombreTipoMoviento;
     }
+
 }

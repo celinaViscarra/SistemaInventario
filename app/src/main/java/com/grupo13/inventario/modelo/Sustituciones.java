@@ -26,8 +26,8 @@ public class Sustituciones {
     @Ignore
     public Sustituciones(){}
 
-    public Sustituciones(int idSustituciones, int idMotivo, int idEquipoObsoleto, int idEquipoReemplazo,
-                         int idDocentes){
+    public Sustituciones(int idSustituciones, int idMotivo, int idEquipoObsoleto,
+                         int idEquipoReemplazo, int idDocentes){
         this.idSustituciones=idSustituciones;
         this.idMotivo=idMotivo;
         this.idEquipoObsoleto=idEquipoObsoleto;
