@@ -1,9 +1,19 @@
 package com.grupo13.inventario.modelo;
 
-public class Docente {
-    int idDocente;
-    String nomDocente;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
+@Entity
+public class Docente {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "docentes_id")
+    public int idDocente;
+    @ColumnInfo(name = "docentes_nombre")
+    public String nomDocente;
+
+    @Ignore
     public Docente(){}
 
     public Docente(int idDocente, String nomDocente){
