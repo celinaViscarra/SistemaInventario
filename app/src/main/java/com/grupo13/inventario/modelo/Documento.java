@@ -12,7 +12,6 @@ public class Documento {
     private int idEscrito;
 
     private int idioma_id;
-    private int tipo_producto_id;
     private String isbn;
     private String edicion;
     private String editorial;

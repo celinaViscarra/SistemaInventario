@@ -19,12 +19,6 @@ public interface AutorDao {
     @Query("SELECT * FROM Autor WHERE idAutor = :idAutor")
     Autor consultarAutor(int idAutor);
 
-    @Query("SELECT * FROM Autor")
-    List<DetalleAutor> obtenerDetalleAutorPorAutores();
-
-    @Query("SELECT * FROM Autor WHERE idAutor = :idAutor")
-    List<DetalleAutor> consultarDetalleAutorPorAutor(int idAutor);
-
     @Insert
     void insertarAutor(Autor autor);
 

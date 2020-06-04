@@ -19,14 +19,6 @@ public interface DocumentoDao {
     @Query("SELECT * FROM Documento WHERE escrito_id = :escrito_id")
     Documento consultarDocumento(int escrito_id);
 
-    @Transaction
-    @Query("SELECT * FROM Documento")
-    List<DetalleAutor> obtenerDetallesAutorPorDocumento();
-
-    @Transaction
-    @Query("SELECT * FROM Documento WHERE escrito_id = :escrito_id")
-    List<DetalleAutor> consultarDetallesAutorPorIdioma(int escrito_id);
-
     @Insert
     void insertarDocumento(Documento documento);
 

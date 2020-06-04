@@ -20,14 +20,6 @@ public interface CategoriasDao {
     @Query("SELECT * FROM Categorias WHERE categoria_id = :categoria_id")
     Categorias consultarCategoria(int categoria_id);
 
-    @Transaction
-    @Query("SELECT * FROM Categorias")
-    List<TipoProducto> obtenerTipoProductosPorCategorias();
-
-    @Transaction
-    @Query("SELECT * FROM Categorias WHERE categoria_id = :categoria_id")
-    List<TipoProducto> consultarTipoProductosPorCategoria(int categoria_id);
-
     @Insert
     void insertarCategoria(Categorias categorias);
 
