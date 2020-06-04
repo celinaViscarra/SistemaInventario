@@ -9,10 +9,10 @@ import androidx.room.PrimaryKey;
 public class TipoMovimiento {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "tipo_movimiento_id")
-    int idTipoMovimiento;
+    public int idTipoMovimiento;
 
     @ColumnInfo(name = "tipo_movimiento_nombre")
-    String nombreTipoMoviento;
+    public String nombreTipoMoviento;
 
     @Ignore
     public TipoMovimiento(){}
@@ -37,5 +37,4 @@ public class TipoMovimiento {
     public void setNombreTipoMoviento(String nombreTipoMoviento) {
         this.nombreTipoMoviento = nombreTipoMoviento;
     }
-
 }

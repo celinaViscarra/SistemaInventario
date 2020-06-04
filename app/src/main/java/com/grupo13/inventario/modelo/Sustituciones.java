@@ -9,19 +9,19 @@ import androidx.room.PrimaryKey;
 public class Sustituciones {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "sustitucion_id")
-    int idSustituciones;
+    public int idSustituciones;
 
     @ColumnInfo(name = "motivo_id")
-    int idMotivo;
+    public int idMotivo;
 
     @ColumnInfo(name = "equipo_obsoleto_id")
-    int idEquipoObsoleto;
+    public int idEquipoObsoleto;
 
     @ColumnInfo(name = "equipo_reemplazo_id")
-    int idEquipoReemplazo;
+    public int idEquipoReemplazo;
 
     @ColumnInfo(name = "docentes_id")
-    int idDocentes;
+    public int idDocentes;
 
     @Ignore
     public Sustituciones(){}

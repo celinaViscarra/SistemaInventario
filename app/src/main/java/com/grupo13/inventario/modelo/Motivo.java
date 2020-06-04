@@ -1,9 +1,20 @@
 package com.grupo13.inventario.modelo;
 
-public class Motivo {
-    int idMotivo;
-    String nomMotivo;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
+@Entity
+public class Motivo {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "motivo_id")
+    public int idMotivo;
+
+    @ColumnInfo(name = "motivo_nombre")
+    public String nomMotivo;
+
+    @Ignore
     public Motivo(){}
 
     public Motivo(int id, String nom){
