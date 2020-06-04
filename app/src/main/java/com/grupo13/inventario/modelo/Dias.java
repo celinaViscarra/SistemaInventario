@@ -1,7 +1,17 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Dias {
-    String diaCod, diaNombre;
+    @PrimaryKey
+    @ColumnInfo(name ="dia_cod")
+    String diaCod;
+
+    @ColumnInfo(name = "dia_nombre")
+    String diaNombre;
 
     public Dias(){}
 
