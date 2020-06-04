@@ -1,7 +1,22 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+
+@Entity(primaryKeys = {"escrito_id","docentes_id"})
 public class ParticipacionDocente {
-    int idDocentes, idEscritos, idParticipacion;
+    @ColumnInfo(name = "escrito_id")
+    public int idDocentes;
+    @ColumnInfo(name = "docentes_id")
+    public int idEscritos;
+    @ColumnInfo(name = "participacion_id")
+    public int idParticipacion;
+
+    @Ignore
+    public ParticipacionDocente(){
+
+    }
 
     public ParticipacionDocente(int idDocentes, int idEscritos, int idParticipacion){
         this.idDocentes=idDocentes;
