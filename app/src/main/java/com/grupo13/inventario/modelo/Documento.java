@@ -9,10 +9,11 @@ import androidx.room.PrimaryKey;
 import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(foreignKeys = {
-        @ForeignKey(entity = Idiomas.class,
-                    parentColumns = "idioma_id",
-                    childColumns = "idioma_id",
-                    onDelete = CASCADE
+        @ForeignKey(
+                entity = Idiomas.class,
+                parentColumns = "idioma_id",
+                childColumns = "idioma_id",
+                onDelete = CASCADE
         ),
         @ForeignKey(
                 entity = TipoProducto.class,
