@@ -4,8 +4,10 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
+import com.grupo13.inventario.modelo.DetalleAutor;
 import com.grupo13.inventario.modelo.Documento;
 import java.util.List;
 
@@ -16,6 +18,14 @@ public interface DocumentoDao {
 
     @Query("SELECT * FROM Documento WHERE escrito_id = :escrito_id")
     Documento consultarDocumento(int escrito_id);
+
+    @Transaction
+    @Query("SELECT * FROM Documento")
+    List<DetalleAutor> obtenerDetallesAutorPorDocumento();
+
+    @Transaction
+    @Query("SELECT * FROM Documento WHERE escrito_id = :escrito_id")
+    List<DetalleAutor> consultarDetallesAutorPorIdioma(int escrito_id);
 
     @Insert
     void insertarDocumento(Documento documento);
