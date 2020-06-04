@@ -2,10 +2,19 @@ package com.grupo13.inventario.modelo;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(foreignKeys = {
+        @ForeignKey(entity = Idiomas.class,
+                    parentColumns = "idioma_id",
+                    childColumns = "idioma_id",
+                    onDelete = CASCADE
+        )
+})
 public class Documento {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "escrito_id")
