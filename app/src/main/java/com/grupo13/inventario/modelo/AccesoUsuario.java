@@ -30,6 +30,8 @@ public class AccesoUsuario {
     @NonNull
     @ColumnInfo(name = "id_opcion")
     public String idOpcion;
+
+    @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "id_accesousuario")
     public int idAccesoUsuario;
