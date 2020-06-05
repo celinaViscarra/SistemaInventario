@@ -23,20 +23,4 @@ public class Docente {
         this.idDocente=idDocente;
         this.nomDocente=nomDocente;
     }
-
-    public int getIdDocente() {
-        return idDocente;
-    }
-
-    public void setIdDocente(int idDocente) {
-        this.idDocente = idDocente;
-    }
-
-    public String getNomDocente() {
-        return nomDocente;
-    }
-
-    public void setNomDocente(String nomDocente) {
-        this.nomDocente = nomDocente;
-    }
 }

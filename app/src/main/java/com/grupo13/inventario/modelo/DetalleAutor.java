@@ -31,32 +31,5 @@ public class DetalleAutor {
         this.esPrincipal = esPrincipal;
     }
 
-    @Ignore
-    public DetalleAutor(){
-
-    }
-
-    public int getIdAutor() {
-        return idAutor;
-    }
-
-    public void setIdAutor(int idAutor) {
-        this.idAutor = idAutor;
-    }
-
-    public int getEscrito_id() {
-        return escrito_id;
-    }
-
-    public void setEscrito_id(int escrito_id) {
-        this.escrito_id = escrito_id;
-    }
-
-    public boolean isEsPrincipal() {
-        return esPrincipal;
-    }
-
-    public void setEsPrincipal(boolean esPrincipal) {
-        this.esPrincipal = esPrincipal;
-    }
+    public DetalleAutor(){}
 }

@@ -24,4 +24,6 @@ public class Usuario {
         this.nomUsuario=nomUsuario;
         this.contra=contra;
     }
+
+    public Usuario(){}
 }

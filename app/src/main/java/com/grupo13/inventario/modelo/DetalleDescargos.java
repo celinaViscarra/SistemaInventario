@@ -32,6 +32,8 @@ public class DetalleDescargos {
     @ColumnInfo(name = "equipo_id")
     public int idEquipo;
 
+    public DetalleDescargos(){}
+
     public DetalleDescargos(int idDescargo, int idEquipo){
         this.idDescargo=idDescargo;
         this.idEquipo=idEquipo;

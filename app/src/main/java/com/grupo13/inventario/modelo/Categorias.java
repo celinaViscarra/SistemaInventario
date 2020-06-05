@@ -15,10 +15,7 @@ public class Categorias {
     @ColumnInfo(name = "categoria_nombre")
     public String nomCategoria;
 
-    @Ignore
-    public Categorias(){
-
-    }
+    public Categorias(){}
 
     public Categorias(int idCategoria, String nomCategoria){
         this.idCategoria=idCategoria;

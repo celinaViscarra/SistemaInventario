@@ -17,7 +17,6 @@ public class TipoMovimiento {
     @ColumnInfo(name = "tipo_movimiento_nombre")
     public String nombreTipoMoviento;
 
-    @Ignore
     public TipoMovimiento(){}
 
     public TipoMovimiento(int id, String nom){

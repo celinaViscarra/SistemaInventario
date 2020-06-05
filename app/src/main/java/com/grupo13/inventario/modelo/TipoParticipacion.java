@@ -22,20 +22,4 @@ public class TipoParticipacion {
         this.idParticipacion=id;
         this.nomParticipacion=nom;
     }
-
-    public int getIdParticipacion() {
-        return idParticipacion;
-    }
-
-    public void setIdParticipacion(int idParticipacion) {
-        this.idParticipacion = idParticipacion;
-    }
-
-    public String getNomParticipacion() {
-        return nomParticipacion;
-    }
-
-    public void setNomParticipacion(String nomParticipacion) {
-        this.nomParticipacion = nomParticipacion;
-    }
 }

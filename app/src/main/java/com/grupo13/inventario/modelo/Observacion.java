@@ -39,7 +39,6 @@ public class Observacion {
     @NonNull
     public int toma_id;
 
-    @Ignore
     public Observacion(){}
 
     public Observacion(String catalogo, int toma, int supuesta, int real){

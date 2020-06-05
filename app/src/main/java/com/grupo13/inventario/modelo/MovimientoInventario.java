@@ -61,17 +61,19 @@ public class MovimientoInventario {
     public int tipo_movimiento_id;
     public int equipo_id;
 
-    @Ignore
-    public MovimientoInventario(){
+    public MovimientoInventario(){}
 
-    }
-
-    public MovimientoInventario(int idPresatamo, Date prestamoFechaInicio, Date prestamoFechaFin, Boolean prestamoPermanente, Boolean prestamoActivo, String descripcion) {
-        this.idPresatamo = idPresatamo;
-        this.prestamoFechaInicio = prestamoFechaInicio;
-        this.prestamoFechaFin = prestamoFechaFin;
-        this.prestamoPermanente = prestamoPermanente;
-        this.prestamoActivo = prestamoActivo;
-        this.descripcion = descripcion;
+    public MovimientoInventario(int idPresatamo, Date prestamoFechaInicio, Date prestamoFechaFin,
+                                boolean prestamoPermanente, boolean prestamoActivo, String descripcion,
+                                int docentes_id, int tipo_movimiento_id, int equipo_id){
+        this.idPresatamo=idPresatamo;
+        this.prestamoFechaInicio=prestamoFechaInicio;
+        this.prestamoFechaFin=prestamoFechaFin;
+        this.prestamoPermanente=prestamoPermanente;
+        this.prestamoActivo=prestamoActivo;
+        this.descripcion=descripcion;
+        this.docentes_id=docentes_id;
+        this.tipo_movimiento_id=tipo_movimiento_id;
+        this.equipo_id=equipo_id;
     }
 }

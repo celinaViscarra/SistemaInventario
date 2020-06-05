@@ -58,7 +58,6 @@ public class EquipoInformatico {
     @NonNull
     public int catalogo_id;
 
-    @Ignore
     public EquipoInformatico(){}
 
     public EquipoInformatico(int idEquipo, @NonNull String codEquipo, @NonNull Date fechaAdquisicion, @NonNull String estadoEquipo, int tipo_producto_id, int ubicacion_id, int catalogo_id) {

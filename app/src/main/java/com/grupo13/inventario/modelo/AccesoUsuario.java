@@ -38,6 +38,8 @@ public class AccesoUsuario {
     @ColumnInfo(name = "id_accesousuario")
     public int idAccesoUsuario;
 
+    public  AccesoUsuario(){}
+
     public AccesoUsuario(String usuario, String idOpcion, int idAccesoUsuario){
         this.idAccesoUsuario=idAccesoUsuario;
         this.idOpcion=idOpcion;

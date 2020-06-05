@@ -43,6 +43,5 @@ public class CatalogoEquipo {
         this.cantEquipo = cantEquipo;
     }
 
-    @Ignore
     public CatalogoEquipo(){}
 }

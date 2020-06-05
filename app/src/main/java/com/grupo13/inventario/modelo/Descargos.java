@@ -49,6 +49,5 @@ public class Descargos {
         this.fechaDescargos=fechaDescargos;
     }
 
-    @Ignore
     public Descargos(){}
 }

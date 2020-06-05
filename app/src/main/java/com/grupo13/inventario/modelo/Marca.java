@@ -22,6 +22,5 @@ public class Marca {
         this.nomMarca=nom;
     }
 
-    @Ignore
     public Marca(){}
 }

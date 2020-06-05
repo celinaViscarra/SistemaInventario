@@ -29,9 +29,7 @@ public class TipoProducto {
 
     public int categoria_id;
 
-    @Ignore
-    public TipoProducto() {
-    }
+    public TipoProducto() {}
 
     public TipoProducto(int idTipoProducto, @NonNull String nomTipoProducto, int categoria_id) {
         this.idTipoProducto = idTipoProducto;

@@ -58,7 +58,6 @@ public class Sustituciones {
     @ColumnInfo(name = "docentes_id")
     public int idDocentes;
 
-    @Ignore
     public Sustituciones(){}
 
     public Sustituciones(int idSustituciones, int idMotivo, int idEquipoObsoleto,

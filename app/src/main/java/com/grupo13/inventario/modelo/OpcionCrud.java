@@ -23,6 +23,5 @@ public class OpcionCrud {
         this.numCrud=num;
     }
 
-    @Ignore
     public OpcionCrud(){}
 }
