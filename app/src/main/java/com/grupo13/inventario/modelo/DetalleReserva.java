@@ -2,8 +2,37 @@ package com.grupo13.inventario.modelo;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 
-@Entity(primaryKeys = {"dia_cod","hora_id","prestamo_id"})
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(
+        primaryKeys = {
+                "dia_cod",
+                "hora_id",
+                "prestamo_id"
+        },
+        foreignKeys = {
+                @ForeignKey(
+                        entity = Horarios.class,
+                        parentColumns = {
+                                "hora_id",
+                                "dia_cod"
+                        },
+                        childColumns = {
+                                "hora_id",
+                                "dia_cod"
+                        },
+                        onDelete = CASCADE
+                ),
+                @ForeignKey(
+                        entity = MovimientoInventario.class,
+                        parentColumns = "prestamo_id",
+                        childColumns = "prestamo_id",
+                        onDelete = CASCADE
+                )
+        }
+)
 public class DetalleReserva {
     @ColumnInfo(name = "dia_cod")
     String diaCod;

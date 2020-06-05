@@ -2,9 +2,28 @@ package com.grupo13.inventario.modelo;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 
-@Entity(primaryKeys = {"dia_id","dia_cod"})
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(
+        primaryKeys = {"dia_id","dia_cod"},
+        foreignKeys = {
+                @ForeignKey(
+                        entity = Dias.class,
+                        parentColumns = "dia_cod",
+                        childColumns = "dia_cod",
+                        onDelete = CASCADE
+                ),
+                @ForeignKey(
+                        entity = HoraClase.class,
+                        parentColumns = "hora_id",
+                        childColumns = "hora_id",
+                        onDelete = CASCADE
+                )
+        }
+)
 public class Horarios {
     @ColumnInfo(name = "hora_id")
     int idHora;
