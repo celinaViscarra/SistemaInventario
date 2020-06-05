@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.PrimaryKey;
 
 import static androidx.room.ForeignKey.CASCADE;
 
@@ -36,21 +35,5 @@ public class DetalleDescargos {
     public DetalleDescargos(int idDescargo, int idEquipo){
         this.idDescargo=idDescargo;
         this.idEquipo=idEquipo;
-    }
-
-    public int getIdDescargo() {
-        return idDescargo;
-    }
-
-    public void setIdDescargo(int idDescargo) {
-        this.idDescargo = idDescargo;
-    }
-
-    public int getIdEquipo() {
-        return idEquipo;
-    }
-
-    public void setIdEquipo(int idEquipo) {
-        this.idEquipo = idEquipo;
     }
 }

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import static androidx.room.ForeignKey.CASCADE;
@@ -42,48 +43,6 @@ public class CatalogoEquipo {
         this.cantEquipo = cantEquipo;
     }
 
-
-    public CatalogoEquipo(){
-
-    }
-
-    public String getIdMarca() {
-        return idMarca;
-    }
-
-    public void setIdMarca(String idMarca) {
-        this.idMarca = idMarca;
-    }
-
-    public String getIdCatalogo() {
-        return idCatalogo;
-    }
-
-    public void setIdCatalogo(String idCatalogo) {
-        this.idCatalogo = idCatalogo;
-    }
-
-    public String getModeloEquipo() {
-        return modeloEquipo;
-    }
-
-    public void setModeloEquipo(String modeloEquipo) {
-        this.modeloEquipo = modeloEquipo;
-    }
-
-    public int getMemoria() {
-        return memoria;
-    }
-
-    public void setMemoria(int memoria) {
-        this.memoria = memoria;
-    }
-
-    public int getCantEquipo() {
-        return cantEquipo;
-    }
-
-    public void setCantEquipo(int cantEquipo) {
-        this.cantEquipo = cantEquipo;
-    }
+    @Ignore
+    public CatalogoEquipo(){}
 }

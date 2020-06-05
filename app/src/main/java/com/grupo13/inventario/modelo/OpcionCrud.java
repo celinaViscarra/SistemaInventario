@@ -3,6 +3,7 @@ package com.grupo13.inventario.modelo;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -22,31 +23,6 @@ public class OpcionCrud {
         this.numCrud=num;
     }
 
-    public OpcionCrud(){
-
-    }
-
-    public String getIdOpcion() {
-        return idOpcion;
-    }
-
-    public void setIdOpcion(String idOpcion) {
-        this.idOpcion = idOpcion;
-    }
-
-    public String getDesOpcion() {
-        return desOpcion;
-    }
-
-    public void setDesOpcion(String desOpcion) {
-        this.desOpcion = desOpcion;
-    }
-
-    public int getNumCrud() {
-        return numCrud;
-    }
-
-    public void setNumCrud(int numCrud) {
-        this.numCrud = numCrud;
-    }
+    @Ignore
+    public OpcionCrud(){}
 }

@@ -3,6 +3,7 @@ package com.grupo13.inventario.modelo;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -21,23 +22,6 @@ public class Marca {
         this.nomMarca=nom;
     }
 
-    public Marca(){
-
-    }
-
-    public int getIdMarca() {
-        return idMarca;
-    }
-
-    public void setIdMarca(int idMarca) {
-        this.idMarca = idMarca;
-    }
-
-    public String getNomMarca() {
-        return nomMarca;
-    }
-
-    public void setNomMarca(String nomMarca) {
-        this.nomMarca = nomMarca;
-    }
+    @Ignore
+    public Marca(){}
 }

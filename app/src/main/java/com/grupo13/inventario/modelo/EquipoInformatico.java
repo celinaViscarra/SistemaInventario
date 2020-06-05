@@ -58,7 +58,7 @@ public class EquipoInformatico {
     @NonNull
     public int catalogo_id;
 
-
+    @Ignore
     public EquipoInformatico(){}
 
     public EquipoInformatico(int idEquipo, @NonNull String codEquipo, @NonNull Date fechaAdquisicion, @NonNull String estadoEquipo, int tipo_producto_id, int ubicacion_id, int catalogo_id) {
@@ -69,53 +69,5 @@ public class EquipoInformatico {
         this.tipo_producto_id = tipo_producto_id;
         this.ubicacion_id = ubicacion_id;
         this.catalogo_id = catalogo_id;
-    }
-
-    public int getIdEquipo() {
-        return idEquipo;
-    }
-
-    public void setIdEquipo(int idEquipo) {
-        this.idEquipo = idEquipo;
-    }
-
-    public String getCodEquipo() {
-        return codEquipo;
-    }
-
-    public void setCodEquipo(String codEquipo) {
-        this.codEquipo = codEquipo;
-    }
-
-    public Date getFechaAdquisicion() {
-        return fechaAdquisicion;
-    }
-
-    public void setFechaAdquisicion(Date fechaAdquisicion) {
-        this.fechaAdquisicion = fechaAdquisicion;
-    }
-
-    public String getEstadoEquipo() {
-        return estadoEquipo;
-    }
-
-    public void setEstadoEquipo(String estadoEquipo) {
-        this.estadoEquipo = estadoEquipo;
-    }
-
-    public int getTipo_producto_id() {
-        return tipo_producto_id;
-    }
-
-    public void setTipo_producto_id(int tipo_producto_id) {
-        this.tipo_producto_id = tipo_producto_id;
-    }
-
-    public int getUbicacion_id() {
-        return ubicacion_id;
-    }
-
-    public void setUbicacion_id(int ubicacion_id) {
-        this.ubicacion_id = ubicacion_id;
     }
 }
