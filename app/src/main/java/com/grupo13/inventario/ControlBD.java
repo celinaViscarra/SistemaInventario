@@ -85,5 +85,4 @@ public abstract class ControlBD extends RoomDatabase {
     public abstract TomaFisicaDao tomaFisicaDao();
     public abstract UbicacionesDao ubicacionesDao();
     public abstract UsuarioDao usuarioDao();
-
 }

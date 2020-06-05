@@ -9,6 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activities.DetalleDescargosActualizarActivity"></activity>
+        <activity android:name=".activities.DetalleDescargosConsultarActivity" />
+        <activity android:name=".activities.DetalleDescargosEliminarActivity" />
+        <activity android:name=".activities.DetalleDescargosInsertarActivity" />
+        <activity android:name=".activities.DetalleDescargosMenuActivity" />
+        <activity android:name=".activities.DescargosEliminarActivity" />
+        <activity android:name=".activities.DescargosConsultarActivity" />
+        <activity android:name=".activities.DescargosActualizarActivity" />
+        <activity android:name=".activities.DescargosInsertarActivity" />
+        <activity android:name=".activities.DescargosMenuActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
