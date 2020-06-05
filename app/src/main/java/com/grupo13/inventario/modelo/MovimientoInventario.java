@@ -1,5 +1,6 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -33,19 +34,23 @@ import static androidx.room.ForeignKey.CASCADE;
         }
 )
 public class MovimientoInventario {
+    @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "prestamo_id")
     int idPresatamo;
 
+    @NonNull
     @ColumnInfo(name = "prestamo_fecha_ini")
     Date prestamoFechaInicio;
 
     @ColumnInfo(name = "prestamo_fecha_fin")
     Date prestamoFechaFin;
 
+    @NonNull
     @ColumnInfo(name = "prestamo_permanente")
     Boolean prestamoPermanente;
 
+    @NonNull
     @ColumnInfo(name = "prestamo_activo")
     Boolean prestamoActivo;
 

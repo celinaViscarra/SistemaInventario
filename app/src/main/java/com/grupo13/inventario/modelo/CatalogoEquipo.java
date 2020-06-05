@@ -1,5 +1,6 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -17,16 +18,19 @@ import static androidx.room.ForeignKey.CASCADE;
 })
 
 public class CatalogoEquipo {
-    @PrimaryKey(autoGenerate = true)
-
+    @NonNull
+    @PrimaryKey
     @ColumnInfo(name = "catalogo_id")
     public String idCatalogo;
+    @NonNull
     @ColumnInfo(name = "marca_id")
     public String idMarca;
+    @NonNull
     @ColumnInfo(name = "modelo_equipo_generico")
     public String modeloEquipo;
-
+    @NonNull
     public int memoria;
+    @NonNull
     @ColumnInfo(name = "cantidad_equipo")
     public int cantEquipo;
 

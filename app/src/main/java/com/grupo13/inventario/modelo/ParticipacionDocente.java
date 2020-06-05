@@ -1,9 +1,11 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import static androidx.room.ForeignKey.CASCADE;
 
@@ -31,10 +33,13 @@ import static androidx.room.ForeignKey.CASCADE;
         }
 )
 public class ParticipacionDocente {
+    @NonNull
     @ColumnInfo(name = "docentes_id")
     public int idDocentes;
+    @NonNull
     @ColumnInfo(name = "escritos_id")
     public int idEscritos;
+    @NonNull
     @ColumnInfo(name = "participacion_id")
     public int idParticipacion;
 

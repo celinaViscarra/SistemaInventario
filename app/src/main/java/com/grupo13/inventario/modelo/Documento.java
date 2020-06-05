@@ -1,5 +1,6 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -24,16 +25,21 @@ import static androidx.room.ForeignKey.CASCADE;
 
 })
 public class Documento {
+    @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "escrito_id")
     public int idEscrito;
-
+    @NonNull
     public int idioma_id;
+    @NonNull
     public int tipo_producto_id;
-
+    @NonNull
     public String isbn;
+    @NonNull
     public String edicion;
+    @NonNull
     public String editorial;
+    @NonNull
     public String titulo;
 
     @Ignore

@@ -1,5 +1,6 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -25,9 +26,11 @@ import static androidx.room.ForeignKey.CASCADE;
         }
 )
 public class Horarios {
+    @NonNull
     @ColumnInfo(name = "hora_id")
     int idHora;
 
+    @NonNull
     @ColumnInfo(name = "dia_cod")
     String diaCod;
 

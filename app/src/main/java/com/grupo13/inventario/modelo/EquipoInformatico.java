@@ -2,6 +2,7 @@ package com.grupo13.inventario.modelo;
 
 import java.sql.Date;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -33,20 +34,26 @@ import static androidx.room.ForeignKey.CASCADE;
 })
 
 public class EquipoInformatico {
+    @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "equipo_id")
     public int idEquipo;
 
+    @NonNull
     @ColumnInfo(name = "codigo_equipo")
     public String codEquipo;
 
+    @NonNull
     @ColumnInfo(name = "fecha_adquisicion")
     public Date fechaAdquisicion;
 
+    @NonNull
     @ColumnInfo(name = "estado_equipo")
     public String estadoEquipo;
 
+    @NonNull
     public int tipo_producto_id;
+    @NonNull
     public int ubicacion_id;
 
     @Ignore

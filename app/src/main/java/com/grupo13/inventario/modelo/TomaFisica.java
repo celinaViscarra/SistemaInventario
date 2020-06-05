@@ -1,5 +1,6 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -20,13 +21,16 @@ import static androidx.room.ForeignKey.CASCADE;
 })
 
 public class TomaFisica {
+    @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "toma_id")
     public int idToma;
 
+    @NonNull
     @ColumnInfo(name = "ubicacion_id")
     public int idUbicacion;
 
+    @NonNull
     @ColumnInfo(name = "toma_fecha")
     public Date fechaToma;
 

@@ -1,5 +1,6 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -36,19 +37,24 @@ import static androidx.room.ForeignKey.CASCADE;
 })
 
 public class Sustituciones {
+    @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "sustitucion_id")
     public int idSustituciones;
 
+    @NonNull
     @ColumnInfo(name = "motivo_id")
     public int idMotivo;
 
+    @NonNull
     @ColumnInfo(name = "equipo_obsoleto_id")
     public int idEquipoObsoleto;
 
+    @NonNull
     @ColumnInfo(name = "equipo_reemplazo_id")
     public int idEquipoReemplazo;
 
+    @NonNull
     @ColumnInfo(name = "docentes_id")
     public int idDocentes;
 

@@ -1,5 +1,6 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
@@ -17,8 +18,11 @@ import static androidx.room.ForeignKey.CASCADE;
                     onDelete = CASCADE)
 })
 public class DetalleAutor {
+    @NonNull
     public int idAutor;
+    @NonNull
     public int escrito_id;
+    @NonNull
     public boolean esPrincipal;
 
     public DetalleAutor(int idAutor, int escrito_id, boolean esPrincipal) {

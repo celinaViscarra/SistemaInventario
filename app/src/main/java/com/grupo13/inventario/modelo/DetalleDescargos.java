@@ -1,5 +1,6 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -24,9 +25,11 @@ import static androidx.room.ForeignKey.CASCADE;
 })
 
 public class DetalleDescargos {
+    @NonNull
     @ColumnInfo(name = "descargo_id")
     public int idDescargo;
 
+    @NonNull
     @ColumnInfo(name = "equipo_id")
     public int idEquipo;
 

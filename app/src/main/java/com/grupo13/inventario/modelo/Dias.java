@@ -1,15 +1,17 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
 public class Dias {
+    @NonNull
     @PrimaryKey
     @ColumnInfo(name ="dia_cod")
     String diaCod;
-
+    @NonNull
     @ColumnInfo(name = "dia_nombre")
     String diaNombre;
 

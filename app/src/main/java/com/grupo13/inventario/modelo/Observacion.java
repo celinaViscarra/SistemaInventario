@@ -1,5 +1,6 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -25,13 +26,18 @@ import static androidx.room.ForeignKey.CASCADE;
 })
 
 public class Observacion {
+    @NonNull
     @ColumnInfo(name = "cant_supuesta")
     public int cantSupuesta;
 
+    @NonNull
     @ColumnInfo(name = "cant_real")
     public int cantReal;
 
+    @NonNull
     public String catologo_id;
+
+    @NonNull
     public int toma_id;
 
     @Ignore

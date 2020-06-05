@@ -1,6 +1,8 @@
 package com.grupo13.inventario.modelo;
 
 import java.sql.Date;
+
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -25,14 +27,18 @@ import static androidx.room.ForeignKey.CASCADE;
 })
 
 public class Descargos {
+    @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "descargo_id")
     public int idDescargos;
 
+    @NonNull
     @ColumnInfo(name = "descargo_fecha")
     public Date fechaDescargos;
 
+    @NonNull
     public int ubicacion_origen_id;
+    @NonNull
     public int ubicacion_destino_id;
 
     public Descargos(int idDescargos, int origen, int destino, Date fechaDescargos){

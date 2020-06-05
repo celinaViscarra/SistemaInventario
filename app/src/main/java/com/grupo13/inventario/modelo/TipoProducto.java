@@ -1,5 +1,6 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -17,9 +18,12 @@ import static androidx.room.ForeignKey.CASCADE;
     )
 )
 public class TipoProducto {
+    @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name="tipo_producto_id")
     int idTipoProducto;
+
+    @NonNull
     @ColumnInfo(name = "nombre_tipo_producto")
     String nomTipoProducto;
 

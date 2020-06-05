@@ -1,5 +1,6 @@
 package com.grupo13.inventario.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -24,9 +25,12 @@ import static androidx.room.ForeignKey.CASCADE;
 })
 
 public class AccesoUsuario {
+    @NonNull
     public String usuario;
+    @NonNull
     @ColumnInfo(name = "id_opcion")
     public String idOpcion;
+    @NonNull
     @ColumnInfo(name = "id_accesousuario")
     public int idAccesoUsuario;
 
