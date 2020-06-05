@@ -10,10 +10,10 @@ public class Categorias {
     @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "categoria_id")
-    int idCategoria;
+    public int idCategoria;
     @NonNull
     @ColumnInfo(name = "categoria_nombre")
-    String nomCategoria;
+    public String nomCategoria;
 
     @Ignore
     public Categorias(){
@@ -23,21 +23,5 @@ public class Categorias {
     public Categorias(int idCategoria, String nomCategoria){
         this.idCategoria=idCategoria;
         this.nomCategoria=nomCategoria;
-    }
-
-    public int getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
-    }
-
-    public String getNomCategoria() {
-        return nomCategoria;
-    }
-
-    public void setNomCategoria(String nomCategoria) {
-        this.nomCategoria = nomCategoria;
     }
 }

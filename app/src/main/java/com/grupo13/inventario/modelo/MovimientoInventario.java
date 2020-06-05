@@ -37,29 +37,29 @@ public class MovimientoInventario {
     @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "prestamo_id")
-    int idPresatamo;
+    public int idPresatamo;
 
     @NonNull
     @ColumnInfo(name = "prestamo_fecha_ini")
-    Date prestamoFechaInicio;
+    public Date prestamoFechaInicio;
 
     @ColumnInfo(name = "prestamo_fecha_fin")
-    Date prestamoFechaFin;
+    public Date prestamoFechaFin;
 
     @NonNull
     @ColumnInfo(name = "prestamo_permanente")
-    Boolean prestamoPermanente;
+    public Boolean prestamoPermanente;
 
     @NonNull
     @ColumnInfo(name = "prestamo_activo")
-    Boolean prestamoActivo;
+    public Boolean prestamoActivo;
 
-    String descripcion;
+    public String descripcion;
 
-    int docentes_id;
+    public int docentes_id;
 
-    int tipo_movimiento_id;
-    int equipo_id;
+    public int tipo_movimiento_id;
+    public int equipo_id;
 
     @Ignore
     public MovimientoInventario(){
@@ -72,54 +72,6 @@ public class MovimientoInventario {
         this.prestamoFechaFin = prestamoFechaFin;
         this.prestamoPermanente = prestamoPermanente;
         this.prestamoActivo = prestamoActivo;
-        this.descripcion = descripcion;
-    }
-
-    public int getIdPresatamo() {
-        return idPresatamo;
-    }
-
-    public void setIdPresatamo(int idPresatamo) {
-        this.idPresatamo = idPresatamo;
-    }
-
-    public Date getPrestamoFechaInicio() {
-        return prestamoFechaInicio;
-    }
-
-    public void setPrestamoFechaInicio(Date prestamoFechaInicio) {
-        this.prestamoFechaInicio = prestamoFechaInicio;
-    }
-
-    public Date getPrestamoFechaFin() {
-        return prestamoFechaFin;
-    }
-
-    public void setPrestamoFechaFin(Date prestamoFechaFin) {
-        this.prestamoFechaFin = prestamoFechaFin;
-    }
-
-    public Boolean getPrestamoPermanente() {
-        return prestamoPermanente;
-    }
-
-    public void setPrestamoPermanente(Boolean prestamoPermanente) {
-        this.prestamoPermanente = prestamoPermanente;
-    }
-
-    public Boolean getPrestamoActivo() {
-        return prestamoActivo;
-    }
-
-    public void setPrestamoActivo(Boolean prestamoActivo) {
-        this.prestamoActivo = prestamoActivo;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 }

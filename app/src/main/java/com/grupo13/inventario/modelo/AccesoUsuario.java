@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import static androidx.room.ForeignKey.CASCADE;
 
-@Entity(primaryKeys = {"id_opcion", "id_accesousuario", "usuario"},
+@Entity(
+        indices = @Index( value ={"usuario","id_opcion"}, unique = true),
         foreignKeys = {
                 @ForeignKey(
                         entity = OpcionCrud.class,
@@ -40,29 +42,5 @@ public class AccesoUsuario {
         this.idAccesoUsuario=idAccesoUsuario;
         this.idOpcion=idOpcion;
         this.usuario=usuario;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getIdOpcion() {
-        return idOpcion;
-    }
-
-    public void setIdOpcion(String idOpcion) {
-        this.idOpcion = idOpcion;
-    }
-
-    public int getIdAccesoUsuario() {
-        return idAccesoUsuario;
-    }
-
-    public void setIdAccesoUsuario(int idAccesoUsuario) {
-        this.idAccesoUsuario = idAccesoUsuario;
     }
 }
