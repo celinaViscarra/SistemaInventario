@@ -1,5 +1,6 @@
 package com.grupo13.inventario.dao;
 
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -8,7 +9,7 @@ import androidx.room.Update;
 import com.grupo13.inventario.modelo.Marca;
 
 import java.util.List;
-
+@Dao
 public interface MarcaDao {
     @Query("SELECT * FROM Marca")
     List<Marca> obtenerMarcas();

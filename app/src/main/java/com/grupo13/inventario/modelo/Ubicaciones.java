@@ -17,7 +17,7 @@ public class Ubicaciones {
     @ColumnInfo(name = "ubicacion_nombre")
     String nomUbicacion;
 
-    @Ignore
+
     public Ubicaciones(){}
 
     public Ubicaciones(int id, String nom){

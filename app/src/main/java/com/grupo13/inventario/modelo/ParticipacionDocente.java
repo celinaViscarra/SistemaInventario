@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey;
 import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
-        primaryKeys = {"escrito_id","docentes_id"},
+        primaryKeys = {"escritos_id","docentes_id"},
         foreignKeys = {
                 @ForeignKey(
                         entity = TipoParticipacion.class,
@@ -26,8 +26,8 @@ import static androidx.room.ForeignKey.CASCADE;
                 ),
                 @ForeignKey(
                         entity = Documento.class,
-                        parentColumns = "escrito_id",
-                        childColumns = "escrito_id",
+                        parentColumns = "escritos_id",
+                        childColumns = "escritos_id",
                         onDelete = CASCADE
                 )
         }

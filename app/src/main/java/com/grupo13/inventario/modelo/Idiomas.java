@@ -19,7 +19,7 @@ public class Idiomas {
     @ColumnInfo(name = "idioma_nombre")
     String nombreIdioma;
 
-    @Ignore
+
     public Idiomas(){}
 
     public Idiomas(int id, String nom){

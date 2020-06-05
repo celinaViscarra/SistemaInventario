@@ -34,12 +34,17 @@ public class CatalogoEquipo {
     @ColumnInfo(name = "cantidad_equipo")
     public int cantEquipo;
 
-    public CatalogoEquipo(String idCatalogo, String marca, String modeloEquipo, int memoria, int cantEquipo){
-        this.idCatalogo=idCatalogo;
-        this.idMarca=marca;
-        this.modeloEquipo=modeloEquipo;
-        this.memoria=memoria;
-        this.cantEquipo=cantEquipo;
+    public CatalogoEquipo(@NonNull String idCatalogo, @NonNull String idMarca, @NonNull String modeloEquipo, int memoria, int cantEquipo) {
+        this.idCatalogo = idCatalogo;
+        this.idMarca = idMarca;
+        this.modeloEquipo = modeloEquipo;
+        this.memoria = memoria;
+        this.cantEquipo = cantEquipo;
+    }
+
+
+    public CatalogoEquipo(){
+
     }
 
     public String getIdMarca() {

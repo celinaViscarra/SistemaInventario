@@ -22,6 +22,10 @@ public class OpcionCrud {
         this.numCrud=num;
     }
 
+    public OpcionCrud(){
+
+    }
+
     public String getIdOpcion() {
         return idOpcion;
     }

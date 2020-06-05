@@ -15,7 +15,7 @@ public class TipoParticipacion {
     @ColumnInfo(name = "participacion_nombre")
     String nomParticipacion;
 
-    @Ignore
+
     public  TipoParticipacion(){}
 
     public  TipoParticipacion(int id, String nom){

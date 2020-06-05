@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 import com.grupo13.inventario.modelo.*;
 import com.grupo13.inventario.dao.*;
@@ -43,6 +44,7 @@ import com.grupo13.inventario.dao.*;
         exportSchema = false,
         version = 1
 )
+@TypeConverters({Conversor.class})
 public abstract class ControlBD extends RoomDatabase {
     private static final String DB_NAME = "grupo13_proyecto1.db";
     private static ControlBD instance;

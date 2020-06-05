@@ -9,7 +9,7 @@ import androidx.room.Ignore;
 import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
-        primaryKeys = {"dia_id","dia_cod"},
+        primaryKeys = {"hora_id","dia_cod"},
         foreignKeys = {
                 @ForeignKey(
                         entity = Dias.class,

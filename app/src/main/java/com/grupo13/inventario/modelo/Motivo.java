@@ -17,7 +17,7 @@ public class Motivo {
     @ColumnInfo(name = "motivo_nombre")
     public String nomMotivo;
 
-    @Ignore
+
     public Motivo(){}
 
     public Motivo(int id, String nom){

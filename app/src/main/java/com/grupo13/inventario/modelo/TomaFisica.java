@@ -34,7 +34,7 @@ public class TomaFisica {
     @ColumnInfo(name = "toma_fecha")
     public Date fechaToma;
 
-    @Ignore
+    
     public TomaFisica(){}
 
     public TomaFisica(int id, int ubicacion, Date fecha){

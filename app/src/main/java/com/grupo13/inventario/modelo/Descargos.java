@@ -48,6 +48,10 @@ public class Descargos {
         this.fechaDescargos=fechaDescargos;
     }
 
+    public Descargos(){
+
+    }
+
     public int getUbicacion_origen_id() {
         return ubicacion_origen_id;
     }

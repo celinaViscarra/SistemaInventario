@@ -55,17 +55,20 @@ public class EquipoInformatico {
     public int tipo_producto_id;
     @NonNull
     public int ubicacion_id;
+    @NonNull
+    public int catalogo_id;
 
-    @Ignore
+
     public EquipoInformatico(){}
 
-    public EquipoInformatico(int id, int tipoProducto, int ubicacion, String cod, Date fecha, String estado){
-        this.idEquipo=id;
-        this.tipo_producto_id=tipoProducto;
-        this.ubicacion_id=ubicacion;
-        this.codEquipo=cod;
-        this.fechaAdquisicion=fecha;
-        this.estadoEquipo=estado;
+    public EquipoInformatico(int idEquipo, @NonNull String codEquipo, @NonNull Date fechaAdquisicion, @NonNull String estadoEquipo, int tipo_producto_id, int ubicacion_id, int catalogo_id) {
+        this.idEquipo = idEquipo;
+        this.codEquipo = codEquipo;
+        this.fechaAdquisicion = fechaAdquisicion;
+        this.estadoEquipo = estadoEquipo;
+        this.tipo_producto_id = tipo_producto_id;
+        this.ubicacion_id = ubicacion_id;
+        this.catalogo_id = catalogo_id;
     }
 
     public int getIdEquipo() {

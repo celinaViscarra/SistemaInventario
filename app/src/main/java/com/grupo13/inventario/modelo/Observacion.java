@@ -35,16 +35,16 @@ public class Observacion {
     public int cantReal;
 
     @NonNull
-    public String catologo_id;
+    public String catalogo_id;
 
     @NonNull
     public int toma_id;
 
-    @Ignore
+
     public Observacion(){}
 
     public Observacion(String catalogo, int toma, int supuesta, int real){
-        this.catologo_id=catalogo;
+        this.catalogo_id=catalogo;
         this.toma_id=toma;
         this.cantSupuesta=supuesta;
         this.cantReal=real;
@@ -67,11 +67,11 @@ public class Observacion {
     }
 
     public String getCatologo_id() {
-        return catologo_id;
+        return catalogo_id;
     }
 
     public void setCatologo_id(String catologo_id) {
-        this.catologo_id = catologo_id;
+        this.catalogo_id = catologo_id;
     }
 
     public int getToma_id() {

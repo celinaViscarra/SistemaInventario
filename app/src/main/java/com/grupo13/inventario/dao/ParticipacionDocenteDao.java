@@ -15,7 +15,7 @@ public interface ParticipacionDocenteDao {
     @Query("SELECT * FROM ParticipacionDocente")
     List<ParticipacionDocente> obtenerParticipacionesDocente();
 
-    @Query("SELECT * FROM ParticipacionDocente WHERE escrito_id = :escrito_id AND docentes_id = :docentes_id")
+    @Query("SELECT * FROM ParticipacionDocente WHERE escritos_id = :escrito_id AND docentes_id = :docentes_id")
     ParticipacionDocente consultarParticipacionDocente(int escrito_id, int docentes_id);
 
     @Insert
