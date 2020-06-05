@@ -24,10 +24,7 @@ import static androidx.room.ForeignKey.CASCADE;
 })
 
 public class AccesoUsuario {
-    @PrimaryKey(autoGenerate = true)
-
     public String usuario;
-
     @ColumnInfo(name = "id_opcion")
     public String idOpcion;
     @ColumnInfo(name = "id_accesousuario")
