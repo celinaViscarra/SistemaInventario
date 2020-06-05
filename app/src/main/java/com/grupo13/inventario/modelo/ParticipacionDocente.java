@@ -31,9 +31,9 @@ import static androidx.room.ForeignKey.CASCADE;
         }
 )
 public class ParticipacionDocente {
-    @ColumnInfo(name = "escrito_id")
-    public int idDocentes;
     @ColumnInfo(name = "docentes_id")
+    public int idDocentes;
+    @ColumnInfo(name = "escritos_id")
     public int idEscritos;
     @ColumnInfo(name = "participacion_id")
     public int idParticipacion;

@@ -3,9 +3,27 @@ package com.grupo13.inventario.modelo;
 import java.sql.Date;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(foreignKeys = {
+        @ForeignKey(
+                entity = Ubicaciones.class,
+                parentColumns = "ubicacion_origen_id",
+                childColumns = "ubicacion_origen_id",
+                onDelete = CASCADE
+        ),
+        @ForeignKey(
+                entity = Ubicaciones.class,
+                parentColumns = "ubicacion_destino_id",
+                childColumns = "ubicacion_destino_id",
+                onDelete = CASCADE
+        )
+
+})
+
 public class Descargos {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "descargo_id")

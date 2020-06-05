@@ -2,9 +2,20 @@ package com.grupo13.inventario.modelo;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(foreignKeys = {
+        @ForeignKey(
+                entity = Marca.class,
+                parentColumns = "marca_id",
+                childColumns = "marca_id",
+                onDelete = CASCADE
+        )
+})
+
 public class CatalogoEquipo {
     @PrimaryKey(autoGenerate = true)
 

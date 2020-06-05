@@ -21,6 +21,7 @@ import static androidx.room.ForeignKey.CASCADE;
                 childColumns = "tipo_producto_id",
                 onDelete = CASCADE
         )
+
 })
 public class Documento {
     @PrimaryKey(autoGenerate = true)

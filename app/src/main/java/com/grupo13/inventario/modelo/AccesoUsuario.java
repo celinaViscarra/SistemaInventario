@@ -2,9 +2,27 @@ package com.grupo13.inventario.modelo;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(primaryKeys = {"id_opcion", "id_accesousuario", "usuario"},
+        foreignKeys = {
+                @ForeignKey(
+                        entity = OpcionCrud.class,
+                        parentColumns = "id_opcion",
+                        childColumns = "id_opcion",
+                        onDelete = CASCADE
+                ),
+                @ForeignKey(
+                        entity = Usuario.class,
+                        parentColumns = "usuario",
+                        childColumns = "usuario",
+                        onDelete = CASCADE
+                )
+})
+
 public class AccesoUsuario {
     @PrimaryKey(autoGenerate = true)
 

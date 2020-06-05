@@ -2,12 +2,23 @@ package com.grupo13.inventario.modelo;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.sql.Date;
 
-@Entity
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(foreignKeys = {
+        @ForeignKey(
+                entity = Ubicaciones.class,
+                parentColumns = "ubicacion_id",
+                childColumns = "ubicacion_id",
+                onDelete = CASCADE
+        )
+})
+
 public class TomaFisica {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "toma_id")

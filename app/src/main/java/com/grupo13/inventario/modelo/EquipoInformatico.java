@@ -4,10 +4,34 @@ import java.sql.Date;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(foreignKeys = {
+        @ForeignKey(
+                entity = TipoProducto.class,
+                parentColumns = "tipo_producto_id",
+                childColumns = "tipo_producto_id",
+                onDelete = CASCADE
+        ),
+        @ForeignKey(
+                entity = Ubicaciones.class,
+                parentColumns = "ubicacion_id",
+                childColumns = "ubicacion_id",
+                onDelete = CASCADE
+        ),
+        @ForeignKey(
+                entity = CatalogoEquipo.class,
+                parentColumns = "catalogo_id",
+                childColumns = "catalogo_id",
+                onDelete = CASCADE
+        )
+
+})
+
 public class EquipoInformatico {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "equipo_id")

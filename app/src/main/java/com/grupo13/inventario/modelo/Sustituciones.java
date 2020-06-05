@@ -2,10 +2,39 @@ package com.grupo13.inventario.modelo;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(foreignKeys = {
+        @ForeignKey(
+                entity = Motivo.class,
+                parentColumns = "motivo_id",
+                childColumns = "motivo_id",
+                onDelete = CASCADE
+        ),
+        @ForeignKey(
+                entity = EquipoInformatico.class,
+                parentColumns = "equipo_obsoleto_id",
+                childColumns = "equipo_obsoleto_id",
+                onDelete = CASCADE
+        ),
+        @ForeignKey(
+                entity = EquipoInformatico.class,
+                parentColumns = "equipo_reemplazo_id",
+                childColumns = "equipo_reemplazo_id",
+                onDelete = CASCADE
+        ),
+        @ForeignKey(
+                entity = Docente.class,
+                parentColumns = "docentes_id",
+                childColumns = "docentes_id",
+                onDelete = CASCADE
+        )
+})
+
 public class Sustituciones {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "sustitucion_id")

@@ -2,11 +2,28 @@ package com.grupo13.inventario.modelo;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(primaryKeys = {"descargo_id", "equipo_id"},
+        foreignKeys = {
+                @ForeignKey(
+                        entity = Descargos.class,
+                        parentColumns = "descargo_id",
+                        childColumns = "descargo_id",
+                        onDelete = CASCADE
+                ),
+                @ForeignKey(
+                        entity = EquipoInformatico.class,
+                        parentColumns = "equipo_id",
+                        childColumns = "equipo_id",
+                        onDelete = CASCADE
+                )
+})
+
 public class DetalleDescargos {
-    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "descargo_id")
     public int idDescargo;
 
