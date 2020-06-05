@@ -28,11 +28,11 @@ import static androidx.room.ForeignKey.CASCADE;
 public class Horarios {
     @NonNull
     @ColumnInfo(name = "hora_id")
-    int idHora;
+    public int idHora;
 
     @NonNull
     @ColumnInfo(name = "dia_cod")
-    String diaCod;
+    public String diaCod;
 
     public Horarios(){}
 

@@ -13,11 +13,11 @@ public class Idiomas {
     @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "idioma_id")
-    int idIdioma;
+    public int idIdioma;
 
     @NonNull
     @ColumnInfo(name = "idioma_nombre")
-    String nombreIdioma;
+    public String nombreIdioma;
 
 
     public Idiomas(){}

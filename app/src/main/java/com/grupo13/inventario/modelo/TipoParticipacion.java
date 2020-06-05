@@ -10,10 +10,10 @@ public class TipoParticipacion {
     @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "participacion_id")
-    int idParticipacion;
+    public int idParticipacion;
     @NonNull
     @ColumnInfo(name = "participacion_nombre")
-    String nomParticipacion;
+    public String nomParticipacion;
 
 
     public  TipoParticipacion(){}

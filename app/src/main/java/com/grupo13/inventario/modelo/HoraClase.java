@@ -12,15 +12,15 @@ public class HoraClase {
     @NonNull
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "hora_id")
-    int idHora;
+    public int idHora;
 
     @NonNull
     @ColumnInfo(name = "hora_inicio")
-    Time horaInicio;
+    public Time horaInicio;
 
     @NonNull
     @ColumnInfo(name = "hora_fin")
-    Time horaFin;
+    public Time horaFin;
 
     public HoraClase(){}
 
