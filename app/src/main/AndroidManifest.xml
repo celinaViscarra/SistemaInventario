@@ -9,12 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.DocenteEliminarActivity"></activity>
-        <activity android:name=".activities.DocenteActualizarActivity" />
-        <activity android:name=".activities.DocenteConsultarActivity" />
-        <activity android:name=".activities.DocenteInsertarActivity" />
-        <activity android:name=".activities.DocenteMenuActivity" />
-        <activity android:name=".activities.ParticipacionDocenteEliminarActivity" />
+        <activity android:name=".activities.ParticipacionDocenteEliminarActivity"></activity>
         <activity android:name=".activities.ParticipacionDocenteActualizarActivity" />
         <activity android:name=".activities.ParticipacionDocenteConsultarActivity" />
         <activity android:name=".activities.ParticipacionDocenteInsertarActivity" />
