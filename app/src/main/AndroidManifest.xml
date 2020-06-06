@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.DocumentoEliminarActivity"></activity>
+        <activity android:name=".activities.TipoInsertarActualizarActivity"></activity>
+        <activity android:name=".activities.TipoInsertarConsultarActivity" />
+        <activity android:name=".activities.TipoProductoEliminarActivity" />
+        <activity android:name=".activities.TipoProductoInsertarActivity" />
+        <activity android:name=".activities.TipoProductoMenu" />
+        <activity android:name=".activities.DocumentoEliminarActivity" />
         <activity android:name=".activities.DocumentoActualizarActivity" />
         <activity android:name=".activities.DocumentoConsultarActivity" />
         <activity android:name=".activities.DocumentoInsertarActivity" />
