@@ -10,30 +10,35 @@ import android.widget.Toast;
 
 import com.grupo13.inventario.ControlBD;
 import com.grupo13.inventario.R;
-import com.grupo13.inventario.modelo.DetalleDescargos;
+import com.grupo13.inventario.modelo.Documento;
 
-public class DetalleDescargosEliminarActivity extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class DocumentoEliminarActivity extends AppCompatActivity {
+    @BindView(R.id.edtEscritoID)
+    EditText edtEscritoID;
     ControlBD helper;
-    EditText idDescargo, idEquipo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_descargos_eliminar);
-        idDescargo = (EditText) findViewById(R.id.editIdDescargos);
-        idEquipo = (EditText) findViewById(R.id.editIdEquipo);
-
+        setContentView(R.layout.activity_documento_eliminar);
+        ButterKnife.bind(this);
         helper = ControlBD.getInstance(this);
     }
 
-    public void eliminarDetalleDescargo(View v){
-        String mensaje = "";
-        try {
-            DetalleDescargos detalle = new DetalleDescargos();
-            detalle.idEquipo = Integer.parseInt(idEquipo.getText().toString());
-            detalle.idDescargo = Integer.parseInt(idDescargo.getText().toString());
+    public void limpiarTexto(View v){
+        edtEscritoID.setText("");
+    }
 
-            int filasAfectadas = helper.detalleDescargosDao().eliminarDetalleDescargos(detalle);
+    public void eliminarDocumento(View v){
+        String mensaje = "";
+        try{
+            Documento aEliminar = new Documento();
+            aEliminar.idEscrito = Integer.parseInt(edtEscritoID.getText().toString());
+
+            int filasAfectadas = helper.documentoDao().eliminarDocumento(aEliminar);
             if(filasAfectadas<=0){
                 mensaje = "Error al tratar de eliminar el registro.";
             }
@@ -43,16 +48,13 @@ public class DetalleDescargosEliminarActivity extends AppCompatActivity {
         }catch (SQLiteConstraintException e){
             mensaje = "Error al tratar de eliminar el registro.";
         }
+        //Este catch se usa para la conversion de int a String, verificar que se ponga un
+        //entero en la entrada de ID
         catch (NumberFormatException e){
             mensaje = "Error en la entrada de datos, revisa por favor los datos ingresados.";
         }
         finally{
             Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
         }
-    }
-
-    public void limpiarTexto(View v){
-        idEquipo.setText("");
-        idDescargo.setText("");
     }
 }

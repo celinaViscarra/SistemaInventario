@@ -14,6 +14,7 @@
     <string name="insertarDetalleDescargo">Insertar DetalleDescargo</string>
     <string name="limpiar">Limpiar</string>
 
+
     <!-- CRUD AUTOR -->
     <string name="autor_id">ID Autor</string>
     <string name="autor_nombre">Nombres</string>
@@ -22,5 +23,19 @@
     <string name="autor_consultar">Consultar Autor</string>
     <string name="autor_eliminar">Eliminar Autor</string>
     <string name="autor_actualizar">Actualizar Autor</string>
+
+    <string name="insertarDescargo">Insertar Descargo</string>
+    <string name="insertarCatalogoEquipo">Insertar Catalógo Equipo</string>
+    <string name="actualizarCatalogoEquipo">Actualizar Catalógo Equipo</string>
+    <string name="actualizarDetalleDescargo">Actualizar DetalleDescargo</string>
+    <string name="actualizarDescargo">Actualizar Descargo</string>
+    <string name="consultarCatalogoEquipo">Consultar Catalógo Equipo</string>
+    <string name="consultarDetalleDescargo">Consultar DetalleDescargo</string>
+    <string name="consultarDescargo">Consultar Descargo</string>
+    <string name="eliminarCatalogoEquipo">Eliminar Catalógo Equipo</string>
+    <string name="eliminarDetalleDescargo">Eliminar DetalleDescargo</string>
+    <string name="eliminarDescargo">Eliminar Descargo</string>
+
+
 
 </resources>

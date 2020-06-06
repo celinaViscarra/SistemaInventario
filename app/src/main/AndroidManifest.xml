@@ -9,11 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".activities.AutorEliminarActivity"></activity>
         <activity android:name=".activities.AutorActualizarActivity" />
         <activity android:name=".activities.AutorInsertarActivity" />
         <activity android:name=".activities.AutorConsultarActivity" />
         <activity android:name=".activities.AutorMenuActivity" />
+        <activity android:name=".activities.TipoInsertarActualizarActivity"></activity>
+        <activity android:name=".activities.TipoInsertarConsultarActivity" />
+        <activity android:name=".activities.TipoProductoEliminarActivity" />
+        <activity android:name=".activities.TipoProductoInsertarActivity" />
+        <activity android:name=".activities.TipoProductoMenu" />
+        <activity android:name=".activities.DocumentoEliminarActivity" />
+        <activity android:name=".activities.DocumentoActualizarActivity" />
+        <activity android:name=".activities.DocumentoConsultarActivity" />
+        <activity android:name=".activities.DocumentoInsertarActivity" />
+        <activity android:name=".activities.DocumentoMenuActivity" />
         <activity android:name=".activities.ParticipacionDocenteEliminarActivity" />
         <activity android:name=".activities.ParticipacionDocenteActualizarActivity" />
         <activity android:name=".activities.ParticipacionDocenteConsultarActivity" />
@@ -46,6 +57,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.MotivoMenuActivity" />
+        <activity android:name=".activities.MotivoInsertarActivity" />
+        <activity android:name=".activities.MotivoEliminarActivity" />
+        <activity android:name=".activities.MotivoConsultarActivity" />
+        <activity android:name=".activities.MotivoActualizarActivity" />
     </application>
 
 </manifest>

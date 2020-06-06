@@ -24,7 +24,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ParticipacionDocenteInsertarActivity extends AppCompatActivity {
+public class  ParticipacionDocenteInsertarActivity extends AppCompatActivity {
     ControlBD helper;
     @BindView(R.id.edtEscritoID)
     Spinner edtEscritoID;
