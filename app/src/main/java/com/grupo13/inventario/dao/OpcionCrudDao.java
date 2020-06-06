@@ -21,8 +21,8 @@ public interface OpcionCrudDao {
     long insertarOpcionCrud(OpcionCrud opcionCrud);
 
     @Update
-    void actualizarOpcionCrud(OpcionCrud opcionCrud);
+    int actualizarOpcionCrud(OpcionCrud opcionCrud);
 
     @Delete
-    void eliminarOpcionCrud(OpcionCrud opcionCrud);
+    int eliminarOpcionCrud(OpcionCrud opcionCrud);
 }

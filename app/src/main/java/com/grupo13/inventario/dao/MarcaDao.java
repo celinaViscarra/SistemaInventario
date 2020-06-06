@@ -21,8 +21,8 @@ public interface MarcaDao {
     long insertarMarca(Marca marca);
 
     @Update
-    void actualizarMarca(Marca marca);
+    int actualizarMarca(Marca marca);
 
     @Delete
-    void eliminarMarca(Marca marca);
+    int eliminarMarca(Marca marca);
 }

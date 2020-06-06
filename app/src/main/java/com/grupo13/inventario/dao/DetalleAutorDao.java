@@ -22,8 +22,8 @@ public interface DetalleAutorDao {
     long insertarDetalleAutor(DetalleAutor detalleAutor);
 
     @Update
-    void actualizarDetalleAutor(DetalleAutor detalleAutor);
+    int actualizarDetalleAutor(DetalleAutor detalleAutor);
 
     @Delete
-    void eliminarDetalleAutor(DetalleAutor detalleAutor);
+    int eliminarDetalleAutor(DetalleAutor detalleAutor);
 }

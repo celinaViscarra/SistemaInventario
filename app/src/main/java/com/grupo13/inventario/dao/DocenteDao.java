@@ -22,8 +22,8 @@ public interface DocenteDao {
     long insertarDocente(Docente docente);
 
     @Update
-    void actualizarDocente(Docente docente);
+    int actualizarDocente(Docente docente);
 
     @Delete
-    void eliminarDocente(Docente docente);
+    int eliminarDocente(Docente docente);
 }

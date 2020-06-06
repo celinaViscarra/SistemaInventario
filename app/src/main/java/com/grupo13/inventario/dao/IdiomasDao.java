@@ -21,8 +21,8 @@ public interface IdiomasDao {
     long insertarIdioma(Idiomas idioma);
 
     @Update
-    void actualizarIdioma(Idiomas idioma);
+    int actualizarIdioma(Idiomas idioma);
 
     @Delete
-    void eliminarIdioma(Idiomas idioma);
+    int eliminarIdioma(Idiomas idioma);
 }

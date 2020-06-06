@@ -22,9 +22,9 @@ public interface UbicacionesDao {
     long insertarUbicaciones(Ubicaciones ubicaciones);
 
     @Update
-    void actualizarUbicaciones(Ubicaciones ubicaciones);
+    int actualizarUbicaciones(Ubicaciones ubicaciones);
 
     @Delete
-    void eliminarUbicaciones(Ubicaciones ubicaciones);
+    int eliminarUbicaciones(Ubicaciones ubicaciones);
 
 }

@@ -21,8 +21,8 @@ public interface DetalleDescargosDao {
     long insertarDetalleDescargos(DetalleDescargos detalleDescargos);
 
     @Update
-    void actualizarDetalleDescargos(DetalleDescargos detalleDescargos);
+    int actualizarDetalleDescargos(DetalleDescargos detalleDescargos);
 
     @Delete
-    void eliminarDetalleDescargos(DetalleDescargos detalleDescargos);
+    int eliminarDetalleDescargos(DetalleDescargos detalleDescargos);
 }

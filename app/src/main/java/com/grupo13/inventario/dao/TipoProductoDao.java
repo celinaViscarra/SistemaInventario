@@ -22,8 +22,8 @@ public interface TipoProductoDao {
     long insertarTipoProducto(TipoProducto tipoProducto);
 
     @Update
-    void actualizarTipoProducto(TipoProducto tipoProducto);
+    int actualizarTipoProducto(TipoProducto tipoProducto);
 
     @Delete
-    void eliminarTipoProducto(TipoProducto tipoProducto);
+    int eliminarTipoProducto(TipoProducto tipoProducto);
 }

@@ -22,8 +22,8 @@ public interface TipoMovimientoDao {
     long insertarTipoMovimiento(TipoMovimiento tipoMovimiento);
 
     @Update
-    void actualizarTipoMovimiento(TipoMovimiento tipoMovimiento);
+    int actualizarTipoMovimiento(TipoMovimiento tipoMovimiento);
 
     @Delete
-    void eliminarTipoMovimiento(TipoMovimiento tipoMovimiento);
+    int eliminarTipoMovimiento(TipoMovimiento tipoMovimiento);
 }

@@ -22,8 +22,8 @@ public interface MotivoDao {
     long insertarMotivo(Motivo motivo);
 
     @Update
-    void actualizarMotivo(Motivo motivo);
+    int actualizarMotivo(Motivo motivo);
 
     @Delete
-    void eliminarMotivo(Motivo motivo);
+    int eliminarMotivo(Motivo motivo);
 }

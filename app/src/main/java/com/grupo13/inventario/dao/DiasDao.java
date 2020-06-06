@@ -22,8 +22,8 @@ public interface DiasDao {
     long insertarDia(Dias dia);
 
     @Update
-    void actualizarDia(Dias dia);
+    int actualizarDia(Dias dia);
 
     @Delete
-    void eliminarDia(Dias dia);
+    int eliminarDia(Dias dia);
 }

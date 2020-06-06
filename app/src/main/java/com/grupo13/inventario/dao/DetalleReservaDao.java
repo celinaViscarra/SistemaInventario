@@ -22,8 +22,8 @@ public interface DetalleReservaDao {
     long insertarDetalleReserva(DetalleReserva detalleReserva);
 
     @Update
-    void actualizarDetalleReserva(DetalleReserva detalleReserva);
+    int actualizarDetalleReserva(DetalleReserva detalleReserva);
 
     @Delete
-    void eliminarDetalleReserva(DetalleReserva detalleReserva);
+    int eliminarDetalleReserva(DetalleReserva detalleReserva);
 }
