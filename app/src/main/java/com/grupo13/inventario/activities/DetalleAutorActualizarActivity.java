@@ -37,12 +37,12 @@ public class DetalleAutorActualizarActivity extends AppCompatActivity {
     public void actualizarDetalleAutor(View v){
         String mensaje = "";
         try {
-            DetalleAutor nuevo = new DetalleAutor();
-            nuevo.escrito_id = Integer.parseInt(edtEscritoID.getText().toString());
-            nuevo.idAutor = Integer.parseInt(edtAutorID.getText().toString());
-            nuevo.esPrincipal = edtEspPrincipal.isChecked();
+            DetalleAutor detalleAutor = new DetalleAutor();
+            detalleAutor.escrito_id = Integer.parseInt(edtEscritoID.getText().toString());
+            detalleAutor.idAutor = Integer.parseInt(edtAutorID.getText().toString());
+            detalleAutor.esPrincipal = edtEspPrincipal.isChecked();
 
-            int filasAfectadas = helper.detalleAutorDao().actualizarDetalleAutor(nuevo);
+            int filasAfectadas = helper.detalleAutorDao().actualizarDetalleAutor(detalleAutor);
             if(filasAfectadas<=0){
                 mensaje = "Error al tratar de actualizar el registro.";
             }
