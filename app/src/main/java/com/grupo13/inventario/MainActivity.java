@@ -18,12 +18,14 @@ public class MainActivity extends AppCompatActivity {
     String[] menu = {
             "DetalleAutor",
             "ParticipacionDocente",
+            "Docente",
             "Llenar Base de Datos(sirve pero solo llena datos mios xd)"
     };
 
     String[] activities={
             "DetalleAutorMenuActivity",
-            "ParticipacionDocenteMenuActivity"
+            "ParticipacionDocenteMenuActivity",
+            "DocenteMenuActivity"
     };
 
     //Se puede usar este para no usar findViewByID
