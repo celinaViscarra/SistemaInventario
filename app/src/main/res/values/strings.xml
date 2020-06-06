@@ -13,4 +13,10 @@
     <string name="Opciones">Opciones</string>
     <string name="insertarDetalleDescargo">Insertar DetalleDescargo</string>
     <string name="limpiar">Limpiar</string>
+
+    <!-- CRUD AUTOR -->
+    <string name="autor_nombre">Nombres</string>
+    <string name="autor_apellido">Apellidos</string>
+    <string name="autor_insertar">Agregar Autor</string>
+
 </resources>
