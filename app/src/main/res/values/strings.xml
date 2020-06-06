@@ -21,5 +21,6 @@
     <string name="autor_insertar">Agregar Autor</string>
     <string name="autor_consultar">Consultar Autor</string>
     <string name="autor_eliminar">Eliminar Autor</string>
+    <string name="autor_actualizar">Actualizar Autor</string>
 
 </resources>
