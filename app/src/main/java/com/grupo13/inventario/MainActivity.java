@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("Inventario EISI FIA - Grupo 13");
 
         //IMPORTANTE! Si usan Butterknife tienen que poner esta linea, de lo contrario no servira.
         ButterKnife.bind(this);
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     try {
                         Class clase = Class.forName("com.grupo13.inventario.activities."+activities[position]);
-                        Intent inte = new Intent(getApplicationContext(),clase);
+                        Intent inte = new Intent(getApplicationContext(), clase);
                         startActivity(inte);
                     } catch (ClassNotFoundException e) {
                         e.printStackTrace();

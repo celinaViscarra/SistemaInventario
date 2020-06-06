@@ -36,7 +36,7 @@ public class DetalleAutorInsertarActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    public void insertarDetalle(View v){
+    public void insertarDetalleAutor(View v){
         String mensaje = "";
         try {
             DetalleAutor nuevo = new DetalleAutor();

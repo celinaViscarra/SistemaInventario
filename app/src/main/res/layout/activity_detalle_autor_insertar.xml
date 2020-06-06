@@ -45,7 +45,7 @@
     </LinearLayout>
     <Button
         android:text="Agregar DetalleAutor"
-        android:onClick="insertarDetalle"
+        android:onClick="insertarDetalleAutor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
