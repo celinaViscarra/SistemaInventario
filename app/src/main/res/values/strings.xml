@@ -13,4 +13,17 @@
     <string name="Opciones">Opciones</string>
     <string name="insertarDetalleDescargo">Insertar DetalleDescargo</string>
     <string name="limpiar">Limpiar</string>
+    <string name="insertarDescargo">Insertar Descargo</string>
+    <string name="insertarCatalogoEquipo">Insertar Catalógo Equipo</string>
+    <string name="actualizarCatalogoEquipo">Actualizar Catalógo Equipo</string>
+    <string name="actualizarDetalleDescargo">Actualizar DetalleDescargo</string>
+    <string name="actualizarDescargo">Actualizar Descargo</string>
+    <string name="consultarCatalogoEquipo">Consultar Catalógo Equipo</string>
+    <string name="consultarDetalleDescargo">Consultar DetalleDescargo</string>
+    <string name="consultarDescargo">Consultar Descargo</string>
+    <string name="eliminarCatalogoEquipo">Eliminar Catalógo Equipo</string>
+    <string name="eliminarDetalleDescargo">Eliminar DetalleDescargo</string>
+    <string name="eliminarDescargo">Eliminar Descargo</string>
+
+
 </resources>

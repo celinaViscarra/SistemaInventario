@@ -10,48 +10,49 @@ import android.widget.Toast;
 
 import com.grupo13.inventario.ControlBD;
 import com.grupo13.inventario.R;
-import com.grupo13.inventario.modelo.Documento;
+import com.grupo13.inventario.modelo.Docente;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DocumentoEliminarActivity extends AppCompatActivity {
-    @BindView(R.id.edtEscritoID)
-    EditText edtEscritoID;
+public class DocenteActualizarActivity extends AppCompatActivity {
     ControlBD helper;
+    @BindView(R.id.edtNombreDocente)
+    EditText edtNombreDocente;
+    @BindView(R.id.edtDocenteID)
+    EditText edtDocenteID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_documento_eliminar);
+        setContentView(R.layout.activity_docente_actualizar);
+        //IMPORTANTE, si no dara errores el codigo
         ButterKnife.bind(this);
         helper = ControlBD.getInstance(this);
     }
 
-    public void limpiarTexto(View v){
-        edtEscritoID.setText("");
-    }
-
-    public void eliminarDocumento(View v){
+    public void actualizarDocente(View v){
         String mensaje = "";
         try{
-            Documento aEliminar = new Documento();
-            aEliminar.idEscrito = Integer.parseInt(edtEscritoID.getText().toString());
+            Docente docenteAct = new Docente();
+            docenteAct.idDocente = Integer.parseInt(edtDocenteID.getText().toString());
+            docenteAct.nomDocente = edtNombreDocente.getText().toString();
 
-            int filasAfectadas = helper.documentoDao().eliminarDocumento(aEliminar);
-            if(filasAfectadas<=0){
-                mensaje = "Error al tratar de eliminar el registro.";
+            int filasAfectadas = helper.docenteDao().actualizarDocente(docenteAct);
+            if(filasAfectadas <= 0){
+                mensaje = "Error al tratar de actualizar el registro.";
             }
             else{
                 mensaje = String.format("Filas afectadas: %d",filasAfectadas);
             }
-        }catch (SQLiteConstraintException e){
-            mensaje = "Error al tratar de eliminar el registro.";
+
         }
-        //Este catch se usa para la conversion de int a String, verificar que se ponga un
-        //entero en la entrada de ID
-        catch (NumberFormatException e){
+        catch(NumberFormatException e){
             mensaje = "Error en la entrada de datos, revisa por favor los datos ingresados.";
+        }
+        catch (SQLiteConstraintException e){
+            mensaje = "Error al tratar de actualizar el registro.";
+
         }
         finally{
             Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
