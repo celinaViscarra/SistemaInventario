@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">SistemaInventario</string>
+    <string name="app_name">Sistema Inventario</string>
+    <string name="idCatalogo">ID Catalogo</string>
+    <string name="idMarca">ID Marca</string>
+    <string name="modeloEquipo">Modelo Equipo Generico</string>
+    <string name="memoria">Memoria</string>
+    <string name="cantEquipo">Cantidad Equipo</string>
+    <string name="idDescargos">ID Descargos</string>
+    <string name="idOrigen">ID Ubicación Origen</string>
+    <string name="idDestino">ID Ubicación Destino</string>
+    <string name="descargoFecha">Fecha Descargo</string>
+    <string name="idEquipo">ID Equipo Informático</string>
+    <string name="Opciones">Opciones</string>
+    <string name="insertarDetalleDescargo">Insertar DetalleDescargo</string>
+    <string name="limpiar">Limpiar</string>
 </resources>
