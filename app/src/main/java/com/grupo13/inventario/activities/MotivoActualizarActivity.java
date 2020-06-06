@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.grupo13.inventario.R;
 
-public class TipoProductoMenu extends AppCompatActivity {
+public class MotivoActualizarActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_tipo_producto_menu);
+        setContentView(R.layout.activity_motivo_actualizar);
     }
 }
