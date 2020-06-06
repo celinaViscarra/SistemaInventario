@@ -18,7 +18,7 @@ public interface MarcaDao {
     Marca consultarMarca(String idMarca);
 
     @Insert
-    void insertarMarca(Marca marca);
+    long insertarMarca(Marca marca);
 
     @Update
     void actualizarMarca(Marca marca);

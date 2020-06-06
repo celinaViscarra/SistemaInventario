@@ -20,7 +20,7 @@ public interface AutorDao {
     Autor consultarAutor(int idAutor);
 
     @Insert
-    void insertarAutor(Autor autor);
+    long insertarAutor(Autor autor);
 
     @Update
     void actualizarAutor(Autor autor);

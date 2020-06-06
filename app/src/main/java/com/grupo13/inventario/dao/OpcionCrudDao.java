@@ -18,7 +18,7 @@ public interface OpcionCrudDao {
     OpcionCrud consultarOpcionCrud(String idOpcion);
 
     @Insert
-    void insertarOpcionCrud(OpcionCrud opcionCrud);
+    long insertarOpcionCrud(OpcionCrud opcionCrud);
 
     @Update
     void actualizarOpcionCrud(OpcionCrud opcionCrud);

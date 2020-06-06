@@ -19,7 +19,7 @@ public interface ObservacionDao {
     Observacion consultarObservacion(String idCatalogo, int idToma);
 
     @Insert
-    void insertarObservacion(Observacion observacion);
+    long insertarObservacion(Observacion observacion);
 
     @Update
     void actualizarObservacion(Observacion observacion);

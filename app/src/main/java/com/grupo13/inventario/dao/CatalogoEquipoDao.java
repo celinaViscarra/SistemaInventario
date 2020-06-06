@@ -19,7 +19,7 @@ public interface CatalogoEquipoDao {
     CatalogoEquipo consultarCatalogoEquipo(String idCatalogo);
 
     @Insert
-    void insertarCatalogoEquipo(CatalogoEquipo catalogoEquipo);
+    long insertarCatalogoEquipo(CatalogoEquipo catalogoEquipo);
 
     @Update
     void actualizarCatalogoEquipo(CatalogoEquipo catalogoEquipo);

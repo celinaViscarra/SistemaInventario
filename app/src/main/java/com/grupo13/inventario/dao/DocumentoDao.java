@@ -20,7 +20,7 @@ public interface DocumentoDao {
     Documento consultarDocumento(int escrito_id);
 
     @Insert
-    void insertarDocumento(Documento documento);
+    long insertarDocumento(Documento documento);
 
     @Update
     void actualizarDocumento(Documento documento);

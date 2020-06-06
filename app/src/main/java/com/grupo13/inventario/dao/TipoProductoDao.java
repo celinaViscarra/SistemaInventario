@@ -19,7 +19,7 @@ public interface TipoProductoDao {
     TipoProducto consultarTipoProducto(int tipo_producto_id);
 
     @Insert
-    void insertarTipoProducto(TipoProducto tipoProducto);
+    long insertarTipoProducto(TipoProducto tipoProducto);
 
     @Update
     void actualizarTipoProducto(TipoProducto tipoProducto);

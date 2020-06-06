@@ -19,7 +19,7 @@ public interface DiasDao {
     Dias consultarDia(String dia_cod);
 
     @Insert
-    void insertarDia(Dias dia);
+    long insertarDia(Dias dia);
 
     @Update
     void actualizarDia(Dias dia);

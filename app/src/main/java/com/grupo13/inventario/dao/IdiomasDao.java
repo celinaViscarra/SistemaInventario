@@ -18,7 +18,7 @@ public interface IdiomasDao {
     Idiomas consultarIdioma(int idioma_id);
 
     @Insert
-    void insertarIdioma(Idiomas idioma);
+    long insertarIdioma(Idiomas idioma);
 
     @Update
     void actualizarIdioma(Idiomas idioma);

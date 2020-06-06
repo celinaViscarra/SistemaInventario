@@ -19,7 +19,7 @@ public interface MotivoDao {
     Motivo consultarMotivo(int idMotivo);
 
     @Insert
-    void insertarMotivo(Motivo motivo);
+    long insertarMotivo(Motivo motivo);
 
     @Update
     void actualizarMotivo(Motivo motivo);

@@ -18,7 +18,7 @@ public interface TipoParticipacionDao {
     TipoParticipacion consultarTipoParticipacion(int participacion_id);
 
     @Insert
-    void instertarTipoParticipacion(TipoParticipacion tipoParticipacion);
+    long instertarTipoParticipacion(TipoParticipacion tipoParticipacion);
 
     @Update
     void actualizarTipoParticipacion(TipoParticipacion tipoParticipacion);

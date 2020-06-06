@@ -19,7 +19,7 @@ public interface TipoMovimientoDao {
     TipoMovimiento consultarTipoMovimiento(int tipo_movimiento_id);
 
     @Insert
-    void insertarTipoMovimiento(TipoMovimiento tipoMovimiento);
+    long insertarTipoMovimiento(TipoMovimiento tipoMovimiento);
 
     @Update
     void actualizarTipoMovimiento(TipoMovimiento tipoMovimiento);

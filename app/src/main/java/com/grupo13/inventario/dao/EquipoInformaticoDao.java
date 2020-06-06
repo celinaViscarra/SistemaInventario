@@ -19,7 +19,7 @@ public interface EquipoInformaticoDao {
     EquipoInformatico consultarEquipoInformatico(int equipo_id);
 
     @Insert
-    void insertarEquipoInformatico(EquipoInformatico equipoInformatico);
+    long insertarEquipoInformatico(EquipoInformatico equipoInformatico);
 
     @Update
     void actualizarEquipoInformatico(EquipoInformatico equipoInformatico);

@@ -21,7 +21,7 @@ public interface CategoriasDao {
     Categorias consultarCategoria(int categoria_id);
 
     @Insert
-    void insertarCategoria(Categorias categorias);
+    long insertarCategoria(Categorias categorias);
 
     @Update
     void actualizarCategorias(Categorias categorias);

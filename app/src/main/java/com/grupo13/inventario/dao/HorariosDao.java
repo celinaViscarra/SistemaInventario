@@ -19,7 +19,7 @@ public interface HorariosDao {
     Horarios consultarHorario(int hora_id, String dia_cod);
 
     @Insert
-    void insertarHorario(Horarios horario);
+    long insertarHorario(Horarios horario);
 
     @Update
     void actualizarHorario(Horarios horario);

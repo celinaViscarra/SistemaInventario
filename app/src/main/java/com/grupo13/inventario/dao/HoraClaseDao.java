@@ -19,7 +19,7 @@ public interface HoraClaseDao {
     HoraClase consultarHoraClase(int hora_id);
 
     @Insert
-    void insertarHoraClase(HoraClase horaClase);
+    long insertarHoraClase(HoraClase horaClase);
 
     @Update
     void actualizarHoraClase(HoraClase horaClase);

@@ -19,7 +19,7 @@ public interface DetalleAutorDao {
     DetalleAutor consultarDetalle(int idAutor, int escrito_id);
 
     @Insert
-    void insertarDetalleAutor(DetalleAutor detalleAutor);
+    long insertarDetalleAutor(DetalleAutor detalleAutor);
 
     @Update
     void actualizarDetalleAutor(DetalleAutor detalleAutor);

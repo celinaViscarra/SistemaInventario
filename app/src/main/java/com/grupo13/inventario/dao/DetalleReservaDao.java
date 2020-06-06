@@ -19,7 +19,7 @@ public interface DetalleReservaDao {
     DetalleReserva consultarDetalleReserva(int hora_id, String dia_cod, int prestamo_id);
 
     @Insert
-    void insertarDetalleReserva(DetalleReserva detalleReserva);
+    long insertarDetalleReserva(DetalleReserva detalleReserva);
 
     @Update
     void actualizarDetalleReserva(DetalleReserva detalleReserva);

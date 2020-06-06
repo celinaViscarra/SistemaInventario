@@ -19,7 +19,7 @@ public interface UbicacionesDao {
     Ubicaciones consultarUbicaciones(int idUbicacion);
 
     @Insert
-    void insertarUbicaciones(Ubicaciones ubicaciones);
+    long insertarUbicaciones(Ubicaciones ubicaciones);
 
     @Update
     void actualizarUbicaciones(Ubicaciones ubicaciones);

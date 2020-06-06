@@ -18,7 +18,7 @@ public interface DescargosDao {
     Descargos consultarDescargos(int idDescargo);
 
     @Insert
-    void insertarDescargos(Descargos descargos);
+    long insertarDescargos(Descargos descargos);
 
     @Update
     void actualizarDescargos(Descargos descargos);

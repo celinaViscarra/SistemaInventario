@@ -19,7 +19,7 @@ public interface TomaFisicaDao {
     TomaFisica consultarTomaFisica(int idToma);
 
     @Insert
-    void insertarTomaFisica(TomaFisica tomaFisica);
+    long insertarTomaFisica(TomaFisica tomaFisica);
 
     @Update
     void actualizarTomaFisica(TomaFisica tomaFisica);

@@ -19,7 +19,7 @@ public interface DocenteDao {
     Docente consultarDocente(int docentes_id);
 
     @Insert
-    void insertarDocente(Docente docente);
+    long insertarDocente(Docente docente);
 
     @Update
     void actualizarDocente(Docente docente);

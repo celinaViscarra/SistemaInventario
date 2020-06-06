@@ -19,7 +19,7 @@ public interface UsuarioDao {
     Usuario consultarUsuario(String usuario);
 
     @Insert
-    void insertarUsuario(Usuario usuario);
+    long insertarUsuario(Usuario usuario);
 
     @Update
     void actualizarUsuario(Usuario usuario);

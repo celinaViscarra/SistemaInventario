@@ -19,7 +19,7 @@ public interface ParticipacionDocenteDao {
     ParticipacionDocente consultarParticipacionDocente(int escrito_id, int docentes_id);
 
     @Insert
-    void insertarParticipacionDocente(ParticipacionDocente participacionDocente);
+    long insertarParticipacionDocente(ParticipacionDocente participacionDocente);
 
     @Update
     void actualizarParticipacionDocente(ParticipacionDocente participacionDocente);

@@ -19,7 +19,7 @@ public interface MovimientoInventarioDao {
     MovimientoInventario consultarMovimientoInventario(int prestamo_id);
 
     @Insert
-    void insertarMovimientoInventario(MovimientoInventario movimientoInventario);
+    long insertarMovimientoInventario(MovimientoInventario movimientoInventario);
 
     @Update
     void actualizarMovimientoInventario(MovimientoInventario movimientoInventario);

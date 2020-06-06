@@ -19,7 +19,7 @@ public interface SustitucionesDao {
     Sustituciones consultarSustituciones(int idSustituciones);
 
     @Insert
-    void insertarSustituciones(Sustituciones sustituciones);
+    long insertarSustituciones(Sustituciones sustituciones);
 
     @Update
     void actualizarSustituciones(Sustituciones sustituciones);
