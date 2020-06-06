@@ -22,8 +22,8 @@ public interface HorariosDao {
     long insertarHorario(Horarios horario);
 
     @Update
-    void actualizarHorario(Horarios horario);
+    int actualizarHorario(Horarios horario);
 
     @Delete
-    void eliminarHorario(Horarios horario);
+    int eliminarHorario(Horarios horario);
 }

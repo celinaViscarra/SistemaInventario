@@ -22,8 +22,8 @@ public interface CatalogoEquipoDao {
     long insertarCatalogoEquipo(CatalogoEquipo catalogoEquipo);
 
     @Update
-    void actualizarCatalogoEquipo(CatalogoEquipo catalogoEquipo);
+    int actualizarCatalogoEquipo(CatalogoEquipo catalogoEquipo);
 
     @Delete
-    void eliminarCatalogoEquipo(CatalogoEquipo catalogoEquipo);
+    int eliminarCatalogoEquipo(CatalogoEquipo catalogoEquipo);
 }

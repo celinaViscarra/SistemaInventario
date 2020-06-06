@@ -22,8 +22,8 @@ public interface SustitucionesDao {
     long insertarSustituciones(Sustituciones sustituciones);
 
     @Update
-    void actualizarSustituciones(Sustituciones sustituciones);
+    int actualizarSustituciones(Sustituciones sustituciones);
 
     @Delete
-    void eliminarSustituciones(Sustituciones sustituciones);
+    int eliminarSustituciones(Sustituciones sustituciones);
 }

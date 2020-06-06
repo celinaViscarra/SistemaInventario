@@ -23,8 +23,8 @@ public interface DocumentoDao {
     long insertarDocumento(Documento documento);
 
     @Update
-    void actualizarDocumento(Documento documento);
+    int actualizarDocumento(Documento documento);
 
     @Delete
-    void eliminarDocumento(Documento documento);
+    int eliminarDocumento(Documento documento);
 }

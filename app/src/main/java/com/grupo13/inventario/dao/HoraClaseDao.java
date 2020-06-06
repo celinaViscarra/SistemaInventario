@@ -22,8 +22,8 @@ public interface HoraClaseDao {
     long insertarHoraClase(HoraClase horaClase);
 
     @Update
-    void actualizarHoraClase(HoraClase horaClase);
+    int actualizarHoraClase(HoraClase horaClase);
 
     @Delete
-    void eliminarHoraClase(HoraClase horaClase);
+    int eliminarHoraClase(HoraClase horaClase);
 }

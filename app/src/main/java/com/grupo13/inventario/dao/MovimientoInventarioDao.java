@@ -22,8 +22,8 @@ public interface MovimientoInventarioDao {
     long insertarMovimientoInventario(MovimientoInventario movimientoInventario);
 
     @Update
-    void actualizarMovimientoInventario(MovimientoInventario movimientoInventario);
+    int actualizarMovimientoInventario(MovimientoInventario movimientoInventario);
 
     @Delete
-    void eliminarMovimientoInventario(MovimientoInventario movimientoInventario);
+    int eliminarMovimientoInventario(MovimientoInventario movimientoInventario);
 }

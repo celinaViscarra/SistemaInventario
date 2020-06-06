@@ -22,8 +22,8 @@ public interface EquipoInformaticoDao {
     long insertarEquipoInformatico(EquipoInformatico equipoInformatico);
 
     @Update
-    void actualizarEquipoInformatico(EquipoInformatico equipoInformatico);
+    int actualizarEquipoInformatico(EquipoInformatico equipoInformatico);
 
     @Delete
-    void eliminarEquipoInformatico(EquipoInformatico equipoInformatico);
+    int eliminarEquipoInformatico(EquipoInformatico equipoInformatico);
 }

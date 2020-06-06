@@ -22,8 +22,8 @@ public interface ParticipacionDocenteDao {
     long insertarParticipacionDocente(ParticipacionDocente participacionDocente);
 
     @Update
-    void actualizarParticipacionDocente(ParticipacionDocente participacionDocente);
+    int actualizarParticipacionDocente(ParticipacionDocente participacionDocente);
 
     @Delete
-    void eliminarParticipacionDocente(ParticipacionDocente participacionDocente);
+    int eliminarParticipacionDocente(ParticipacionDocente participacionDocente);
 }

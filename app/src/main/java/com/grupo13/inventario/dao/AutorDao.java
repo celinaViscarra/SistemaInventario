@@ -23,8 +23,8 @@ public interface AutorDao {
     long insertarAutor(Autor autor);
 
     @Update
-    void actualizarAutor(Autor autor);
+    int actualizarAutor(Autor autor);
 
     @Delete
-    void eliminarAutor(Autor autor);
+    int eliminarAutor(Autor autor);
 }

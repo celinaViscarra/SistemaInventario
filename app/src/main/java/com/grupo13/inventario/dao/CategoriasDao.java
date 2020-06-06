@@ -24,8 +24,8 @@ public interface CategoriasDao {
     long insertarCategoria(Categorias categorias);
 
     @Update
-    void actualizarCategorias(Categorias categorias);
+    int actualizarCategorias(Categorias categorias);
 
     @Delete
-    void eliminarCategorias(Categorias categorias);
+    int eliminarCategorias(Categorias categorias);
 }

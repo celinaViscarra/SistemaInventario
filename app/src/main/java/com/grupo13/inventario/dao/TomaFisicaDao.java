@@ -22,8 +22,8 @@ public interface TomaFisicaDao {
     long insertarTomaFisica(TomaFisica tomaFisica);
 
     @Update
-    void actualizarTomaFisica(TomaFisica tomaFisica);
+    int actualizarTomaFisica(TomaFisica tomaFisica);
 
     @Delete
-    void eliminarTomaFisica(TomaFisica tomaFisica);
+    int eliminarTomaFisica(TomaFisica tomaFisica);
 }

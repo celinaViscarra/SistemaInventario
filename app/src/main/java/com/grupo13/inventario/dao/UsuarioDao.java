@@ -22,8 +22,8 @@ public interface UsuarioDao {
     long insertarUsuario(Usuario usuario);
 
     @Update
-    void actualizarUsuario(Usuario usuario);
+    int actualizarUsuario(Usuario usuario);
 
     @Delete
-    void eliminarUsuario(Usuario usuario);
+    int eliminarUsuario(Usuario usuario);
 }

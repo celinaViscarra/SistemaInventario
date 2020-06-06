@@ -21,8 +21,8 @@ public interface TipoParticipacionDao {
     long instertarTipoParticipacion(TipoParticipacion tipoParticipacion);
 
     @Update
-    void actualizarTipoParticipacion(TipoParticipacion tipoParticipacion);
+    int actualizarTipoParticipacion(TipoParticipacion tipoParticipacion);
 
     @Delete
-    void eliminarTipoParticipacio(TipoParticipacion tipoParticipacion);
+    int eliminarTipoParticipacio(TipoParticipacion tipoParticipacion);
 }

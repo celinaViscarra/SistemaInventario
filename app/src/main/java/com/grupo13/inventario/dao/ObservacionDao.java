@@ -22,8 +22,8 @@ public interface ObservacionDao {
     long insertarObservacion(Observacion observacion);
 
     @Update
-    void actualizarObservacion(Observacion observacion);
+    int actualizarObservacion(Observacion observacion);
 
     @Delete
-    void elminiarObservacion(Observacion observacion);
+    int elminiarObservacion(Observacion observacion);
 }
