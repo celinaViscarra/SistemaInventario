@@ -51,6 +51,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.MotivoMenuActivity" />
+        <activity android:name=".activities.MotivoInsertarActivity" />
+        <activity android:name=".activities.MotivoEliminarActivity" />
+        <activity android:name=".activities.MotivoConsultarActivity" />
+        <activity android:name=".activities.MotivoActualizarActivity" />
     </application>
 
 </manifest>
