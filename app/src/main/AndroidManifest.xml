@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.DetalleDescargosActualizarActivity"></activity>
+        <activity android:name=".activities.CatalogoEquipoActualizarActivity"></activity>
+        <activity android:name=".activities.CatalogoEquipoEliminarActivity" />
+        <activity android:name=".activities.CatalogoEquipoConsultarActivity" />
+        <activity android:name=".activities.CatalogoEquipoInsertarActivity" />
+        <activity android:name=".activities.CatalogoEquipoMenuActivity" />
+        <activity android:name=".activities.DetalleDescargosActualizarActivity" />
         <activity android:name=".activities.DetalleDescargosConsultarActivity" />
         <activity android:name=".activities.DetalleDescargosEliminarActivity" />
         <activity android:name=".activities.DetalleDescargosInsertarActivity" />
