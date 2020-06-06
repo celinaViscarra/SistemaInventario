@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.CatalogoEquipoActualizarActivity"></activity>
+        <activity android:name=".activities.DetalleAutorEliminarActivity"></activity>
+        <activity android:name=".activities.DetalleAutorActualizarActivity" />
+        <activity android:name=".activities.DetalleAutorConsultarActivity" />
+        <activity android:name=".activities.DetalleAutorInsertarActivity" />
+        <activity android:name=".activities.DetalleAutorMenuActivity" />
+        <activity android:name=".activities.CatalogoEquipoActualizarActivity" />
         <activity android:name=".activities.CatalogoEquipoEliminarActivity" />
         <activity android:name=".activities.CatalogoEquipoConsultarActivity" />
         <activity android:name=".activities.CatalogoEquipoInsertarActivity" />
