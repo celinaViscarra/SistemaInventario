@@ -61,12 +61,25 @@ public abstract class ControlBD extends RoomDatabase {
         Autor nuevo = new Autor();
         nuevo.nomAutor = "Josue";
         nuevo.apeAutor = "Aquino";
+        autorDao().insertarAutor(nuevo);
 
         Docente aquisi = new Docente();
         aquisi.nomDocente = "Ayasi aquino";
+        docenteDao().insertarDocente(aquisi);
+        Docente monge = new Docente();
+        monge.nomDocente = "Ing. Mario Monge";
+        docenteDao().insertarDocente(monge);
+        Docente otroing = new Docente();
+        otroing.nomDocente = "Ing. Algotro";
+        docenteDao().insertarDocente(otroing);
 
         TipoParticipacion tipoParticipacion = new TipoParticipacion();
         tipoParticipacion.nomParticipacion = "completamente";
+        tipoParticipacionDao().instertarTipoParticipacion(tipoParticipacion);
+
+        TipoParticipacion otraparticipacion = new TipoParticipacion();
+        otraparticipacion.nomParticipacion = "50%";
+        tipoParticipacionDao().instertarTipoParticipacion(otraparticipacion);
 
         Categorias cat = new Categorias();
         cat.nomCategoria = "Escritos";
@@ -81,7 +94,6 @@ public abstract class ControlBD extends RoomDatabase {
         spa.nombreIdioma = "Español";
         long idSpa = idiomasDao().insertarIdioma(spa);
 
-        System.out.println(String.format("id producto = %d id idioma = %d", idTipoProducto,idSpa));
         Documento doc = new Documento();
         doc.tipo_producto_id = (int) idTipoProducto;
         doc.idioma_id = (int) idSpa;
@@ -90,10 +102,16 @@ public abstract class ControlBD extends RoomDatabase {
         doc.editorial = "Clasicos Aquisil";
         doc.titulo = "Las aventuras de aquisi con la base de datos xd";
 
+        Documento doc2 = new Documento();
+        doc2.tipo_producto_id = (int) idTipoProducto;
+        doc2.idioma_id = (int) idSpa;
+        doc2.isbn = "0001-1";
+        doc2.edicion = "1era";
+        doc2.editorial = "Clasicos Aquisil";
+        doc2.titulo = "Algotro libro";
+
         documentoDao().insertarDocumento(doc);
-        autorDao().insertarAutor(nuevo);
-        docenteDao().insertarDocente(aquisi);
-        tipoParticipacionDao().instertarTipoParticipacion(tipoParticipacion);
+        documentoDao().insertarDocumento(doc2);
 
     }
     //Aqui se declaran los DAOs

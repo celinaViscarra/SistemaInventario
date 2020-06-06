@@ -3,6 +3,7 @@ package com.grupo13.inventario;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,11 +17,13 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
     String[] menu = {
             "DetalleAutor",
+            "ParticipacionDocente",
             "Llenar Base de Datos(sirve pero solo llena datos mios xd)"
     };
 
     String[] activities={
-            "DetalleAutorMenuActivity"
+            "DetalleAutorMenuActivity",
+            "ParticipacionDocenteMenuActivity"
     };
 
     //Se puede usar este para no usar findViewByID
@@ -42,10 +45,20 @@ public class MainActivity extends AppCompatActivity {
         listaOpciones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 1){
+                if(position == menu.length-1){
                     getApplicationContext().deleteDatabase("grupo13_proyecto1.db");
                     ControlBD helper = ControlBD.getInstance(getApplicationContext());
-                    helper.llenarBD();
+                    String mensaje = "";
+                    try{
+                        helper.llenarBD();
+                        mensaje = "Los datos se llenaron correctamente";
+                    }
+                    catch(SQLiteConstraintException e){
+                        mensaje = "Error al insertar registros a la Base de Datos";
+                    }
+                    finally {
+                        Toast.makeText(getApplicationContext(),mensaje,Toast.LENGTH_SHORT).show();
+                    }
                 }else{
                     try {
                         Class clase = Class.forName("com.grupo13.inventario.activities."+activities[position]);
