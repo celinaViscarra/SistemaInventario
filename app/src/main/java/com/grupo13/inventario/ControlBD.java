@@ -52,11 +52,50 @@ public abstract class ControlBD extends RoomDatabase {
     public static synchronized ControlBD getInstance(Context context){
         if(instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),ControlBD.class,DB_NAME)
-            .fallbackToDestructiveMigration().build();
+            .fallbackToDestructiveMigration().allowMainThreadQueries().build();
         }
         return instance;
     }
+    public void llenarBD(){
+        //Generando datos para probar mis clases xd
+        Autor nuevo = new Autor();
+        nuevo.nomAutor = "Josue";
+        nuevo.apeAutor = "Aquino";
 
+        Docente aquisi = new Docente();
+        aquisi.nomDocente = "Ayasi aquino";
+
+        TipoParticipacion tipoParticipacion = new TipoParticipacion();
+        tipoParticipacion.nomParticipacion = "completamente";
+
+        Categorias cat = new Categorias();
+        cat.nomCategoria = "Escritos";
+        long idCat = categoriasDao().insertarCategoria(cat);
+
+        TipoProducto tipoProducto = new TipoProducto();
+        tipoProducto.categoria_id = (int) idCat;
+        tipoProducto.nomTipoProducto = "Libro";
+        long idTipoProducto = tipoProductoDao().insertarTipoProducto(tipoProducto);
+
+        Idiomas spa = new Idiomas();
+        spa.nombreIdioma = "Español";
+        long idSpa = idiomasDao().insertarIdioma(spa);
+
+        System.out.println(String.format("id producto = %d id idioma = %d", idTipoProducto,idSpa));
+        Documento doc = new Documento();
+        doc.tipo_producto_id = (int) idTipoProducto;
+        doc.idioma_id = (int) idSpa;
+        doc.isbn = "0000";
+        doc.edicion = "1era";
+        doc.editorial = "Clasicos Aquisil";
+        doc.titulo = "Las aventuras de aquisi con la base de datos xd";
+
+        documentoDao().insertarDocumento(doc);
+        autorDao().insertarAutor(nuevo);
+        docenteDao().insertarDocente(aquisi);
+        tipoParticipacionDao().instertarTipoParticipacion(tipoParticipacion);
+
+    }
     //Aqui se declaran los DAOs
     public abstract AutorDao autorDao();
     public abstract CatalogoEquipoDao catalogoEquipoDao();

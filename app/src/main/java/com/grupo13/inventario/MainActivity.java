@@ -2,6 +2,7 @@ package com.grupo13.inventario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,10 +15,13 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     String[] menu = {
+            "DetalleAutor",
             "Llenar Base de Datos(aun no sirve xd)"
     };
 
-    String[] activities={};
+    String[] activities={
+            "DetalleAutorMenuActivity"
+    };
 
     //Se puede usar este para no usar findViewByID
     @BindView(R.id.listaOpciones)
@@ -37,8 +41,18 @@ public class MainActivity extends AppCompatActivity {
         listaOpciones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 0){
-                    Toast.makeText(getApplicationContext(),"Que aun no sirve we :v",Toast.LENGTH_SHORT).show();
+                if(position == 1){
+                    getApplicationContext().deleteDatabase("grupo13_proyecto1.db");
+                    ControlBD helper = ControlBD.getInstance(getApplicationContext());
+                    helper.llenarBD();
+                }else{
+                    try {
+                        Class clase = Class.forName("com.grupo13.inventario.activities."+activities[position]);
+                        Intent inte = new Intent(getApplicationContext(),clase);
+                        startActivity(inte);
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
