@@ -117,7 +117,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <Button
-        android:text="Agregar Documento"
+        android:text="Consultar Documento"
         android:onClick="consultarDocumento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
