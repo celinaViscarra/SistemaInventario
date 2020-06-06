@@ -30,6 +30,7 @@ public class DetalleAutorActualizarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_autor_actualizar);
+        helper = ControlBD.getInstance(this);
         ButterKnife.bind(this);
     }
 
