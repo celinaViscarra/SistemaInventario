@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
     String[] menu = {
             "DetalleAutor",
-            "Llenar Base de Datos(aun no sirve xd)"
+            "Llenar Base de Datos(sirve pero solo llena datos mios xd)"
     };
 
     String[] activities={
