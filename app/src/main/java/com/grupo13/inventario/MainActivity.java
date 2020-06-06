@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     String[] menu = {
+            "Autor",
             "DetalleAutor",
             "ParticipacionDocente",
             "Documento",
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     String[] activities={
+            "AutorMenuActivity",
             "DetalleAutorMenuActivity",
             "ParticipacionDocenteMenuActivity",
             "DocumentoMenuActivity"
