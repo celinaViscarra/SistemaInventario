@@ -15,8 +15,10 @@
     <string name="limpiar">Limpiar</string>
 
     <!-- CRUD AUTOR -->
+    <string name="autor_id">ID Autor</string>
     <string name="autor_nombre">Nombres</string>
     <string name="autor_apellido">Apellidos</string>
     <string name="autor_insertar">Agregar Autor</string>
+    <string name="autor_consultar">Consultar Autor</string>
 
 </resources>
