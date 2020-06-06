@@ -64,7 +64,7 @@ public class ParticipacionDocenteConsultarActivity extends AppCompatActivity {
             int posicion = -1;
             for(TipoParticipacion pivote: tipoParticipaciones){
                 if(pivote.idParticipacion == participacionDocente.idParticipacion){
-                    posicion = tipoParticipaciones.indexOf(pivote);
+                    posicion = tipoParticipaciones.indexOf(pivote) + 1;
                 }
             }
             //Finalmente, seleccionamos la posicion en el spinner
@@ -94,6 +94,7 @@ public class ParticipacionDocenteConsultarActivity extends AppCompatActivity {
         for(Docente pivote: docentes){
             nombresDocentes.add(pivote.nomDocente);
         }
+        nombresTipoParticiones.add("NO SELECCIONADO");
         for(TipoParticipacion pivote: tipoParticipaciones){
             nombresTipoParticiones.add(pivote.nomParticipacion);
         }
