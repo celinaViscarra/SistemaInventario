@@ -285,6 +285,16 @@ public abstract class ControlBD extends RoomDatabase {
         movInventa.equipo_id = (int) idEquipoInfor;
         long idMovInv = movimientoInventarioDao().insertarMovimientoInventario(movInventa);
 
+        MovimientoInventario movInventa2 = new MovimientoInventario();
+        movInventa2.descripcion = "Prestar otra vez compu";
+        movInventa2.prestamoActivo =  Boolean.TRUE;
+        movInventa2.prestamoFechaInicio = Date.valueOf("2020-06-01");
+        movInventa2.prestamoFechaFin = Date.valueOf("2020-06-01");
+        movInventa2.prestamoPermanente = Boolean.FALSE;
+        movInventa2.tipo_movimiento_id = (int) idTMov;
+        movInventa2.docentes_id = (int) idDoce;
+        movInventa2.equipo_id = (int) idEquipoInfor;
+        long idMovInv2 = movimientoInventarioDao().insertarMovimientoInventario(movInventa2);
 
 
     }
