@@ -51,7 +51,7 @@ public class  EquipoInformaticoInsertarActivity extends AppCompatActivity {
     EditText txtFecha;
 
     List<TipoProducto> tipoProductos;
-    List<CatalogoEquipo> catalogoEquipos    ;
+    List<CatalogoEquipo> catalogoEquipos;
     List<Ubicaciones> ubicaciones;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
