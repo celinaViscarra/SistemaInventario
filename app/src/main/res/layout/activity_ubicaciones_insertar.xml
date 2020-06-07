@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <Button
-        android:text="Agregar Ubicacion"
+        android:text="Insertar Ubicacion"
         android:onClick="insertarUbicaciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
