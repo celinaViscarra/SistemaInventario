@@ -12,6 +12,7 @@ import com.grupo13.inventario.dao.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.Date;
 import java.sql.Time;
 
 @Database(
@@ -188,9 +189,11 @@ public abstract class ControlBD extends RoomDatabase {
         TipoProducto tp1 = new TipoProducto();
         tp1.categoria_id = (int) idC;
         tp1.nomTipoProducto = "Computadora";
-        tipoProductoDao().insertarTipoProducto(tp1);
+        long idTp = tipoProductoDao().insertarTipoProducto(tp1);
 
-        // Datos para detalle de reserva de equipo
+        // *****Datos para detalle de reserva de equipo ****
+
+        // Datos para el horarios
 
         Dias lun = new Dias("LUN", "LUNES");
         Dias mar = new Dias("MAR", "MARTES");
@@ -252,6 +255,35 @@ public abstract class ControlBD extends RoomDatabase {
                 horariosDao().insertarHorario(horario);
             }
         }
+
+        // Datos de un movimiento
+        EquipoInformatico equipoInformatico = new EquipoInformatico();
+        equipoInformatico.fechaAdquisicion = Date.valueOf("2015-01-01");
+        equipoInformatico.estadoEquipo = "BUENO";
+        equipoInformatico.codEquipo = "EQ0001";
+        equipoInformatico.ubicacion_id = (int) idU;
+        equipoInformatico.catalogo_id = c1.idCatalogo;
+        equipoInformatico.tipo_producto_id = (int) idTp;
+        long idEquipoInfor = equipoInformaticoDao().insertarEquipoInformatico(equipoInformatico);
+
+        Docente doce1 = new Docente();
+        doce1.nomDocente = "Ing. Josue Aquino";
+        long idDoce = docenteDao().insertarDocente(doce1);
+
+        TipoMovimiento tipoMov1 = new TipoMovimiento();
+        tipoMov1.nombreTipoMoviento = "Prestamo de equipo";
+        long idTMov = tipoMovimientoDao().insertarTipoMovimiento(tipoMov1);
+
+        MovimientoInventario movInventa = new MovimientoInventario();
+        movInventa.descripcion = "Prestamo de una compu";
+        movInventa.prestamoActivo =  Boolean.TRUE;
+        movInventa.prestamoFechaInicio = Date.valueOf("2020-06-01");
+        movInventa.prestamoFechaFin = Date.valueOf("2020-06-01");
+        movInventa.prestamoPermanente = Boolean.FALSE;
+        movInventa.tipo_movimiento_id = (int) idTMov;
+        movInventa.docentes_id = (int) idDoce;
+        movInventa.equipo_id = (int) idEquipoInfor;
+        long idMovInv = movimientoInventarioDao().insertarMovimientoInventario(movInventa);
 
 
 
