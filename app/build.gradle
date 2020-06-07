@@ -41,4 +41,6 @@ dependencies {
     //Dependencias de Room
     implementation "android.arch.persistence.room:runtime:1.1.1"
     annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+    //Libreria para mejor manejo de la fecha
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.4'
 }
