@@ -12,6 +12,7 @@ import com.grupo13.inventario.dao.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.Time;
 
 @Database(
         entities = {
@@ -188,6 +189,70 @@ public abstract class ControlBD extends RoomDatabase {
         tp1.categoria_id = (int) idC;
         tp1.nomTipoProducto = "Computadora";
         tipoProductoDao().insertarTipoProducto(tp1);
+
+        // Datos para detalle de reserva de equipo
+
+        Dias lun = new Dias("LUN", "LUNES");
+        Dias mar = new Dias("MAR", "MARTES");
+        Dias mie = new Dias("MIE", "MIERCOLES");
+        Dias jue = new Dias("JUE", "JUEVES");
+        Dias vie = new Dias("VIE", "VIERNES");
+        Dias sab = new Dias("SAB", "SABADO");
+        Dias dom = new Dias("DOM", "DOMINGO");
+
+        diasDao().insertarDia(lun);
+        diasDao().insertarDia(mar);
+        diasDao().insertarDia(mie);
+        diasDao().insertarDia(jue);
+        diasDao().insertarDia(vie);
+        diasDao().insertarDia(sab);
+        diasDao().insertarDia(dom);
+
+        HoraClase h1 = new HoraClase();
+        HoraClase h2 = new HoraClase();
+        HoraClase h3 = new HoraClase();
+        HoraClase h4 = new HoraClase();
+        HoraClase h5 = new HoraClase();
+        HoraClase h6 = new HoraClase();
+        HoraClase h7 = new HoraClase();
+        HoraClase h8 = new HoraClase();
+
+        h1.horaInicio = Time.valueOf("06:20:00");
+        h1.horaFin = Time.valueOf("08:00:00");
+        h2.horaInicio = Time.valueOf("08:05:00");
+        h2.horaFin = Time.valueOf("09:45:00");
+        h3.horaInicio = Time.valueOf("09:50:00");
+        h3.horaFin = Time.valueOf("11:30:00");
+        h4.horaInicio = Time.valueOf("11:35:00");
+        h4.horaFin = Time.valueOf("13:15:00");
+        h5.horaInicio = Time.valueOf("13:20:00");
+        h5.horaFin = Time.valueOf("15:00:00");
+        h6.horaInicio = Time.valueOf("15:05:00");
+        h6.horaFin = Time.valueOf("16:45:00");
+        h7.horaInicio = Time.valueOf("16:50:00");
+        h7.horaFin = Time.valueOf("18:30:00");
+        h8.horaInicio = Time.valueOf("18:35:00");
+        h8.horaFin = Time.valueOf("20:15:00");
+
+        h1.idHora = (int) horaClaseDao().insertarHoraClase(h1);
+        h2.idHora = (int) horaClaseDao().insertarHoraClase(h2);
+        h3.idHora = (int) horaClaseDao().insertarHoraClase(h3);
+        h4.idHora = (int) horaClaseDao().insertarHoraClase(h4);
+        h5.idHora = (int) horaClaseDao().insertarHoraClase(h5);
+        h6.idHora = (int) horaClaseDao().insertarHoraClase(h6);
+        h7.idHora = (int) horaClaseDao().insertarHoraClase(h7);
+        h8.idHora = (int) horaClaseDao().insertarHoraClase(h8);
+
+        Dias[] dias = {lun, mar, mie, jue, vie, sab, dom};
+        HoraClase[] horas = {h1, h2, h3, h4, h5, h6, h7, h8};
+
+        for (Dias dia: dias) {
+            for (HoraClase clase: horas) {
+                Horarios horario = new Horarios(clase.idHora, dia.diaCod);
+                horariosDao().insertarHorario(horario);
+            }
+        }
+
 
 
     }
