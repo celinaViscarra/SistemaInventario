@@ -12,6 +12,10 @@ import com.grupo13.inventario.ControlBD;
 import com.grupo13.inventario.R;
 import com.grupo13.inventario.modelo.Descargos;
 
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.format.DateTimeFormatter;
+import org.threeten.bp.format.DateTimeParseException;
+
 import java.sql.Date;
 
 public class DescargosActualizarActivity extends AppCompatActivity {
@@ -37,7 +41,10 @@ public class DescargosActualizarActivity extends AppCompatActivity {
             descargos.idDescargos = Integer.parseInt(idDescargo.getText().toString());
             descargos.ubicacion_origen_id = Integer.parseInt(idOrigen.getText().toString());
             descargos.ubicacion_destino_id = Integer.parseInt(idDestino.getText().toString());
-            descargos.fechaDescargos = Date.valueOf(descargoFecha.getText().toString());
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd—mm—yyyy");
+            LocalDate fecha = LocalDate.parse(descargoFecha.getText().toString(), formatter);
+            descargos.fechaDescargos = Date.valueOf(fecha.toString());
 
             int filasAfectadas = helper.descargosDao().actualizarDescargos(descargos);
 
@@ -46,6 +53,8 @@ public class DescargosActualizarActivity extends AppCompatActivity {
             } else {
                 mensaje = String.format("Filas afectadas: %d", filasAfectadas);
             }
+        }catch(DateTimeParseException e){
+            mensaje = "El formato correcto para insertar fecha es: dd—mm—yyyy";
         }catch(NumberFormatException e){
             mensaje = "Error en la entrada de datos, revisa por favor los datos ingresados.";
         }catch(SQLiteConstraintException e){

@@ -40,7 +40,11 @@ public class DescargosConsultarActivity extends AppCompatActivity {
                 mensaje = "Se encontro el registro, mostrando datos...";
                 idOrigen.setText(descargos.ubicacion_origen_id);
                 idDestino.setText(descargos.ubicacion_destino_id);
-                descargoFecha.setText((CharSequence) descargos.fechaDescargos);
+                int dia, mes, anio;
+                dia = descargos.fechaDescargos.getDay();
+                mes = descargos.fechaDescargos.getMonth();
+                anio = descargos.fechaDescargos.getYear();
+                descargoFecha.setText(String.format("%d—%d—%d", dia, mes, anio));
             }
         }catch(NumberFormatException e){
             mensaje = "Error en la entrada de datos, revisa por favor los datos ingresados.";
