@@ -7,4 +7,110 @@
     android:orientation="vertical"
     tools:context=".activities.DescargosActualizarActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="62dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/idDescargos" />
+            <EditText
+                android:id="@+id/editIdDescargos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+
+        </TableRow>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="62dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/idOrigen" />
+            <EditText
+                android:id="@+id/editIdOrigen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+
+        </TableRow>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="62dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/idDestino" />
+            <EditText
+                android:id="@+id/editIdDestino"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+        </TableRow>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="62dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="31dp"
+                android:layout_weight="1"
+                android:text="@string/descargoFecha" />
+
+        </TableRow>
+
+        <EditText
+            android:id="@+id/editIdDescargoFecha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="264dp"
+                android:layout_height="wrap_content"
+                android:onClick="actualizarDescargos"
+                android:text="@string/actualizarDescargo" />
+
+        </TableRow>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:onClick="limpiarTexto"
+        android:text="@string/limpiar" />
+
+
 </LinearLayout>
