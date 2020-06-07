@@ -33,9 +33,11 @@
     <string name="consultarDescargo">Consultar Descargo</string>
     <string name="eliminarDescargo">Eliminar Descargo</string>
 
+
     <string name="insertarCatalogoEquipo">Insertar Catalógo Equipo</string>
     <string name="actualizarCatalogoEquipo">Actualizar Catalógo Equipo</string>
     <string name="eliminarCatalogoEquipo">Eliminar Catalógo Equipo</string>
     <string name="consultarCatalogoEquipo">Consultar Catalógo Equipo</string>
+
 
 </resources>

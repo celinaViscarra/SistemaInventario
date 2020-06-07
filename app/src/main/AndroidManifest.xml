@@ -9,14 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".activities.AutorEliminarActivity"></activity>
-        <activity android:name=".activities.AutorActualizarActivity" />
-        <activity android:name=".activities.AutorInsertarActivity" />
-        <activity android:name=".activities.AutorConsultarActivity" />
-        <activity android:name=".activities.AutorMenuActivity" />
-        <activity android:name=".activities.TipoInsertarActualizarActivity"></activity>
-        <activity android:name=".activities.TipoInsertarConsultarActivity" />
+        <activity android:name=".activities.UbicacionesActualizarActivity"></activity>
+        <activity android:name=".activities.UbicacionesConsultarActivity" />
+        <activity android:name=".activities.UbicacionesEliminarActivity" />
+        <activity android:name=".activities.UbicacionesInsertarActivity" />
+        <activity android:name=".activities.UbicacionesMenuActivity" />
+        <activity android:name=".activities.TipoProductoActualizarActivity" />
+        <activity android:name=".activities.TipoProductoConsultarActivity" />
         <activity android:name=".activities.TipoProductoEliminarActivity" />
         <activity android:name=".activities.TipoProductoInsertarActivity" />
         <activity android:name=".activities.TipoProductoMenu" />
