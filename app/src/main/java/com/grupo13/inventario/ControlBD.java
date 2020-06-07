@@ -113,6 +113,45 @@ public abstract class ControlBD extends RoomDatabase {
         documentoDao().insertarDocumento(doc);
         documentoDao().insertarDocumento(doc2);
 
+        // Datos para Equipo informatico
+        Marca m1 = new Marca("M01", "HP");
+        Marca m2 = new Marca("M02", "DELL");
+        Marca m3 = new Marca("M03", "Lenovo");
+
+        marcaDao().insertarMarca(m1);
+        marcaDao().insertarMarca(m2);
+        marcaDao().insertarMarca(m3);
+
+        CatalogoEquipo c1 = new CatalogoEquipo();
+        c1.idCatalogo = "000001";
+        c1.idMarca = m1.idMarca;
+        c1.modeloEquipo = "Compact";
+        c1.memoria = 1024;
+        c1.cantEquipo = 5;
+        CatalogoEquipo c2 = new CatalogoEquipo();
+        c2.idCatalogo = "000002";
+        c2.idMarca = m2.idMarca;
+        c2.modeloEquipo = "Infinium";
+        c2.memoria = 1024;
+        c2.cantEquipo = 7;
+
+        catalogoEquipoDao().insertarCatalogoEquipo(c1);
+        catalogoEquipoDao().insertarCatalogoEquipo(c2);
+
+        Ubicaciones u1 = new Ubicaciones();
+        u1.nomUbicacion = "EISI";
+        long idU = ubicacionesDao().insertarUbicaciones(u1);
+
+        Categorias cate = new Categorias();
+        cate.nomCategoria = "Equipo informatico";
+        long idC = categoriasDao().insertarCategoria(cate);
+
+        TipoProducto tp1 = new TipoProducto();
+        tp1.categoria_id = (int) idC;
+        tp1.nomTipoProducto = "Computadora";
+        tipoProductoDao().insertarTipoProducto(tp1);
+
+
     }
     //Aqui se declaran los DAOs
     public abstract AutorDao autorDao();
