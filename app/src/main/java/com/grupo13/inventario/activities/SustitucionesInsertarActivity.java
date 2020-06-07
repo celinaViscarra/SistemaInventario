@@ -61,6 +61,7 @@ public class SustitucionesInsertarActivity extends AppCompatActivity {
                 mensaje = "Error al tratar de ingresar el registro a la Base de Datos.";
             }
             else{
+                
                 mensaje = String.format("Registrado correctamente en la posicion: %d",posicion);
             }
 

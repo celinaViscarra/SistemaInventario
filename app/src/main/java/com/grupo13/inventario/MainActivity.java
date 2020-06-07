@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             "DetalleAutorMenuActivity",
             "ParticipacionDocenteMenuActivity",
             "DocumentoMenuActivity",
-            "EquipoInformaticoMenuActivity"
+            "EquipoInformaticoMenuActivity",
             "MotivoMenuActivity",
             "SustitucionesMenuActivity"
     };
