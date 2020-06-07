@@ -20,9 +20,9 @@ public class TipoProductoMenu extends ListActivity {
     };
     String[] activities = {
             "TipoProductoInsertarActivity",
-            "TipoProductoEliminarActivity",
             "TipoProductoConsultarActivity",
-            "TipoProductoActualizarActivity"
+            "TipoProductoActualizarActivity",
+            "TipoProductoEliminarActivity"
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
