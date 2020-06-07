@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteConstraintException;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     //Se puede usar este para no usar findViewByID
     @BindView(R.id.listaOpciones)
     ListView listaOpciones;
+    @BindView(R.id.bar)
+    ProgressBar bar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,18 +65,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position == menu.length-1){
-                    //getApplicationContext().deleteDatabase("grupo13_proyecto1.db");
-                    String mensaje = "";
-                    try{
-                        helper.llenarBD();
-                        mensaje = "Los datos se llenaron correctamente";
-                    }
-                    catch(SQLiteConstraintException e){
-                        mensaje = "Error al insertar registros a la Base de Datos";
-                    }
-                    finally {
-                        Toast.makeText(getApplicationContext(),mensaje,Toast.LENGTH_SHORT).show();
-                    }
+
+                    // Llenar la base de datos en un hilo separado para no congelar el hilo principal
+                    new LlenarBase().execute(helper);
+
                 }else{
                     try {
                         Class clase = Class.forName("com.grupo13.inventario.activities."+activities[position]);
@@ -85,5 +81,44 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    class LlenarBase extends AsyncTask<ControlBD, String, Void>{
+
+        @Override
+        protected void onPreExecute() {
+            bar.setVisibility(View.VISIBLE);
+            listaOpciones.setEnabled(false);
+        }
+
+        @Override
+        protected Void doInBackground(ControlBD... controlBDS) {
+            //getApplicationContext().deleteDatabase("grupo13_proyecto1.db");
+            ControlBD helper = controlBDS[0];
+            String mensaje = "";
+            try{
+                helper.llenarBD();
+                mensaje = "Los datos se llenaron correctamente";
+            }
+            catch(SQLiteConstraintException e){
+                mensaje = "Error al insertar registros a la Base de Datos";
+            }
+            finally {
+                publishProgress(mensaje);
+            }
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(String... mensajes) {
+            String mensaje = mensajes[0];
+            Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            bar.setVisibility(View.GONE);
+            listaOpciones.setEnabled(true);
+        }
     }
 }
