@@ -9,15 +9,15 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Marca {
     @NonNull
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @ColumnInfo(name = "marca_id")
-    public int idMarca;
+    public String idMarca;
 
     @NonNull
     @ColumnInfo(name = "marca_nombre")
     public String nomMarca;
 
-    public Marca(int id, String nom){
+    public Marca(String id, String nom){
         this.idMarca=id;
         this.nomMarca=nom;
     }

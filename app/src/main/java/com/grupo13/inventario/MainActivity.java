@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
             "DetalleAutor",
             "ParticipacionDocente",
             "Documento",
+            "Equipo Informatico",
             "Motivo",
             "Sustituciones",
             "Llenar Base de Datos(sirve pero solo llena datos mios xd)"
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             "DetalleAutorMenuActivity",
             "ParticipacionDocenteMenuActivity",
             "DocumentoMenuActivity",
+            "EquipoInformaticoMenuActivity"
             "MotivoMenuActivity",
             "SustitucionesMenuActivity"
     };

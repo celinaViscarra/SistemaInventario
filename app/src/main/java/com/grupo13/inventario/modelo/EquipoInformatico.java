@@ -9,6 +9,7 @@ import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+
 import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(foreignKeys = {
@@ -56,11 +57,11 @@ public class EquipoInformatico {
     @NonNull
     public int ubicacion_id;
     @NonNull
-    public int catalogo_id;
+    public String catalogo_id;
 
     public EquipoInformatico(){}
 
-    public EquipoInformatico(int idEquipo, @NonNull String codEquipo, @NonNull Date fechaAdquisicion, @NonNull String estadoEquipo, int tipo_producto_id, int ubicacion_id, int catalogo_id) {
+    public EquipoInformatico(int idEquipo, @NonNull String codEquipo, @NonNull Date fechaAdquisicion, @NonNull String estadoEquipo, int tipo_producto_id, int ubicacion_id, String catalogo_id) {
         this.idEquipo = idEquipo;
         this.codEquipo = codEquipo;
         this.fechaAdquisicion = fechaAdquisicion;
