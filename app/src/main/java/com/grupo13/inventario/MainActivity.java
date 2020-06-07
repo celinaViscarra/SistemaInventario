@@ -16,16 +16,20 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     String[] menu = {
+            "Autor",
             "DetalleAutor",
             "ParticipacionDocente",
             "Documento",
+            "Motivo",
             "Llenar Base de Datos(sirve pero solo llena datos mios xd)"
     };
 
     String[] activities={
+            "AutorMenuActivity",
             "DetalleAutorMenuActivity",
             "ParticipacionDocenteMenuActivity",
-            "DocumentoMenuActivity"
+            "DocumentoMenuActivity",
+            "MotivoMenuActivity"
     };
 
     //Se puede usar este para no usar findViewByID

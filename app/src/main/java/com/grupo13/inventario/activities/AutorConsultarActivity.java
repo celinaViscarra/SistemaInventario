@@ -9,40 +9,43 @@ import android.widget.Toast;
 
 import com.grupo13.inventario.ControlBD;
 import com.grupo13.inventario.R;
-import com.grupo13.inventario.modelo.Motivo;
+import com.grupo13.inventario.modelo.Autor;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MotivoConsultarActivity extends AppCompatActivity {
+public class AutorConsultarActivity extends AppCompatActivity {
     ControlBD helper;
-    @BindView(R.id.edtIdMotivo)
-    EditText edtIdMotivo;
-    @BindView(R.id.edtNombreMotivo)
-    EditText edtNombreMotivo;
+
+    @BindView(R.id.txt_autor_id)
+    EditText txtIdAutor;
+    @BindView(R.id.txt_autor_nombre_c)
+    EditText txtNombre;
+    @BindView(R.id.txt_autor_apellido_c)
+    EditText txtApellido;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_motivo_consultar);
+        setContentView(R.layout.activity_autor_consultar);
         helper = ControlBD.getInstance(this);
         ButterKnife.bind(this);
     }
-    public void consultarMotivo(View v){
+    public void consultarAutor(View v){
 
         String mensaje = "";
         try {
-            Motivo consulta;
-            int motivo_id = Integer.parseInt(edtIdMotivo.getText().toString());
-
-            consulta = helper.motivoDao().consultarMotivo(motivo_id);
-            if(consulta == null){
-                mensaje = "No se encontraron datos";
-                edtNombreMotivo.setText("");
+            Autor autor;
+            int idAutor = Integer.parseInt(txtIdAutor.getText().toString());
+            autor = helper.autorDao().consultarAutor(idAutor);
+            if(autor == null){
+                mensaje = "No hay autores con ese ID";
             }
             else{
                 mensaje = "Se encontro el registro, mostrando datos...";
-
-                edtNombreMotivo.setText(consulta.nomMotivo);
+                txtNombre.setText(autor.nomAutor);
+                txtApellido.setText(autor.apeAutor);
             }
         }
         catch (NumberFormatException e){
