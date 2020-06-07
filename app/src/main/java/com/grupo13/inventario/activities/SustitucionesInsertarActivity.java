@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.grupo13.inventario.R;
 
-public class TipoInsertarActualizarActivity extends AppCompatActivity {
+public class SustitucionesInsertarActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tipo_insertar_actualizar);
+        setContentView(R.layout.activity_sustituciones_insertar);
     }
 }

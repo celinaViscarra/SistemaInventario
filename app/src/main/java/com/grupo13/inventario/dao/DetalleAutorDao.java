@@ -26,4 +26,7 @@ public interface DetalleAutorDao {
 
     @Delete
     int eliminarDetalleAutor(DetalleAutor detalleAutor);
+
+    @Query("DELETE FROM DetalleAutor")
+    void limpiarTabla();
 }

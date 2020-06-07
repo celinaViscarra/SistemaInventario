@@ -26,4 +26,7 @@ public interface HorariosDao {
 
     @Delete
     int eliminarHorario(Horarios horario);
+
+    @Query("DELETE FROM Horarios")
+    void limpiarTabla();
 }

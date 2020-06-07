@@ -25,4 +25,7 @@ public interface MarcaDao {
 
     @Delete
     int eliminarMarca(Marca marca);
+
+    @Query("DELETE FROM Marca")
+    void limpiarTabla();
 }

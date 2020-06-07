@@ -26,4 +26,7 @@ public interface SustitucionesDao {
 
     @Delete
     int eliminarSustituciones(Sustituciones sustituciones);
+
+    @Query("DELETE FROM Sustituciones")
+    void limpiarTabla();
 }

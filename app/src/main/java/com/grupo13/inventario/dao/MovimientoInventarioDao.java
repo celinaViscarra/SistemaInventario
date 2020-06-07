@@ -26,4 +26,7 @@ public interface MovimientoInventarioDao {
 
     @Delete
     int eliminarMovimientoInventario(MovimientoInventario movimientoInventario);
+
+    @Query("DELETE FROM MovimientoInventario")
+    void limpiarTabla();
 }

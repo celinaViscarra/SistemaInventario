@@ -27,4 +27,7 @@ public interface AutorDao {
 
     @Delete
     int eliminarAutor(Autor autor);
+
+    @Query("DELETE FROM Autor")
+    void limpiarTabla();
 }

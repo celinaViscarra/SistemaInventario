@@ -26,4 +26,7 @@ public interface CatalogoEquipoDao {
 
     @Delete
     int eliminarCatalogoEquipo(CatalogoEquipo catalogoEquipo);
+
+    @Query("DELETE FROM CatalogoEquipo")
+    void limpiarTabla();
 }

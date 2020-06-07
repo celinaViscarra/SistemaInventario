@@ -26,4 +26,7 @@ public interface ParticipacionDocenteDao {
 
     @Delete
     int eliminarParticipacionDocente(ParticipacionDocente participacionDocente);
+
+    @Query("DELETE FROM ParticipacionDocente")
+    void limpiarTabla();
 }

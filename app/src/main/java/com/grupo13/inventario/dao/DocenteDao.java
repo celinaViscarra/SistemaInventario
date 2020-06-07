@@ -26,4 +26,7 @@ public interface DocenteDao {
 
     @Delete
     int eliminarDocente(Docente docente);
+
+    @Query("DELETE FROM Docente")
+    void limpiarTabla();
 }
