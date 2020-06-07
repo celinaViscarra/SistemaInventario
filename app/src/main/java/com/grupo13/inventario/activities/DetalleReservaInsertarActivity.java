@@ -44,27 +44,75 @@ public class  DetalleReservaInsertarActivity extends AppCompatActivity {
         llenarSpinners();
     }
     public void insertarDetalleReserva(View v){
-        DetalleReserva detalleReserva = new DetalleReserva();
 
-        detalleReserva.diaCod = horarios.get(spHorario.getSelectedItemPosition()).diaCod;
-        detalleReserva.idHora = horarios.get(spHorario.getSelectedItemPosition()).idHora;
-        detalleReserva.idPrestamos = movimientos.get(spMovimiento.getSelectedItemPosition()).idPresatamo;
-        String mensaje = "";
-        try{
-            long posicion = helper.detalleReservaDao().insertarDetalleReserva(detalleReserva);
-            if(posicion == 0 || posicion == -1){
-                mensaje = "Error al tratar de registrar el Detalle de reserva";
-            } else{
-                mensaje = String.format("Registrado correctamente en la posicion: %d", posicion);
+        int horarioSeleccionado = spHorario.getSelectedItemPosition();
+        int movimientoSeleccionado = spMovimiento.getSelectedItemPosition();
+
+        String diaCod = horarios.get(horarioSeleccionado).diaCod;
+        int idHora = horarios.get(horarioSeleccionado).idHora;
+        int idPrestamo = movimientos.get(movimientoSeleccionado).idPresatamo;
+
+        // VALIDAD QUE NO ESTE YA RESERVADO
+        if (verificarReserva(movimientoSeleccionado, horarioSeleccionado)) {
+            DetalleReserva detalleReserva = new DetalleReserva();
+            detalleReserva.diaCod = diaCod;
+            detalleReserva.idHora = idHora;
+            detalleReserva.idPrestamos = idPrestamo;
+
+            String mensaje = "";
+            try{
+                long posicion = helper.detalleReservaDao().insertarDetalleReserva(detalleReserva);
+                if(posicion == 0 || posicion == -1){
+                    mensaje = "Error al tratar de registrar el Detalle de reserva";
+                } else{
+                    mensaje = String.format("Registrado correctamente en la posicion: %d", posicion);
+                }
             }
-        }
-        catch (SQLiteConstraintException e){
-            mensaje = "Error al tratar de registrar el detalle de reserva";
-        }
-        finally {
-            Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
+            catch (SQLiteConstraintException e){
+                mensaje = "Error al tratar de registrar el detalle de reserva";
+            }
+            finally {
+                Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "No disponible, ya esta reservado a esa hora",Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public boolean verificarReserva(int movimiento, int horario) {
+        boolean disponible = true;
+
+        MovimientoInventario nuevoPrestamo = movimientos.get(movimiento); //Prestamo seleccionado
+        Horarios hora = horarios.get(horario);
+        List<DetalleReserva> detalles = helper.detalleReservaDao().obtenerDetallesReserva();
+
+        if (detalles != null && detalles.size() > 0) {
+            int equipoId = nuevoPrestamo.equipo_id;
+
+            for (MovimientoInventario mov: movimientos){
+                // Verificar solo para el equipo que se planea prestar
+                if (mov.equipo_id == equipoId) {
+                    int prestamoID = mov.idPresatamo;
+
+                    //Buscar en los detalles
+                    for (DetalleReserva detalle: detalles){
+                        if (detalle.idPrestamos == prestamoID) { // Los detalles del prestamo que se encontró
+                            if (detalle.idHora == hora.idHora && detalle.diaCod.equals(hora.diaCod)){ // Reservado mismo dia y hora
+                                //Verificar si es la misma fecha
+                                if (mov.prestamoFechaInicio.toString().equals(nuevoPrestamo.prestamoFechaInicio.toString())) {
+                                    disponible = false;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+        }
+        return disponible;
     }
 
     public void llenarSpinners(){
@@ -76,7 +124,7 @@ public class  DetalleReservaInsertarActivity extends AppCompatActivity {
         ArrayList<String> nombresHorarios = new ArrayList<>();
 
         for(MovimientoInventario pivote: movimientos){
-            nombresMovimientos.add("ID: " + pivote.equipo_id + " - " + pivote.descripcion);
+            nombresMovimientos.add("ID Equipo: " + pivote.equipo_id + " - " + pivote.descripcion);
         }
         for(Horarios pivote: horarios){
             HoraClase hora = helper.horaClaseDao().consultarHoraClase(pivote.idHora);
