@@ -38,9 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ControlBD helper;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("Inventario EISI FIA - Grupo 13");
+
+        helper = ControlBD.getInstance(getApplicationContext());
 
         //IMPORTANTE! Si usan Butterknife tienen que poner esta linea, de lo contrario no servira.
         ButterKnife.bind(this);
@@ -52,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position == menu.length-1){
-                    getApplicationContext().deleteDatabase("grupo13_proyecto1.db");
-                    ControlBD helper = ControlBD.getInstance(getApplicationContext());
+                    //getApplicationContext().deleteDatabase("grupo13_proyecto1.db");
                     String mensaje = "";
                     try{
                         helper.llenarBD();

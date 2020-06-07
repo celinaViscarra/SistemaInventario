@@ -10,6 +10,9 @@ import androidx.room.TypeConverters;
 import com.grupo13.inventario.modelo.*;
 import com.grupo13.inventario.dao.*;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 @Database(
         entities = {
                 Categorias.class,
@@ -56,7 +59,38 @@ public abstract class ControlBD extends RoomDatabase {
         }
         return instance;
     }
+
+    public void vaciarBD(){
+        Class controlBD = this.getClass();
+        //Obtenemos la lista de todos los metodos declarados en esta clase
+        Method[] metodos = controlBD.getDeclaredMethods();
+        for(Method metodo: metodos){
+            //Si el metodo contiene la palabra Dao
+            if(metodo.toString().contains("Dao")){
+                try {
+                    //Devolver el dao en una variable
+                    Object dao = metodo.invoke(this);
+                    //Obtener la clase del dao
+                    Class claseDao = dao.getClass();
+                    //Buscando el metodo limpiarTabla
+                    Method metodoLimpiarTabla = claseDao.getMethod("limpiarTabla",null);
+                    //Ejecutar el metodo limpiar tabla
+                    metodoLimpiarTabla.invoke(dao);
+
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     public void llenarBD(){
+        //Primero que nada, vaciamos la tabla.
+        vaciarBD();
         //Generando datos para probar mis clases xd
         Autor nuevo = new Autor();
         nuevo.nomAutor = "Josue";

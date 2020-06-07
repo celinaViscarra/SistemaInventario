@@ -29,6 +29,6 @@ public interface CategoriasDao {
     @Delete
     int eliminarCategorias(Categorias categorias);
 
-    @Query("DELETE FROM Ccategorias")
+    @Query("DELETE FROM Categorias")
     void limpiarTabla();
 }
