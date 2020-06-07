@@ -34,7 +34,7 @@ public class UbicacionesConsultarActivity extends AppCompatActivity {
         try {
             Ubicaciones ubiConsulta;
             int ubicacion_id = Integer.parseInt(edtUbicacionID.getText().toString());
-            ubiConsulta = helper.ubicacionesDao().consultarUbicaciones(ubiConsulta);
+            ubiConsulta = helper.ubicacionesDao().consultarUbicaciones(ubicacion_id);
             if (ubiConsulta == null){
                 mensaje = "No se encontraron datos";
             }
