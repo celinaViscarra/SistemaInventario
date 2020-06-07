@@ -27,4 +27,7 @@ public interface UbicacionesDao {
     @Delete
     int eliminarUbicaciones(Ubicaciones ubicaciones);
 
+    @Query("DELETE FROM Ubicaciones")
+    void limpiarTabla();
+
 }

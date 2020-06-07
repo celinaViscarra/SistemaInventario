@@ -25,4 +25,7 @@ public interface OpcionCrudDao {
 
     @Delete
     int eliminarOpcionCrud(OpcionCrud opcionCrud);
+
+    @Query("DELETE FROM OpcionCrud")
+    void limpiarTabla();
 }

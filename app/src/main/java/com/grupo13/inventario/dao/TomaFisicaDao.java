@@ -26,4 +26,7 @@ public interface TomaFisicaDao {
 
     @Delete
     int eliminarTomaFisica(TomaFisica tomaFisica);
+
+    @Query("DELETE FROM TomaFisica")
+    void limpiarTabla();
 }

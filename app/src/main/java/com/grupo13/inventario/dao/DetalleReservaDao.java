@@ -26,4 +26,7 @@ public interface DetalleReservaDao {
 
     @Delete
     int eliminarDetalleReserva(DetalleReserva detalleReserva);
+
+    @Query("DELETE FROM DetalleReserva")
+    void limpiarTabla();
 }

@@ -25,4 +25,7 @@ public interface DetalleDescargosDao {
 
     @Delete
     int eliminarDetalleDescargos(DetalleDescargos detalleDescargos);
+
+    @Query("DELETE FROM DetalleDescargos")
+    void limpiarTabla();
 }

@@ -26,4 +26,7 @@ public interface TipoProductoDao {
 
     @Delete
     int eliminarTipoProducto(TipoProducto tipoProducto);
+
+    @Query("DELETE FROM TipoProducto")
+    void limpiarTabla();
 }

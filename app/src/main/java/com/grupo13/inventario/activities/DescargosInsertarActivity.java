@@ -1,16 +1,17 @@
 package com.grupo13.inventario.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.grupo13.inventario.ControlBD;
 import com.grupo13.inventario.R;
 import com.grupo13.inventario.modelo.Descargos;
 
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.format.DateTimeFormatter;
+import org.threeten.bp.format.DateTimeParseException;
 import java.sql.Date;
 
 public class DescargosInsertarActivity extends AppCompatActivity {
@@ -28,24 +29,30 @@ public class DescargosInsertarActivity extends AppCompatActivity {
         helper = ControlBD.getInstance(this);
     }
 
-    public void insertarDescargos(View v){
+    public void insertarDescargos(View v) {
         String mensaje = "";
-        int idOrige = Integer.parseInt(idOrigen.getText().toString());
-        int idDest = Integer.parseInt(idDestino.getText().toString());
-        Date descargoF = Date.valueOf(descargoFecha.getText().toString());
-
-        Descargos nuevo = new Descargos();
-        nuevo.ubicacion_origen_id = idOrige;
-        nuevo.ubicacion_destino_id = idDest;
-        nuevo.fechaDescargos = descargoF;
         try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd—mm—yyyy");
+            LocalDate fecha = LocalDate.parse(descargoFecha.getText().toString(), formatter);
+            Date descargoF = Date.valueOf(fecha.toString());
+            int idOrige = Integer.parseInt(idOrigen.getText().toString());
+            int idDest = Integer.parseInt(idDestino.getText().toString());
+
+
+            Descargos nuevo = new Descargos();
+            nuevo.ubicacion_origen_id = idOrige;
+            nuevo.ubicacion_destino_id = idDest;
+            nuevo.fechaDescargos = descargoF;
+
             long posicion = helper.descargosDao().insertarDescargos(nuevo);
-            if(posicion == 0 || posicion == -1){
+            if (posicion == 0 || posicion == -1) {
                 mensaje = "ERROR AL INSERTAR DESCARGO";
-            }else{
+            } else {
                 mensaje = String.format("Descargo insertado en la posicion %d", posicion);
             }
-        } catch (Exception e) {
+        }catch(DateTimeParseException e){
+            mensaje = "El formato correcto para insertar fecha es: dd—mm—yyyy";
+        }catch (Exception e) {
             mensaje = "ERROR AL INSERTAR DESCARGO";
         }
         Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();

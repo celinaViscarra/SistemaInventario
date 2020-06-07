@@ -25,4 +25,7 @@ public interface IdiomasDao {
 
     @Delete
     int eliminarIdioma(Idiomas idioma);
+
+    @Query("DELETE FROM Idiomas")
+    void limpiarTabla();
 }
