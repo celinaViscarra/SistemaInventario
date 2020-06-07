@@ -5,13 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.grupo13.inventario.ControlBD;
 import com.grupo13.inventario.R;
+import com.grupo13.inventario.modelo.Autor;
 import com.grupo13.inventario.modelo.DetalleAutor;
+import com.grupo13.inventario.modelo.Documento;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,11 +27,15 @@ public class DetalleAutorActualizarActivity extends AppCompatActivity {
     ControlBD helper;
     //Usando butterknife no es necesario hacer findViewById
     @BindView(R.id.edtEscritoID)
-    EditText edtEscritoID;
+    Spinner edtEscritoID;
     @BindView(R.id.edtAutorID)
-    EditText edtAutorID;
+    Spinner edtAutorID;
     @BindView(R.id.edtEsPrincipal)
-    CheckBox edtEspPrincipal;
+    CheckBox edtEsPrincipal;
+
+    List<Documento> documentos;
+    List<Autor> autores;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,32 +43,59 @@ public class DetalleAutorActualizarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_autor_actualizar);
         helper = ControlBD.getInstance(this);
         ButterKnife.bind(this);
+        llenarSpinners();
     }
 
     public void actualizarDetalleAutor(View v){
         String mensaje = "";
         try {
             DetalleAutor detalleAutor = new DetalleAutor();
-            detalleAutor.escrito_id = Integer.parseInt(edtEscritoID.getText().toString());
-            detalleAutor.idAutor = Integer.parseInt(edtAutorID.getText().toString());
-            detalleAutor.esPrincipal = edtEspPrincipal.isChecked();
+            int posDoc = edtEscritoID.getSelectedItemPosition();
+            int posAutor = edtAutorID.getSelectedItemPosition();
+            if(posAutor > 0 && posDoc > 0){
+                detalleAutor.idAutor = autores.get(posAutor - 1).idAutor;
+                detalleAutor.escrito_id = documentos.get(posDoc - 1).idEscrito;
+                detalleAutor.esPrincipal = edtEsPrincipal.isChecked();
 
-            int filasAfectadas = helper.detalleAutorDao().actualizarDetalleAutor(detalleAutor);
-            if(filasAfectadas<=0){
-                mensaje = "Error al tratar de actualizar el registro.";
+                int filasAfectadas = helper.detalleAutorDao().actualizarDetalleAutor(detalleAutor);
+                if(filasAfectadas<=0){
+                    mensaje = "Error al tratar de actualizar el registro.";
+                }
+                else{
+                    mensaje = String.format("Filas afectadas: %d",filasAfectadas);
+                }
             }
             else{
-                mensaje = String.format("Filas afectadas: %d",filasAfectadas);
+                mensaje = "Por favor, seleccione una opcion valida.";
             }
         }catch (SQLiteConstraintException e){
             mensaje = "Error al tratar de actualizar el registro.";
-        }
-        catch (NumberFormatException e){
-            mensaje = "Error en la entrada de datos, revisa por favor los datos ingresados.";
         }
         finally{
             Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void llenarSpinners(){
+        documentos = helper.documentoDao().obtenerDocumentos();
+        autores = helper.autorDao().obtenerAutores();
+
+        ArrayList<String> nombreDocumentos = new ArrayList<>();
+        ArrayList<String> nombreAutores = new ArrayList<>();
+        nombreDocumentos.add("**Seleccione un documento**");
+        nombreAutores.add("**Seleccione un autor**");
+        for(Documento documento: documentos){
+            nombreDocumentos.add(documento.titulo);
+        }
+        for(Autor autor: autores){
+            nombreAutores.add(String.format("%s %s",autor.nomAutor,autor.apeAutor));
+        }
+
+        ArrayAdapter<String> docAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, nombreDocumentos);
+        ArrayAdapter<String> autorAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, nombreAutores);
+
+        edtEscritoID.setAdapter(docAdapter);
+        edtAutorID.setAdapter(autorAdapter);
     }
 }
