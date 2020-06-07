@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
             "ParticipacionDocente",
             "Documento",
             "Motivo",
+            "Sustituciones",
             "Llenar Base de Datos(sirve pero solo llena datos mios xd)"
     };
 
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
             "DetalleAutorMenuActivity",
             "ParticipacionDocenteMenuActivity",
             "DocumentoMenuActivity",
-            "MotivoMenuActivity"
+            "MotivoMenuActivity",
+            "SustitucionesMenuActivity"
     };
 
     //Se puede usar este para no usar findViewByID
