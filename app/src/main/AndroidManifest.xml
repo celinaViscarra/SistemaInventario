@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.TipoProductoActualizarActivity"></activity>
+        <activity android:name=".activities.UbicacionesActualizarActivity"></activity>
+        <activity android:name=".activities.UbicacionesConsultarActivity" />
+        <activity android:name=".activities.UbicacionesEliminarActivity" />
+        <activity android:name=".activities.UbicacionesInsertarActivity" />
+        <activity android:name=".activities.UbicacionesMenuActivity" />
+        <activity android:name=".activities.TipoProductoActualizarActivity" />
         <activity android:name=".activities.TipoProductoConsultarActivity" />
         <activity android:name=".activities.TipoProductoEliminarActivity" />
         <activity android:name=".activities.TipoProductoInsertarActivity" />
