@@ -26,4 +26,7 @@ public interface DiasDao {
 
     @Delete
     int eliminarDia(Dias dia);
+
+    @Query("DELETE FROM Dias")
+    void limpiarTabla();
 }
