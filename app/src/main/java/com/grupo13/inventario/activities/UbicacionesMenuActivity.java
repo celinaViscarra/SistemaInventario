@@ -11,24 +11,24 @@ import android.widget.ListView;
 
 import com.grupo13.inventario.R;
 
-public class TipoProductoMenu extends ListActivity {
+public class UbicacionesMenuActivity extends ListActivity {
     String[] menu = {
-            "Insertar TipoProducto",
-            "Consultar TipoProducto",
-            "Actualizar TipoProducto",
-            "Eliminar TipoProducto"
+            "Insertar Ubicacion",
+            "Consultar Ubicacion",
+            "Actualizar Ubicacion",
+            "Eliminar Ubicacion"
     };
-    String[] activities = {
-            "TipoProductoInsertarActivity",
-            "TipoProductoConsultarActivity",
-            "TipoProductoActualizarActivity",
-            "TipoProductoEliminarActivity"
+    String [] activities = {
+            "UbicacionesInsertarActivity",
+            "UbicacionesConsultarActivity",
+            "UbicacionesActualizarActivity",
+            "UbicacionesEliminarActivity"
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_tipo_producto_menu);
-        setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menu));
+        //setContentView(R.layout.activity_ubicaciones_menu);
+        setListAdapter(new ArrayAdapter<String >(this,android.R.layout.simple_list_item_1,menu));
     }
 
     @Override
