@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
             "Equipo Informatico",
             "Motivo",
             "Sustituciones",
+            "Detalle Reserva Equipo",
             "Llenar Base de Datos(sirve pero solo llena datos mios xd)"
     };
 
@@ -33,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
             "DocumentoMenuActivity",
             "EquipoInformaticoMenuActivity",
             "MotivoMenuActivity",
-            "SustitucionesMenuActivity"
+            "SustitucionesMenuActivity",
+            "DetalleReservaMenuActivity",
     };
 
     //Se puede usar este para no usar findViewByID
