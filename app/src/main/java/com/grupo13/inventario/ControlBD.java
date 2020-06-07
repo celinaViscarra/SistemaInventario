@@ -45,7 +45,7 @@ import java.lang.reflect.Method;
                 Usuario.class
         },
         exportSchema = false,
-        version = 1
+        version = 2
 )
 @TypeConverters({Conversor.class})
 public abstract class ControlBD extends RoomDatabase {
