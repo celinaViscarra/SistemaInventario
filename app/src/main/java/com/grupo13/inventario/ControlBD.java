@@ -128,20 +128,24 @@ public abstract class ControlBD extends RoomDatabase {
         spa.nombreIdioma = "Español";
         long idSpa = idiomasDao().insertarIdioma(spa);
 
+        Idiomas eng = new Idiomas();
+        eng.nombreIdioma = "Inglés";
+        long idEng = idiomasDao().insertarIdioma(eng);
+
         Documento doc = new Documento();
         doc.tipo_producto_id = (int) idTipoProducto;
         doc.idioma_id = (int) idSpa;
-        doc.isbn = "0000";
+        doc.isbn = "1337";
         doc.edicion = "1era";
-        doc.editorial = "Clasicos Aquisil";
-        doc.titulo = "Las aventuras de aquisi con la base de datos xd";
+        doc.editorial = "Una editorial seria";
+        doc.titulo = "Un titulo mas serio para el libro";
 
         Documento doc2 = new Documento();
         doc2.tipo_producto_id = (int) idTipoProducto;
-        doc2.idioma_id = (int) idSpa;
+        doc2.idioma_id = (int) idEng;
         doc2.isbn = "0001-1";
         doc2.edicion = "1era";
-        doc2.editorial = "Clasicos Aquisil";
+        doc2.editorial = "Otra editorial seria";
         doc2.titulo = "Algotro libro";
 
         documentoDao().insertarDocumento(doc);
