@@ -26,4 +26,7 @@ public interface UsuarioDao {
 
     @Delete
     int eliminarUsuario(Usuario usuario);
+
+    @Query("DELETE FROM Usuario")
+    void limpiarTabla();
 }

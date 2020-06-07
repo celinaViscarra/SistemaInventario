@@ -26,4 +26,7 @@ public interface MotivoDao {
 
     @Delete
     int eliminarMotivo(Motivo motivo);
+
+    @Query("DELETE FROM Motivo")
+    void limpiarTabla();
 }

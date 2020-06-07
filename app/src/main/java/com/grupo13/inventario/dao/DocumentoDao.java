@@ -27,4 +27,7 @@ public interface DocumentoDao {
 
     @Delete
     int eliminarDocumento(Documento documento);
+
+    @Query("DELETE FROM Documento")
+    void limpiarTabla();
 }

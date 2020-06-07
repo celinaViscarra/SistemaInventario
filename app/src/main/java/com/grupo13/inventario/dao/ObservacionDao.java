@@ -26,4 +26,7 @@ public interface ObservacionDao {
 
     @Delete
     int elminiarObservacion(Observacion observacion);
+
+    @Query("DELETE FROM Observacion")
+    void limpiarTabla();
 }

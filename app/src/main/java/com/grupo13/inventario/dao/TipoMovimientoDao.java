@@ -26,4 +26,7 @@ public interface TipoMovimientoDao {
 
     @Delete
     int eliminarTipoMovimiento(TipoMovimiento tipoMovimiento);
+
+    @Query("DELETE FROM TipoMovimiento")
+    void limpiarTabla();
 }
