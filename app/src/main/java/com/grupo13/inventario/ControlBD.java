@@ -10,6 +10,9 @@ import androidx.room.TypeConverters;
 import com.grupo13.inventario.modelo.*;
 import com.grupo13.inventario.dao.*;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 @Database(
         entities = {
                 Categorias.class,
@@ -56,7 +59,38 @@ public abstract class ControlBD extends RoomDatabase {
         }
         return instance;
     }
+
+    public void vaciarBD(){
+        Class controlBD = this.getClass();
+        //Obtenemos la lista de todos los metodos declarados en esta clase
+        Method[] metodos = controlBD.getDeclaredMethods();
+        for(Method metodo: metodos){
+            //Si el metodo contiene la palabra Dao
+            if(metodo.toString().contains("Dao")){
+                try {
+                    //Devolver el dao en una variable
+                    Object dao = metodo.invoke(this);
+                    //Obtener la clase del dao
+                    Class claseDao = dao.getClass();
+                    //Buscando el metodo limpiarTabla
+                    Method metodoLimpiarTabla = claseDao.getMethod("limpiarTabla",null);
+                    //Ejecutar el metodo limpiar tabla
+                    metodoLimpiarTabla.invoke(dao);
+
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     public void llenarBD(){
+        //Primero que nada, vaciamos la tabla.
+        vaciarBD();
         //Generando datos para probar mis clases xd
         Autor nuevo = new Autor();
         nuevo.nomAutor = "Josue";
@@ -94,20 +128,24 @@ public abstract class ControlBD extends RoomDatabase {
         spa.nombreIdioma = "Español";
         long idSpa = idiomasDao().insertarIdioma(spa);
 
+        Idiomas eng = new Idiomas();
+        eng.nombreIdioma = "Inglés";
+        long idEng = idiomasDao().insertarIdioma(eng);
+
         Documento doc = new Documento();
         doc.tipo_producto_id = (int) idTipoProducto;
         doc.idioma_id = (int) idSpa;
-        doc.isbn = "0000";
+        doc.isbn = "1337";
         doc.edicion = "1era";
-        doc.editorial = "Clasicos Aquisil";
-        doc.titulo = "Las aventuras de aquisi con la base de datos xd";
+        doc.editorial = "Una editorial seria";
+        doc.titulo = "Un titulo mas serio para el libro";
 
         Documento doc2 = new Documento();
         doc2.tipo_producto_id = (int) idTipoProducto;
-        doc2.idioma_id = (int) idSpa;
+        doc2.idioma_id = (int) idEng;
         doc2.isbn = "0001-1";
         doc2.edicion = "1era";
-        doc2.editorial = "Clasicos Aquisil";
+        doc2.editorial = "Otra editorial seria";
         doc2.titulo = "Algotro libro";
 
         documentoDao().insertarDocumento(doc);
