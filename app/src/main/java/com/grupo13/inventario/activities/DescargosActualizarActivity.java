@@ -54,10 +54,10 @@ public class DescargosActualizarActivity extends AppCompatActivity {
             int posDestino = idDestino.getSelectedItemPosition();
             if(posDescargo>0 && posOrigen>0 && posDestino>0) {
                 descargos.idDescargos = listaDescargos.get(posDescargo - 1).idDescargos;
-                descargos.ubicacion_origen_id = Integer.parseInt(listaOrigen.get(posOrigen - 1).nomUbicacion);
-                descargos.ubicacion_destino_id = Integer.parseInt(listaDestino.get(posDestino - 1).nomUbicacion);
+                descargos.ubicacion_origen_id = listaOrigen.get(posOrigen - 1).idUbicacion;
+                descargos.ubicacion_destino_id = listaDestino.get(posDestino - 1).idUbicacion;
 
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd—mm—yyyy");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 LocalDate fecha = LocalDate.parse(descargoFecha.getText().toString(), formatter);
                 descargos.fechaDescargos = Date.valueOf(fecha.toString());
 
