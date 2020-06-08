@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.DetalleReservaConsultarActivity"></activity>
+        <activity android:name=".activities.MovimientoInventarioActualizarActivity"></activity>
+        <activity android:name=".activities.MovimientoInventarioConsultarActivity" />
+        <activity android:name=".activities.MovimientoInventarioEliminarActivity" />
+        <activity android:name=".activities.MovimientoInventarioInsertarActivity" />
+        <activity android:name=".activities.MovimientoInventarioMenuActivity" />
+        <activity android:name=".activities.DetalleReservaConsultarActivity" />
         <activity android:name=".activities.DetalleReservaEliminarActivity" />
         <activity android:name=".activities.DetalleReservaActualizarActivity" />
         <activity android:name=".activities.DetalleReservaInsertarActivity" />

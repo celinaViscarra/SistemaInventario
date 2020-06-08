@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             "Detalle Reserva Equipo",
             "Descargos",
             "Detalle Descargos",
+            "Movimiento Inventario",
             "Llenar Base de Datos(sirve pero solo llena datos mios xd)"
     };
 
@@ -43,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
             "SustitucionesMenuActivity",
             "DetalleReservaMenuActivity",
             "DescargosMenuActivity",
-            "DetalleDescargosMenuActivity"
+            "DetalleDescargosMenuActivity",
+            "MovimientoInventarioMenuActivity"
     };
 
     //Se puede usar este para no usar findViewByID
