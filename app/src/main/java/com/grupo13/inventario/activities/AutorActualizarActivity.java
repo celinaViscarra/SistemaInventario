@@ -36,18 +36,27 @@ public class AutorActualizarActivity extends AppCompatActivity {
     public void actualizarAutorAutor(View v){
         String mensaje = "";
         try {
-            Autor autor = new Autor();
-            autor.idAutor = Integer.parseInt(txtId.getText().toString());
-            autor.nomAutor = txtNombre.getText().toString();
-            autor.apeAutor = txtApellido.getText().toString();
 
-            int filasAfectadas = helper.autorDao().actualizarAutor(autor);
-            if(filasAfectadas <= 0){
-                mensaje = "Error al tratar de actualizar el Autor. No existe";
+            int idAutor = Integer.parseInt(txtId.getText().toString());
+
+            Autor editar = helper.autorDao().consultarAutor(idAutor);
+
+            if (editar != null) {
+                String nombre = txtNombre.getText().toString();
+                String apellido = txtApellido.getText().toString();
+
+                if (!nombre.isEmpty()) editar.nomAutor = nombre;
+                if (!apellido.isEmpty()) editar.apeAutor = apellido;
+
+                int filasAfectadas = helper.autorDao().actualizarAutor(editar);
+                if(filasAfectadas <= 0){
+                    mensaje = "Error al tratar de actualizar el Autor. No existe";
+                }
+                else{
+                    mensaje = String.format("Filas afectadas: %d", filasAfectadas);
+                }
             }
-            else{
-                mensaje = String.format("Filas afectadas: %d", filasAfectadas);
-            }
+
         }catch (SQLiteConstraintException e){
             mensaje = "Error al tratar de actualizar el registro.";
         }
