@@ -42,14 +42,15 @@ public class DescargosInsertarActivity extends AppCompatActivity {
 
     public void insertarDescargos(View v) {
         String mensaje = "";
-        try {Descargos descargos = new Descargos();
+        try {
+            Descargos descargos = new Descargos();
             int posOrigen = idOrigen.getSelectedItemPosition();
             int posDestino = idDestino.getSelectedItemPosition();
             if(posOrigen>0 && posDestino>0) {
-                descargos.ubicacion_origen_id = Integer.parseInt(listaOrigen.get(posOrigen - 1).nomUbicacion);
-                descargos.ubicacion_destino_id = Integer.parseInt(listaDestino.get(posDestino - 1).nomUbicacion);
+                descargos.ubicacion_origen_id = listaOrigen.get(posOrigen - 1).idUbicacion;
+                descargos.ubicacion_destino_id = listaDestino.get(posDestino - 1).idUbicacion;
 
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd—mm—yyyy");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 LocalDate fecha = LocalDate.parse(descargoFecha.getText().toString(), formatter);
                 descargos.fechaDescargos = Date.valueOf(fecha.toString());
                 long posicion = helper.descargosDao().insertarDescargos(descargos);
