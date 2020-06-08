@@ -25,6 +25,15 @@
     <string name="equipo_eliminar">Eliminar Equipo</string>
     <string name="equipo_actualizar">Actualizar Equipo</string>
 
+    <!-- CRUD DETALLE RESERVA -->
+    <string name="reserva_movimiento">Movimiento</string>
+    <string name="reserva_horario">Horario</string>
+    <string name="reserva_horario_actualizar">Nuevo horario</string>
+    <string name="reserva_insertar">Agregar Reserva</string>
+    <string name="reserva_consultar">Consultar Reserva</string>
+    <string name="reserva_eliminar">Eliminar Reserva</string>
+    <string name="reserva_actualizar">Actualizar Reserva</string>
+
     <!-- DetalleDescargo -->
     <string name="insertarDetalleDescargo">Insertar DetalleDescargo</string>
     <string name="actualizarDetalleDescargo">Actualizar DetalleDescargo</string>

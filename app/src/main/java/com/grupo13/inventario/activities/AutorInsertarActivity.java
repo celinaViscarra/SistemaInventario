@@ -35,17 +35,25 @@ public class AutorInsertarActivity extends AppCompatActivity {
     public void insertarAutorAutor(View v){
         String mensaje = "";
         try {
-            Autor nuevoAutor = new Autor();
-            nuevoAutor.nomAutor = txtNombre.getText().toString();
-            nuevoAutor.apeAutor = txtApellido.getText().toString();
+            String nombre = txtNombre.getText().toString();
+            String apellido = txtApellido.getText().toString();
 
-            long idAutor = helper.autorDao().insertarAutor(nuevoAutor);
-            if(idAutor == 0 || idAutor == -1){
-                mensaje = "Error al tratar de ingresar el registro a la Base de Datos.";
+            if (!nombre.isEmpty() && !apellido.isEmpty()) {
+                Autor nuevoAutor = new Autor();
+                nuevoAutor.nomAutor = nombre;
+                nuevoAutor.apeAutor = apellido;
+
+                long idAutor = helper.autorDao().insertarAutor(nuevoAutor);
+                if(idAutor == 0 || idAutor == -1){
+                    mensaje = "Error al tratar de ingresar el registro a la Base de Datos.";
+                }
+                else{
+                    mensaje = String.format("Autor registrado con ID %d", idAutor);
+                }
+            }else {
+                mensaje = "Complete todos los campos";
             }
-            else{
-                mensaje = String.format("Autor registrado con ID %d", idAutor);
-            }
+
         }catch (SQLiteConstraintException e){
             mensaje = "Error al tratar de ingresar el registro a la Base de Datos.";
         }
