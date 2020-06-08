@@ -59,16 +59,11 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:layout_width="264dp"
+                android:layout_width="410dp"
                 android:layout_height="wrap_content"
                 android:onClick="eliminarDetalleDescargo"
                 android:text="@string/eliminarDetalleDescargo" />
 
-            <Button
-                android:layout_width="137dp"
-                android:layout_height="wrap_content"
-                android:onClick="limpiarTexto"
-                android:text="@string/limpiar" />
         </TableRow>
     </LinearLayout>
 
