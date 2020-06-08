@@ -68,6 +68,8 @@ public class DescargosActualizarActivity extends AppCompatActivity {
                 } else {
                     mensaje = String.format("Filas afectadas: %d", filasAfectadas);
                 }
+            }else{
+                mensaje = "Por favor, seleccione una opcion valida.";
             }
         }catch(DateTimeParseException e){
             mensaje = "El formato correcto para insertar fecha es: dd—mm—yyyy";
