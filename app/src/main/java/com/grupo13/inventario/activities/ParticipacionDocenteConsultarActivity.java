@@ -6,7 +6,9 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.grupo13.inventario.ControlBD;
@@ -28,12 +30,11 @@ public class ParticipacionDocenteConsultarActivity extends AppCompatActivity {
     Spinner edtEscritoID;
     @BindView(R.id.edtDocenteID)
     Spinner edtDocenteID;
-    @BindView(R.id.edtTipoParticipacionID)
-    Spinner edtTipoParticipacionID;
+    @BindView(R.id.txtTipoParticipacionID)
+    EditText txtTipoParticipacionID;
 
     List<Docente> docentes;
     List<Documento> documentos;
-    List<TipoParticipacion> tipoParticipaciones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,35 +44,41 @@ public class ParticipacionDocenteConsultarActivity extends AppCompatActivity {
         helper = ControlBD.getInstance(this);
         //Importante poner este metodo, de lo contrario nunca se llenaran los spinners.
         llenarSpinners();
+        txtTipoParticipacionID.setText("");
     }
 
+    public void limpiarTexto(View v){
+        edtDocenteID.setSelection(0);
+        edtEscritoID.setSelection(0);
+        txtTipoParticipacionID.setText("");
+    }
     public void consultarParticipacionDocente(View v){
+        String mensaje = "";
         //Para traerse los datos de los spinners
         //De esta forma, cualquier entrada de datos es valida, por lo cual ya no se necesita el
         //catch de NumberFormatException.
-        int idDocente = docentes.get(edtDocenteID.getSelectedItemPosition()).idDocente;
-        int idEscrito = documentos.get(edtEscritoID.getSelectedItemPosition()).idEscrito;
+        int posDocenteSelected = edtDocenteID.getSelectedItemPosition();
+        int posEscritoSelected = edtEscritoID.getSelectedItemPosition();
+        if(posDocenteSelected > 0 && posEscritoSelected > 0){
+            int idDocente = docentes.get(posDocenteSelected - 1).idDocente;
+            int idEscrito = documentos.get(posEscritoSelected - 1).idEscrito;
 
+            ParticipacionDocente participacionDocente = helper.participacionDocenteDao()
+                    .consultarParticipacionDocente(idEscrito,idDocente);
 
-        ParticipacionDocente participacionDocente = helper.participacionDocenteDao().consultarParticipacionDocente(idEscrito,idDocente);
-        String mensaje = "";
-        if(participacionDocente != null){
-            mensaje = "Se encontro el registro, mostrando datos...";
-            //Por si acaso, la forma que buscare el tipo de participacion lo hare recorriendo el
-            //arreglo.
-            //La diferencia es que la posicion en el arreglo puede ser una, y el ID del
-            //TipoParticipacion puede ser otra. De esta forma nos aseguramos hallar la posicion.
-            int posicion = -1;
-            for(TipoParticipacion pivote: tipoParticipaciones){
-                if(pivote.idParticipacion == participacionDocente.idParticipacion){
-                    posicion = tipoParticipaciones.indexOf(pivote) + 1;
-                }
+            if(participacionDocente != null){
+                mensaje = "Se encontro el registro, mostrando datos...";
+                TipoParticipacion tipoParticipacion = helper.tipoParticipacionDao()
+                        .consultarTipoParticipacion(participacionDocente.idParticipacion);
+
+                txtTipoParticipacionID.setText(tipoParticipacion.nomParticipacion);
+
+            }else{
+                mensaje = "No se encontraron datos";
             }
-            //Finalmente, seleccionamos la posicion en el spinner
-            edtTipoParticipacionID.setSelection(posicion);
-
-        }else{
-            mensaje = "No se encontraron datos";
+        }
+        else{
+            mensaje = "Por favor seleccione los campos para poder consultar.";
         }
         Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
 
@@ -81,22 +88,17 @@ public class ParticipacionDocenteConsultarActivity extends AppCompatActivity {
         //Primer paso, traerme la lista de docentes, documentos y tipoParticipaciones
         docentes = helper.docenteDao().obtenerDocentes();
         documentos = helper.documentoDao().obtenerDocumentos();
-        tipoParticipaciones = helper.tipoParticipacionDao().obtenerTipoParticipaciones();
 
         //Segundo paso, hacer los arraylist que ocupare en los spinner
         ArrayList<String> nombresDocentes = new ArrayList<>();
         ArrayList<String> nombresDocumentos = new ArrayList<>();
-        ArrayList<String> nombresTipoParticiones = new ArrayList<>();
-
+        nombresDocentes.add("** Ningun elemento seleccionado **");
+        nombresDocumentos.add("** Ningun elemento seleccionado **");
         for(Documento pivote: documentos){
             nombresDocumentos.add(pivote.titulo);
         }
         for(Docente pivote: docentes){
             nombresDocentes.add(pivote.nomDocente);
-        }
-        nombresTipoParticiones.add("NO SELECCIONADO");
-        for(TipoParticipacion pivote: tipoParticipaciones){
-            nombresTipoParticiones.add(pivote.nomParticipacion);
         }
 
         //Tercer paso, hacer los arrayadapters
@@ -108,19 +110,9 @@ public class ParticipacionDocenteConsultarActivity extends AppCompatActivity {
                 this,
                 android.R.layout.simple_spinner_dropdown_item,
                 nombresDocumentos);
-        ArrayAdapter tipoParticipacionArrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_spinner_dropdown_item,
-                nombresTipoParticiones);
 
         //Cuarto paso, poner los array adapters en los spinners correspondientes
         edtEscritoID.setAdapter(documentoArrayAdapter);
         edtDocenteID.setAdapter(docenteArrayAdapter);
-
-        //Importante, si se desea desactivar el spinner se tiene que hacer ANTES de ponerle
-        //el ArrayAdapter.
-        edtTipoParticipacionID.setEnabled(false);
-        edtTipoParticipacionID.setClickable(false);
-        edtTipoParticipacionID.setAdapter(tipoParticipacionArrayAdapter);
     }
 }

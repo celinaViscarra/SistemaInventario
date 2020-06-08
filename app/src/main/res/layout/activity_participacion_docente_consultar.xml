@@ -46,15 +46,28 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
-        <Spinner
-            android:id="@+id/edtTipoParticipacionID"
+        <EditText
+            android:enabled="false"
+            android:id="@+id/txtTipoParticipacionID"
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="wrap_content"/>
     </LinearLayout>
-    <Button
-        android:onClick="consultarParticipacionDocente"
-        android:text="Consultar ParticipacionDocente"
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+        <Button
+            android:onClick="consultarParticipacionDocente"
+            android:text="Consultar ParticipacionDocente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:text="Mucho texto.txt"
+            android:onClick="limpiarTexto"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 </LinearLayout>

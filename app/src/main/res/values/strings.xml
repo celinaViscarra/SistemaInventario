@@ -1,16 +1,5 @@
 <resources>
     <string name="app_name">Sistema Inventario</string>
-    <string name="idCatalogo">ID Catalogo</string>
-    <string name="idMarca">ID Marca</string>
-    <string name="modeloEquipo">Modelo Equipo Generico</string>
-    <string name="memoria">Memoria</string>
-    <string name="cantEquipo">Cantidad Equipo</string>
-    <string name="idDescargos">ID Descargos</string>
-    <string name="idOrigen">ID Ubicación Origen</string>
-    <string name="idDestino">ID Ubicación Destino</string>
-    <string name="descargoFecha">Fecha Descargo</string>
-    <string name="idEquipo">ID Equipo Informático</string>
-    <string name="Opciones">Opciones</string>
     <string name="limpiar">Limpiar</string>
 
 
@@ -45,22 +34,32 @@
     <string name="reserva_eliminar">Eliminar Reserva</string>
     <string name="reserva_actualizar">Actualizar Reserva</string>
 
-
+    <!-- DetalleDescargo -->
     <string name="insertarDetalleDescargo">Insertar DetalleDescargo</string>
     <string name="actualizarDetalleDescargo">Actualizar DetalleDescargo</string>
     <string name="consultarDetalleDescargo">Consultar DetalleDescargo</string>
     <string name="eliminarDetalleDescargo">Eliminar DetalleDescargo</string>
+    <string name="idEquipo">ID Equipo Informático</string>
 
+    <!-- Descargo -->
     <string name="insertarDescargo">Insertar Descargo</string>
     <string name="actualizarDescargo">Actualizar Descargo</string>
     <string name="consultarDescargo">Consultar Descargo</string>
     <string name="eliminarDescargo">Eliminar Descargo</string>
+    <string name="idDescargos">ID Descargos</string>
+    <string name="idOrigen">ID Ubicación Origen</string>
+    <string name="idDestino">ID Ubicación Destino</string>
+    <string name="descargoFecha">Fecha Descargo</string>
 
-
-    <string name="insertarCatalogoEquipo">Insertar Catalógo Equipo</string>
-    <string name="actualizarCatalogoEquipo">Actualizar Catalógo Equipo</string>
-    <string name="eliminarCatalogoEquipo">Eliminar Catalógo Equipo</string>
-    <string name="consultarCatalogoEquipo">Consultar Catalógo Equipo</string>
-
+    <!-- CatalogoEquipo -->
+    <string name="insertarCatalogoEquipo">Insertar Catálogo Equipo</string>
+    <string name="actualizarCatalogoEquipo">Actualizar Catálogo Equipo</string>
+    <string name="eliminarCatalogoEquipo">Eliminar Catálogo Equipo</string>
+    <string name="consultarCatalogoEquipo">Consultar Catálogo Equipo</string>
+    <string name="idCatalogo">ID Catálogo</string>
+    <string name="idMarca">ID Marca</string>
+    <string name="modeloEquipo">Modelo Equipo Generico</string>
+    <string name="memoria">Memoria</string>
+    <string name="cantEquipo">Cantidad Equipo</string>
 
 </resources>

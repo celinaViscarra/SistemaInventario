@@ -5,46 +5,62 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.grupo13.inventario.ControlBD;
 import com.grupo13.inventario.R;
 import com.grupo13.inventario.modelo.CatalogoEquipo;
+import com.grupo13.inventario.modelo.Marca;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CatalogoEquipoActualizarActivity extends AppCompatActivity {
     ControlBD helper;
-    EditText idCatalogo, idMarca, modelo, memoria, cantidad;
+    EditText  modelo, memoria, cantidad;
+    Spinner idMarca, idCatalogo;
+
+    List<CatalogoEquipo> catalogos;
+    List<Marca> marcas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogo_equipo_actualizar);
-        idCatalogo = (EditText) findViewById(R.id.editIdCatalogo);
-        idMarca = (EditText) findViewById(R.id.editIdMarca);
+        idCatalogo = (Spinner) findViewById(R.id.editIdCatalogo);
+        idMarca = (Spinner) findViewById(R.id.editIdMarca);
         modelo = (EditText) findViewById(R.id.editModeloEquipo);
         memoria = (EditText) findViewById(R.id.editMemoria);
         cantidad = (EditText) findViewById(R.id.editCantEquipo);
 
         helper = ControlBD.getInstance(this);
+        llenarSpiners();
     }
 
     public void actualizarCatalogoEquipo(View v){
         String mensaje = "";
         try{
+            int posCatalogo = idCatalogo.getSelectedItemPosition();
+            int posMarca = idMarca.getSelectedItemPosition();
             CatalogoEquipo catalogo = new CatalogoEquipo();
-            catalogo.idCatalogo = idCatalogo.getText().toString();
-            catalogo.idMarca = idMarca.getText().toString();
-            catalogo.modeloEquipo = modelo.getText().toString();
-            catalogo.memoria = Integer.parseInt(memoria.getText().toString());
-            catalogo.cantEquipo = Integer.parseInt(cantidad.getText().toString());
+            if(posCatalogo>0 && posMarca>0) {
+                catalogo.idCatalogo = catalogos.get(posCatalogo - 1).idCatalogo;
+                catalogo.idMarca = marcas.get(posMarca - 1).idMarca;
+                catalogo.modeloEquipo = modelo.getText().toString();
+                catalogo.memoria = Integer.parseInt(memoria.getText().toString());
+                catalogo.cantEquipo = Integer.parseInt(cantidad.getText().toString());
 
-            int filasAfectadas = helper.catalogoEquipoDao().actualizarCatalogoEquipo(catalogo);
-            if(filasAfectadas <= 0){
-                mensaje = "Error al tratar de actualizar el registro.";
-            }
-            else{
-                mensaje = String.format("Filas afectadas: %d",filasAfectadas);
+                int filasAfectadas = helper.catalogoEquipoDao().actualizarCatalogoEquipo(catalogo);
+                if (filasAfectadas <= 0) {
+                    mensaje = "Error al tratar de actualizar el registro.";
+                } else {
+                    mensaje = String.format("Filas afectadas: %d", filasAfectadas);
+                }
+            }else{
+                mensaje = "Por favor, seleccione una opcion valida.";
             }
         }catch(NumberFormatException e){
             mensaje = "Error en la entrada de datos, revisa por favor los datos ingresados.";
@@ -57,10 +73,34 @@ public class CatalogoEquipoActualizarActivity extends AppCompatActivity {
     }
 
     public void limpiarTexto(View v){
-        idCatalogo.setText("");
-        idMarca.setText("");
         modelo.setText("");
         memoria.setText("");
         cantidad.setText("");
+    }
+
+    public void llenarSpiners() {
+        catalogos = helper.catalogoEquipoDao().obtenerCatalogoEquipo();
+        marcas = helper.marcaDao().obtenerMarcas();
+
+        ArrayList<String> idCatalogos = new ArrayList<>();
+        ArrayList<String> idMarcas = new ArrayList<>();
+
+        idCatalogos.add("** Seleccione un Catalogo **");
+        idMarcas.add("** Seleccione una Marca **");
+
+        for (CatalogoEquipo catalogoEquipo : catalogos) {
+            idCatalogos.add(catalogoEquipo.idCatalogo);
+        }
+
+        for (Marca marca : marcas) {
+            idMarcas.add(marca.idMarca);
+        }
+
+        ArrayAdapter<String> catalogoAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, idCatalogos);
+        ArrayAdapter<String> marcaAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, idMarcas);
+
+        idCatalogo.setAdapter(catalogoAdapter);
+        idMarca.setAdapter(marcaAdapter);
+
     }
 }

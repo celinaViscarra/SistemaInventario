@@ -21,10 +21,10 @@
                 android:layout_weight="1"
                 android:text="@string/idCatalogo" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/editIdCatalogo"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_weight="2" />
         </TableRow>
     </LinearLayout>
@@ -42,14 +42,6 @@
                 android:layout_height="wrap_content"
                 android:onClick="eliminarCatalogoEquipo"
                 android:text="@string/eliminarCatalogoEquipo" />
-
         </TableRow>
     </LinearLayout>
-
-    <Button
-        android:layout_width="137dp"
-        android:layout_height="wrap_content"
-        android:onClick="limpiarTexto"
-        android:text="@string/limpiar" />
-
 </LinearLayout>
