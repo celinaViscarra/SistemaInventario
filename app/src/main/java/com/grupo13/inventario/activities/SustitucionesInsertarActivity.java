@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ import com.grupo13.inventario.modelo.TipoProducto;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 
@@ -32,12 +35,16 @@ public class SustitucionesInsertarActivity extends AppCompatActivity {
     })
     List<Spinner> spinners;
 
+    @BindView(R.id.btnSustitucionInsertar)
+    Button btnSustitucionInsertar;
+
     List<Motivo> motivos;
     List<EquipoInformatico> equipoInformaticosObs;
     List<EquipoInformatico> equipoInformaticosRees;
     List<Docente> docentes;
 
     ControlBD helper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,28 +56,34 @@ public class SustitucionesInsertarActivity extends AppCompatActivity {
 
     public void insertarSustitucion(View v){
         String mensaje = "";
-        try{
-            Sustituciones sus = new Sustituciones();
-            sus.idMotivo = motivos.get(spinners.get(0).getSelectedItemPosition()).idMotivo;
-            sus.idEquipoObsoleto = equipoInformaticosObs.get(spinners.get(1).getSelectedItemPosition()).idEquipo;
-            sus.idEquipoReemplazo = equipoInformaticosRees.get(spinners.get(2).getSelectedItemPosition()).idEquipo;
-            sus.idDocentes = docentes.get(spinners.get(3).getSelectedItemPosition()).idDocente;
+        if(spinners.get(0).getSelectedItem()==null||spinners.get(1).getSelectedItem()==null||spinners.get(2).getSelectedItem()==null||spinners.get(3).getSelectedItem()==null){
+            Toast.makeText(this, "Complete los campos obligarotios", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            try{
+                Sustituciones sus = new Sustituciones();
+                sus.idMotivo = motivos.get(spinners.get(0).getSelectedItemPosition()).idMotivo;
+                sus.idEquipoObsoleto = equipoInformaticosObs.get(spinners.get(1).getSelectedItemPosition()).idEquipo;
+                sus.idEquipoReemplazo = equipoInformaticosRees.get(spinners.get(2).getSelectedItemPosition()).idEquipo;
+                sus.idDocentes = docentes.get(spinners.get(3).getSelectedItemPosition()).idDocente;
 
-            long posicion = helper.sustitucionesDao().insertarSustituciones(sus);
-            if(posicion == 0 || posicion == -1){
+                long posicion = helper.sustitucionesDao().insertarSustituciones(sus);
+                if(posicion == 0 || posicion == -1){
+                    mensaje = "Error al tratar de ingresar el registro a la Base de Datos.";
+                }
+                else{
+
+                    mensaje = String.format("Registrado correctamente en la posicion: %d",posicion);
+                }
+
+            }catch (SQLiteConstraintException e){
                 mensaje = "Error al tratar de ingresar el registro a la Base de Datos.";
             }
-            else{
-                
-                mensaje = String.format("Registrado correctamente en la posicion: %d",posicion);
+            finally {
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
             }
+        }
 
-        }catch (SQLiteConstraintException e){
-            mensaje = "Error al tratar de ingresar el registro a la Base de Datos.";
-        }
-        finally {
-            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
-        }
     }
 
     public void llenarSpinners(){
@@ -87,12 +100,15 @@ public class SustitucionesInsertarActivity extends AppCompatActivity {
         for(Motivo motivo: motivos){
             nomMotivos.add(motivo.nomMotivo);
         }
+
         for(EquipoInformatico equipoInformaticob: equipoInformaticosObs){
-            nomEquiposInfoObs.add(equipoInformaticob.estadoEquipo);
+            nomEquiposInfoObs.add("ID: "+equipoInformaticob.codEquipo+" Estado: "+equipoInformaticob.estadoEquipo);
         }
+
         for(EquipoInformatico equipoInformaticor: equipoInformaticosRees){
-            nomEquiposInfoRees.add(equipoInformaticor.estadoEquipo);
+            nomEquiposInfoRees.add("ID: "+equipoInformaticor.codEquipo+" Estado: "+equipoInformaticor.estadoEquipo);
         }
+        nomEquiposInfoRees.add(null);
         for(Docente docente: docentes){
             nomDocentes.add(docente.nomDocente);
         }
