@@ -71,4 +71,12 @@
     <string name="nomTipoProducto">Nombre TipoProducto</string>
     <string name="categoria_id">ID Categoria</string>
 
+    <!-- Ubicaciones -->
+    <string name="insertarUbicaciones">Insertar Ubicacion</string>
+    <string name="actualizarUbicaciones">Actualizar Ubicacion</string>
+    <string name="eliminarUbicaciones">Eliminar Ubicacion</string>
+    <string name="consultarUbicaciones">Consultar Ubicacion</string>
+    <string name="idUbicacion">ID Ubicacion</string>
+    <string name="nomUbicacion">Nombre Ubicacion</string>
+
 </resources>
