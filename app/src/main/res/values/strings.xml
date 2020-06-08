@@ -62,4 +62,13 @@
     <string name="memoria">Memoria</string>
     <string name="cantEquipo">Cantidad Equipo</string>
 
+    <!-- TipoProducto -->
+    <string name="insertarTipoProducto">Insertar TipoProducto</string>
+    <string name="actualizarTipoProducto">Actualizar TipoProducto</string>
+    <string name="eliminarTipoProducto">Eliminar TipoProducto</string>
+    <string name="consultarTipoProducto">Consultar TipoProducto</string>
+    <string name="idTipoProducto">ID TipoProducto</string>
+    <string name="nomTipoProducto">Nombre TipoProducto</string>
+    <string name="categoria_id">ID Categoria</string>
+
 </resources>
