@@ -181,6 +181,9 @@ public abstract class ControlBD extends RoomDatabase {
         Ubicaciones u1 = new Ubicaciones();
         u1.nomUbicacion = "EISI";
         long idU = ubicacionesDao().insertarUbicaciones(u1);
+        Ubicaciones u2 = new Ubicaciones();
+        u2.nomUbicacion = "EII";
+        long idU2 = ubicacionesDao().insertarUbicaciones(u1);
 
         Categorias cate = new Categorias();
         cate.nomCategoria = "Equipo informatico";
@@ -190,6 +193,13 @@ public abstract class ControlBD extends RoomDatabase {
         tp1.categoria_id = (int) idC;
         tp1.nomTipoProducto = "Computadora";
         long idTp = tipoProductoDao().insertarTipoProducto(tp1);
+
+        //Datos de Descargos
+        Descargos descargo = new Descargos();
+        descargo.ubicacion_destino_id = (int) idU2;
+        descargo.ubicacion_origen_id = (int) idU;
+        descargo.fechaDescargos = Date.valueOf("2020-07-07");
+        long idDescargo = descargosDao().insertarDescargos(descargo);
 
         // *****Datos para detalle de reserva de equipo ****
 
