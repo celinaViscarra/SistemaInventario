@@ -49,20 +49,25 @@ public class DescargosActualizarActivity extends AppCompatActivity {
         String mensaje = "";
         try {
             Descargos descargos = new Descargos();
-            descargos.idDescargos = listaDescargos.get(idDescargo.getSelectedItemPosition()).idDescargos;
-            descargos.ubicacion_origen_id = Integer.parseInt(listaOrigen.get(idOrigen.getSelectedItemPosition()).nomUbicacion);
-            descargos.ubicacion_destino_id = Integer.parseInt(listaDestino.get(idDestino.getSelectedItemPosition()).nomUbicacion);
+            int posDescargo = idDescargo.getSelectedItemPosition();
+            int posOrigen = idOrigen.getSelectedItemPosition();
+            int posDestino = idDestino.getSelectedItemPosition();
+            if(posDescargo>0 && posOrigen>0 && posDestino>0) {
+                descargos.idDescargos = listaDescargos.get(posDescargo - 1).idDescargos;
+                descargos.ubicacion_origen_id = Integer.parseInt(listaOrigen.get(posOrigen - 1).nomUbicacion);
+                descargos.ubicacion_destino_id = Integer.parseInt(listaDestino.get(posDestino - 1).nomUbicacion);
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd—mm—yyyy");
-            LocalDate fecha = LocalDate.parse(descargoFecha.getText().toString(), formatter);
-            descargos.fechaDescargos = Date.valueOf(fecha.toString());
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd—mm—yyyy");
+                LocalDate fecha = LocalDate.parse(descargoFecha.getText().toString(), formatter);
+                descargos.fechaDescargos = Date.valueOf(fecha.toString());
 
-            int filasAfectadas = helper.descargosDao().actualizarDescargos(descargos);
+                int filasAfectadas = helper.descargosDao().actualizarDescargos(descargos);
 
-            if (filasAfectadas <= 0) {
-                mensaje = "Error al tratar de actualizar el registro.";
-            } else {
-                mensaje = String.format("Filas afectadas: %d", filasAfectadas);
+                if (filasAfectadas <= 0) {
+                    mensaje = "Error al tratar de actualizar el registro.";
+                } else {
+                    mensaje = String.format("Filas afectadas: %d", filasAfectadas);
+                }
             }
         }catch(DateTimeParseException e){
             mensaje = "El formato correcto para insertar fecha es: dd—mm—yyyy";
