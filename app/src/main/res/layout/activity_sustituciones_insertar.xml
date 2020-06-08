@@ -69,6 +69,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <Button
+        android:id="@+id/btnSustitucionInsertar"
         android:text="Agregar Sustitucion"
         android:onClick="insertarSustitucion"
         android:layout_width="match_parent"

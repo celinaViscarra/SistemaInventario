@@ -77,8 +77,8 @@ public class SustitucionesConsultarActivity extends AppCompatActivity {
 
 
                 nomMotivos.add(motivoconsulta.nomMotivo);
-                nomEquiposInfoObs.add(equipobsoletoconsulta.estadoEquipo);
-                nomEquiposInfoRees.add(equiporeesconsulta.estadoEquipo);
+                nomEquiposInfoObs.add("ID: "+equipobsoletoconsulta.codEquipo+" Estado: "+equipobsoletoconsulta.estadoEquipo);
+                nomEquiposInfoRees.add("ID: "+equiporeesconsulta.codEquipo+" Estado: "+equiporeesconsulta.estadoEquipo);
                 nomDocentes.add(docenteconsulta.nomDocente);
 
                 ArrayAdapter<String> adapterMotivo = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, nomMotivos);
