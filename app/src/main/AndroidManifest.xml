@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".activities.EquipoInformaticoActualizarActivity"></activity>
+        <activity android:name=".activities.DetalleReservaConsultarActivity"></activity>
+        <activity android:name=".activities.DetalleReservaEliminarActivity" />
+        <activity android:name=".activities.DetalleReservaActualizarActivity" />
+        <activity android:name=".activities.DetalleReservaInsertarActivity" />
+        <activity android:name=".activities.DetalleReservaMenuActivity" />
+        <activity android:name=".activities.EquipoInformaticoActualizarActivity" />
         <activity android:name=".activities.EquipoInformaticoEliminarActivity" />
         <activity android:name=".activities.EquipoInformaticoConsultarActivity" />
         <activity android:name=".activities.EquipoInformaticoInsertarActivity" />
@@ -22,7 +26,7 @@
         <activity android:name=".activities.AutorMenuActivity" />
         <activity android:name=".activities.TipoInsertarActualizarActivity" />
         <activity android:name=".activities.TipoInsertarConsultarActivity" />
-        <activity android:name=".activities.SustitucionesActualizarActivity"></activity>
+        <activity android:name=".activities.SustitucionesActualizarActivity" />
         <activity android:name=".activities.SustitucionesConsultarActivity" />
         <activity android:name=".activities.SustitucionesEliminarActivity" />
         <activity android:name=".activities.SustitucionesInsertarActivity" />
