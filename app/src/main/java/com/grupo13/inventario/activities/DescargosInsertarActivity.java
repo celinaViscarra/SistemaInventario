@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.grupo13.inventario.ControlBD;
 import com.grupo13.inventario.R;
+import com.grupo13.inventario.modelo.CatalogoEquipo;
 import com.grupo13.inventario.modelo.Descargos;
 
 import org.threeten.bp.LocalDate;
@@ -65,4 +66,5 @@ public class DescargosInsertarActivity extends AppCompatActivity {
         idDestino.setText("");
         descargoFecha.setText("");
     }
+
 }
