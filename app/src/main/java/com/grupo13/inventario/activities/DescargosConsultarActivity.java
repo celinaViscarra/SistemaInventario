@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.grupo13.inventario.ControlBD;
@@ -12,39 +14,52 @@ import com.grupo13.inventario.R;
 import com.grupo13.inventario.modelo.Descargos;
 import com.grupo13.inventario.modelo.Docente;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DescargosConsultarActivity extends AppCompatActivity {
     ControlBD helper;
-    EditText idDescargo, idOrigen, idDestino, descargoFecha;
+    EditText idOrigen, idDestino, descargoFecha;
+    Spinner idDescargo;
+
+    List<Descargos> des;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descargos_consultar);
-        idDescargo = (EditText) findViewById(R.id.editIdDescargos);
+        idDescargo = (Spinner) findViewById(R.id.editIdDescargos);
         idOrigen = (EditText) findViewById(R.id.editIdOrigen);
         idDestino = (EditText) findViewById(R.id.editIdDestino);
         descargoFecha = (EditText) findViewById(R.id.editIdDescargoFecha);
 
+
         helper = ControlBD.getInstance(this);
+        llenarSpiners();
     }
 
     public void consultarDescargos(View v){
         String mensaje = "";
         try{
-            int descargosId = Integer.parseInt(idDescargo.getText().toString());
-            Descargos descargos = helper.descargosDao().consultarDescargos(descargosId);
+            int posID = idDescargo.getSelectedItemPosition();
+            if(posID>0) {
+                int idDescargos = des.get(posID - 1).idDescargos;
+                Descargos descargos = helper.descargosDao().consultarDescargos(idDescargos);
 
-            if(descargos == null){
-                mensaje = "No se encontraron datos";
+                if (descargos == null) {
+                    mensaje = "No se encontraron datos";
+                } else {
+                    mensaje = "Se encontro el registro, mostrando datos...";
+                    idOrigen.setText(descargos.ubicacion_origen_id);
+                    idDestino.setText(descargos.ubicacion_destino_id);
+                    int dia, mes, anio;
+                    dia = descargos.fechaDescargos.getDay();
+                    mes = descargos.fechaDescargos.getMonth();
+                    anio = descargos.fechaDescargos.getYear();
+                    descargoFecha.setText(String.format("%d—%d—%d", dia, mes, anio));
+                }
             }else {
-                mensaje = "Se encontro el registro, mostrando datos...";
-                idOrigen.setText(descargos.ubicacion_origen_id);
-                idDestino.setText(descargos.ubicacion_destino_id);
-                int dia, mes, anio;
-                dia = descargos.fechaDescargos.getDay();
-                mes = descargos.fechaDescargos.getMonth();
-                anio = descargos.fechaDescargos.getYear();
-                descargoFecha.setText(String.format("%d—%d—%d", dia, mes, anio));
+                mensaje = "Por favor seleccione los campos para poder consultar.";
             }
         }catch(NumberFormatException e){
             mensaje = "Error en la entrada de datos, revisa por favor los datos ingresados.";
@@ -54,10 +69,26 @@ public class DescargosConsultarActivity extends AppCompatActivity {
     }
 
     public void limpiarTexto(View v){
-        idDescargo.setText("");
         idOrigen.setText("");
         idDestino.setText("");
         descargoFecha.setText("");
+    }
+
+
+    public void llenarSpiners() {
+        des = helper.descargosDao().obtenerDescargos();
+
+        ArrayList<String> idDescargos = new ArrayList<>();
+
+        idDescargos.add("** Seleccione un ID Descargos **");
+
+        for (Descargos descargo: des) {
+            idDescargos.add(String.valueOf(descargo.idDescargos));
+        }
+
+        ArrayAdapter<String> descargoAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, idDescargos);
+
+        idDescargo.setAdapter(descargoAdapter);
     }
 
 }

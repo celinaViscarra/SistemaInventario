@@ -38,8 +38,9 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:layout_width="264dp"
+                android:layout_width="432dp"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:onClick="eliminarCatalogoEquipo"
                 android:text="@string/eliminarCatalogoEquipo" />
         </TableRow>

@@ -3,6 +3,7 @@ package com.grupo13.inventario.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.grupo13.inventario.ControlBD;
@@ -13,6 +14,7 @@ import org.threeten.bp.LocalDate;
 import org.threeten.bp.format.DateTimeFormatter;
 import org.threeten.bp.format.DateTimeParseException;
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class DescargosInsertarActivity extends AppCompatActivity {
     ControlBD helper;

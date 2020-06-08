@@ -19,6 +19,7 @@
                 android:layout_width="0dp"
                 android:layout_height="42dp"
                 android:layout_weight="1"
+                android:layout_gravity="center"
                 android:text="@string/idDescargos" />
 
             <Spinner
@@ -35,24 +36,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
 
             <Button
-                android:layout_width="264dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:onClick="eliminarDescargos"
                 android:text="@string/eliminarDescargo" />
 
         </TableRow>
     </LinearLayout>
-
-    <Button
-        android:layout_width="137dp"
-        android:layout_height="wrap_content"
-        android:onClick="limpiarTexto"
-        android:text="@string/limpiar" />
 
 
 </LinearLayout>
