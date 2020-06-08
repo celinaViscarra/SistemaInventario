@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Tipo de Motivo : "
+            android:text="@string/tipo_de_motivo"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Equipo Obsoleto : "
+            android:text="@string/equipo_obsoleto"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Equipo de Reemplazo : "
+            android:text="@string/equipo_de_reemplazo"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -58,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Docente : "
+            android:text="@string/docente"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -70,7 +70,7 @@
     </LinearLayout>
     <Button
         android:id="@+id/btnSustitucionInsertar"
-        android:text="Agregar Sustitucion"
+        android:text="@string/btn_agregar_sustitucion"
         android:onClick="insertarSustitucion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="ID del motivo: "
+            android:text="@string/id_de_motivo"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <Button
-        android:text="Consultar Motivo"
+        android:text="@string/btn_consultar_motivo"
         android:onClick="consultarMotivo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Nombre del motivo: "
+            android:text="@string/Nombremotivo"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>

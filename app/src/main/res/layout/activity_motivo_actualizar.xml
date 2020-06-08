@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="ID del motivo: "
+            android:text="@string/id_de_motivo"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="33dp"
             android:layout_weight="1"
-            android:text="Nombre del motivo: " />
+            android:text="@string/Nombremotivo" />
         <EditText
             android:id="@+id/edtNombreConsultaMotivo"
             android:layout_width="0dp"
@@ -44,5 +44,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="actualizarMotivo"
-        android:text="Actualizar Motivo" />
+        android:text="@string/btn_actualizar_motivo" />
 </LinearLayout>

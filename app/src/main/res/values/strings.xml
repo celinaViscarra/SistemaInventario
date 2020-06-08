@@ -62,4 +62,25 @@
     <string name="memoria">Memoria</string>
     <string name="cantEquipo">Cantidad Equipo</string>
 
+    <!-- Motivo -->
+    <string name="btn_agregar_motivo">Agregar Motivo</string>
+    <string name="id_de_motivo">ID de Motivo:</string>
+    <string name="btn_eliminar_motivo">Eliminar Motivo</string>
+    <string name="Nombremotivo">Motivo:</string>
+    <string name="btn_consultar_motivo">Consultar Motivo</string>
+    <string name="btn_actualizar_motivo">Actualizar Motivo</string>
+
+
+    <!-- Sustitucion -->
+    <string name="tipo_de_motivo">Tipo de Motivo :</string>
+    <string name="equipo_obsoleto">Equipo Obsoleto :</string>
+    <string name="equipo_de_reemplazo">Equipo de Reemplazo :</string>
+    <string name="docente">Docente :</string>
+    <string name="btn_agregar_sustitucion">Agregar Sustitucion</string>
+    <string name="id_de_la_sustitucion">ID de la Sustitucion: :</string>
+    <string name="btn_eliminar_sustitucion">Eliminar Sustitucion</string>
+    <string name="btn_consultar_sustitucion">Consultar Sustitucion</string>
+    <string name="btn_actualizar_sustitucion">Actualizar Sustitucion</string>
+
+
 </resources>
