@@ -2,6 +2,7 @@ package com.grupo13.inventario.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -43,22 +44,36 @@ public class ParticipacionDocenteEliminarActivity extends AppCompatActivity {
     }
 
     public void eliminarParticipacionDocente(View v){
-        //Para traerse los datos de los spinners
-        //De esta forma, cualquier entrada de datos es valida, por lo cual ya no se necesita el
-        //catch de NumberFormatException.
-        ParticipacionDocente aEliminar = new ParticipacionDocente();
-        aEliminar.idDocentes = docentes.get(edtDocenteID.getSelectedItemPosition()).idDocente;
-        aEliminar.idEscritos = documentos.get(edtEscritoID.getSelectedItemPosition()).idEscrito;
-
         String mensaje = "";
-        int filasAfectadas = helper.participacionDocenteDao().eliminarParticipacionDocente(aEliminar);
-        if(filasAfectadas<=0){
-            mensaje = "Error al tratar de eliminar el registro.";
+        try{
+            //Para traerse los datos de los spinners
+            //De esta forma, cualquier entrada de datos es valida, por lo cual ya no se necesita el
+            //catch de NumberFormatException.
+            int posDocente = edtDocenteID.getSelectedItemPosition();
+            int posEscrito = edtEscritoID.getSelectedItemPosition();
+            if(posDocente > 0 && posEscrito > 0){
+                ParticipacionDocente aEliminar = new ParticipacionDocente();
+                aEliminar.idDocentes = docentes.get(posDocente - 1).idDocente;
+                aEliminar.idEscritos = documentos.get(posEscrito - 1).idEscrito;
+
+                int filasAfectadas = helper.participacionDocenteDao().eliminarParticipacionDocente(aEliminar);
+                if(filasAfectadas<=0){
+                    mensaje = "Error al tratar de eliminar el registro.";
+                }
+                else{
+                    mensaje = String.format("Filas afectadas: %d",filasAfectadas);
+                }
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+            }else{
+                mensaje = "Por favor, seleccione una opcion valida.";
+            }
         }
-        else{
-            mensaje = String.format("Filas afectadas: %d",filasAfectadas);
+        catch (SQLiteConstraintException e){
+            mensaje = "Error al tratar de actualizar el registro.";
         }
-        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+        finally {
+            Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -70,6 +85,8 @@ public class ParticipacionDocenteEliminarActivity extends AppCompatActivity {
         //Segundo paso, hacer los arraylist que ocupare en los spinner
         ArrayList<String> nombresDocentes = new ArrayList<>();
         ArrayList<String> nombresDocumentos = new ArrayList<>();
+        nombresDocentes.add("** Seleccione un docente **");
+        nombresDocumentos.add("** Seleccione un documento **");
 
         for(Documento pivote: documentos){
             nombresDocumentos.add(pivote.titulo);

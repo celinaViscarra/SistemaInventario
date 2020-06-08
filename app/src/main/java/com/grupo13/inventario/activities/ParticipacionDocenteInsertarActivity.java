@@ -45,20 +45,27 @@ public class  ParticipacionDocenteInsertarActivity extends AppCompatActivity {
         llenarSpinners();
     }
     public void insertarParticipacionDocente(View v){
-        ParticipacionDocente participacionDocente = new ParticipacionDocente();
-        //Para traerse los datos de los spinners
-        //De esta forma, cualquier entrada de datos es valida, por lo cual ya no se necesita el
-        //catch de NumberFormatException.
-        participacionDocente.idDocentes = docentes.get(edtDocenteID.getSelectedItemPosition()).idDocente;
-        participacionDocente.idEscritos = documentos.get(edtEscritoID.getSelectedItemPosition()).idEscrito;
-        participacionDocente.idParticipacion = tipoParticipaciones.get(edtTipoParticipacionID.getSelectedItemPosition()).idParticipacion;
         String mensaje = "";
         try{
-            long posicion = helper.participacionDocenteDao().insertarParticipacionDocente(participacionDocente);
-            if(posicion == 0 || posicion == -1){
-                mensaje = "Error al tratar de registrar la ParticipacionDocente";
+            ParticipacionDocente participacionDocente = new ParticipacionDocente();
+            //Para traerse los datos de los spinners
+            //De esta forma, cualquier entrada de datos es valida, por lo cual ya no se necesita el
+            //catch de NumberFormatException.
+            int posDocente = edtDocenteID.getSelectedItemPosition();
+            int posEscrito = edtEscritoID.getSelectedItemPosition();
+            int posParticipacion = edtTipoParticipacionID.getSelectedItemPosition();
+            if(posDocente > 0 && posEscrito > 0 && posParticipacion > 0) {
+                participacionDocente.idDocentes = docentes.get(posDocente - 1).idDocente;
+                participacionDocente.idEscritos = documentos.get(posEscrito - 1).idEscrito;
+                participacionDocente.idParticipacion = tipoParticipaciones.get(posParticipacion - 1).idParticipacion;
+                long posicion = helper.participacionDocenteDao().insertarParticipacionDocente(participacionDocente);
+                if(posicion == 0 || posicion == -1){
+                    mensaje = "Error al tratar de registrar la ParticipacionDocente";
+                } else{
+                    mensaje = String.format("Registrado correctamente en la posicion: %d", posicion);
+                }
             } else{
-                mensaje = String.format("Registrado correctamente en la posicion: %d", posicion);
+                mensaje = "Por favor, seleccione una opcion valida.";
             }
         }
         catch (SQLiteConstraintException e){
@@ -81,6 +88,9 @@ public class  ParticipacionDocenteInsertarActivity extends AppCompatActivity {
         ArrayList<String> nombresDocumentos = new ArrayList<>();
         ArrayList<String> nombresTipoParticiones = new ArrayList<>();
 
+        nombresDocentes.add("** Seleccione un docente **");
+        nombresDocumentos.add("** Seleccione un documento **");
+        nombresTipoParticiones.add("** Seleccione un Tipo de Participacion **");
         for(Documento pivote: documentos){
             nombresDocumentos.add(pivote.titulo);
         }

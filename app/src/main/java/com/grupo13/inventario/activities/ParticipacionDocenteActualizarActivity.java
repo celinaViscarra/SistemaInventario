@@ -44,21 +44,29 @@ public class ParticipacionDocenteActualizarActivity extends AppCompatActivity {
         llenarSpinners();
     }
     public void actualizarParticipacionDocente(View v){
-        ParticipacionDocente participacionDocente = new ParticipacionDocente();
-        //Para traerse los datos de los spinners
-        //De esta forma, cualquier entrada de datos es valida, por lo cual ya no se necesita el
-        //catch de NumberFormatException.
-        participacionDocente.idDocentes = docentes.get(edtDocenteID.getSelectedItemPosition()).idDocente;
-        participacionDocente.idEscritos = documentos.get(edtEscritoID.getSelectedItemPosition()).idEscrito;
-        participacionDocente.idParticipacion = tipoParticipaciones.get(edtTipoParticipacionID.getSelectedItemPosition()).idParticipacion;
         String mensaje = "";
         try{
-            int filasAfectadas = helper.participacionDocenteDao().actualizarParticipacionDocente(participacionDocente);
+            ParticipacionDocente participacionDocente = new ParticipacionDocente();
+            //Para traerse los datos de los spinners
+            //De esta forma, cualquier entrada de datos es valida, por lo cual ya no se necesita el
+            //catch de NumberFormatException.
+            int posDocente = edtDocenteID.getSelectedItemPosition();
+            int posEscrito = edtEscritoID.getSelectedItemPosition();
+            int posParticipacion = edtTipoParticipacionID.getSelectedItemPosition();
+            if(posDocente > 0 && posEscrito > 0 && posParticipacion > 0){
+                participacionDocente.idDocentes = docentes.get(posDocente - 1).idDocente;
+                participacionDocente.idEscritos = documentos.get(posEscrito - 1).idEscrito;
+                participacionDocente.idParticipacion = tipoParticipaciones.get(posParticipacion - 1).idParticipacion;
+                int filasAfectadas = helper.participacionDocenteDao().actualizarParticipacionDocente(participacionDocente);
 
-            if(filasAfectadas <= 0){
-                mensaje = "Error al tratar de actualizar el registro.";
+                if(filasAfectadas <= 0){
+                    mensaje = "Error al tratar de actualizar el registro.";
+                } else{
+                    mensaje = String.format("Filas afectadas: %d",filasAfectadas);
+                }
+
             } else{
-                mensaje = String.format("Filas afectadas: %d",filasAfectadas);
+                mensaje = "Por favor, seleccione una opcion valida.";
             }
         }
         catch (SQLiteConstraintException e){
@@ -80,6 +88,11 @@ public class ParticipacionDocenteActualizarActivity extends AppCompatActivity {
         ArrayList<String> nombresDocentes = new ArrayList<>();
         ArrayList<String> nombresDocumentos = new ArrayList<>();
         ArrayList<String> nombresTipoParticiones = new ArrayList<>();
+
+        //Paso 2.5: Agregar las opciones no válidas. Gracias Celi :)
+        nombresDocentes.add("** Seleccione un docente **");
+        nombresDocumentos.add("** Seleccione un documento **");
+        nombresTipoParticiones.add("** Seleccione un Tipo de participacion **");
 
         for(Documento pivote: documentos){
             nombresDocumentos.add(pivote.titulo);
