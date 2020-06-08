@@ -51,8 +51,8 @@ public class CatalogoEquipoConsultarActivity extends AppCompatActivity {
                     mensaje = "Se encontro el registro, mostrando datos...";
                     idMarca.setText(catalogo.idMarca);
                     modelo.setText(catalogo.modeloEquipo);
-                    memoria.setText(catalogo.memoria);
-                    cantidad.setText(catalogo.cantEquipo);
+                    memoria.setText(catalogo.memoria+"");
+                    cantidad.setText(catalogo.cantEquipo+"");
                 }
             }else{
                 mensaje = "Por favor, seleccione una opcion valida.";
