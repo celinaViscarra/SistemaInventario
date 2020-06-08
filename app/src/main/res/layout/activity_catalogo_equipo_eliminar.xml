@@ -42,14 +42,6 @@
                 android:layout_height="wrap_content"
                 android:onClick="eliminarCatalogoEquipo"
                 android:text="@string/eliminarCatalogoEquipo" />
-
         </TableRow>
     </LinearLayout>
-
-    <Button
-        android:layout_width="137dp"
-        android:layout_height="wrap_content"
-        android:onClick="limpiarTexto"
-        android:text="@string/limpiar" />
-
 </LinearLayout>

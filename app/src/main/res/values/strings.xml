@@ -43,11 +43,11 @@
     <string name="descargoFecha">Fecha Descargo</string>
 
     <!-- CatalogoEquipo -->
-    <string name="insertarCatalogoEquipo">Insertar Catalógo Equipo</string>
-    <string name="actualizarCatalogoEquipo">Actualizar Catalógo Equipo</string>
-    <string name="eliminarCatalogoEquipo">Eliminar Catalógo Equipo</string>
-    <string name="consultarCatalogoEquipo">Consultar Catalógo Equipo</string>
-    <string name="idCatalogo">ID Catalogo</string>
+    <string name="insertarCatalogoEquipo">Insertar Catálogo Equipo</string>
+    <string name="actualizarCatalogoEquipo">Actualizar Catálogo Equipo</string>
+    <string name="eliminarCatalogoEquipo">Eliminar Catálogo Equipo</string>
+    <string name="consultarCatalogoEquipo">Consultar Catálogo Equipo</string>
+    <string name="idCatalogo">ID Catálogo</string>
     <string name="idMarca">ID Marca</string>
     <string name="modeloEquipo">Modelo Equipo Generico</string>
     <string name="memoria">Memoria</string>
