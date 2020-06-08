@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="ID de la Sustitucion : "
+            android:text="@string/id_de_la_sustitucion"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Tipo de Motivo : "
+            android:text="@string/tipo_de_motivo"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -44,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Equipo Obsoleto : "
+            android:text="@string/equipo_obsoleto"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -61,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Equipo de Reemplazo : "
+            android:text="@string/equipo_de_reemplazo"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -77,7 +77,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Docente : "
+            android:text="@string/docente"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -90,7 +90,7 @@
            />
     </LinearLayout>
     <Button
-        android:text="Consultar Sustitucion"
+        android:text="@string/btn_consultar_sustitucion"
         android:onClick="consultarSustitucion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

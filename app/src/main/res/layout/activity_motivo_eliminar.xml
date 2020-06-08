@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="ID de Motivo: "
+            android:text="@string/id_de_motivo"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -23,7 +23,7 @@
             />
     </LinearLayout>
     <Button
-        android:text="Eliminar Motivo"
+        android:text="@string/btn_eliminar_motivo"
         android:onClick="eliminarMotivo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
