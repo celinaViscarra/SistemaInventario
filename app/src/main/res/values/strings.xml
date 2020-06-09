@@ -110,6 +110,7 @@
     <string name="prestamo_activo">Prestamo Activo</string>
     <string name="id_del_mov_inv">ID Prestamo</string>
     <string name="btn_consultar_mov_inv">Consultar Movimiento Inventario</string>
+    <string name="btn_eliminar_movimiento_inv">Eliminar Movimiento Inventario</string>
 
 
 </resources>
