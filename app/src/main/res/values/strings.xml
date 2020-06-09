@@ -98,6 +98,9 @@
     <string name="consultarUbicaciones">Consultar Ubicacion</string>
     <string name="idUbicacion">ID Ubicacion</string>
     <string name="nomUbicacion">Nombre Ubicacion</string>
+
+
+    <!-- Movimiento inventario -->
     <string name="tipo_de_movimiento">Tipo de movimiento :</string>
     <string name="descripcion">Descripcion :</string>
     <string name="prestamo_fecha_ini">Prestamo Fecha Inicio :</string>
@@ -105,6 +108,8 @@
     <string name="prestamo_permanente">Prestamo Permanente</string>
     <string name="btn_agregar_mov_inv">Insertar Movimiento Inventario</string>
     <string name="prestamo_activo">Prestamo Activo</string>
+    <string name="id_del_mov_inv">ID Prestamo</string>
+    <string name="btn_consultar_mov_inv">Consultar Movimiento Inventario</string>
 
 
 </resources>

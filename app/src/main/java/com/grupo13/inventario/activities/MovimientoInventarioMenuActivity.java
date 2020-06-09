@@ -18,9 +18,9 @@ public class MovimientoInventarioMenuActivity extends ListActivity {
     };
     String[] activities = {
             "MovimientoInventarioInsertarActivity",
-            "MovimientoInventarioEliminarActivity",
             "MovimientoInventarioConsultarActivity",
-            "MovimientoInventarioActualizarActivity"
+            "MovimientoInventarioActualizarActivity",
+            "MovimientoInventarioEliminarActivity"
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
