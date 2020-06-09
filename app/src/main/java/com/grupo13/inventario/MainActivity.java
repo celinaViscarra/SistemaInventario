@@ -2,7 +2,9 @@ package com.grupo13.inventario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.grupo13.inventario.activities.LoginActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
             "MovimientoInventarioMenuActivity"
     };
 
+    public static final String USER_KEY = "USER_KEY";
+    public static final String USERNAME = "USERNAME";
+
     //Se puede usar este para no usar findViewByID
     @BindView(R.id.listaOpciones)
     ListView listaOpciones;
@@ -56,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences sharedPreferences = getSharedPreferences(USER_KEY, Context.MODE_PRIVATE);
+        String username = sharedPreferences.getString(USERNAME, null);
+
+        if (username == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+
         ControlBD helper;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

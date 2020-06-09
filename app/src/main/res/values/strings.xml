@@ -111,5 +111,12 @@
     <string name="id_del_mov_inv">ID Prestamo</string>
     <string name="btn_consultar_mov_inv">Consultar Movimiento Inventario</string>
 
+    <!-- LOGIN -->
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="singin">Iniciar Sesion</string>
+    <string name="singing_error">Credenciales no validas</string>
+    <string name="singing_error_vacios">Complete todos los campos</string>
+
 
 </resources>
