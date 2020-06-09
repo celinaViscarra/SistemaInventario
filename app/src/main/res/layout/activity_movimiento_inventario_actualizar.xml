@@ -140,7 +140,7 @@
     </LinearLayout>
     <Button
         android:id="@+id/btnMovInvActualizar"
-        android:text="@string/btn_agregar_mov_inv"
+        android:text="@string/btn_actualizar_mov_inv"
         android:onClick="actualizarMovimientoInventario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
