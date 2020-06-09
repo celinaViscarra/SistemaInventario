@@ -90,7 +90,7 @@ public class MovimientoInventarioActualizarActivity extends AppCompatActivity {
                 mov.prestamoPermanente=edtPrestamoPermanenteActualizar.isChecked();
                 mov.prestamoActivo=edtPrestamoActivoActualizar.isChecked();
 
-
+                if (mov.prestamoFechaFin.after(mov.prestamoFechaInicio)){
                 int filasAfectadas = helper.movimientoInventarioDao().actualizarMovimientoInventario(mov);
                     if(filasAfectadas <= 0){
                         mensaje = "Error el Registro no existe";
@@ -99,8 +99,10 @@ public class MovimientoInventarioActualizarActivity extends AppCompatActivity {
                         mensaje = String.format("Filas afectadas: %d",filasAfectadas);
                         mensaje+=" Registro Actualizado";
                     }
-
-
+                }
+                else {
+                    mensaje="La fecha final debe ser mayor a la inicial";
+                }
 
             }catch (SQLiteConstraintException e){
                 mensaje = "Error al tratar de ingresar el registro a la Base de Datos.";
