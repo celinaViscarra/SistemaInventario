@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
             "Descargos",
             "Detalle Descargos",
             "Movimiento Inventario",
-            "Llenar Base de Datos(sirve pero solo llena datos mios xd)"
+            "Llenar Base de Datos(sirve pero solo llena datos mios xd)",
+            "Cerrar sesion"
     };
 
     String[] activities={
@@ -89,12 +90,22 @@ public class MainActivity extends AppCompatActivity {
         listaOpciones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position == menu.length-1){
+                if(position == menu.length-2){
 
                     // Llenar la base de datos en un hilo separado para no congelar el hilo principal
                     new LlenarBase().execute(helper);
 
-                }else{
+                }else if (position == menu.length-1){
+                    // Cerrar la sesión
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(USERNAME, null);
+                    editor.commit();
+
+                    Intent intent = new Intent(view.getContext(), LoginActivity.class);
+                    view.getContext().startActivity(intent);
+                    finish();
+
+                }else {
                     try {
                         Class clase = Class.forName("com.grupo13.inventario.activities."+activities[position]);
                         Intent inte = new Intent(getApplicationContext(), clase);
