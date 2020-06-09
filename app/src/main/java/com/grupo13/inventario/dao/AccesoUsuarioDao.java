@@ -15,6 +15,9 @@ public interface AccesoUsuarioDao {
     @Query("SELECT * FROM AccesoUsuario")
     List<AccesoUsuario> obtenerAccesoUsuario();
 
+    @Query("SELECT * FROM AccesoUsuario WHERE usuario = :usuario")
+    List<AccesoUsuario> accesoByUser(String usuario);
+
     @Query("SELECT * FROM AccesoUsuario WHERE id_opcion = :id_opcion AND usuario = :usuario")
     AccesoUsuario consultarAccesoUsuario(String id_opcion, String usuario);
 
