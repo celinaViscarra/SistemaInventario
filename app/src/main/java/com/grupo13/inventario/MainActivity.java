@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.grupo13.inventario.activities.LoginActivity;
+import com.grupo13.inventario.singleton.Permisos;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -73,6 +74,13 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
+        Thread hilo = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Permisos.getInstance(getApplicationContext());
+            }
+        });
+        hilo.start();
 
         ControlBD helper;
         super.onCreate(savedInstanceState);
@@ -155,6 +163,9 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             bar.setVisibility(View.GONE);
             listaOpciones.setEnabled(true);
+
+            //Cargar los permisos
+            Permisos.getInstance(getApplicationContext());
         }
     }
 }
