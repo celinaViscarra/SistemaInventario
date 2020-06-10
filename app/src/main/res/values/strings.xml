@@ -113,5 +113,9 @@
     <string name="btn_eliminar_movimiento_inv">Eliminar Movimiento Inventario</string>
     <string name="btn_actualizar_mov_inv">Actualizar Movimiento Inventario</string>
 
+    <!-- Misc. -->
+    <string name="cambiar_a_ws">Cambiar a modo WS</string>
+    <string name="cambiar_a_sqlite">Cambiar a modo SQLite</string>
+
 
 </resources>

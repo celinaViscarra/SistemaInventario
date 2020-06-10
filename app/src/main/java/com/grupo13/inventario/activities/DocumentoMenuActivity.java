@@ -13,12 +13,14 @@ import com.grupo13.inventario.R;
 
 public class DocumentoMenuActivity extends ListActivity {
     String[] menu = {
+            "Lista de Documentos",
             "Insertar Documento",
             "Consultar Documento",
             "Actualizar Documento",
             "Eliminar Documento"
     };
     String[] activities = {
+            "DocumentoListaActivity",
             "DocumentoInsertarActivity",
             "DocumentoConsultarActivity",
             "DocumentoActualizarActivity",
