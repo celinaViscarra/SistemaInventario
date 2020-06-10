@@ -187,7 +187,11 @@ public class ControlWS {
             JSONArray jsonArray = new JSONArray(json);
             for(int i = 0; i < jsonArray.length(); i++){
                 JSONObject obj = jsonArray.getJSONObject(0);
-
+                Autor autor = new Autor();
+                autor.idAutor = obj.getInt("IDAUTOR");
+                autor.nomAutor = obj.getString("NOMAUTOR");
+                autor.apeAutor = obj.getString("APEAUTOR");
+                lista.add(autor);
             }
         }  catch (Exception e) {
             Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
