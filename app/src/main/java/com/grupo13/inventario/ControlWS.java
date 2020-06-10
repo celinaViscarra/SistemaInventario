@@ -6,6 +6,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.grupo13.inventario.modelo.Documento;
+import com.grupo13.inventario.modelo.Idiomas;
+import com.grupo13.inventario.modelo.TipoProducto;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -110,6 +112,50 @@ public class ControlWS {
             return null;
         }
         return documentos;
+    }
 
+    public static List<Idiomas> obtenerListaIdioma(String json, Context ctx){
+        List<Idiomas> idiomas = new ArrayList<>();
+
+        try{
+            //Primer paso, nos traemos el array de json que sacamos del WS
+            JSONArray jsonArray = new JSONArray(json);
+            //Realizamos una iteracion por el arreglo.
+            for(int i = 0; i < jsonArray.length(); i++){
+                //Recuperamos un objeto JSON del arreglo.
+                JSONObject obj = jsonArray.getJSONObject(i);
+                Idiomas idioma = new Idiomas();
+                //TODO: siempre que extraigan un valor del json ponganlo en mayuscula
+                //porque la base de datos del WS asi lo devuelve.
+                idioma.idIdioma = obj.getInt("IDIOMA_ID");
+                idioma.nombreIdioma = obj.getString("IDIOMA_NOMBRE");
+                //Lo agregamos a la lista de idiomas.
+                idiomas.add(idioma);
+            }
+        }  catch (Exception e) {
+            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
+            return null;
+        }
+        //Devolvemos los idiomas.
+        return idiomas;
+    }
+
+    public static List<TipoProducto> obtenerListaTipoProducto(String json, Context ctx){
+        List<TipoProducto> lista = new ArrayList<>();
+        try {
+            JSONArray jsonArray = new JSONArray(json);
+            for(int i=0; i<jsonArray.length();i++){
+                JSONObject obj = jsonArray.getJSONObject(i);
+                TipoProducto tipo = new TipoProducto();
+                tipo.idTipoProducto = obj.getInt("TIPO_PRODUCTO_ID");
+                tipo.categoria_id = obj.getInt("CATEGORIA_ID");
+                tipo.nomTipoProducto = obj.getString("NOMBRE_TIPO_PRODUCTO");
+                lista.add(tipo);
+            }
+        }  catch (Exception e) {
+            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
+            return null;
+        }
+        return lista;
     }
 }

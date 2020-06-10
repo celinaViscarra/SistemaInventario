@@ -29,12 +29,12 @@ public class DocumentoListaActivity extends AppCompatActivity {
     int modo_datos = 1;
     //URL de nuestra peticion.
     private final String url = "http://grupo13pdm.ml/inventariows/documento/obtenerlista.php";
+    @BindView(R.id.btnModo)
+    Button btnModo;
     List<Documento> documentos;
     ControlBD helper;
     @BindView(R.id.lvDocumentos)
     ListView lvDocumentos;
-    @BindView(R.id.btnModo)
-    Button btnModo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +94,7 @@ public class DocumentoListaActivity extends AppCompatActivity {
                     //Segundo paso: convertimos a una lista el json, finalmente tenemos
                     //los documentos que estaban guardados en el WS.
                     documentos = ControlWS.obtenerListaDocumento(jsonDocumentos, ctx);
+                    break;
                 }
             }
             //Despues de tener los datos tanto por sqlite o ws, hacemos la lista con titulos
