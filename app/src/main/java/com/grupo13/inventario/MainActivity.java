@@ -19,9 +19,9 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
     String[] menu = {
             "Autor",
-            "DetalleAutor",
+            "DetalleAutor (con WS)",
             "ParticipacionDocente",
-            "Documento",
+            "Documento (con WS)",
             "Equipo Informatico",
             "Catalogo Equipo",
             "Motivo",
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             "Descargos",
             "Detalle Descargos",
             "Movimiento Inventario",
-            "Llenar Base de Datos(sirve pero solo llena datos mios xd)"
+            "Llenar Base de Datos"
     };
 
     String[] activities={
