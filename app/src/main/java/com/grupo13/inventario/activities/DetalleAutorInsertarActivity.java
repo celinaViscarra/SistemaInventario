@@ -38,6 +38,8 @@ public class DetalleAutorInsertarActivity extends AppCompatActivity {
     private final String urlDocumentos = "http://grupo13pdm.ml/inventariows/documento/obtenerlista.php";
     private final String urlAutores = "http://grupo13pdm.ml/inventariows/autor/obtenerlista.php";
     private final String urlInsert = "http://grupo13pdm.ml/inventariows/detalleautor/insertar.php";
+    @BindView(R.id.btnModo)
+    Button btnModo;
 
     ControlBD helper;
     //Usando butterknife no es necesario hacer findViewById
@@ -47,9 +49,6 @@ public class DetalleAutorInsertarActivity extends AppCompatActivity {
     Spinner edtAutorID;
     @BindView(R.id.edtEsPrincipal)
     CheckBox edtEspPrincipal;
-    @BindView(R.id.btnModo)
-    Button btnModo;
-
     List<Documento> documentos;
     List<Autor> autores;
 
@@ -65,21 +64,6 @@ public class DetalleAutorInsertarActivity extends AppCompatActivity {
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-    }
-
-    public void cambiarModo(View v){
-        if(modo_datos == 1) modo_datos = 2;
-        else modo_datos = 1;
-
-        btnModo.setText((modo_datos == 1) ? R.string.cambiar_a_ws: R.string.cambiar_a_sqlite);
-        llenarSpinners();
-        limpiar(v);
-    }
-
-    public void limpiar(View v){
-        edtEscritoID.setSelection(0);
-        edtAutorID.setSelection(0);
-        edtEspPrincipal.setChecked(false);
     }
 
     public void insertarDetalleAutor(View v){
@@ -128,6 +112,21 @@ public class DetalleAutorInsertarActivity extends AppCompatActivity {
         finally{
             Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void cambiarModo(View v){
+        if(modo_datos == 1) modo_datos = 2;
+        else modo_datos = 1;
+
+        btnModo.setText((modo_datos == 1) ? R.string.cambiar_a_ws: R.string.cambiar_a_sqlite);
+        llenarSpinners();
+        limpiar(v);
+    }
+
+    public void limpiar(View v){
+        edtEscritoID.setSelection(0);
+        edtAutorID.setSelection(0);
+        edtEspPrincipal.setChecked(false);
     }
 
     public void llenarSpinners(){
