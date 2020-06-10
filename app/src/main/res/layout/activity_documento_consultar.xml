@@ -123,6 +123,7 @@
 
         <Button
             android:text="Consultar Documento"
+            android:layout_gravity="center_vertical"
             android:onClick="consultarDocumento"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -131,8 +132,9 @@
             android:text="@string/limpiar"
             android:onClick="limpiarTexto"
             android:layout_width="0dp"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:layout_height="wrap_content"/>
+            android:layout_height="fill_parent"/>
     </LinearLayout>
     <Button
         android:id="@+id/btnModo"

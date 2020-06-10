@@ -122,13 +122,15 @@
             android:onClick="actualizarDocumento"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_gravity="center_vertical"
             android:layout_height="wrap_content"/>
         <Button
             android:text="@string/limpiar"
             android:onClick="limpiarTexto"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"/>
+            android:layout_gravity="center_vertical"
+            android:layout_height="fill_parent"/>
     </LinearLayout>
     <Button
         android:id="@+id/btnModo"
