@@ -14,12 +14,14 @@ import com.grupo13.inventario.R;
 public class DetalleAutorMenuActivity extends ListActivity {
     String[] menu = {
             "Insertar DetalleAutor",
+            "Lista DetalleAutor",
             "Consultar DetalleAutor",
             "Actualizar DetalleAutor",
             "Eliminar DetalleAutor"
     };
     String[] activities = {
             "DetalleAutorInsertarActivity",
+            "DetalleAutorListaActivity",
             "DetalleAutorConsultarActivity",
             "DetalleAutorActualizarActivity",
             "DetalleAutorEliminarActivity"

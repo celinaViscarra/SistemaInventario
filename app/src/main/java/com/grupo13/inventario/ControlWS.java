@@ -5,6 +5,8 @@ import android.content.Entity;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.grupo13.inventario.modelo.Autor;
+import com.grupo13.inventario.modelo.DetalleAutor;
 import com.grupo13.inventario.modelo.Documento;
 import com.grupo13.inventario.modelo.Idiomas;
 import com.grupo13.inventario.modelo.TipoProducto;
@@ -151,6 +153,41 @@ public class ControlWS {
                 tipo.categoria_id = obj.getInt("CATEGORIA_ID");
                 tipo.nomTipoProducto = obj.getString("NOMBRE_TIPO_PRODUCTO");
                 lista.add(tipo);
+            }
+        }  catch (Exception e) {
+            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
+            return null;
+        }
+        return lista;
+    }
+
+    public static List<DetalleAutor> obtenerListaDetalleAutor(String json, Context ctx){
+        List<DetalleAutor> lista = new ArrayList<>();
+        try{
+            JSONArray jsonArray = new JSONArray(json);
+            for(int i = 0; i<jsonArray.length(); i++){
+                JSONObject obj = jsonArray.getJSONObject(i);
+                DetalleAutor detalle = new DetalleAutor();
+                detalle.escrito_id = obj.getInt("ESCRITO_ID");
+                detalle.idAutor = obj.getInt("IDAUTOR");
+                //Para obtener booleano, la verdad no se si lo necesito, pero igua por si las diules
+                detalle.esPrincipal = (obj.getInt("ESPRINCIPAL") == 1);
+                lista.add(detalle);
+            }
+        }  catch (Exception e) {
+            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
+            return null;
+        }
+        return lista;
+    }
+
+    public static List<Autor> obtenerListaAutor(String json, Context ctx){
+        List<Autor> lista = new ArrayList<>();
+        try{
+            JSONArray jsonArray = new JSONArray(json);
+            for(int i = 0; i < jsonArray.length(); i++){
+                JSONObject obj = jsonArray.getJSONObject(0);
+
             }
         }  catch (Exception e) {
             Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
