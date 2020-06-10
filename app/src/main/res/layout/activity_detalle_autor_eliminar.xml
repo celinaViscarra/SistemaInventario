@@ -35,9 +35,28 @@
             android:layout_weight="2"
             android:layout_height="wrap_content"/>
     </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:text="@string/eliminar_detalleautor"
+            android:onClick="eliminarDetalleAutor"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:text="@string/limpiar"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:onClick="limpiar"/>
+    </LinearLayout>
     <Button
-        android:text="Eliminar DetalleAutor"
-        android:onClick="eliminarDetalleAutor"
+        android:id="@+id/btnModo"
+        android:onClick="cambiarModo"
+        android:text="@string/cambiar_a_ws"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
