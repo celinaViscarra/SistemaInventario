@@ -145,5 +145,6 @@
     <string name="menu_item_movimientoinventario">Inventory Movement</string>
     <string name="menu_item_llenarbase">Fill Database</string>
     <string name="menu_item_cerrarsesion">Logout</string>
+    <string name="bienvenida">Welcome back, %s</string>
 
 </resources>
