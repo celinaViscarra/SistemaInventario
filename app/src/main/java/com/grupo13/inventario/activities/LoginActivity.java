@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
     public void iniciarListaIdiomas(){
         listaIdiomas = new ArrayList<>();
         listaIdiomas.add(new CountryItem("Español",R.drawable.es));
-        listaIdiomas.add(new CountryItem("Inglés", R.drawable.en));
+        listaIdiomas.add(new CountryItem("English", R.drawable.en));
 
         adapter = new CountryAdapter(this, listaIdiomas);
         spinnerIdiomas.setAdapter(adapter);
