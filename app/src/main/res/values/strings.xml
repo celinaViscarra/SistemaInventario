@@ -121,5 +121,15 @@
     <string name="consultar_detalleautor">Consultar DetalleAutor</string>
     <string name="actualizar_detalleautor">Actualizar DetalleAutor</string>
 
+    <!-- LOGIN -->
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="singin">Iniciar Sesion</string>
+    <string name="singing_error">Credenciales no validas</string>
+    <string name="singing_error_vacios">Complete todos los campos</string>
+
+    <!-- PERMISOS -->
+    <string name="no_permiso">Usted no tiene permisos para esa accion</string>
+
 
 </resources>

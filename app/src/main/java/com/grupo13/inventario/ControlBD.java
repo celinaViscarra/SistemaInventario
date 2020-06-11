@@ -14,6 +14,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.Date;
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 
 @Database(
         entities = {
@@ -306,9 +308,123 @@ public abstract class ControlBD extends RoomDatabase {
         movInventa2.equipo_id = (int) idEquipoInfor;
         long idMovInv2 = movimientoInventarioDao().insertarMovimientoInventario(movInventa2);
 
+        // Datos para el login y los permisos
+
+        Usuario admin = new Usuario("admin", "admin", "Usuario Administrador");
+        Usuario normal = new Usuario("user", "user", "Usuario Normal");
+
+        usuarioDao().insertarUsuario(admin);
+        usuarioDao().insertarUsuario(normal);
+
+        OpcionCrud o1 = new OpcionCrud("001", "MovimientoInventarioActualizarActivity", 1);
+        OpcionCrud o2 = new OpcionCrud("002", "MovimientoInventarioConsultarActivity", 1);
+        OpcionCrud o3 = new OpcionCrud("003", "MovimientoInventarioEliminarActivity", 1);
+        OpcionCrud o4 = new OpcionCrud("004", "MovimientoInventarioInsertarActivity", 1);
+
+        OpcionCrud o5 = new OpcionCrud("005", "DetalleReservaConsultarActivity", 2);
+        OpcionCrud o6 = new OpcionCrud("006", "DetalleReservaEliminarActivity", 2);
+        OpcionCrud o7 = new OpcionCrud("007", "DetalleReservaActualizarActivity", 2);
+        OpcionCrud o8 = new OpcionCrud("008", "DetalleReservaInsertarActivity", 2);
+
+        OpcionCrud o9 = new OpcionCrud("009", "EquipoInformaticoActualizarActivity", 3);
+        OpcionCrud o10 = new OpcionCrud("010", "EquipoInformaticoEliminarActivity", 3);
+        OpcionCrud o11 = new OpcionCrud("011", "EquipoInformaticoConsultarActivity", 3);
+        OpcionCrud o12 = new OpcionCrud("012", "EquipoInformaticoInsertarActivity", 3);
+
+        OpcionCrud o13 = new OpcionCrud("013", "AutorEliminarActivity", 4);
+        OpcionCrud o14 = new OpcionCrud("014", "AutorActualizarActivity", 4);
+        OpcionCrud o15 = new OpcionCrud("015", "AutorInsertarActivity", 4);
+        OpcionCrud o16 = new OpcionCrud("016", "AutorConsultarActivity", 4);
+
+        OpcionCrud o17 = new OpcionCrud("017", "SustitucionesActualizarActivity", 5);
+        OpcionCrud o18 = new OpcionCrud("018", "SustitucionesConsultarActivity", 5);
+        OpcionCrud o19 = new OpcionCrud("019", "SustitucionesEliminarActivity", 5);
+        OpcionCrud o20 = new OpcionCrud("020", "SustitucionesInsertarActivity", 5);
+
+        OpcionCrud o21 = new OpcionCrud("021", "UbicacionesActualizarActivity", 6);
+        OpcionCrud o22 = new OpcionCrud("022", "UbicacionesConsultarActivity", 6);
+        OpcionCrud o23 = new OpcionCrud("023", "UbicacionesEliminarActivity", 6);
+        OpcionCrud o24 = new OpcionCrud("024", "UbicacionesInsertarActivity", 6);
+
+        OpcionCrud o25 = new OpcionCrud("025", "TipoProductoActualizarActivity", 7);
+        OpcionCrud o26 = new OpcionCrud("026", "TipoProductoConsultarActivity", 7);
+        OpcionCrud o27 = new OpcionCrud("027", "TipoProductoEliminarActivity", 7);
+        OpcionCrud o28 = new OpcionCrud("028", "TipoProductoInsertarActivity", 7);
+
+        OpcionCrud o29 = new OpcionCrud("029", "DocumentoEliminarActivity", 8);
+        OpcionCrud o30 = new OpcionCrud("030", "DocumentoActualizarActivity", 8);
+        OpcionCrud o31 = new OpcionCrud("031", "DocumentoConsultarActivity", 8);
+        OpcionCrud o32 = new OpcionCrud("032", "DocumentoInsertarActivity", 8);
+
+        OpcionCrud o33 = new OpcionCrud("033", "ParticipacionDocenteEliminarActivity", 9);
+        OpcionCrud o34 = new OpcionCrud("034", "ParticipacionDocenteActualizarActivity", 9);
+        OpcionCrud o35 = new OpcionCrud("035", "ParticipacionDocenteConsultarActivity", 9);
+        OpcionCrud o36 = new OpcionCrud("036", "ParticipacionDocenteInsertarActivity", 9);
+
+        OpcionCrud o37 = new OpcionCrud("037", "DetalleAutorEliminarActivity", 10);
+        OpcionCrud o38 = new OpcionCrud("038", "DetalleAutorActualizarActivity", 10);
+        OpcionCrud o39 = new OpcionCrud("039", "DetalleAutorConsultarActivity", 10);
+        OpcionCrud o40 = new OpcionCrud("040", "DetalleAutorInsertarActivity", 10);
+
+        OpcionCrud o41 = new OpcionCrud("041", "CatalogoEquipoActualizarActivity", 11);
+        OpcionCrud o42 = new OpcionCrud("042", "CatalogoEquipoEliminarActivity", 11);
+        OpcionCrud o43 = new OpcionCrud("043", "CatalogoEquipoConsultarActivity", 11);
+        OpcionCrud o44 = new OpcionCrud("044", "CatalogoEquipoInsertarActivity", 11);
+
+        OpcionCrud o45 = new OpcionCrud("045", "DetalleDescargosActualizarActivity", 12);
+        OpcionCrud o46 = new OpcionCrud("046", "DetalleDescargosConsultarActivity", 12);
+        OpcionCrud o47 = new OpcionCrud("047", "DetalleDescargosEliminarActivity", 12);
+        OpcionCrud o48 = new OpcionCrud("048", "DetalleDescargosInsertarActivity", 12);
+
+        OpcionCrud o49 = new OpcionCrud("049", "DescargosEliminarActivity", 13);
+        OpcionCrud o50 = new OpcionCrud("050", "DescargosConsultarActivity", 13);
+        OpcionCrud o51 = new OpcionCrud("051", "DescargosActualizarActivity", 13);
+        OpcionCrud o52 = new OpcionCrud("052", "DescargosInsertarActivity", 13);
+
+        OpcionCrud o53 = new OpcionCrud("053", "MotivoActualizarActivity", 14);
+        OpcionCrud o54 = new OpcionCrud("054", "MotivoInsertarActivity", 14);
+        OpcionCrud o55 = new OpcionCrud("055", "MotivoEliminarActivity", 14);
+        OpcionCrud o56 = new OpcionCrud("056", "MotivoConsultarActivity", 14);
+
+
+
+        // Agregar aqui las TODAS las opciones disponibles
+        OpcionCrud opciones[] = {
+                o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, o16, o17, o18, o19,
+                o20, o21, o22, o23, o24, o25, o26, o27, o28, o29, o30, o31, o32, o33, o34, o35, o36, o37, o38, o39,
+                o40, o41, o42, o43, o44, o45, o46, o47, o48, o49, o50, o51, o52, o53, o54, o55, o56
+            };
+
+        // Guarda todas las opciones disponibles
+        for (OpcionCrud opcion: opciones)
+            opcionCrudDao().insertarOpcionCrud(opcion);
+
+        // Agregar permisos al usuario administrador
+        for(OpcionCrud opcion: opciones) {
+            AccesoUsuario permiso = new AccesoUsuario();
+            permiso.idOpcion = opcion.idOpcion;
+            permiso.usuario = admin.usuario;
+            accesoUsuarioDao().insertarAccesoUsuario(permiso);
+        }
+
+        // Esto se pudo hacer en el for anterior, pero para que sema más legible se hizo aparte
+        for(OpcionCrud opcion: opciones) {
+            if (!opcion.desOpcion.contains("Eliminar")) {
+                // NO dar permiso de eliminar
+                AccesoUsuario permiso = new AccesoUsuario();
+                permiso.idOpcion = opcion.idOpcion;
+                permiso.usuario = normal.usuario;
+                accesoUsuarioDao().insertarAccesoUsuario(permiso);
+            }
+        }
+
+
+
+
 
     }
     //Aqui se declaran los DAOs
+    public abstract AccesoUsuarioDao accesoUsuarioDao();
     public abstract AutorDao autorDao();
     public abstract CatalogoEquipoDao catalogoEquipoDao();
     public abstract CategoriasDao categoriasDao();
