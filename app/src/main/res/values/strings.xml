@@ -118,6 +118,7 @@
     <string name="cambiar_a_sqlite">Cambiar a modo SQLite</string>
     <string name="agregar_detalleautor">Agregar DetalleAutor</string>
     <string name="eliminar_detalleautor">Eliminar DetalleAutor</string>
+    <string name="consultar_detalleautor">Consultar DetalleAutor</string>
 
 
 </resources>
