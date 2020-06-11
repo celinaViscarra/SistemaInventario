@@ -119,6 +119,7 @@
     <string name="agregar_detalleautor">Agregar DetalleAutor</string>
     <string name="eliminar_detalleautor">Eliminar DetalleAutor</string>
     <string name="consultar_detalleautor">Consultar DetalleAutor</string>
+    <string name="actualizar_detalleautor">Actualizar DetalleAutor</string>
 
 
 </resources>
