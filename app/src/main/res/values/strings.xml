@@ -46,6 +46,10 @@
     <string name="actualizarDescargo">Actualizar Descargo</string>
     <string name="consultarDescargo">Consultar Descargo</string>
     <string name="eliminarDescargo">Eliminar Descargo</string>
+    <string name="insertarDescargoWS">Insertar Descargo (WebService)</string>
+    <string name="actualizarDescargoWS">Actualizar Descargo (WebService)</string>
+    <string name="consultarDescargoWS">Consultar Descargo (WebService)</string>
+    <string name="eliminarDescargoWS">Eliminar Descargo (WebService)</string>
     <string name="idDescargos">ID Descargos</string>
     <string name="idOrigen">ID Ubicación Origen</string>
     <string name="idDestino">ID Ubicación Destino</string>
@@ -56,6 +60,10 @@
     <string name="actualizarCatalogoEquipo">Actualizar Catálogo Equipo</string>
     <string name="eliminarCatalogoEquipo">Eliminar Catálogo Equipo</string>
     <string name="consultarCatalogoEquipo">Consultar Catálogo Equipo</string>
+    <string name="insertarCatalogoEquipoWS">Insertar Catálogo Equipo (WebService)</string>
+    <string name="actualizarCatalogoEquipoWS">Actualizar Catálogo Equipo (WebService)</string>
+    <string name="eliminarCatalogoEquipoWS">Eliminar Catálogo Equipo (WebService)</string>
+    <string name="consultarCatalogoEquipoWS">Consultar Catálogo Equipo (WebService)</string>
     <string name="idCatalogo">ID Catálogo</string>
     <string name="idMarca">ID Marca</string>
     <string name="modeloEquipo">Modelo Equipo Generico</string>
