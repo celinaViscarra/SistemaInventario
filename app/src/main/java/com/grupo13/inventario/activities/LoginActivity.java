@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences(MainActivity.USER_KEY, Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString(MainActivity.USERNAME, usuario.usuario);
+                editor.putString("idioma", spinnerIdiomas.getSelectedItemPosition() == 0?"es":"en");
                 editor.commit();
 
                 Intent intent = new Intent(view.getContext(), MainActivity.class);
