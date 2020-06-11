@@ -120,6 +120,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
             android:text="Consultar Documento"
             android:onClick="consultarDocumento"
@@ -127,10 +128,16 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
         <Button
-            android:text="Mucho texto.txt"
+            android:text="@string/limpiar"
             android:onClick="limpiarTexto"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
     </LinearLayout>
+    <Button
+        android:id="@+id/btnModo"
+        android:text="@string/cambiar_a_ws"
+        android:onClick="cambiarModo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

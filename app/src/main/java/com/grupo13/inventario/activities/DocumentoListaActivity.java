@@ -3,56 +3,51 @@ package com.grupo13.inventario.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteConstraintException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.ListView;
 
 import com.grupo13.inventario.ControlBD;
 import com.grupo13.inventario.ControlWS;
 import com.grupo13.inventario.R;
 import com.grupo13.inventario.modelo.Documento;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executor;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DocumentoEliminarActivity extends AppCompatActivity {
+public class DocumentoListaActivity extends AppCompatActivity {
     //Modo datos 1 = SQLITE
     //2 = WebService
     int modo_datos = 1;
     //URL de nuestra peticion.
     private final String url = "http://grupo13pdm.ml/inventariows/documento/obtenerlista.php";
-    private final String urlEliminar = "http://grupo13pdm.ml/inventariows/documento/eliminar.php";
     @BindView(R.id.btnModo)
     Button btnModo;
     List<Documento> documentos;
-    @BindView(R.id.edtEscritoID)
-    Spinner edtEscritoID;
     ControlBD helper;
-
+    @BindView(R.id.lvDocumentos)
+    ListView lvDocumentos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_documento_eliminar);
-        ButterKnife.bind(this);
+        setContentView(R.layout.activity_documento_lista);
         helper = ControlBD.getInstance(this);
+        ButterKnife.bind(this);
+        //Importante usar esto si se hacen las consultas del WS sin usar AsyncTask
+        //Si se usa asynctask, se puede obviar esto
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
+
+        //Llenamos la lista por primera vez.
         llenarLista();
     }
     //Metodo para cambiar modo
@@ -69,54 +64,9 @@ public class DocumentoEliminarActivity extends AppCompatActivity {
         //Llamamos a nuestro asynctask para poder realizar la consulta.
         new LlenarLista(this).execute();
     }
-
-    public void limpiarTexto(View v){
-        edtEscritoID.setSelection(0);
-    }
-
-    public void eliminarDocumento(View v){
-        String mensaje = "";
-        try{
-            int posicionEliminar = edtEscritoID.getSelectedItemPosition();
-            if(posicionEliminar > 0){
-                Documento aEliminar = documentos.get(posicionEliminar - 1);
-                if(modo_datos == 1){
-                    int filasAfectadas = helper.documentoDao().eliminarDocumento(aEliminar);
-                    if(filasAfectadas<=0){
-                        mensaje = "Error al tratar de eliminar el registro.";
-                    }
-                    else{
-                        mensaje = String.format("Filas afectadas: %d",filasAfectadas);
-                    }
-                }
-                else{
-
-                    JSONObject elementoEliminar = new JSONObject();
-                    elementoEliminar.put("escrito_id",Integer.toString(aEliminar.idEscrito));
-
-                    List<NameValuePair> params = new ArrayList<NameValuePair>();
-                    params.add(new BasicNameValuePair("elementoEliminar",elementoEliminar.toString()));
-                    String respuesta = ControlWS.post(urlEliminar,params, this);
-                    JSONObject resultado = new JSONObject(respuesta);
-                    if(resultado.length() != 0){
-                        if(resultado.getInt("resultado")==1)
-                            mensaje = "Eliminado del WS con exito";
-                        else
-                            mensaje = "Error al tratar de eliminar el registro.";
-                    }
-                }
-            } else{
-                mensaje = "Tiene que seleccionar un elemento a eliminar.";
-            }
-        }catch (SQLiteConstraintException | JSONException e){
-            mensaje = "Error al tratar de eliminar el registro.";
-        }
-        finally{
-            Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
-        }
-        llenarLista();
-    }
-    public class LlenarLista extends AsyncTask<String, String, String> {
+    //AsyncTask para poder correr en otro hilo la consulta
+    //Debido a que la consulta del webservice se traba.
+    public class LlenarLista extends AsyncTask<String, String, String>{
         Context ctx;
         public LlenarLista(Context ctx){
             this.ctx = ctx;
@@ -149,8 +99,6 @@ public class DocumentoEliminarActivity extends AppCompatActivity {
             }
             //Despues de tener los datos tanto por sqlite o ws, hacemos la lista con titulos
             //de los documentos.
-
-            nomDocumentos.add("** Selecciona un Documento **");
             for(Documento documento: documentos){
                 nomDocumentos.add(documento.titulo);
             }
@@ -160,9 +108,11 @@ public class DocumentoEliminarActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             //Le asignamos un array adapter al listview, llena la lista con los documentos.
-            edtEscritoID.setAdapter(new ArrayAdapter<String>(ctx, android.R.layout.simple_spinner_dropdown_item, nomDocumentos));
+            lvDocumentos.setAdapter(new ArrayAdapter<String>(ctx, android.R.layout.simple_list_item_1, nomDocumentos));
             //Activamos el boton otra vez para que pueda cambiar el modo.
             btnModo.setEnabled(true);
         }
     }
 }
+
+

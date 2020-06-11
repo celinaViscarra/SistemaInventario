@@ -70,7 +70,9 @@ public class MovimientoInventarioInsertarActivity extends AppCompatActivity {
 
     public void insertarMovimientoInventario(View v){
         String mensaje = "";
-        if(spinners.get(0).getSelectedItem()==null||spinners.get(1).getSelectedItem()==null||spinners.get(2).getSelectedItem()==null) {
+        if(spinners.get(0).getSelectedItem()==null||spinners.get(1).getSelectedItem()==null||spinners.get(2).getSelectedItem()==null
+                || edtDescripcionMovInvInsertar.getText().toString().equals("") || edtFechaIniMovInvInsertar.getText().toString().equals("") || edtFechaFinMovInvInsertar.getText().toString().equals(""))
+        {
             Toast.makeText(this, "Complete los campos obligarotios", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -85,19 +87,18 @@ public class MovimientoInventarioInsertarActivity extends AppCompatActivity {
                 mov.prestamoPermanente=edtPrestamoPermanenteInsertar.isChecked();
                 mov.prestamoActivo=edtPrestamoActivoInsertar.isChecked();
 
-                    if(!mov.descripcion.isEmpty()||!mov.prestamoFechaInicio.toString().isEmpty()||!mov.prestamoFechaFin.toString().isEmpty()){
-                        long posicion = helper.movimientoInventarioDao().insertarMovimientoInventario(mov);
-                            if(posicion == 0 || posicion == -1){
-                                mensaje = "Error al tratar de ingresar el registro a la Base de Datos.";
-                            }
-                            else{
+                if (mov.prestamoFechaFin.after(mov.prestamoFechaInicio)) {
+                    long posicion = helper.movimientoInventarioDao().insertarMovimientoInventario(mov);
+                    if (posicion == 0 || posicion == -1) {
+                        mensaje = "Error al tratar de ingresar el registro a la Base de Datos.";
+                    } else {
 
-                                mensaje = String.format("Registrado correctamente en la posicion: %d",posicion);
-                            }
+                        mensaje = String.format("Registrado correctamente en la posicion: %d", posicion);
                     }
-                    else{
-                        Toast.makeText(this, "Complete los campos obligarotios", Toast.LENGTH_SHORT).show();
-                    }
+                }
+                else {
+                    mensaje="La fecha final debe ser mayor a la inicial";
+                }
 
 
             }catch (SQLiteConstraintException e){
