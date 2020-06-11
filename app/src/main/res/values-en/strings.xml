@@ -47,6 +47,10 @@
     <string name="actualizarDescargo">Update Disclaimer</string>
     <string name="consultarDescargo">Consult Disclaimer</string>
     <string name="eliminarDescargo">Delete Disclaimer</string>
+    <string name="insertarDescargoWS">Insert Disclaimer (WebService)</string>
+    <string name="actualizarDescargoWS">Update Disclaimer (WebService)</string>
+    <string name="consultarDescargoWS">Consult Disclaimer (WebService)</string>
+    <string name="eliminarDescargoWS">Delete Disclaimer (WebService)</string>
     <string name="idDescargos">Disclaimer ID</string>
     <string name="idOrigen">Origin Location ID </string>
     <string name="idDestino">Destination Location ID</string>
@@ -57,6 +61,10 @@
     <string name="actualizarCatalogoEquipo">Update Equipment Catalog</string>
     <string name="eliminarCatalogoEquipo">Delete Equipment Catalog</string>
     <string name="consultarCatalogoEquipo">Consult Equipment Catalog</string>
+    <string name="insertarCatalogoEquipoWS">Insert Equipment Catalog (WebService)</string>
+    <string name="actualizarCatalogoEquipoWS">Update Equipment Catalog (WebService)</string>
+    <string name="eliminarCatalogoEquipoWS">Delete Equipment Catalog (WebService)</string>
+    <string name="consultarCatalogoEquipoWS">Consult Equipment Catalog (WebService)</string>
     <string name="idCatalogo">Catalog ID</string>
     <string name="idMarca">Brand ID</string>
     <string name="modeloEquipo">Generic Equipment Model</string>
