@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.AsyncTask;
@@ -15,12 +16,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.grupo13.inventario.activities.LoginActivity;
 import com.grupo13.inventario.singleton.Permisos;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -86,12 +89,15 @@ public class MainActivity extends AppCompatActivity {
     ListView listaOpciones;
     @BindView(R.id.bar)
     ProgressBar bar;
+    @BindView(R.id.txtBienvenida)
+    TextView txtBienvenida;
+    String idioma;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences sharedPreferences = getSharedPreferences(USER_KEY, Context.MODE_PRIVATE);
         String username = sharedPreferences.getString(USERNAME, null);
-
+        idioma = sharedPreferences.getString("idioma","es");
         if (username == null) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
@@ -110,13 +116,18 @@ public class MainActivity extends AppCompatActivity {
         ControlBD helper;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().setTitle("Inventario EISI FIA - Grupo 13");
+
 
         helper = ControlBD.getInstance(getApplicationContext());
 
         //IMPORTANTE! Si usan Butterknife tienen que poner esta linea, de lo contrario no servira.
         ButterKnife.bind(this);
+        configurarIdioma();
+        getSupportActionBar().setTitle("Inventario EISI FIA - Grupo 13");
 
+        //Para poner el idioma.
+        idioma = getBaseContext().getResources().getConfiguration().locale.getLanguage();
+        txtBienvenida.setText(String.format(getString(R.string.bienvenida),username));
         //Para poder "jalar" el string del xml.
         ArrayList<String> menu = new ArrayList<>();
         for(int recurso: menu_resources) menu.add(getString(recurso));
@@ -142,7 +153,8 @@ public class MainActivity extends AppCompatActivity {
                     view.getContext().startActivity(intent);
                     finish();
 
-                }else {
+                }
+                else {
                     try {
                         Class clase = Class.forName("com.grupo13.inventario.activities."+activities[position]);
                         Intent inte = new Intent(getApplicationContext(), clase);
@@ -197,5 +209,13 @@ public class MainActivity extends AppCompatActivity {
             Permisos.destroy();
             Permisos.getInstance(getApplicationContext());
         }
+    }
+    public void configurarIdioma(){
+        Locale locale = new Locale(idioma);
+        Locale.setDefault(locale);
+        Configuration config = this.getResources().getConfiguration();
+        config.locale = locale;
+        this.getResources().updateConfiguration(config,
+                this.getResources().getDisplayMetrics());
     }
 }

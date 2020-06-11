@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:ellipsize="marquee">
+    <ImageView
+        android:id="@+id/imgIdioma"
+        android:src="@drawable/es"
+
+        android:layout_gravity="center_vertical"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+
+    <TextView
+        android:padding="5dp"
+        android:id="@+id/txtIdioma"
+        android:text="Español"
+        android:textSize="15dp"
+        style="?android:attr/spinnerDropDownItemStyle"
+        android:singleLine="true"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/dropdownListPreferredItemHeight"
+        android:ellipsize="marquee"/>
+</LinearLayout>

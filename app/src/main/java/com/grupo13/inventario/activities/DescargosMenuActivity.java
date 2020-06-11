@@ -13,8 +13,26 @@ import com.grupo13.inventario.R;
 import com.grupo13.inventario.singleton.Permisos;
 
 public class DescargosMenuActivity extends ListActivity {
-    String[] menu = {"Insertar Descargos", "Consultar Descargos", "Actualizar Descargos", "Eliminar Descargos"};
-    String[] activities = {"DescargosInsertarActivity", "DescargosConsultarActivity", "DescargosActualizarActivity", "DescargosEliminarActivity"};
+    String[] menu = {
+            "Insertar Descargos",
+            "Consultar Descargos",
+            "Actualizar Descargos",
+            "Eliminar Descargos",
+            "Insertar Descargos (WebService)",
+            "Consultar Descargos (WebService)",
+            "Actualizar Descargos (WebService)",
+            "Eliminar Descargos (WebService)"
+    };
+    String[] activities = {
+            "DescargosInsertarActivity",
+            "DescargosConsultarActivity",
+            "DescargosActualizarActivity",
+            "DescargosEliminarActivity",
+            "DescargosInsertarWSActivity",
+            "DescargosConsultarWSActivity",
+            "DescargosActualizarWSActivity",
+            "DescargosEliminarWSActivity"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

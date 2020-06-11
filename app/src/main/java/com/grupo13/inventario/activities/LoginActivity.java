@@ -11,13 +11,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.grupo13.inventario.ControlBD;
 import com.grupo13.inventario.MainActivity;
 import com.grupo13.inventario.R;
+import com.grupo13.inventario.activities.AppLanguage.CountryAdapter;
+import com.grupo13.inventario.activities.AppLanguage.CountryItem;
 import com.grupo13.inventario.modelo.Usuario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -30,8 +34,12 @@ public class LoginActivity extends AppCompatActivity {
     EditText txtUsername;
     @BindView(R.id.txt_password)
     EditText txtPassword;
+    @BindView(R.id.spinnerIdiomas)
+    Spinner spinnerIdiomas;
 
     ControlBD helper;
+    private ArrayList<CountryItem> listaIdiomas;
+    private CountryAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +53,8 @@ public class LoginActivity extends AppCompatActivity {
         // Comprobar si es primera vez de apertura
         List<Usuario> usuarios = helper.usuarioDao().obtenerUsuarios();
 
+        iniciarListaIdiomas();
+
         if (usuarios.size() == 0) {
             Usuario admin = new Usuario("admin", "admin", "Usuario Administrador");
             Usuario normal = new Usuario("user", "user", "Usuario Normal");
@@ -53,6 +63,15 @@ public class LoginActivity extends AppCompatActivity {
             helper.usuarioDao().insertarUsuario(normal);
         }
 
+    }
+
+    public void iniciarListaIdiomas(){
+        listaIdiomas = new ArrayList<>();
+        listaIdiomas.add(new CountryItem("Español",R.drawable.es));
+        listaIdiomas.add(new CountryItem("English", R.drawable.en));
+
+        adapter = new CountryAdapter(this, listaIdiomas);
+        spinnerIdiomas.setAdapter(adapter);
     }
 
     public void login(View view) {
@@ -69,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences(MainActivity.USER_KEY, Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString(MainActivity.USERNAME, usuario.usuario);
+                editor.putString("idioma", spinnerIdiomas.getSelectedItemPosition() == 0?"es":"en");
                 editor.commit();
 
                 Intent intent = new Intent(view.getContext(), MainActivity.class);
