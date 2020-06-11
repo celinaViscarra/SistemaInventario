@@ -1,2 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Inventory System</string>
+    <string name="limpiar">Clean</string>
+
+
+    <!-- CRUD AUTOR -->
+    <string name="autor_id">Author ID</string>
+    <string name="autor_nombre">Names</string>
+    <string name="autor_apellido">Surnames</string>
+    <string name="autor_insertar">Add Author</string>
+    <string name="autor_consultar">Consult Author</string>
+    <string name="autor_eliminar">Delete Author</string>
+    <string name="autor_actualizar">Update Author</string>
+
+    <!-- CRUD EQUIPO INFORMATICO -->
+    <string name="equipo_id">Team ID</string>
+    <string name="equipo_codigo">Team Code</string>
+    <string name="equipo_fecha">Equipment Acquisition</string>
+    <string name="equipo_estado">Team Status</string>
+    <string name="equipo_tipo_producto">Product Type</string>
+    <string name="equipo_ubicacion">Location</string>
+    <string name="equipo_catalogo">Equipment Catalog</string>
+    <string name="equipo_insertar">Add Team</string>
+    <string name="equipo_consultar">Consult Team</string>
+    <string name="equipo_eliminar">Delete Team</string>
+    <string name="equipo_actualizar">Update Equipment</string>
+
+    <!-- CRUD DETALLE RESERVA -->
+    <string name="reserva_movimiento">Movement</string>
+    <string name="reserva_horario">Hours</string>
+    <string name="reserva_horario_actualizar">New schedule</string>
+    <string name="reserva_insertar">Add Reserve</string>
+    <string name="reserva_consultar">Consult Reservation</string>
+    <string name="reserva_eliminar">Delete Reserve</string>
+    <string name="reserva_actualizar">Update Reservation</string>
+
+    <!-- DetalleDescargo -->
+    <string name="insertarDetalleDescargo">Insert Detail Download</string>
+    <string name="actualizarDetalleDescargo">Update Detail Download</string>
+    <string name="consultarDetalleDescargo">Consult DetailDischarge</string>
+    <string name="eliminarDetalleDescargo">Delete Detail Download</string>
+    <string name="idEquipo">ID Computer Equipment</string>
+
+    <!-- Descargo -->
+    <string name="insertarDescargo">Insert Disclaimer</string>
+    <string name="actualizarDescargo">Update Disclaimer</string>
+    <string name="consultarDescargo">Consult Disclaimer</string>
+    <string name="eliminarDescargo">Delete Disclaimer</string>
+    <string name="idDescargos">Disclaimer ID</string>
+    <string name="idOrigen">ID Location Origin</string>
+    <string name="idDestino">Destination ID Location</string>
+    <string name="descargoFecha">Release Date</string>
+
+    <!-- CatalogoEquipo -->
+    <string name="insertarCatalogoEquipo">Insert Equipment Catalog</string>
+    <string name="actualizarCatalogoEquipo">Update Equipment Catalog</string>
+    <string name="eliminarCatalogoEquipo">Delete Equipment Catalog</string>
+    <string name="consultarCatalogoEquipo">Consult Equipment Catalog</string>
+    <string name="idCatalogo">Catalog ID</string>
+    <string name="idMarca">Brand ID</string>
+    <string name="modeloEquipo">Generic Equipment Model</string>
+    <string name="memoria">Memory</string>
+    <string name="cantEquipo">Quantity Equipment</string>
+
+    <!-- Motivo -->
+    <string name="btn_agregar_motivo">Add Reason</string>
+    <string name="id_de_motivo">Reason ID:</string>
+    <string name="btn_eliminar_motivo">Delete Reason</string>
+    <string name="Nombremotivo">Reason:</string>
+    <string name="btn_consultar_motivo">Consult Reason</string>
+    <string name="btn_actualizar_motivo">Update Reason</string>
+
+
+    <!-- Sustitucion -->
+    <string name="tipo_de_motivo">Reason Type:</string>
+    <string name="equipo_obsoleto">Obsolete Equipment:</string>
+    <string name="equipo_de_reemplazo">Replacement Equipment:</string>
+    <string name="docente">Teacher:</string>
+    <string name="btn_agregar_sustitucion">Add Substitution</string>
+    <string name="id_de_la_sustitucion">Substitution ID</string>
+    <string name="btn_eliminar_sustitucion"></string>
+    <string name="btn_consultar_sustitucion">Delete Substitution</string>
+    <string name="btn_actualizar_sustitucion">Consult Substitution</string>
+
+    <!-- TipoProducto -->
+    <string name="insertarTipoProducto">Update Substitution</string>
+    <string name="actualizarTipoProducto">Insert ProductType</string>
+    <string name="eliminarTipoProducto">Update Product Type</string>
+    <string name="consultarTipoProducto">Delete Product Type</string>
+    <string name="idTipoProducto">Consult Product Type</string>
+    <string name="nomTipoProducto">Product Type ID</string>
+    <string name="categoria_id">Product Type Name</string>
+
+    <!-- Ubicaciones -->
+    <string name="insertarUbicaciones">Category ID</string>
+    <string name="actualizarUbicaciones">Insert Location</string>
+    <string name="eliminarUbicaciones">Update Location</string>
+    <string name="consultarUbicaciones">Delete Location</string>
+    <string name="idUbicacion">Consult Location</string>
+    <string name="nomUbicacion">Location ID</string>
+
+
+    <!-- Movimiento inventario -->
+    <string name="tipo_de_movimiento">Name Location</string>
+    <string name="descripcion">Movement Type:</string>
+    <string name="prestamo_fecha_ini">Description:</string>
+    <string name="prestamo_fecha_fin">Loan Start Date:</string>
+    <string name="prestamo_permanente">Loan End Date</string>
+    <string name="btn_agregar_mov_inv">Permanent Loan</string>
+    <string name="prestamo_activo">Insert Inventory Movement</string>
+    <string name="id_del_mov_inv">Active Loan</string>
+    <string name="btn_consultar_mov_inv">Loan ID</string>
+    <string name="btn_eliminar_movimiento_inv">Consult Inventory Movement</string>
+    <string name="btn_actualizar_mov_inv">Delete Inventory Movement</string>
+
+    <!-- Misc. -->
+    <string name="cambiar_a_ws">Update Inventory Movement</string>
+    <string name="cambiar_a_sqlite">Switch to WS mode</string>
+
+    <!-- LOGIN -->
+    <string name="username">Switch to SQLite mode</string>
+    <string name="password">User</string>
+    <string name="singin">Password</string>
+    <string name="singing_error">Login</string>
+    <string name="singing_error_vacios">Invalid credentials</string>
+
+    <!-- PERMISOS -->
+    <string name="no_permiso">Complete all fields</string>
+
+</resources>
