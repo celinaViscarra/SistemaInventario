@@ -145,6 +145,9 @@
     <string name="menu_item_llenarbase">Llenar Base de Datos</string>
     <string name="menu_item_cerrarsesion">Cerrar sesión</string>
     <string name="bienvenida">Bienvenido otra vez, %s</string>
+    <string name="id_del_documento">ID del documento:</string>
+    <string name="id_del_autor">ID del Autor:</string>
+    <string name="es_el_autor_principal">Es el autor principal?</string>
 
     <!-- Elementos del menu -->
 

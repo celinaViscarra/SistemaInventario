@@ -146,5 +146,8 @@
     <string name="menu_item_llenarbase">Fill Database</string>
     <string name="menu_item_cerrarsesion">Logout</string>
     <string name="bienvenida">Welcome back, %s</string>
+    <string name="id_del_documento">Document ID:</string>
+    <string name="id_del_autor">Author ID:</string>
+    <string name="es_el_autor_principal">Is it the main author?</string>
 
 </resources>
