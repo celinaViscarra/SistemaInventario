@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         Thread hilo = new Thread(new Runnable() {
             @Override
             public void run() {
+                Permisos.destroy();
                 Permisos.getInstance(getApplicationContext());
             }
         });
@@ -165,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
             listaOpciones.setEnabled(true);
 
             //Cargar los permisos
+            Permisos.destroy();
             Permisos.getInstance(getApplicationContext());
         }
     }

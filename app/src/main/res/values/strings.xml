@@ -118,5 +118,8 @@
     <string name="singing_error">Credenciales no validas</string>
     <string name="singing_error_vacios">Complete todos los campos</string>
 
+    <!-- PERMISOS -->
+    <string name="no_permiso">Usted no tiene permisos para esa accion</string>
+
 
 </resources>
