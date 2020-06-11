@@ -95,7 +95,6 @@ public abstract class ControlBD extends RoomDatabase {
     public void llenarBD(){
         //Primero que nada, vaciamos la tabla.
         vaciarBD();
-        //Generando datos para probar mis clases xd
         Autor nuevo = new Autor();
         nuevo.nomAutor = "Josue";
         nuevo.apeAutor = "Aquino";
@@ -407,7 +406,7 @@ public abstract class ControlBD extends RoomDatabase {
             accesoUsuarioDao().insertarAccesoUsuario(permiso);
         }
 
-        // Esto se pudo hacer en el for anterior, pero para que sema más legible se hizo aparte
+        // Esto se pudo hacer en el for anterior, pero para que sea más legible se hizo aparte
         for(OpcionCrud opcion: opciones) {
             if (!opcion.desOpcion.contains("Eliminar")) {
                 // NO dar permiso de eliminar
@@ -417,11 +416,6 @@ public abstract class ControlBD extends RoomDatabase {
                 accesoUsuarioDao().insertarAccesoUsuario(permiso);
             }
         }
-
-
-
-
-
     }
     //Aqui se declaran los DAOs
     public abstract AccesoUsuarioDao accesoUsuarioDao();

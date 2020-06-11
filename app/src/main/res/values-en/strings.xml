@@ -14,16 +14,16 @@
     <string name="autor_actualizar">Update Author</string>
 
     <!-- CRUD EQUIPO INFORMATICO -->
-    <string name="equipo_id">Team ID</string>
-    <string name="equipo_codigo">Team Code</string>
+    <string name="equipo_id">Equipment ID</string>
+    <string name="equipo_codigo">Equipment Code</string>
     <string name="equipo_fecha">Equipment Acquisition</string>
-    <string name="equipo_estado">Team Status</string>
+    <string name="equipo_estado">Equipment Status</string>
     <string name="equipo_tipo_producto">Product Type</string>
     <string name="equipo_ubicacion">Location</string>
     <string name="equipo_catalogo">Equipment Catalog</string>
-    <string name="equipo_insertar">Add Team</string>
-    <string name="equipo_consultar">Consult Team</string>
-    <string name="equipo_eliminar">Delete Team</string>
+    <string name="equipo_insertar">Add Equipment</string>
+    <string name="equipo_consultar">Consult Equipment</string>
+    <string name="equipo_eliminar">Delete Equipment</string>
     <string name="equipo_actualizar">Update Equipment</string>
 
     <!-- CRUD DETALLE RESERVA -->
@@ -36,11 +36,11 @@
     <string name="reserva_actualizar">Update Reservation</string>
 
     <!-- DetalleDescargo -->
-    <string name="insertarDetalleDescargo">Insert Detail Download</string>
-    <string name="actualizarDetalleDescargo">Update Detail Download</string>
-    <string name="consultarDetalleDescargo">Consult DetailDischarge</string>
-    <string name="eliminarDetalleDescargo">Delete Detail Download</string>
-    <string name="idEquipo">ID Computer Equipment</string>
+    <string name="insertarDetalleDescargo">Insert Discharge Detail </string>
+    <string name="actualizarDetalleDescargo">Update Discharge Detail</string>
+    <string name="consultarDetalleDescargo">Consult Discharge Detail </string>
+    <string name="eliminarDetalleDescargo">Delete Discharge Detail</string>
+    <string name="idEquipo">Computer Equipment ID</string>
 
     <!-- Descargo -->
     <string name="insertarDescargo">Insert Disclaimer</string>
@@ -48,8 +48,8 @@
     <string name="consultarDescargo">Consult Disclaimer</string>
     <string name="eliminarDescargo">Delete Disclaimer</string>
     <string name="idDescargos">Disclaimer ID</string>
-    <string name="idOrigen">ID Location Origin</string>
-    <string name="idDestino">Destination ID Location</string>
+    <string name="idOrigen">Origin Location ID </string>
+    <string name="idDestino">Destination Location ID</string>
     <string name="descargoFecha">Release Date</string>
 
     <!-- CatalogoEquipo -->
@@ -61,7 +61,7 @@
     <string name="idMarca">Brand ID</string>
     <string name="modeloEquipo">Generic Equipment Model</string>
     <string name="memoria">Memory</string>
-    <string name="cantEquipo">Quantity Equipment</string>
+    <string name="cantEquipo">Equipment Quantity</string>
 
     <!-- Motivo -->
     <string name="btn_agregar_motivo">Add Reason</string>
@@ -79,53 +79,71 @@
     <string name="docente">Teacher:</string>
     <string name="btn_agregar_sustitucion">Add Substitution</string>
     <string name="id_de_la_sustitucion">Substitution ID</string>
-    <string name="btn_eliminar_sustitucion"></string>
-    <string name="btn_consultar_sustitucion">Delete Substitution</string>
-    <string name="btn_actualizar_sustitucion">Consult Substitution</string>
+    <string name="btn_eliminar_sustitucion">Delete Substitution</string>
+    <string name="btn_consultar_sustitucion">Consult Substitution</string>
+    <string name="btn_actualizar_sustitucion">Update Substitution</string>
 
     <!-- TipoProducto -->
-    <string name="insertarTipoProducto">Update Substitution</string>
-    <string name="actualizarTipoProducto">Insert ProductType</string>
-    <string name="eliminarTipoProducto">Update Product Type</string>
-    <string name="consultarTipoProducto">Delete Product Type</string>
-    <string name="idTipoProducto">Consult Product Type</string>
-    <string name="nomTipoProducto">Product Type ID</string>
-    <string name="categoria_id">Product Type Name</string>
+    <string name="insertarTipoProducto">Insert ProductType</string>
+    <string name="actualizarTipoProducto">Update ProductType</string>
+    <string name="eliminarTipoProducto">Delete Product Type</string>
+    <string name="consultarTipoProducto">Consult Product Type</string>
+    <string name="idTipoProducto">Product Type ID</string>
+    <string name="nomTipoProducto">Product Type Name</string>
+    <string name="categoria_id">Category ID</string>
 
     <!-- Ubicaciones -->
-    <string name="insertarUbicaciones">Category ID</string>
-    <string name="actualizarUbicaciones">Insert Location</string>
-    <string name="eliminarUbicaciones">Update Location</string>
-    <string name="consultarUbicaciones">Delete Location</string>
-    <string name="idUbicacion">Consult Location</string>
-    <string name="nomUbicacion">Location ID</string>
+    <string name="insertarUbicaciones">Insert Location</string>
+    <string name="actualizarUbicaciones">Update Location</string>
+    <string name="eliminarUbicaciones">Delete Location</string>
+    <string name="consultarUbicaciones">Consult Location</string>
+    <string name="idUbicacion">Location ID</string>
+    <string name="nomUbicacion">Location Name</string>
 
 
     <!-- Movimiento inventario -->
-    <string name="tipo_de_movimiento">Name Location</string>
-    <string name="descripcion">Movement Type:</string>
-    <string name="prestamo_fecha_ini">Description:</string>
-    <string name="prestamo_fecha_fin">Loan Start Date:</string>
-    <string name="prestamo_permanente">Loan End Date</string>
-    <string name="btn_agregar_mov_inv">Permanent Loan</string>
-    <string name="prestamo_activo">Insert Inventory Movement</string>
-    <string name="id_del_mov_inv">Active Loan</string>
-    <string name="btn_consultar_mov_inv">Loan ID</string>
-    <string name="btn_eliminar_movimiento_inv">Consult Inventory Movement</string>
-    <string name="btn_actualizar_mov_inv">Delete Inventory Movement</string>
+    <string name="tipo_de_movimiento">Movement Type</string>
+    <string name="descripcion">Description</string>
+    <string name="prestamo_fecha_ini">Loan Start Date</string>
+    <string name="prestamo_fecha_fin">Loan End Date</string>
+    <string name="prestamo_permanente">Permanent Loan</string>
+    <string name="btn_agregar_mov_inv">Insert Inventory Movement</string>
+    <string name="prestamo_activo">Active Loan</string>
+    <string name="id_del_mov_inv">Loan ID</string>
+    <string name="btn_consultar_mov_inv">Consult Inventory Movement</string>
+    <string name="btn_eliminar_movimiento_inv">Delete Inventory Movement</string>
+    <string name="btn_actualizar_mov_inv">Update Inventory Movement</string>
 
     <!-- Misc. -->
-    <string name="cambiar_a_ws">Update Inventory Movement</string>
-    <string name="cambiar_a_sqlite">Switch to WS mode</string>
+    <string name="cambiar_a_ws">Switch to WebService mode</string>
+    <string name="cambiar_a_sqlite">Switch to SQLite Mode</string>
 
     <!-- LOGIN -->
-    <string name="username">Switch to SQLite mode</string>
-    <string name="password">User</string>
-    <string name="singin">Password</string>
-    <string name="singing_error">Login</string>
-    <string name="singing_error_vacios">Invalid credentials</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="singin">Login</string>
+    <string name="singing_error">Invalid credentials</string>
+    <string name="singing_error_vacios">Complete all fields</string>
 
     <!-- PERMISOS -->
-    <string name="no_permiso">Complete all fields</string>
+    <string name="no_permiso">You don\'t have permissions to perform this action</string>
+    <string name="agregar_detalleautor">Insert Author Detail</string>
+    <string name="eliminar_detalleautor">Delete Author Detail</string>
+    <string name="consultar_detalleautor">Consult Author Detail</string>
+    <string name="actualizar_detalleautor">Update Author Detail</string>
+    <string name="menu_item_autor">Author</string>
+    <string name="menu_item_detalleautor">AuthorDetail</string>
+    <string name="menu_item_participaciondocente">TeacherParticipation</string>
+    <string name="menu_item_documento">Document</string>
+    <string name="menu_item_equipoinformatico">Computer Equipment</string>
+    <string name="menu_item_catalogoequipo">Equipment Catalog</string>
+    <string name="menu_item_motivo">Reason</string>
+    <string name="menu_item_sustituciones">Substitutions</string>
+    <string name="menu_item_detallereservaequipo">Equipment Booking Detail</string>
+    <string name="menu_item_descargos">Discharges</string>
+    <string name="menu_item_detalledescargos">Discharges Detail</string>
+    <string name="menu_item_movimientoinventario">Inventory Movement</string>
+    <string name="menu_item_llenarbase">Fill Database</string>
+    <string name="menu_item_cerrarsesion">Logout</string>
 
 </resources>

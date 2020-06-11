@@ -101,9 +101,9 @@
 
 
     <!-- Movimiento inventario -->
-    <string name="tipo_de_movimiento">Tipo de movimiento :</string>
-    <string name="descripcion">Descripcion :</string>
-    <string name="prestamo_fecha_ini">Prestamo Fecha Inicio :</string>
+    <string name="tipo_de_movimiento">Tipo de movimiento</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="prestamo_fecha_ini">Prestamo Fecha Inicio</string>
     <string name="prestamo_fecha_fin">Prestamo Fecha Final</string>
     <string name="prestamo_permanente">Prestamo Permanente</string>
     <string name="btn_agregar_mov_inv">Insertar Movimiento Inventario</string>
@@ -130,6 +130,21 @@
 
     <!-- PERMISOS -->
     <string name="no_permiso">Usted no tiene permisos para esa accion</string>
+    <string name="menu_item_autor">Autor</string>
+    <string name="menu_item_detalleautor">DetalleAutor</string>
+    <string name="menu_item_participaciondocente">ParticipacionDocente</string>
+    <string name="menu_item_documento">Documento</string>
+    <string name="menu_item_equipoinformatico">EquipoInformatico</string>
+    <string name="menu_item_catalogoequipo">CatalogoEquipo</string>
+    <string name="menu_item_motivo">Motivo</string>
+    <string name="menu_item_sustituciones">Sustituciones</string>
+    <string name="menu_item_detallereservaequipo">DetalleReservaEquipo</string>
+    <string name="menu_item_descargos">Descargos</string>
+    <string name="menu_item_detalledescargos">DetalleDescargos</string>
+    <string name="menu_item_movimientoinventario">MovimientoInventario</string>
+    <string name="menu_item_llenarbase">Llenar Base de Datos</string>
+    <string name="menu_item_cerrarsesion">Cerrar sesión</string>
 
+    <!-- Elementos del menu -->
 
 </resources>
