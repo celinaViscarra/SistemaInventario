@@ -2,7 +2,9 @@ package com.grupo13.inventario;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,6 +14,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.grupo13.inventario.activities.LoginActivity;
+import com.grupo13.inventario.singleton.Permisos;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
             "Descargos",
             "Detalle Descargos",
             "Movimiento Inventario",
-            "Llenar Base de Datos(sirve pero solo llena datos mios xd)"
+            "Llenar Base de Datos(sirve pero solo llena datos mios xd)",
+            "Cerrar sesion"
     };
 
     String[] activities={
@@ -48,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
             "MovimientoInventarioMenuActivity"
     };
 
+    public static final String USER_KEY = "USER_KEY";
+    public static final String USERNAME = "USERNAME";
+
     //Se puede usar este para no usar findViewByID
     @BindView(R.id.listaOpciones)
     ListView listaOpciones;
@@ -56,6 +65,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences sharedPreferences = getSharedPreferences(USER_KEY, Context.MODE_PRIVATE);
+        String username = sharedPreferences.getString(USERNAME, null);
+
+        if (username == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        Thread hilo = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Permisos.destroy();
+                Permisos.getInstance(getApplicationContext());
+            }
+        });
+        hilo.start();
+
         ControlBD helper;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -72,12 +99,22 @@ public class MainActivity extends AppCompatActivity {
         listaOpciones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position == menu.length-1){
+                if(position == menu.length-2){
 
                     // Llenar la base de datos en un hilo separado para no congelar el hilo principal
                     new LlenarBase().execute(helper);
 
-                }else{
+                }else if (position == menu.length-1){
+                    // Cerrar la sesión
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(USERNAME, null);
+                    editor.commit();
+
+                    Intent intent = new Intent(view.getContext(), LoginActivity.class);
+                    view.getContext().startActivity(intent);
+                    finish();
+
+                }else {
                     try {
                         Class clase = Class.forName("com.grupo13.inventario.activities."+activities[position]);
                         Intent inte = new Intent(getApplicationContext(), clase);
@@ -127,6 +164,10 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             bar.setVisibility(View.GONE);
             listaOpciones.setEnabled(true);
+
+            //Cargar los permisos
+            Permisos.destroy();
+            Permisos.getInstance(getApplicationContext());
         }
     }
 }
