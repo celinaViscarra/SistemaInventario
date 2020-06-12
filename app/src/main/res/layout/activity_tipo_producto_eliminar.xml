@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="ID del tipo de producto: "
+            android:text="@string/idTipoProducto"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <Button
-        android:text="Eliminar TipoProducto"
+        android:text="@string/btn_eliminar_tipoproducto"
         android:onClick="eliminarTipoProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
