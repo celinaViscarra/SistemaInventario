@@ -17,7 +17,6 @@
         <activity android:name=".activities.DescargosEliminarWSActivity" />
         <activity android:name=".activities.CatalogoEquipoConsultarWSActivity" />
         <activity android:name=".activities.CatalogoEquipoEliminarWSActivity" />
-        <activity android:name=".activities.CatalogoEquipoActualizarWSActivity" />
         <activity android:name=".activities.CatalogoEquipoInsertarWSActivity" />
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.DocumentoListaActivity" />
