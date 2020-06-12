@@ -49,7 +49,7 @@ import java.util.List;
                 Usuario.class
         },
         exportSchema = false,
-        version = 2
+        version = 3
 )
 @TypeConverters({Conversor.class})
 public abstract class ControlBD extends RoomDatabase {
