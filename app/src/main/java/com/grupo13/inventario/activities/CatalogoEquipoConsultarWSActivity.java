@@ -57,10 +57,10 @@ public class CatalogoEquipoConsultarWSActivity extends AppCompatActivity {
             String respuesta = ControlWS.post(url,params,this);
             JSONObject resp = new JSONArray(respuesta).getJSONObject(0);
             if(resp.length() != 0){
-                idMarca.setText(resp.getString("marca_id"));
-                modelo.setText(resp.getString("modelo_equipo_generico"));
-                memoria.setText(resp.getString("memoria"));
-                cantidad.setText(resp.getString("catalogo_equipo"));
+                idMarca.setText(resp.getString("MARCA_ID"));
+                modelo.setText(resp.getString("MODELO_EQUIPO_GENERICO"));
+                memoria.setText(resp.getString("MEMORIA"));
+                cantidad.setText(resp.getString("CATALOGO_EQUIPO"));
                 mensaje = "Elemento encontrado";
             }else{
                 mensaje = "Elemento vacio";
