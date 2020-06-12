@@ -151,6 +151,8 @@
 
     <!-- PERMISOS -->
     <string name="no_permiso">Usted no tiene permisos para esa accion</string>
+
+    <!-- Items del menu principal -->
     <string name="menu_item_autor">Autor</string>
     <string name="menu_item_detalleautor">DetalleAutor</string>
     <string name="menu_item_participaciondocente">ParticipacionDocente</string>
@@ -165,13 +167,22 @@
     <string name="menu_item_movimientoinventario">MovimientoInventario</string>
     <string name="menu_item_llenarbase">Llenar Base de Datos</string>
     <string name="menu_item_cerrarsesion">Cerrar sesión</string>
-    <string name="bienvenida">Bienvenido otra vez, %s</string>
-    <string name="id_del_documento">ID del documento:</string>
-    <string name="id_del_autor">ID del Autor:</string>
-    <string name="es_el_autor_principal">Es el autor principal?</string>
     <string name="menu_item_tipoproducto">TipoProducto</string>
     <string name="menu_item_docente">Docente</string>
     <string name="menu_item_ubicaciones">Ubicaciones</string>
+
+    <string name="bienvenida">Bienvenido otra vez, %s</string>
+
+    <!-- DetalleAutor -->
+    <string name="id_del_documento">ID del documento:</string>
+    <string name="id_del_autor">ID del Autor:</string>
+    <string name="es_el_autor_principal">Es el autor principal?</string>
+
+    <string name="menu_item_insertar">Insertar %s</string>
+    <string name="menu_item_lista">Lista %s</string>
+    <string name="menu_item_consultar">Consultar %s</string>
+    <string name="menu_item_actualizar">Actualizar %s</string>
+    <string name="menu_item_eliminar">Eliminar %s</string>
 
 
     <!-- Elementos del menu -->

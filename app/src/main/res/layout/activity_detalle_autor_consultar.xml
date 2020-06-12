@@ -42,7 +42,7 @@
         <CheckBox
             android:enabled="false"
             android:id="@+id/edtEsPrincipal"
-            android:text="Es el autor principal?"
+            android:text="@string/es_el_autor_principal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>

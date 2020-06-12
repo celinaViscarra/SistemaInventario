@@ -172,5 +172,10 @@
     <string name="menu_item_tipoproducto">Product Type</string>
     <string name="menu_item_docente">Teacher</string>
     <string name="menu_item_ubicaciones">Locations</string>
+    <string name="menu_item_insertar">Insert %s</string>
+    <string name="menu_item_lista">List %s</string>
+    <string name="menu_item_consultar">Consult %s</string>
+    <string name="menu_item_actualizar">Update %s</string>
+    <string name="menu_item_eliminar">Delete %s</string>
 
 </resources>
