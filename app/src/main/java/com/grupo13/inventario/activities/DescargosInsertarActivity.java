@@ -42,25 +42,31 @@ public class DescargosInsertarActivity extends AppCompatActivity {
 
     public void insertarDescargos(View v) {
         String mensaje = "";
+
         try {
             Descargos descargos = new Descargos();
             int posOrigen = idOrigen.getSelectedItemPosition();
             int posDestino = idDestino.getSelectedItemPosition();
-            if(posOrigen>0 && posDestino>0) {
-                descargos.ubicacion_origen_id = listaOrigen.get(posOrigen - 1).idUbicacion;
-                descargos.ubicacion_destino_id = listaDestino.get(posDestino - 1).idUbicacion;
+            String fecha1 = descargoFecha.getText().toString();
+            if(!fecha1.isEmpty()) {
+                if (posOrigen > 0 && posDestino > 0) {
+                    descargos.ubicacion_origen_id = listaOrigen.get(posOrigen - 1).idUbicacion;
+                    descargos.ubicacion_destino_id = listaDestino.get(posDestino - 1).idUbicacion;
 
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                LocalDate fecha = LocalDate.parse(descargoFecha.getText().toString(), formatter);
-                descargos.fechaDescargos = Date.valueOf(fecha.toString());
-                long posicion = helper.descargosDao().insertarDescargos(descargos);
-                if (posicion == 0 || posicion == -1) {
-                    mensaje = "ERROR AL INSERTAR DESCARGO";
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                    LocalDate fecha = LocalDate.parse(fecha1, formatter);
+                    descargos.fechaDescargos = Date.valueOf(fecha.toString());
+                    long posicion = helper.descargosDao().insertarDescargos(descargos);
+                    if (posicion == 0 || posicion == -1) {
+                        mensaje = "ERROR AL INSERTAR DESCARGO";
+                    } else {
+                        mensaje = String.format("Descargo insertado en la posicion %d", posicion);
+                    }
                 } else {
-                    mensaje = String.format("Descargo insertado en la posicion %d", posicion);
+                    mensaje = "Por favor, seleccione una opcion valida.";
                 }
-            }else{
-                mensaje = "Por favor, seleccione una opcion valida.";
+            }else {
+                Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show();
             }
         }catch(DateTimeParseException e){
             mensaje = "El formato correcto para insertar fecha es: dd—mm—yyyy";

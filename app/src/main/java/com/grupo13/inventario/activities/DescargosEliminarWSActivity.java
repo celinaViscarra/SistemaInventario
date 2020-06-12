@@ -35,25 +35,29 @@ public class DescargosEliminarWSActivity extends AppCompatActivity {
 
     public void eliminarDescargosWS(View v){
         String mensaje = "";
-        try {
-            JSONObject elementoEliminar = new JSONObject();
-            elementoEliminar.put("descargo_id", idDescargo.getText().toString());
+        String idDescargos = idDescargo.getText().toString();
+        if(!idDescargos.isEmpty()) {
+            try {
+                JSONObject elementoEliminar = new JSONObject();
+                elementoEliminar.put("descargo_id", idDescargos);
 
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("elementoEliminar",elementoEliminar.toString()));
+                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("elementoEliminar", elementoEliminar.toString()));
 
-            String respuesta = ControlWS.post(url,params,this);
-            JSONObject resp = new JSONObject(respuesta);
-            int resultado = resp.getInt("resultado");
-            if(resultado == 1){
-                mensaje = "Eliminado con exito.";
-            } else
-                mensaje = "No se pudo eliminar el dato.";
-
-        } catch (JSONException e) {
-            mensaje = "Error en el parseo.";
-        } finally {
-            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+                String respuesta = ControlWS.post(url, params, this);
+                JSONObject resp = new JSONObject(respuesta);
+                int resultado = resp.getInt("resultado");
+                if (resultado == 1) {
+                    mensaje = "Eliminado con exito.";
+                } else
+                    mensaje = "No se pudo eliminar el dato.";
+            } catch (JSONException e) {
+                mensaje = "Error en el parseo.";
+            } finally {
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+            }
+        }else {
+            Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
 

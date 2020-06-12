@@ -42,7 +42,7 @@ public class Descargos {
     @NonNull
     public int ubicacion_destino_id;
 
-    public Descargos(int idDescargos, int origen, int destino, Date fechaDescargos){
+    public Descargos(int idDescargos, @NonNull int origen, @NonNull int destino, @NonNull Date fechaDescargos){
         this.idDescargos=idDescargos;
         this.ubicacion_origen_id=origen;
         this.ubicacion_destino_id=destino;

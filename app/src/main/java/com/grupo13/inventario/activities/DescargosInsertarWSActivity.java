@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DescargosInsertarWSActivity extends AppCompatActivity {
-    EditText idDescargo, descargoFecha, idOrigen, idDestino;
+    EditText descargoFecha, idOrigen, idDestino;
     private final String url = "http://grupo13pdm.ml/inventariows/descargos/insertar.php";
 
     @Override
@@ -31,7 +31,6 @@ public class DescargosInsertarWSActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        idDescargo = (EditText) findViewById(R.id.editIdDescargos);
         idOrigen = (EditText) findViewById(R.id.editIdOrigen);
         idDestino = (EditText) findViewById(R.id.editIdDestino);
         descargoFecha = (EditText) findViewById(R.id.editIdDescargoFecha);
@@ -41,7 +40,6 @@ public class DescargosInsertarWSActivity extends AppCompatActivity {
         String mensaje = "";
         try {
             JSONObject elementoInsertar = new JSONObject();
-            elementoInsertar.put("descargo_id", idDescargo.getText().toString());
             elementoInsertar.put("ubicacion_destino_id", idDestino.getText().toString());
             elementoInsertar.put("ubicacion_origen_id", idOrigen.getText().toString());
             elementoInsertar.put("descargo_fecha", descargoFecha.getText().toString());
@@ -64,7 +62,6 @@ public class DescargosInsertarWSActivity extends AppCompatActivity {
     }
 
     public void limpiarTexto(View v){
-        idDescargo.setText("");
         idOrigen.setText("");
         idDestino.setText("");
         descargoFecha.setText("");
