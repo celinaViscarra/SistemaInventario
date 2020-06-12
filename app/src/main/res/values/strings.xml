@@ -98,6 +98,11 @@
     <string name="idTipoProducto">ID TipoProducto</string>
     <string name="nomTipoProducto">Nombre TipoProducto</string>
     <string name="categoria_id">ID Categoria</string>
+    <string name="btn_insertar_tipoproducto">Insertar TipoProducto</string>
+    <string name="btn_consultar_tipoproducto">Consultar TipoProducto</string>
+    <string name="btn_eliminar_tipoproducto">Eliminar TipoProducto</string>
+    <string name="btn_actualizar_tipoproducto">Actualizar TipoProducto</string>
+
 
     <!-- Ubicaciones -->
     <string name="insertarUbicaciones">Insertar Ubicacion</string>
@@ -159,6 +164,8 @@
     <string name="menu_item_tipoproducto">TipoProducto</string>
     <string name="menu_item_docente">Docente</string>
     <string name="menu_item_ubicaciones">Ubicaciones</string>
+
+
 
     <!-- Elementos del menu -->
 

@@ -99,6 +99,11 @@
     <string name="idTipoProducto">Product Type ID</string>
     <string name="nomTipoProducto">Product Type Name</string>
     <string name="categoria_id">Category ID</string>
+    <string name="btn_insertar_tipoproducto">Insert Product Type</string>
+    <string name="btn_consultar_tipoproducto">Consult Product Type</string>
+    <string name="btn_eliminar_tipoproducto">Delete Product Type</string>
+    <string name="btn_actualizar_tipoproducto">Update Product Type</string>
+
 
     <!-- Ubicaciones -->
     <string name="insertarUbicaciones">Insert Location</string>
