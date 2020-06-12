@@ -80,6 +80,7 @@
     <string name="btn_agregar_motivo_ws">Agregar Motivo (WebService)</string>
     <string name="btn_eliminar_motivo_ws">Eliminar Motivo (WebService)</string>
     <string name="btn_consultar_motivo_ws">Consultar Motivo (WebService)</string>
+    <string name="btn_actualizar_motivo_ws">Actualizar Motivo (WebService)</string>
 
 
     <!-- Sustitucion -->

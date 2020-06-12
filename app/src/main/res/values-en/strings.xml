@@ -81,7 +81,7 @@
     <string name="btn_agregar_motivo_ws">Add Reason (WebService)</string>
     <string name="btn_eliminar_motivo_ws">Delete Reason (WebService)</string>
     <string name="btn_consultar_motivo_ws">Consult Reason (WebService)</string>
-
+    <string name="btn_actualizar_motivo_ws">Update Reason (WebService)</string>
 
     <!-- Sustitucion -->
     <string name="tipo_de_motivo">Reason Type:</string>

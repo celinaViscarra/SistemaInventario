@@ -20,6 +20,7 @@ public class MotivoMenuActivity extends ListActivity {
             "Eliminar Motivo",
             "Insertar Motivo WebService",
             "Consultar Motivo WebService",
+            "Actualizar Motivo WebService",
             "Eliminar Motivo WebService"
     };
     String[] activities = {
@@ -29,6 +30,7 @@ public class MotivoMenuActivity extends ListActivity {
             "MotivoEliminarActivity",
             "MotivoInsertarWSActivity",
             "MotivoConsultarWSActivity",
+            "MotivoActualizarWSActivity",
             "MotivoEliminarWSActivity"
     };
 
