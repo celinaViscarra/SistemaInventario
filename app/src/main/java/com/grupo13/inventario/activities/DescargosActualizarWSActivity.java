@@ -15,6 +15,9 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.format.DateTimeFormatter;
+import org.threeten.bp.format.DateTimeParseException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,28 +41,40 @@ public class DescargosActualizarWSActivity extends AppCompatActivity {
 
     public void actualizarDescargosWS(View v){
         String mensaje = "";
-        try {
-            JSONObject elementoActualizar = new JSONObject();
-            elementoActualizar.put("descargo_id", idDescargo.getText().toString());
-            elementoActualizar.put("ubicacion_destino_id", idDestino.getText().toString());
-            elementoActualizar.put("ubicacion_origen_id", idOrigen.getText().toString());
-            elementoActualizar.put("descargo_fecha", descargoFecha.getText().toString());
+        String descargo = idDescargo.getText().toString();
+        String fecha = descargoFecha.getText().toString();
+        String destino = idDestino.getText().toString();
+        String origen = idOrigen.getText().toString();
+        if(!fecha.isEmpty() && !destino.isEmpty() && !origen.isEmpty()) {
+            try {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                LocalDate fechas = LocalDate.parse(descargoFecha.getText().toString(), formatter);
 
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("elementoActualizar",elementoActualizar.toString()));
+                JSONObject elementoActualizar = new JSONObject();
+                elementoActualizar.put("descargo_id", descargo);
+                elementoActualizar.put("ubicacion_destino_id", destino);
+                elementoActualizar.put("ubicacion_origen_id", origen);
+                elementoActualizar.put("descargo_fecha", fechas.toString());
 
-            String respuesta = ControlWS.post(url,params,this);
-            JSONObject resp = new JSONObject(respuesta);
-            int resultado = resp.getInt("resultado");
-            if(resultado == 1){
-                mensaje = "Actualizado con exito.";
-            }else
-                mensaje = "No se pudo actualizar el dato.";
+                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("elementoActualizar", elementoActualizar.toString()));
 
-        } catch (JSONException e) {
-            mensaje = "Error en el parseo.";
-        } finally {
-            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+                String respuesta = ControlWS.post(url, params, this);
+                JSONObject resp = new JSONObject(respuesta);
+                int resultado = resp.getInt("resultado");
+                if (resultado == 1) {
+                    mensaje = "Actualizado con exito.";
+                } else
+                    mensaje = "No se pudo actualizar el dato.";
+            }catch(DateTimeParseException e){ //Para validar el formato de fecha
+                mensaje = "El formato correcto para insertar fecha es: dd—mm—yyyy";
+            } catch (JSONException e) {
+                mensaje = "Error en el parseo.";
+            } finally {
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+            }
+        }else {
+            Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
 
