@@ -390,11 +390,24 @@ public abstract class ControlBD extends RoomDatabase {
         //Y el 8 al crud de Documento.
         OpcionCrud o58 = new OpcionCrud("058","DocumentoListaActivity", 8);
 
+        //Para los nuevos webservice
+        OpcionCrud o59 = new OpcionCrud("057", "EquipoInformaticoActualizarWSActivity", 15);
+        OpcionCrud o60 = new OpcionCrud("058", "EquipoInformaticoEliminarWSActivity", 15);
+        OpcionCrud o61 = new OpcionCrud("059", "EquipoInformaticoConsultarWSActivity", 15);
+        OpcionCrud o62 = new OpcionCrud("060", "EquipoInformaticoInsertarWSActivity", 15);
+
+        OpcionCrud o63 = new OpcionCrud("061", "DescargosEliminarWSActivity", 16);
+        OpcionCrud o64 = new OpcionCrud("062", "DescargosConsultarWSActivity", 16);
+        OpcionCrud o65 = new OpcionCrud("063", "DescargosActualizarWSActivity", 16);
+        OpcionCrud o66 = new OpcionCrud("064", "DescargosInsertarWSActivity", 16);
+
+
         // Agregar aqui las TODAS las opciones disponibles
         OpcionCrud opciones[] = {
-                o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, o16, o17, o18, o19,
-                o20, o21, o22, o23, o24, o25, o26, o27, o28, o29, o30, o31, o32, o33, o34, o35, o36, o37, o38, o39,
-                o40, o41, o42, o43, o44, o45, o46, o47, o48, o49, o50, o51, o52, o53, o54, o55, o56, o57, o58
+                o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, o16, o17, o18, o19, o20,
+                o21, o22, o23, o24, o25, o26, o27, o28, o29, o30, o31, o32, o33, o34, o35, o36, o37, o38, o39, o40,
+                o41, o42, o43, o44, o45, o46, o47, o48, o49, o50, o51, o52, o53, o54, o55, o56, o57, o58, o59, o60,
+                o61, o62, o63, o64, o65, o66
             };
 
         // Guarda todas las opciones disponibles
