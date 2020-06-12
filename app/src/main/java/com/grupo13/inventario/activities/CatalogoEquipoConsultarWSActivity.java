@@ -62,7 +62,7 @@ public class CatalogoEquipoConsultarWSActivity extends AppCompatActivity {
                     idMarca.setText(resp.getString("MARCA_ID"));
                     modelo.setText(resp.getString("MODELO_EQUIPO_GENERICO"));
                     memoria.setText(resp.getString("MEMORIA"));
-                    cantidad.setText(resp.getString("CATALOGO_EQUIPO"));
+                    cantidad.setText(resp.getString("CANTIDAD_EQUIPO"));
                     mensaje = "Elemento encontrado";
                 } else {
                     mensaje = "Elemento vacio";
