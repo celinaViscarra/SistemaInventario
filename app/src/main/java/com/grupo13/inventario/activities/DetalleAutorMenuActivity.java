@@ -13,13 +13,15 @@ import android.widget.Toast;
 import com.grupo13.inventario.R;
 import com.grupo13.inventario.singleton.Permisos;
 
+import java.util.ArrayList;
+
 public class DetalleAutorMenuActivity extends ListActivity {
-    String[] menu = {
-            "Insertar DetalleAutor",
-            "Lista DetalleAutor",
-            "Consultar DetalleAutor",
-            "Actualizar DetalleAutor",
-            "Eliminar DetalleAutor"
+    int[] menu = {
+            R.string.menu_item_insertar,
+            R.string.menu_item_lista,
+            R.string.menu_item_consultar,
+            R.string.menu_item_actualizar,
+            R.string.menu_item_eliminar
     };
     String[] activities = {
             "DetalleAutorInsertarActivity",
@@ -32,7 +34,17 @@ public class DetalleAutorMenuActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_detalle_autor_menu);
-        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,menu));
+        ArrayList<String> menuStrings = new ArrayList<>();
+        for(int pivote: menu){
+            //Esto formatea el string del elemento del menu,
+            //por ejemplo, si el string que devuelve getString(pivote) fuera "Insertar %s",
+            //getString(R.string.detalle_autor) devolvera el nombre de esta clase, ejemplo
+            //"Insertar DetalleAutor"
+            String elementoMenu = String.format(getString(pivote),getString(R.string.detalle_autor));
+            menuStrings.add(elementoMenu);
+        }
+
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,menuStrings));
     }
 
     @Override

@@ -177,5 +177,6 @@
     <string name="menu_item_consultar">Consult %s</string>
     <string name="menu_item_actualizar">Update %s</string>
     <string name="menu_item_eliminar">Delete %s</string>
+    <string name="detalle_autor">Author Detail</string>
 
 </resources>
