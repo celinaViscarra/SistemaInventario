@@ -77,6 +77,7 @@
     <string name="Nombremotivo">Motivo:</string>
     <string name="btn_consultar_motivo">Consultar Motivo</string>
     <string name="btn_actualizar_motivo">Actualizar Motivo</string>
+    <string name="btn_agregar_motivo_ws">Agregar Motivo (WebService)</string>
 
 
     <!-- Sustitucion -->
