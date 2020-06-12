@@ -46,25 +46,12 @@ public class MainActivity extends AppCompatActivity {
             R.string.menu_item_descargos,
             R.string.menu_item_detalledescargos,
             R.string.menu_item_movimientoinventario,
+            R.string.menu_item_tipoproducto,
+            R.string.menu_item_docente,
+            R.string.menu_item_ubicaciones,
             R.string.menu_item_llenarbase,
             R.string.menu_item_cerrarsesion
     };
-    /*String[] menu = {
-            "Autor",
-            "DetalleAutor",
-            "ParticipacionDocente",
-            "Documento",
-            "Equipo Informatico",
-            "Catalogo Equipo",
-            "Motivo",
-            "Sustituciones",
-            "Detalle Reserva Equipo",
-            "Descargos",
-            "Detalle Descargos",
-            "Movimiento Inventario",
-            "Llenar Base de Datos(sirve pero solo llena datos mios xd)",
-            "Cerrar sesion"
-    };*/
 
     String[] activities={
             "AutorMenuActivity",
@@ -78,7 +65,10 @@ public class MainActivity extends AppCompatActivity {
             "DetalleReservaMenuActivity",
             "DescargosMenuActivity",
             "DetalleDescargosMenuActivity",
-            "MovimientoInventarioMenuActivity"
+            "MovimientoInventarioMenuActivity",
+            "TipoProductoMenuActivity",
+            "DocenteMenuActivity",
+            "UbicacionesMenuActivity"
     };
 
     public static final String USER_KEY = "USER_KEY";

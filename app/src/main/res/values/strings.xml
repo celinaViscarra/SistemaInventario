@@ -156,6 +156,9 @@
     <string name="id_del_documento">ID del documento:</string>
     <string name="id_del_autor">ID del Autor:</string>
     <string name="es_el_autor_principal">Es el autor principal?</string>
+    <string name="menu_item_tipoproducto">TipoProducto</string>
+    <string name="menu_item_docente">Docente</string>
+    <string name="menu_item_ubicaciones">Ubicaciones</string>
 
     <!-- Elementos del menu -->
 

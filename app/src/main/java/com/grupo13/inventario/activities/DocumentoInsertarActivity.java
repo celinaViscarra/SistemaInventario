@@ -87,50 +87,59 @@ public class DocumentoInsertarActivity extends AppCompatActivity {
     public void insertarDocumento(View v){
         String mensaje = "";
         try{
-            Documento doc = new Documento();
-            doc.tipo_producto_id = tiposProducto.get(spinners.get(0).getSelectedItemPosition()).idTipoProducto;
-            doc.idioma_id = idiomas.get(spinners.get(1).getSelectedItemPosition()).idIdioma;
-            doc.isbn = editTextList.get(0).getText().toString();
-            doc.edicion = editTextList.get(1).getText().toString();
-            doc.editorial = editTextList.get(2).getText().toString();
-            doc.titulo = editTextList.get(3).getText().toString();
+            int posTP = spinners.get(0).getSelectedItemPosition();
+            int posIdioma = spinners.get(1).getSelectedItemPosition();
+            boolean textosVacios = false;
+            for(EditText pivote: editTextList) textosVacios = pivote.getText().toString().equals("") || textosVacios;
+            if(posTP > 0 && posIdioma > 0 && !textosVacios){
+                Documento doc = new Documento();
+                doc.tipo_producto_id = tiposProducto.get(posTP - 1).idTipoProducto;
+                doc.idioma_id = idiomas.get(posIdioma - 1).idIdioma;
+                doc.isbn = editTextList.get(0).getText().toString();
+                doc.edicion = editTextList.get(1).getText().toString();
+                doc.editorial = editTextList.get(2).getText().toString();
+                doc.titulo = editTextList.get(3).getText().toString();
 
-            if(modo_datos == 1){
-                long posicion = helper.documentoDao().insertarDocumento(doc);
-                if(posicion == 0 || posicion == -1){
-                    mensaje = "Error al tratar de ingresar el registro a la Base de Datos.";
+                if(modo_datos == 1){
+                    long posicion = helper.documentoDao().insertarDocumento(doc);
+                    if(posicion == 0 || posicion == -1){
+                        mensaje = "Error al tratar de ingresar el registro a la Base de Datos.";
+                    }
+                    else{
+                        mensaje = String.format("Registrado correctamente en la posicion: %d",posicion);
+                    }
+                } else{
+                    JSONObject elementoInsertar = new JSONObject();
+                    //TODO: IMPORTANTE!!!
+                    //Si en el nombre en put ponen el nombre como esta en la base de datos
+                    //Asi con las mayusculas que salgan en la base, por ejemplo si saliera 'idAutor'
+                    //asi tienen que ponerlo.
+                    elementoInsertar.put("tipo_producto_id",doc.tipo_producto_id);
+                    elementoInsertar.put("idioma_id", doc.idioma_id);
+                    elementoInsertar.put("isbn", doc.isbn);
+                    elementoInsertar.put("edicion", doc.edicion);
+                    elementoInsertar.put("editorial", doc.editorial);
+                    elementoInsertar.put("titulo", doc.titulo);
+
+                    List<NameValuePair> params = new ArrayList<NameValuePair>();
+                    params.add(new BasicNameValuePair("elementoInsertar",elementoInsertar.toString()));
+
+                    String respuesta = ControlWS.post(urlInsertDocumento, params, this);
+                    //Traemos el objeto json de la respuesta
+                    JSONObject resp = new JSONObject(respuesta);
+                    //Sacamos el resultado como un entero
+                    int resultado = resp.getInt("resultado");
+                    if(resultado == 1){
+                        mensaje = "Insertado con exito.";
+                    }else{
+                        mensaje = "No se pudo ingresar el dato.";
+                    }
                 }
-                else{
-                    mensaje = String.format("Registrado correctamente en la posicion: %d",posicion);
-                }
+            }else if(textosVacios) {
+                mensaje = "Revisar que ningun campo de texto vaya vacío.";
             } else{
-                JSONObject elementoInsertar = new JSONObject();
-                //TODO: IMPORTANTE!!!
-                //Si en el nombre en put ponen el nombre como esta en la base de datos
-                //Asi con las mayusculas que salgan en la base, por ejemplo si saliera 'idAutor'
-                //asi tienen que ponerlo.
-                elementoInsertar.put("tipo_producto_id",doc.tipo_producto_id);
-                elementoInsertar.put("idioma_id", doc.idioma_id);
-                elementoInsertar.put("isbn", doc.isbn);
-                elementoInsertar.put("edicion", doc.edicion);
-                elementoInsertar.put("editorial", doc.editorial);
-                elementoInsertar.put("titulo", doc.titulo);
-
-                List<NameValuePair> params = new ArrayList<NameValuePair>();
-                params.add(new BasicNameValuePair("elementoInsertar",elementoInsertar.toString()));
-
-                String respuesta = ControlWS.post(urlInsertDocumento, params, this);
-                //Traemos el objeto json de la respuesta
-                JSONObject resp = new JSONObject(respuesta);
-                //Sacamos el resultado como un entero
-                int resultado = resp.getInt("resultado");
-                if(resultado == 1){
-                    mensaje = "Insertado con exito.";
-                }else{
-                    mensaje = "No se pudo ingresar el dato.";
-                }
+                mensaje = "Seleccione una opcion por favor.";
             }
-
         }catch (SQLiteConstraintException e){
             mensaje = "Error al tratar de ingresar el registro a la Base de Datos.";
         } catch (JSONException e) {
@@ -179,9 +188,11 @@ public class DocumentoInsertarActivity extends AppCompatActivity {
                     break;
                 }
             }
+            nomIdiomas.add("** Selecciona un idioma **");
             for(Idiomas idioma: idiomas){
                 nomIdiomas.add(idioma.nombreIdioma);
             }
+            nomTiposProducto.add("** Selecciona un Tipo Producto **");
             for(TipoProducto tipoProducto: tiposProducto){
                 nomTiposProducto.add(tipoProducto.nomTipoProducto);
             }

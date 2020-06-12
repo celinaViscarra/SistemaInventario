@@ -18,8 +18,6 @@ import butterknife.ButterKnife;
 public class TipoProductoInsertarActivity extends AppCompatActivity {
     ControlBD helper;
 
-    @BindView(R.id.edtTipoProductoID)
-    EditText edtTipoProductoID;
     @BindView(R.id.edtCategoriaID)
     EditText edtCategoriaID;
     @BindView(R.id.edtNombreProducto)
@@ -38,7 +36,6 @@ public class TipoProductoInsertarActivity extends AppCompatActivity {
         String mensaje = "";
         try {
             TipoProducto tp = new TipoProducto();
-            tp.idTipoProducto = Integer.parseInt(edtTipoProductoID.getText().toString());
             tp.categoria_id = Integer.parseInt(edtCategoriaID.getText().toString());
             tp.nomTipoProducto = edtNombreProducto.getText().toString();
 
