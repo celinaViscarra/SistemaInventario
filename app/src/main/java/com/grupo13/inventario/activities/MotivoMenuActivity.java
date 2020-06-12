@@ -18,14 +18,16 @@ public class MotivoMenuActivity extends ListActivity {
             "Consultar Motivo",
             "Actualizar Motivo",
             "Eliminar Motivo",
-            "Insertar Motivo WebService"
+            "Insertar Motivo WebService",
+            "Eliminar Motivo WebService"
     };
     String[] activities = {
             "MotivoInsertarActivity",
             "MotivoConsultarActivity",
             "MotivoActualizarActivity",
             "MotivoEliminarActivity",
-            "MotivoInsertarWSActivity"
+            "MotivoInsertarWSActivity",
+            "MotivoEliminarWSActivity"
     };
 
     @Override
