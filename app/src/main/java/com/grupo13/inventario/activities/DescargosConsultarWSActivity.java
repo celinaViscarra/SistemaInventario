@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -50,10 +51,11 @@ public class DescargosConsultarWSActivity extends AppCompatActivity {
                 params.add(new BasicNameValuePair("elementoConsulta", elementoConsulta.toString()));
 
                 String respuesta = ControlWS.post(url, params, this);
+                Log.v("Respuesta del server: ", respuesta);
                 JSONObject resp = new JSONArray(respuesta).getJSONObject(0);
                 if (resp.length() != 0) {
-                    idOrigen.setText(resp.getString("UBICACION__ORIGEN_ID"));
-                    idDestino.setText(resp.getString("UBICACION__DESTINO_ID"));
+                    idOrigen.setText(resp.getString("UBICACION_ORIGEN_ID"));
+                    idDestino.setText(resp.getString("UBICACION_DESTINO_ID"));
                     descargoFecha.setText(resp.getString("DESCARGO_FECHA"));
                     mensaje = "Elemento encontrado";
                 } else {

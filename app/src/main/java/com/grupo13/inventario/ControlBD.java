@@ -127,7 +127,7 @@ public abstract class ControlBD extends RoomDatabase {
         docenteDao().insertarDocente(docente2);
         Docente docente3 = new Docente();
         docente3.nomDocente = "Alberto López";
-        docenteDao().insertarDocente(docente3);
+        long idDoce = docenteDao().insertarDocente(docente3);
 
         TipoParticipacion participacion1 = new TipoParticipacion();
         participacion1.nomParticipacion = "100%";
@@ -311,9 +311,6 @@ public abstract class ControlBD extends RoomDatabase {
         equipoInformatico.tipo_producto_id = (int) idTp;
         long idEquipoInfor = equipoInformaticoDao().insertarEquipoInformatico(equipoInformatico);
 
-        Docente doce1 = new Docente();
-        doce1.nomDocente = "Ing. Josue Aquino";
-        long idDoce = docenteDao().insertarDocente(doce1);
 
         TipoMovimiento tipoMov1 = new TipoMovimiento();
         tipoMov1.nombreTipoMoviento = "Prestamo de equipo";
