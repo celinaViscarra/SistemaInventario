@@ -25,7 +25,7 @@ import java.util.List;
 
 public class DescargosInsertarWSActivity extends AppCompatActivity {
     EditText descargoFecha, idOrigen, idDestino;
-    private final String url = "http://grupo13pdm.ml/inventariows/descargos/insertar.php";
+    private final String url = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/descargos/insertar.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

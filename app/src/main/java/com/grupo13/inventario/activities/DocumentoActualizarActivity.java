@@ -38,10 +38,10 @@ public class DocumentoActualizarActivity extends AppCompatActivity {
     //2 = WebService
     int modo_datos = 1;
     //URL de nuestra peticion.
-    private final String urlIdioma = "http://grupo13pdm.ml/inventariows/obtenerlista.php?tabla=idiomas";
-    private final String urlTipoProducto = "http://grupo13pdm.ml/inventariows/obtenerlista.php?tabla=tipoproducto";
-    private final String urlDocumento = "http://grupo13pdm.ml/inventariows/documento/obtenerlista.php";
-    private final String urlActualizar = "http://grupo13pdm.ml/inventariows/documento/actualizar.php";
+    private final String urlIdioma = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/obtenerlista.php?tabla=idiomas";
+    private final String urlTipoProducto = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/obtenerlista.php?tabla=tipoproducto";
+    private final String urlDocumento = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/documento/obtenerlista.php";
+    private final String urlActualizar = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/documento/actualizar.php";
     @BindView(R.id.btnModo)
     Button btnModo;
     @BindViews({

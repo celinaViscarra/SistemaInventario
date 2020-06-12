@@ -24,7 +24,7 @@ import java.util.List;
 
 public class DescargosActualizarWSActivity extends AppCompatActivity {
     EditText idDescargo, descargoFecha, idOrigen, idDestino;
-    private final String url = "http://grupo13pdm.ml/inventariows/descargos/actualizar.php";
+    private final String url = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/descargos/actualizar.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

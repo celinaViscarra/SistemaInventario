@@ -36,9 +36,9 @@ import butterknife.ButterKnife;
 
 public class DetalleAutorConsultarActivity extends AppCompatActivity {
     int modo_datos = 1;
-    private final String urlDocumentos = "http://grupo13pdm.ml/inventariows/documento/obtenerlista.php";
-    private final String urlAutores = "http://grupo13pdm.ml/inventariows/autor/obtenerlista.php";
-    private final String urlConsulta = "http://grupo13pdm.ml/inventariows/detalleautor/consultar.php";
+    private final String urlDocumentos = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/documento/obtenerlista.php";
+    private final String urlAutores = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/autor/obtenerlista.php";
+    private final String urlConsulta = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/detalleautor/consultar.php";
     @BindView(R.id.btnModo)
     Button btnModo;
 

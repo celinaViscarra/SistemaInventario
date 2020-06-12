@@ -27,7 +27,7 @@ public class DetalleAutorListaActivity extends AppCompatActivity {
     //2 = WebService
     int modo_datos = 1;
     //URL de nuestra peticion.
-    private final String url = "http://grupo13pdm.ml/inventariows/detalleautor/obtenerlista.php";
+    private final String url = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/detalleautor/obtenerlista.php";
     @BindView(R.id.btnModo)
     Button btnModo;
     List<DetalleAutor> detallesAutor;

@@ -22,7 +22,7 @@ import java.util.List;
 public class CatalogoEquipoInsertarWSActivity extends AppCompatActivity {
 
     EditText modelo, memoria, cantidad, idMarca, idCatalogo;
-    private final String url = "http://grupo13pdm.ml/inventariows/catalogoequipo/insertar.php";
+    private final String url = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/catalogoequipo/insertar.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

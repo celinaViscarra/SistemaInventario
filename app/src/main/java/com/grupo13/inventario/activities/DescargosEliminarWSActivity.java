@@ -21,7 +21,7 @@ import java.util.List;
 
 public class DescargosEliminarWSActivity extends AppCompatActivity {
     EditText idDescargo;
-    private final String url = "http://grupo13pdm.ml/inventariows/descargos/eliminar.php";
+    private final String url = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/descargos/eliminar.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -40,10 +40,10 @@ public class DocumentoConsultarActivity extends AppCompatActivity {
     //2 = WebService
     int modo_datos = 1;
     //URL de nuestra peticion.
-    private final String urlIdioma = "http://grupo13pdm.ml/inventariows/obtenerlista.php?tabla=idiomas";
-    private final String urlTipoProducto = "http://grupo13pdm.ml/inventariows/obtenerlista.php?tabla=tipoproducto";
-    private final String urlDocumento = "http://grupo13pdm.ml/inventariows/documento/obtenerlista.php";
-    private final String urlConsulta = "http://grupo13pdm.ml/inventariows/documento/consultar.php";
+    private final String urlIdioma = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/obtenerlista.php?tabla=idiomas";
+    private final String urlTipoProducto = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/obtenerlista.php?tabla=tipoproducto";
+    private final String urlDocumento = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/documento/obtenerlista.php";
+    private final String urlConsulta = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/documento/consultar.php";
     @BindView(R.id.btnModo)
     Button btnModo;
     @BindViews({

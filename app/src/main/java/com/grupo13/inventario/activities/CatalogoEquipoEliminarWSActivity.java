@@ -21,7 +21,7 @@ import java.util.List;
 
 public class CatalogoEquipoEliminarWSActivity extends AppCompatActivity {
     EditText idCatalogo;
-    private final String url = "http://grupo13pdm.ml/inventariows/catalogoequipo/eliminar.php";
+    private final String url = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/catalogoequipo/eliminar.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

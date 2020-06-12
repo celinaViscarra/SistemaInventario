@@ -28,7 +28,7 @@ public class DocumentoListaActivity extends AppCompatActivity {
     //2 = WebService
     int modo_datos = 1;
     //URL de nuestra peticion.
-    private final String url = "http://grupo13pdm.ml/inventariows/documento/obtenerlista.php";
+    private final String url = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/documento/obtenerlista.php";
     @BindView(R.id.btnModo)
     Button btnModo;
     List<Documento> documentos;

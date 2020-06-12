@@ -22,7 +22,7 @@ import java.util.List;
 
 public class DescargosConsultarWSActivity extends AppCompatActivity {
     EditText idDescargo, descargoFecha, idOrigen, idDestino;
-    private final String url = "http://grupo13pdm.ml/inventariows/descargos/consultar.php";
+    private final String url = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/descargos/consultar.php";
 
 
     @Override
