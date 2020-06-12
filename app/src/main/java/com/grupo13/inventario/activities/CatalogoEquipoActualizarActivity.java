@@ -42,33 +42,40 @@ public class CatalogoEquipoActualizarActivity extends AppCompatActivity {
 
     public void actualizarCatalogoEquipo(View v){
         String mensaje = "";
-        try{
-            int posCatalogo = idCatalogo.getSelectedItemPosition();
-            int posMarca = idMarca.getSelectedItemPosition();
-            CatalogoEquipo catalogo = new CatalogoEquipo();
-            if(posCatalogo>0 && posMarca>0) {
-                catalogo.idCatalogo = catalogos.get(posCatalogo - 1).idCatalogo;
-                catalogo.idMarca = marcas.get(posMarca - 1).idMarca;
-                catalogo.modeloEquipo = modelo.getText().toString();
-                catalogo.memoria = Integer.parseInt(memoria.getText().toString());
-                catalogo.cantEquipo = Integer.parseInt(cantidad.getText().toString());
+        String modelos = modelo.getText().toString();
+        String memorias = memoria.getText().toString();
+        String cantidades = cantidad.getText().toString();
+        if(!modelos.isEmpty() && !memorias.isEmpty() && !cantidades.isEmpty()) {
+            try {
+                int posCatalogo = idCatalogo.getSelectedItemPosition();
+                int posMarca = idMarca.getSelectedItemPosition();
+                CatalogoEquipo catalogo = new CatalogoEquipo();
+                if (posCatalogo > 0 && posMarca > 0) {
+                    catalogo.idCatalogo = catalogos.get(posCatalogo - 1).idCatalogo;
+                    catalogo.idMarca = marcas.get(posMarca - 1).idMarca;
+                    catalogo.modeloEquipo = modelos;
+                    catalogo.memoria = Integer.parseInt(memorias);
+                    catalogo.cantEquipo = Integer.parseInt(cantidades);
 
-                int filasAfectadas = helper.catalogoEquipoDao().actualizarCatalogoEquipo(catalogo);
-                if (filasAfectadas <= 0) {
-                    mensaje = "Error al tratar de actualizar el registro.";
+                    int filasAfectadas = helper.catalogoEquipoDao().actualizarCatalogoEquipo(catalogo);
+                    if (filasAfectadas <= 0) {
+                        mensaje = "Error al tratar de actualizar el registro.";
+                    } else {
+                        mensaje = String.format("Filas afectadas: %d", filasAfectadas);
+                    }
                 } else {
-                    mensaje = String.format("Filas afectadas: %d", filasAfectadas);
+                    mensaje = "Por favor, seleccione una opcion valida.";
                 }
-            }else{
-                mensaje = "Por favor, seleccione una opcion valida.";
-            }
-        }catch(NumberFormatException e){
-            mensaje = "Error en la entrada de datos, revisa por favor los datos ingresados.";
-        }catch (SQLiteConstraintException e){
-            mensaje = "Error al tratar de actualizar el registro.";
+            } catch (NumberFormatException e) {
+                mensaje = "Error en la entrada de datos, revisa por favor los datos ingresados.";
+            } catch (SQLiteConstraintException e) {
+                mensaje = "Error al tratar de actualizar el registro.";
 
-        }finally{
-            Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show();
+            } finally {
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+            }
+        }else {
+            Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
 

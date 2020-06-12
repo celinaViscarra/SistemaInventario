@@ -49,30 +49,38 @@ public class CatalogoEquipoInsertarWSActivity extends AppCompatActivity {
 
     public void insertarCatalogoEquipoWS(View v){
         String mensaje = "";
-        try {
-            JSONObject elementoInsertar = new JSONObject();
-            elementoInsertar.put("catalogo_id", idCatalogo.getText().toString());
-            elementoInsertar.put("marca_id", idMarca.getText().toString());
-            elementoInsertar.put("modelo_equipo_generico", modelo.getText().toString());
-            elementoInsertar.put("memoria", memoria.getText().toString());
-            elementoInsertar.put("cantidad_equipo", cantidad.getText().toString());
+        String catalogo = idCatalogo.getText().toString();
+        String marca = idMarca.getText().toString();
+        String modelos = modelo.getText().toString();
+        String memorias = memoria.getText().toString();
+        String cantidades = cantidad.getText().toString();
+        if(!catalogo.isEmpty() && !marca.isEmpty() && !modelos.isEmpty() && !memorias.isEmpty()
+                && !cantidades.isEmpty()) {
+            try {
+                JSONObject elementoInsertar = new JSONObject();
+                elementoInsertar.put("catalogo_id", catalogo);
+                elementoInsertar.put("marca_id", marca);
+                elementoInsertar.put("modelo_equipo_generico", modelos);
+                elementoInsertar.put("memoria", memorias);
+                elementoInsertar.put("cantidad_equipo", cantidades);
 
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("elementoInsertar",elementoInsertar.toString()));
+                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("elementoInsertar", elementoInsertar.toString()));
 
-            String respuesta = ControlWS.post(url,params,this);
-            JSONObject resp = new JSONObject(respuesta);
-            int resultado = resp.getInt("resultado");
-            if(resultado == 1){
-                mensaje = "Insertado con exito.";
-            }else
-                mensaje = "No se pudo ingresar el dato.";
-        } catch (JSONException e) {
-            mensaje = "Error en el parseo.";
+                String respuesta = ControlWS.post(url, params, this);
+                JSONObject resp = new JSONObject(respuesta);
+                int resultado = resp.getInt("resultado");
+                if (resultado == 1) {
+                    mensaje = "Insertado con exito.";
+                } else
+                    mensaje = "No se pudo ingresar el dato.";
+            } catch (JSONException e) {
+                mensaje = "Error en el parseo.";
+            } finally {
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+            }
+        }else {
+            Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show();
         }
-        finally {
-            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
-        }
-
     }
 }

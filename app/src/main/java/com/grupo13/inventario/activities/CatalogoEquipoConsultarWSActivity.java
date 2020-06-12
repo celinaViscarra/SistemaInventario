@@ -48,29 +48,33 @@ public class CatalogoEquipoConsultarWSActivity extends AppCompatActivity {
 
     public void consultarCatalogoEquipoWS(View v){
         String mensaje = "";
-        try {
-            JSONObject elementoConsulta = new JSONObject();
-            elementoConsulta.put("catalogo_id", idCatalogo.getText().toString());
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("elementoConsulta",elementoConsulta.toString()));
+        String catalogo = idCatalogo.getText().toString();
+        if(!catalogo.isEmpty()) {
+            try {
+                JSONObject elementoConsulta = new JSONObject();
+                elementoConsulta.put("catalogo_id", catalogo);
+                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("elementoConsulta", elementoConsulta.toString()));
 
-            String respuesta = ControlWS.post(url,params,this);
-            JSONObject resp = new JSONArray(respuesta).getJSONObject(0);
-            if(resp.length() != 0){
-                idMarca.setText(resp.getString("MARCA_ID"));
-                modelo.setText(resp.getString("MODELO_EQUIPO_GENERICO"));
-                memoria.setText(resp.getString("MEMORIA"));
-                cantidad.setText(resp.getString("CATALOGO_EQUIPO"));
-                mensaje = "Elemento encontrado";
-            }else{
-                mensaje = "Elemento vacio";
+                String respuesta = ControlWS.post(url, params, this);
+                JSONObject resp = new JSONArray(respuesta).getJSONObject(0);
+                if (resp.length() != 0) {
+                    idMarca.setText(resp.getString("MARCA_ID"));
+                    modelo.setText(resp.getString("MODELO_EQUIPO_GENERICO"));
+                    memoria.setText(resp.getString("MEMORIA"));
+                    cantidad.setText(resp.getString("CATALOGO_EQUIPO"));
+                    mensaje = "Elemento encontrado";
+                } else {
+                    mensaje = "Elemento vacio";
+                }
+
+            } catch (JSONException e) {
+                mensaje = "Error en el parseo.";
+            } finally {
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
             }
-
-        } catch (JSONException e) {
-            mensaje = "Error en el parseo.";
-        }
-        finally {
-            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -40,35 +40,44 @@ public class CatalogoEquipoInsertarActivity extends AppCompatActivity {
 
     public void insertarCatalogoEquipo(View v){
         String mensaje = "";
-        try {
-            int posMarca = idMarca.getSelectedItemPosition();
-            CatalogoEquipo nuevo = new CatalogoEquipo();
-            if(posMarca>0) {
-                nuevo.idMarca = marcas.get(posMarca - 1).idMarca;
-                String idCata = idCatalogo.getText().toString();
-                String modelo = modeloEquipo.getText().toString();
-                int memo = Integer.parseInt(memoria.getText().toString());
-                int cantidad = Integer.parseInt(cantEquipo.getText().toString());
+        String catalogo = idCatalogo.getText().toString();
+        String modelos = modeloEquipo.getText().toString();
+        String memorias = memoria.getText().toString();
+        String cantidades = cantEquipo.getText().toString();
+        //Verificar que esten completos los campos.
+        if(!catalogo.isEmpty() && !modelos.isEmpty() && !memorias.isEmpty() && !cantidades.isEmpty()) {
+            try {
+                int posMarca = idMarca.getSelectedItemPosition();
+                CatalogoEquipo nuevo = new CatalogoEquipo();
+                if (posMarca > 0) {
+                    nuevo.idMarca = marcas.get(posMarca - 1).idMarca;
+                    String idCata = catalogo;
+                    String modelo = modelos;
+                    int memo = Integer.parseInt(memorias);
+                    int cantidad = Integer.parseInt(cantidades);
 
-                nuevo.idCatalogo = idCata;
-                nuevo.modeloEquipo = modelo;
-                nuevo.memoria = memo;
-                nuevo.cantEquipo = cantidad;
+                    nuevo.idCatalogo = idCata;
+                    nuevo.modeloEquipo = modelo;
+                    nuevo.memoria = memo;
+                    nuevo.cantEquipo = cantidad;
 
 
-                long catalogo = helper.catalogoEquipoDao().insertarCatalogoEquipo(nuevo);
-                if (catalogo == 0 || catalogo == -1) {
-                    mensaje = "ERROR AL INSERTAR CATALÓGO EQUIPO";
+                    long catalogos = helper.catalogoEquipoDao().insertarCatalogoEquipo(nuevo);
+                    if (catalogos == 0 || catalogos == -1) {
+                        mensaje = "ERROR AL INSERTAR CATALÓGO EQUIPO";
+                    } else {
+                        mensaje = String.format("Registro insertado en la posicion %d", catalogo);
+                    }
                 } else {
-                    mensaje = String.format("Registro insertado en la posicion %d", catalogo);
+                    mensaje = "Por favor, seleccione una opcion valida.";
                 }
-            }else{
-                mensaje = "Por favor, seleccione una opcion valida.";
+            } catch (Exception e) {
+                mensaje = "ERROR AL INSERTAR CATALÓGO EQUIPO";
             }
-        } catch (Exception e) {
-            mensaje = "ERROR AL INSERTAR CATALÓGO EQUIPO";
+            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
