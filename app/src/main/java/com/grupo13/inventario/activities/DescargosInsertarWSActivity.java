@@ -16,6 +16,9 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.format.DateTimeFormatter;
+import org.threeten.bp.format.DateTimeParseException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,26 +41,41 @@ public class DescargosInsertarWSActivity extends AppCompatActivity {
 
     public void insertarDescargosWS(View v) {
         String mensaje = "";
-        try {
-            JSONObject elementoInsertar = new JSONObject();
-            elementoInsertar.put("ubicacion_destino_id", idDestino.getText().toString());
-            elementoInsertar.put("ubicacion_origen_id", idOrigen.getText().toString());
-            elementoInsertar.put("descargo_fecha", descargoFecha.getText().toString());
+        String fecha = descargoFecha.getText().toString();
+        String destino = idDestino.getText().toString();
+        String origen = idOrigen.getText().toString();
+        if(!fecha.isEmpty() && !destino.isEmpty() && !origen.isEmpty()) {
+            try {
+                //Para verificar formato de fecha
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                LocalDate fechas = LocalDate.parse(fecha, formatter);
 
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("elementoInsertar",elementoInsertar.toString()));
 
-            String respuesta = ControlWS.post(url,params,this);
-            JSONObject resp = new JSONObject(respuesta);
-            int resultado = resp.getInt("resultado");
-            if(resultado == 1){
-                mensaje = "Insertado con exito.";
-            }else
-                mensaje = "No se pudo ingresar el dato.";
-        } catch (JSONException e) {
-            mensaje = "Error en el parseo.";
-        } finally {
-            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+                JSONObject elementoInsertar = new JSONObject();
+                elementoInsertar.put("ubicacion_destino_id", destino);
+                elementoInsertar.put("ubicacion_origen_id", origen);
+                elementoInsertar.put("descargo_fecha", fechas.toString());
+
+
+                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("elementoInsertar", elementoInsertar.toString()));
+
+                String respuesta = ControlWS.post(url, params, this);
+                JSONObject resp = new JSONObject(respuesta);
+                int resultado = resp.getInt("resultado");
+                if (resultado == 1) {
+                    mensaje = "Insertado con exito.";
+                } else
+                    mensaje = "No se pudo ingresar el dato.";
+            }catch(DateTimeParseException e){ //Para validar el formato de fecha
+                mensaje = "El formato correcto para insertar fecha es: dd—mm—yyyy";
+            } catch (JSONException e) {
+                mensaje = "Error en el parseo.";
+            } finally {
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+            }
+        }else { //Si algun campo está vacío da esta excepción.
+            Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
 

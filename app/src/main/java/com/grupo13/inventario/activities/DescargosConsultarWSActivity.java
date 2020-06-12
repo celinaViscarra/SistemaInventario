@@ -40,27 +40,32 @@ public class DescargosConsultarWSActivity extends AppCompatActivity {
 
     public void consultarDescargosWS(View v){
         String mensaje = "";
-        try {
-            JSONObject elementoConsulta = new JSONObject();
-            elementoConsulta.put("descargo_id", idDescargo.getText().toString());
+        String descargo = idDescargo.getText().toString();
+        if(!descargo.isEmpty()) {
+            try {
+                JSONObject elementoConsulta = new JSONObject();
+                elementoConsulta.put("descargo_id", descargo);
 
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("elementoConsulta",elementoConsulta.toString()));
+                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("elementoConsulta", elementoConsulta.toString()));
 
-            String respuesta = ControlWS.post(url,params,this);
-            JSONObject resp = new JSONArray(respuesta).getJSONObject(0);
-            if(resp.length() != 0){
-                idOrigen.setText(resp.getString("UBICACION__ORIGEN_ID"));
-                idDestino.setText(resp.getString("UBICACION__DESTINO_ID"));
-                descargoFecha.setText(resp.getString("DESCARGO_FECHA"));
-                mensaje = "Elemento encontrado";
-            } else{
-                mensaje = "Elemento vacio";
+                String respuesta = ControlWS.post(url, params, this);
+                JSONObject resp = new JSONArray(respuesta).getJSONObject(0);
+                if (resp.length() != 0) {
+                    idOrigen.setText(resp.getString("UBICACION__ORIGEN_ID"));
+                    idDestino.setText(resp.getString("UBICACION__DESTINO_ID"));
+                    descargoFecha.setText(resp.getString("DESCARGO_FECHA"));
+                    mensaje = "Elemento encontrado";
+                } else {
+                    mensaje = "Elemento vacio";
+                }
+            } catch (JSONException e) {
+                mensaje = "Error en el parseo.";
+            } finally {
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
             }
-        } catch (JSONException e) {
-            mensaje = "Error en el parseo.";
-        } finally {
-            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
 
