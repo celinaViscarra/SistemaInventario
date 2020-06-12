@@ -9,14 +9,18 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
         <activity android:name=".activities.DescargosInsertarWSActivity"></activity>
         <activity android:name=".activities.DescargosActualizarWSActivity" />
         <activity android:name=".activities.DescargosConsultarWSActivity" />
         <activity android:name=".activities.DescargosEliminarWSActivity" />
         <activity android:name=".activities.CatalogoEquipoConsultarWSActivity" />
         <activity android:name=".activities.CatalogoEquipoEliminarWSActivity" />
+        <activity android:name=".activities.CatalogoEquipoActualizarWSActivity" />
         <activity android:name=".activities.CatalogoEquipoInsertarWSActivity" />
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.DocumentoListaActivity" />
@@ -40,8 +44,6 @@
         <activity android:name=".activities.AutorInsertarActivity" />
         <activity android:name=".activities.AutorConsultarActivity" />
         <activity android:name=".activities.AutorMenuActivity" />
-        <activity android:name=".activities.TipoInsertarActualizarActivity" />
-        <activity android:name=".activities.TipoInsertarConsultarActivity" />
         <activity android:name=".activities.SustitucionesActualizarActivity" />
         <activity android:name=".activities.SustitucionesConsultarActivity" />
         <activity android:name=".activities.SustitucionesEliminarActivity" />
@@ -70,6 +72,7 @@
         <activity android:name=".activities.DetalleAutorEliminarActivity" />
         <activity android:name=".activities.DetalleAutorActualizarActivity" />
         <activity android:name=".activities.DetalleAutorConsultarActivity" />
+        <activity android:name=".activities.DetalleAutorListaActivity" />
         <activity android:name=".activities.DetalleAutorInsertarActivity" />
         <activity android:name=".activities.DetalleAutorMenuActivity" />
         <activity android:name=".activities.CatalogoEquipoActualizarActivity" />

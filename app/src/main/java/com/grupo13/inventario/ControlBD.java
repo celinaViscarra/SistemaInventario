@@ -391,15 +391,15 @@ public abstract class ControlBD extends RoomDatabase {
         OpcionCrud o58 = new OpcionCrud("058","DocumentoListaActivity", 8);
 
         //Para los nuevos webservice
-        OpcionCrud o59 = new OpcionCrud("057", "EquipoInformaticoActualizarWSActivity", 15);
-        OpcionCrud o60 = new OpcionCrud("058", "EquipoInformaticoEliminarWSActivity", 15);
-        OpcionCrud o61 = new OpcionCrud("059", "EquipoInformaticoConsultarWSActivity", 15);
-        OpcionCrud o62 = new OpcionCrud("060", "EquipoInformaticoInsertarWSActivity", 15);
+        OpcionCrud o59 = new OpcionCrud("059", "CatalogoEquipoActualizarWSActivity", 15);
+        OpcionCrud o60 = new OpcionCrud("060", "CatalogoEquipoEliminarWSActivity", 15);
+        OpcionCrud o61 = new OpcionCrud("061", "CatalogoEquipoConsultarWSActivity", 15);
+        OpcionCrud o62 = new OpcionCrud("062", "CatalogoEquipoInsertarWSActivity", 15);
 
-        OpcionCrud o63 = new OpcionCrud("061", "DescargosEliminarWSActivity", 16);
-        OpcionCrud o64 = new OpcionCrud("062", "DescargosConsultarWSActivity", 16);
-        OpcionCrud o65 = new OpcionCrud("063", "DescargosActualizarWSActivity", 16);
-        OpcionCrud o66 = new OpcionCrud("064", "DescargosInsertarWSActivity", 16);
+        OpcionCrud o63 = new OpcionCrud("063", "DescargosEliminarWSActivity", 16);
+        OpcionCrud o64 = new OpcionCrud("064", "DescargosConsultarWSActivity", 16);
+        OpcionCrud o65 = new OpcionCrud("065", "DescargosActualizarWSActivity", 16);
+        OpcionCrud o66 = new OpcionCrud("066", "DescargosInsertarWSActivity", 16);
 
 
         // Agregar aqui las TODAS las opciones disponibles
