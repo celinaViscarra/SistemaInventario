@@ -14,9 +14,13 @@ import com.grupo13.inventario.R;
 import com.grupo13.inventario.singleton.Permisos;
 
 public class CatalogoEquipoMenuActivity extends ListActivity {
-    String[] menu = {"Insertar CatalogoEquipo", "Consultar CatalogoEquipo", "Actualizar CatalogoEquipo", "Eliminar CatalogoEquipo"};
+    String[] menu = {"Insertar CatalogoEquipo", "Consultar CatalogoEquipo", "Actualizar CatalogoEquipo", "Eliminar CatalogoEquipo",
+            "Insertar CatalogoEquipo (WebService)", "Consultar CatalogoEquipo (WebService)",
+            "Actualizar CatalogoEquipo (WebService)", "Eliminar CatalogoEquipo (WebService)"};
     String[] activities = {"CatalogoEquipoInsertarActivity", "CatalogoEquipoConsultarActivity",
-            "CatalogoEquipoActualizarActivity", "CatalogoEquipoEliminarActivity"};
+            "CatalogoEquipoActualizarActivity", "CatalogoEquipoEliminarActivity",
+            "CatalogoEquipoInsertarWSActivity", "CatalogoEquipoConsultarWSActivity",
+            "CatalogoEquipoActualizarWSActivity", "CatalogoEquipoEliminarWSActivity"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
