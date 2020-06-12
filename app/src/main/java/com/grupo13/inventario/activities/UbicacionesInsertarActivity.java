@@ -18,8 +18,6 @@ import butterknife.ButterKnife;
 public class UbicacionesInsertarActivity extends AppCompatActivity {
     ControlBD helper;
 
-    @BindView(R.id.edtUbicacionID)
-    EditText edtUbicacionID;
     @BindView(R.id.edtNombreUbicacion)
     EditText edtNombreUbicacion;
 
@@ -36,7 +34,6 @@ public class UbicacionesInsertarActivity extends AppCompatActivity {
         String mensaje = "";
         try {
             Ubicaciones ubicaciones = new Ubicaciones();
-            ubicaciones.idUbicacion = Integer.parseInt(edtUbicacionID.getText().toString());
             ubicaciones.nomUbicacion = edtNombreUbicacion.getText().toString();
 
             long idUbicacion = helper.ubicacionesDao().insertarUbicaciones(ubicaciones);

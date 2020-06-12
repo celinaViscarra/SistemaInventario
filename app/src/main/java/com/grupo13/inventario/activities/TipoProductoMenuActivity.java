@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.grupo13.inventario.R;
 import com.grupo13.inventario.singleton.Permisos;
 
-public class TipoProductoMenu extends ListActivity {
+public class TipoProductoMenuActivity extends ListActivity {
     String[] menu = {
             "Insertar TipoProducto",
             "Consultar TipoProducto",

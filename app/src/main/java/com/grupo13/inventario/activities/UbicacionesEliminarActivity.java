@@ -27,6 +27,7 @@ public class UbicacionesEliminarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ubicaciones_eliminar);
 
         ButterKnife.bind(this);
+        helper = ControlBD.getInstance(this);
     }
 
     public void eliminarUbicaciones(View v){

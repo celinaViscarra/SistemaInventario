@@ -58,7 +58,7 @@
         <activity android:name=".activities.TipoProductoConsultarActivity" />
         <activity android:name=".activities.TipoProductoEliminarActivity" />
         <activity android:name=".activities.TipoProductoInsertarActivity" />
-        <activity android:name=".activities.TipoProductoMenu" />
+        <activity android:name=".activities.TipoProductoMenuActivity" />
         <activity android:name=".activities.DocumentoEliminarActivity" />
         <activity android:name=".activities.DocumentoActualizarActivity" />
         <activity android:name=".activities.DocumentoConsultarActivity" />
@@ -90,6 +90,11 @@
         <activity android:name=".activities.DescargosActualizarActivity" />
         <activity android:name=".activities.DescargosInsertarActivity" />
         <activity android:name=".activities.DescargosMenuActivity" />
+        <activity android:name=".activities.DocenteMenuActivity"/>
+        <activity android:name=".activities.DocenteInsertarActivity"/>
+        <activity android:name=".activities.DocenteEliminarActivity"/>
+        <activity android:name=".activities.DocenteActualizarActivity"/>
+        <activity android:name=".activities.DocenteConsultarActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

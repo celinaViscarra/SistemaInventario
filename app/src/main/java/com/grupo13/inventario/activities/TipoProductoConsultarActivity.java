@@ -42,7 +42,7 @@ public class TipoProductoConsultarActivity extends AppCompatActivity {
             }
             else{
                 mensaje = "Se encontro el registro, mostrando datos...";
-                edtCategoriaID.setText(consulta.categoria_id);
+                edtCategoriaID.setText(consulta.categoria_id+"");
                 edtNombreProducto.setText(consulta.nomTipoProducto);
             }
         } catch (NumberFormatException e){

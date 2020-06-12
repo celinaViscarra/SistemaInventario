@@ -27,6 +27,7 @@ public class TipoProductoEliminarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tipo_producto_eliminar);
 
         ButterKnife.bind(this);
+        helper = ControlBD.getInstance(this);
     }
 
     public void eliminarTipoProducto(View v){
