@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
             R.string.menu_item_documento,
             R.string.menu_item_equipoinformatico,
             R.string.menu_item_catalogoequipo,
-            R.string.menu_item_catalogoequipo,
             R.string.menu_item_motivo,
             R.string.menu_item_sustituciones,
             R.string.menu_item_detallereservaequipo,
