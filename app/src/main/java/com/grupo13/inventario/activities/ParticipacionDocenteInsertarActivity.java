@@ -44,6 +44,12 @@ public class  ParticipacionDocenteInsertarActivity extends AppCompatActivity {
         helper = ControlBD.getInstance(this);
         llenarSpinners();
     }
+    public void limpiar(View v){
+        edtTipoParticipacionID.setSelection(0);
+        edtDocenteID.setSelection(0);
+        edtEscritoID.setSelection(0);
+    }
+
     public void insertarParticipacionDocente(View v){
         String mensaje = "";
         try{

@@ -76,7 +76,10 @@ public class ParticipacionDocenteEliminarActivity extends AppCompatActivity {
         }
 
     }
-
+    public void limpiar(View v){
+        edtDocenteID.setSelection(0);
+        edtEscritoID.setSelection(0);
+    }
     public void llenarSpinners(){
         //Primer paso, traerme la lista de docentes, documentos y tipoParticipaciones
         docentes = helper.docenteDao().obtenerDocentes();

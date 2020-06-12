@@ -190,5 +190,11 @@
     <string name="eliminar_documento">Delete Document</string>
     <string name="documento">Document</string>
     <string name="selecciona_item">** Select an item **</string>
+    <string name="participacion_docente">Teacher Participacion</string>
+    <string name="tipo_de_participacion">Participation Type</string>
+    <string name="insertar_participaciondocente">Insert Teacher Participacion</string>
+    <string name="actualizar_participaciondocente">Update Teacher Participation</string>
+    <string name="consultar_participaciondocente">Consult Teacher Participation</string>
+    <string name="eliminar_participaciondocente">Delete Teacher Participation</string>
 
 </resources>
