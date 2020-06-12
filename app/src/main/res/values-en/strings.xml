@@ -178,5 +178,17 @@
     <string name="menu_item_actualizar">Update %s</string>
     <string name="menu_item_eliminar">Delete %s</string>
     <string name="detalle_autor">Author Detail</string>
+    <string name="tipo_de_producto">Product Type:</string>
+    <string name="idioma">Language:</string>
+    <string name="isbn">ISBN:</string>
+    <string name="edicion">Edition:</string>
+    <string name="editorial">Publishing house:</string>
+    <string name="titulo">Title:</string>
+    <string name="agregar_documento">Insert Document</string>
+    <string name="actualizar_documento">Update Document</string>
+    <string name="consultar_documento">Consult Document</string>
+    <string name="eliminar_documento">Delete Document</string>
+    <string name="documento">Document</string>
+    <string name="selecciona_item">** Select an item **</string>
 
 </resources>
