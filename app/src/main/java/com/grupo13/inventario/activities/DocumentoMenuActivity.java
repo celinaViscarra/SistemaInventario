@@ -24,8 +24,8 @@ public class DocumentoMenuActivity extends ListActivity {
             R.string.menu_item_eliminar
     };
     String[] activities = {
-            "DocumentoListaActivity",
             "DocumentoInsertarActivity",
+            "DocumentoListaActivity",
             "DocumentoConsultarActivity",
             "DocumentoActualizarActivity",
             "DocumentoEliminarActivity"

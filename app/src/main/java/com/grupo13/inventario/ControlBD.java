@@ -95,37 +95,71 @@ public abstract class ControlBD extends RoomDatabase {
     public void llenarBD(){
         //Primero que nada, vaciamos la tabla.
         vaciarBD();
-        Autor nuevo = new Autor();
-        nuevo.nomAutor = "Josue";
-        nuevo.apeAutor = "Aquino";
-        autorDao().insertarAutor(nuevo);
 
-        Docente aquisi = new Docente();
-        aquisi.nomDocente = "Ayasi aquino";
-        docenteDao().insertarDocente(aquisi);
-        Docente monge = new Docente();
-        monge.nomDocente = "Ing. Mario Monge";
-        docenteDao().insertarDocente(monge);
-        Docente otroing = new Docente();
-        otroing.nomDocente = "Ing. Algotro";
-        docenteDao().insertarDocente(otroing);
 
-        TipoParticipacion tipoParticipacion = new TipoParticipacion();
-        tipoParticipacion.nomParticipacion = "completamente";
-        tipoParticipacionDao().instertarTipoParticipacion(tipoParticipacion);
+        Autor AV12013 = new Autor();
+        AV12013.nomAutor = "Celina";
+        AV12013.apeAutor = "Vizcarra";
+        autorDao().insertarAutor(AV12013);
+        Autor AH13019 = new Autor();
+        AH13019.nomAutor = "Marvin";
+        AH13019.apeAutor = "Alvarenga";
+        autorDao().insertarAutor(AH13019);
+        Autor AB15002 = new Autor();
+        AB15002.nomAutor = "Josue";
+        AB15002.apeAutor = "Aquino";
+        autorDao().insertarAutor(AB15002);
+        Autor AC13002 = new Autor();
+        AC13002.nomAutor = "Rafael";
+        AC13002.apeAutor = "Avilés";
+        autorDao().insertarAutor(AC13002);
+        Autor MD13017 = new Autor();
+        MD13017.nomAutor = "Bryan";
+        MD13017.apeAutor = "Marín";
+        autorDao().insertarAutor(MD13017);
 
-        TipoParticipacion otraparticipacion = new TipoParticipacion();
-        otraparticipacion.nomParticipacion = "50%";
-        tipoParticipacionDao().instertarTipoParticipacion(otraparticipacion);
 
-        Categorias cat = new Categorias();
-        cat.nomCategoria = "Escritos";
-        long idCat = categoriasDao().insertarCategoria(cat);
+        Docente docente1 = new Docente();
+        docente1.nomDocente = "José Montiel";
+        docenteDao().insertarDocente(docente1);
+        Docente docente2 = new Docente();
+        docente2.nomDocente = "Juan Valdéz";
+        docenteDao().insertarDocente(docente2);
+        Docente docente3 = new Docente();
+        docente3.nomDocente = "Alberto López";
+        docenteDao().insertarDocente(docente3);
+
+        TipoParticipacion participacion1 = new TipoParticipacion();
+        participacion1.nomParticipacion = "100%";
+        tipoParticipacionDao().instertarTipoParticipacion(participacion1);
+
+        TipoParticipacion participacion2 = new TipoParticipacion();
+        participacion2.nomParticipacion = "75%";
+        tipoParticipacionDao().instertarTipoParticipacion(participacion2);
+
+        TipoParticipacion participacion3 = new TipoParticipacion();
+        participacion3.nomParticipacion = "50%";
+        tipoParticipacionDao().instertarTipoParticipacion(participacion3);
+
+        Categorias cat1 = new Categorias();
+        cat1.nomCategoria = "Escritos";
+        long idCat1 = categoriasDao().insertarCategoria(cat1);
+
+        Categorias cat2 = new Categorias();
+        cat2.nomCategoria = "Equipo de LCOMP";
+        long idCat2 = categoriasDao().insertarCategoria(cat2);
 
         TipoProducto tipoProducto = new TipoProducto();
-        tipoProducto.categoria_id = (int) idCat;
+        tipoProducto.categoria_id = (int) idCat1;
         tipoProducto.nomTipoProducto = "Libro";
         long idTipoProducto = tipoProductoDao().insertarTipoProducto(tipoProducto);
+
+        TipoProducto tipoProducto2 = new TipoProducto();
+        tipoProducto2.categoria_id = (int) idCat1;
+        tipoProducto2.nomTipoProducto = "Perifericos";
+        long idTipoProducto2 = tipoProductoDao().insertarTipoProducto(tipoProducto2);
+
+
 
         Idiomas spa = new Idiomas();
         spa.nombreIdioma = "Español";
@@ -138,18 +172,18 @@ public abstract class ControlBD extends RoomDatabase {
         Documento doc = new Documento();
         doc.tipo_producto_id = (int) idTipoProducto;
         doc.idioma_id = (int) idSpa;
-        doc.isbn = "1337";
+        doc.isbn = "8403094264";
         doc.edicion = "1era";
-        doc.editorial = "Una editorial seria";
-        doc.titulo = "Un titulo mas serio para el libro";
+        doc.editorial = "UES";
+        doc.titulo = "Sistema informático de monitoreo y control de los proyectos en la Fundación para la Cooperación y Desarrollo Comunal en El Salvador";
 
         Documento doc2 = new Documento();
         doc2.tipo_producto_id = (int) idTipoProducto;
         doc2.idioma_id = (int) idEng;
-        doc2.isbn = "0001-1";
-        doc2.edicion = "1era";
-        doc2.editorial = "Otra editorial seria";
-        doc2.titulo = "Algotro libro";
+        doc2.isbn = "1337-239-1923";
+        doc2.edicion = "2da";
+        doc2.editorial = "UES";
+        doc2.titulo = "Sistema de información para el área de hospitalización en el Hospital Nacional Rosales.\n";
 
         documentoDao().insertarDocumento(doc);
         documentoDao().insertarDocumento(doc2);
@@ -166,7 +200,7 @@ public abstract class ControlBD extends RoomDatabase {
         CatalogoEquipo c1 = new CatalogoEquipo();
         c1.idCatalogo = "000001";
         c1.idMarca = m1.idMarca;
-        c1.modeloEquipo = "Compact";
+        c1.modeloEquipo = "Compaq";
         c1.memoria = 1024;
         c1.cantEquipo = 5;
         CatalogoEquipo c2 = new CatalogoEquipo();
