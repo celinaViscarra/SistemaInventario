@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Nombre de la ubicacion: "
+            android:text="@string/nomUbicacion"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <Button
-        android:text="Insertar Ubicacion"
+        android:text="@string/btn_insertar_ubicacion"
         android:onClick="insertarUbicaciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

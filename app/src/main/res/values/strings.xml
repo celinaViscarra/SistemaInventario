@@ -111,6 +111,10 @@
     <string name="consultarUbicaciones">Consultar Ubicacion</string>
     <string name="idUbicacion">ID Ubicacion</string>
     <string name="nomUbicacion">Nombre Ubicacion</string>
+    <string name="btn_insertar_ubicacion">Insertar Ubicacion</string>
+    <string name="btn_eliminar_ubicacion">Eliminar Ubicacion</string>
+    <string name="btn_consultar_ubicacion">Consultar Ubicacion</string>
+    <string name="btn_actualizar_ubicacion">Actualizar Ubicacion</string>
 
 
     <!-- Movimiento inventario -->
@@ -164,7 +168,6 @@
     <string name="menu_item_tipoproducto">TipoProducto</string>
     <string name="menu_item_docente">Docente</string>
     <string name="menu_item_ubicaciones">Ubicaciones</string>
-
 
 
     <!-- Elementos del menu -->

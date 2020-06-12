@@ -112,6 +112,10 @@
     <string name="consultarUbicaciones">Consult Location</string>
     <string name="idUbicacion">Location ID</string>
     <string name="nomUbicacion">Location Name</string>
+    <string name="btn_insertar_ubicacion">Insert Location</string>
+    <string name="btn_eliminar_ubicacion">Delete Location</string>
+    <string name="btn_consultar_ubicacion">Consult Location</string>
+    <string name="btn_actualizar_ubicacion">Update Location</string>
 
 
     <!-- Movimiento inventario -->
