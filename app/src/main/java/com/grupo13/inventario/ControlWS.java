@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.grupo13.inventario.modelo.Autor;
+import com.grupo13.inventario.modelo.CatalogoEquipo;
 import com.grupo13.inventario.modelo.DetalleAutor;
 import com.grupo13.inventario.modelo.Documento;
 import com.grupo13.inventario.modelo.Idiomas;
@@ -208,9 +209,30 @@ public class ControlWS {
             for(int i = 0; i < jsonArray.length(); i++){
                 JSONObject obj = jsonArray.getJSONObject(0);
                 Ubicaciones ubicaciones = new Ubicaciones();
-                ubicaciones.idUbicacion = obj.getInt("IDUBICACION");
-                ubicaciones.nomUbicacion = obj.getString("NOMUBICACION");
+                ubicaciones.idUbicacion = obj.getInt("UBICACION_ID");
+                ubicaciones.nomUbicacion = obj.getString("UBICACION_NOMBRE");
                 lista.add(ubicaciones);
+            }
+        } catch (Exception e){
+            Toast.makeText(ctx,"Error en parseo de JSON",Toast.LENGTH_LONG).show();
+            return null;
+        }
+        return lista;
+    }
+
+    public static List<CatalogoEquipo> obtenerCatalogoEquipo(String json, Context ctx) {
+        List<CatalogoEquipo> lista = new ArrayList<>();
+        try {
+            JSONArray jsonArray = new JSONArray(json);
+            for(int i = 0; i < jsonArray.length(); i++){
+                JSONObject obj = jsonArray.getJSONObject(0);
+                CatalogoEquipo catalogoEquipo = new CatalogoEquipo();
+                catalogoEquipo.idCatalogo = obj.getString("CATALOGO_ID");
+                catalogoEquipo.idMarca = obj.getString("MARCA_ID");
+                catalogoEquipo.modeloEquipo = obj.getString("MODELO_EQUIPO_GENERICO");
+                catalogoEquipo.memoria = obj.getInt("MEMORIA");
+                catalogoEquipo.cantEquipo = obj.getInt("CANTIDAD_EQUIPO");
+                lista.add(catalogoEquipo);
             }
         } catch (Exception e){
             Toast.makeText(ctx,"Error en parseo de JSON",Toast.LENGTH_LONG).show();
