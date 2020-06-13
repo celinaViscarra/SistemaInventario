@@ -12,6 +12,8 @@
     <string name="autor_consultar">Consult Author</string>
     <string name="autor_eliminar">Delete Author</string>
     <string name="autor_actualizar">Update Author</string>
+    <string name="autor_listar">List Authors</string>
+
 
     <!-- CRUD EQUIPO INFORMATICO -->
     <string name="equipo_id">Equipment ID</string>

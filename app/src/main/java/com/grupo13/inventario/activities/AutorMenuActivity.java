@@ -11,12 +11,14 @@ import android.widget.Toast;
 import com.grupo13.inventario.R;
 import com.grupo13.inventario.singleton.Permisos;
 
+import java.util.ArrayList;
+
 public class AutorMenuActivity extends ListActivity {
-    String[] menu = {
-            "Insertar Autor",
-            "Consultar Autor",
-            "Actualizar Autor",
-            "Eliminar Autor"
+    int[] menu = {
+            R.string.autor_insertar,
+            R.string.autor_consultar,
+            R.string.autor_actualizar,
+            R.string.autor_eliminar
     };
     String[] activities = {
             "AutorInsertarActivity",
@@ -28,7 +30,12 @@ public class AutorMenuActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_detalle_autor_menu);
-        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu));
+        ArrayList<String> menuStrings = new ArrayList<>();
+        for(int pivote: menu){
+            String elementoMenu = String.format(getString(pivote), getString(R.string.documento));
+            menuStrings.add(elementoMenu);
+        }
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menuStrings));
     }
 
     @Override
