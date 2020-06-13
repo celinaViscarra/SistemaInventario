@@ -9,6 +9,7 @@ import com.grupo13.inventario.modelo.Autor;
 import com.grupo13.inventario.modelo.CatalogoEquipo;
 import com.grupo13.inventario.modelo.DetalleAutor;
 import com.grupo13.inventario.modelo.Documento;
+import com.grupo13.inventario.modelo.EquipoInformatico;
 import com.grupo13.inventario.modelo.Idiomas;
 import com.grupo13.inventario.modelo.TipoProducto;
 import com.grupo13.inventario.modelo.Ubicaciones;
@@ -34,6 +35,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -207,7 +209,7 @@ public class ControlWS {
         try {
             JSONArray jsonArray = new JSONArray(json);
             for(int i = 0; i < jsonArray.length(); i++){
-                JSONObject obj = jsonArray.getJSONObject(0);
+                JSONObject obj = jsonArray.getJSONObject(i);
                 Ubicaciones ubicaciones = new Ubicaciones();
                 ubicaciones.idUbicacion = obj.getInt("UBICACION_ID");
                 ubicaciones.nomUbicacion = obj.getString("UBICACION_NOMBRE");
@@ -225,7 +227,7 @@ public class ControlWS {
         try {
             JSONArray jsonArray = new JSONArray(json);
             for(int i = 0; i < jsonArray.length(); i++){
-                JSONObject obj = jsonArray.getJSONObject(0);
+                JSONObject obj = jsonArray.getJSONObject(i);
                 CatalogoEquipo catalogoEquipo = new CatalogoEquipo();
                 catalogoEquipo.idCatalogo = obj.getString("CATALOGO_ID");
                 catalogoEquipo.idMarca = obj.getString("MARCA_ID");
@@ -233,6 +235,29 @@ public class ControlWS {
                 catalogoEquipo.memoria = obj.getInt("MEMORIA");
                 catalogoEquipo.cantEquipo = obj.getInt("CANTIDAD_EQUIPO");
                 lista.add(catalogoEquipo);
+            }
+        } catch (Exception e){
+            Toast.makeText(ctx,"Error en parseo de JSON",Toast.LENGTH_LONG).show();
+            return null;
+        }
+        return lista;
+    }
+
+    public static List<EquipoInformatico> obtenerEquipoInformatico(String json, Context ctx) {
+        List<EquipoInformatico> lista = new ArrayList<>();
+        try {
+            JSONArray jsonArray = new JSONArray(json);
+            for(int i = 0; i < jsonArray.length(); i++){
+                JSONObject obj = jsonArray.getJSONObject(i);
+                EquipoInformatico equipoInformatico = new EquipoInformatico();
+                equipoInformatico.idEquipo = obj.getInt("EQUIPO_ID");
+                equipoInformatico.tipo_producto_id = obj.getInt("TIPO_PRODUCTO_ID");
+                equipoInformatico.ubicacion_id = obj.getInt("UBICACION_ID");
+                equipoInformatico.catalogo_id = obj.getString("CATALOGO_ID");
+                equipoInformatico.codEquipo = obj.getString("CODIGO_EQUIPO");
+                equipoInformatico.fechaAdquisicion = Date.valueOf(obj.getString("FECHA_ADQUISICION"));
+                equipoInformatico.estadoEquipo = obj.getString("ESTADO_EQUIPO");
+                lista.add(equipoInformatico);
             }
         } catch (Exception e){
             Toast.makeText(ctx,"Error en parseo de JSON",Toast.LENGTH_LONG).show();

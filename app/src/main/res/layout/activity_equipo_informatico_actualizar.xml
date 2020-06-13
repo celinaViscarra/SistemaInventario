@@ -16,8 +16,8 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/txt_equipo_id"
+        <Spinner
+            android:id="@+id/sp_equipo_id"
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="wrap_content"/>
@@ -117,9 +117,28 @@
             android:inputType="date"
             android:layout_height="wrap_content"/>
     </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:onClick="actualizarEquipoInformatico"
+            android:text="@string/equipo_actualizar"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:text="@string/limpiar"
+            android:onClick="limpiarTexto"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_height="fill_parent"/>
+    </LinearLayout>
     <Button
-        android:onClick="actualizarEquipoInformatico"
-        android:text="@string/equipo_actualizar"
+        android:id="@+id/btnModo"
+        android:text="@string/cambiar_a_ws"
+        android:onClick="cambiarModo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
