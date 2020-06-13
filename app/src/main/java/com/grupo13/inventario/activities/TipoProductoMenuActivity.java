@@ -13,24 +13,42 @@ import android.widget.Toast;
 import com.grupo13.inventario.R;
 import com.grupo13.inventario.singleton.Permisos;
 
+import java.util.ArrayList;
+
 public class TipoProductoMenuActivity extends ListActivity {
-    String[] menu = {
-            "Insertar TipoProducto",
-            "Consultar TipoProducto",
-            "Actualizar TipoProducto",
-            "Eliminar TipoProducto"
+    int[] menu = {
+            R.string.menu_item_insertar,
+            R.string.menu_item_lista,
+            R.string.menu_item_consultar,
+            R.string.menu_item_actualizar,
+            R.string.menu_item_eliminar,
+            R.string.menu_item_insertar_ws,
+            R.string.menu_item_consultar_ws,
+            R.string.menu_item_actualizar_ws,
+            R.string.menu_item_eliminar_ws,
     };
     String[] activities = {
             "TipoProductoInsertarActivity",
+            "TipoProductoListaActivity",
             "TipoProductoConsultarActivity",
             "TipoProductoActualizarActivity",
-            "TipoProductoEliminarActivity"
+            "TipoProductoEliminarActivity",
+            "TipoProductoInsertarWSActivity",
+            "TipoProductoConsultarWSActivity",
+            "TipoProductoActualizarWSActivity",
+            "TipoProductoEliminarWSActivity"
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_tipo_producto_menu);
-        setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menu));
+        ArrayList<String> menuStrings = new ArrayList<>();
+        for (int pivote: menu){
+            String elementoMenu = String.format(getString(pivote),getString(R.string.tipo_producto));
+            menuStrings.add(elementoMenu);
+        }
+
+        setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuStrings));
     }
 
     @Override

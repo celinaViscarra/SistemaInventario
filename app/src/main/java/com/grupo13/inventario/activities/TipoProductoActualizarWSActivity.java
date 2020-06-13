@@ -44,16 +44,16 @@ public class TipoProductoActualizarWSActivity extends AppCompatActivity {
 
     public void actualizarTipoProductoWS(View v){
         String mensaje = "";
-        String tipoProducto_id = edtTipoProductoID.getText().toString();
-        String tipoProducto_categoria = edtCategoriaID.getText().toString();
-        String tipoProducto_nombre = edtNombreProducto.getText().toString();
+        String tipo_producto_id = edtTipoProductoID.getText().toString();
+        String categoria_id = edtCategoriaID.getText().toString();
+        String nombre_tipo_producto = edtNombreProducto.getText().toString();
 
-        if (!tipoProducto_id.isEmpty() && !tipoProducto_categoria.isEmpty() && !tipoProducto_nombre.isEmpty()){
+        if (!tipo_producto_id.isEmpty() && !categoria_id.isEmpty() && !nombre_tipo_producto.isEmpty()){
             try {
                 JSONObject elementoActualizar = new JSONObject();
-                elementoActualizar.put("tipoProducto_id",tipoProducto_id);
-                elementoActualizar.put("tipoProducto_categoria",tipoProducto_categoria);
-                elementoActualizar.put("tipoProducto_nombre",tipoProducto_nombre);
+                elementoActualizar.put("tipo_producto_id",tipo_producto_id);
+                elementoActualizar.put("categoria_id",categoria_id);
+                elementoActualizar.put("nombre_tipo_producto",nombre_tipo_producto);
 
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("elementoActualizar",elementoActualizar.toString()));

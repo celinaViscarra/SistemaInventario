@@ -43,7 +43,7 @@ public class TipoProductoEliminarWSActivity extends AppCompatActivity {
         if (!tipoProducto_id.isEmpty()){
             try {
                 JSONObject elementoEliminar = new JSONObject();
-                elementoEliminar.put("tipoProducto_id",tipoProducto_id);
+                elementoEliminar.put("tipo_producto_id",tipoProducto_id);
 
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("elementoEliminar",elementoEliminar.toString()));

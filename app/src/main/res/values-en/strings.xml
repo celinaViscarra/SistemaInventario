@@ -215,5 +215,6 @@
     <string name="menu_item_consultar_ws">Consult %s (WebService)</string>
     <string name="menu_item_actualizar_ws">Update %s (WebService)</string>
     <string name="menu_item_eliminar_ws">Delete %s (WebService)</string>
+    <string name="tipo_producto">Product Type</string>
 
 </resources>

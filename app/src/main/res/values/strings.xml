@@ -226,6 +226,7 @@
     <string name="actualizar_participaciondocente">Actualizar ParticipacionDocente</string>
     <string name="consultar_participaciondocente">Consultar ParticipacionDocente</string>
     <string name="eliminar_participaciondocente">Eliminar ParticipacionDocente</string>
+    <string name="tipo_producto">Tipo Producto</string>
 
 
 </resources>

@@ -48,15 +48,15 @@ public class TipoProductoConsultarWSActivity extends AppCompatActivity {
         if (!tipoProducto_id.isEmpty()){
             try {
                 JSONObject elementoConsulta = new JSONObject();
-                elementoConsulta.put("tipoProducto_id",tipoProducto_id);
+                elementoConsulta.put("tipo_producto_id",tipoProducto_id);
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("elementoConsulta",elementoConsulta.toString()));
 
                 String respuesta = ControlWS.post(url,params,this);
                 JSONObject resp = new JSONArray(respuesta).getJSONObject(0);
                 if (resp.length() !=0){
-                    edtCategoriaID.setText(resp.getString("TIPOPRODUCTO_CATEGORIA_ID"));
-                    edtNombreProducto.setText(resp.getString("TIPOPRODUCTO_NOMBRE"));
+                    edtCategoriaID.setText(resp.getInt("CATEGORIA_ID")+"");
+                    edtNombreProducto.setText(resp.getString("NOMBRE_TIPO_PRODUCTO"));
                     mensaje = "Elemento encontrado";
                 } else {
                     mensaje = "No existe el elemento";

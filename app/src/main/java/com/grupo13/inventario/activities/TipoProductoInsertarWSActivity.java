@@ -26,8 +26,8 @@ public class TipoProductoInsertarWSActivity extends AppCompatActivity {
 
     @BindView(R.id.edtNombreProducto)
     EditText edtNombreProducto;
-    @BindView(R.id.edtTipoProductoID)
-    EditText edtTipoProductoID;
+    @BindView(R.id.edtCategoriaID)
+    EditText edtCategoriaID;
     private final String url = "https://eisi.fia.ues.edu.sv/eisi13/inventariows/tipoproducto/insertar.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +41,13 @@ public class TipoProductoInsertarWSActivity extends AppCompatActivity {
         String mensaje = "";
 
         String nomTipoProducto = edtNombreProducto.getText().toString();
-        String idTipoProducto = edtTipoProductoID.getText().toString();
+        String categoria_id = edtCategoriaID.getText().toString();
 
-        if (!nomTipoProducto.isEmpty() && !idTipoProducto.isEmpty()){
+        if (!nomTipoProducto.isEmpty() && !categoria_id.isEmpty()){
             try {
                 JSONObject elementoInsertar = new JSONObject();
-                elementoInsertar.put("tipoProducto_nombre",nomTipoProducto);
-                elementoInsertar.put("tipoProducto_id",idTipoProducto);
+                elementoInsertar.put("nombre_tipo_producto",nomTipoProducto);
+                elementoInsertar.put("categoria_id",categoria_id);
 
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("elementoInsertar",elementoInsertar.toString()));
@@ -69,7 +69,7 @@ public class TipoProductoInsertarWSActivity extends AppCompatActivity {
         }
     }
     public void limpiar(View v){
-        edtTipoProductoID.setText("");
-        edtTipoProductoID.setText("");
+        edtNombreProducto.setText("");
+        edtCategoriaID.setText("");
     }
 }
