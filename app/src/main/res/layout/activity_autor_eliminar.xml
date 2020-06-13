@@ -14,15 +14,33 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/txt_autor_id_e"
+        <Spinner
+            android:id="@+id/sp_autor_id"
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="wrap_content"/>
     </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:text="@string/autor_eliminar"
+            android:onClick="eliminarAutor"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:text="@string/limpiar"
+            android:onClick="limpiarTexto"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
     <Button
-        android:text="@string/autor_eliminar"
-        android:onClick="eliminarAutor"
+        android:id="@+id/btnModo"
+        android:text="@string/cambiar_a_ws"
+        android:onClick="cambiarModo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
