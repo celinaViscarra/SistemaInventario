@@ -187,7 +187,7 @@ public class ControlWS {
         try{
             JSONArray jsonArray = new JSONArray(json);
             for(int i = 0; i < jsonArray.length(); i++){
-                JSONObject obj = jsonArray.getJSONObject(0);
+                JSONObject obj = jsonArray.getJSONObject(i);
                 Autor autor = new Autor();
                 autor.idAutor = obj.getInt("IDAUTOR");
                 autor.nomAutor = obj.getString("NOMAUTOR");
