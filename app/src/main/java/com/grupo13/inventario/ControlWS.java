@@ -208,8 +208,8 @@ public class ControlWS {
             for(int i = 0; i < jsonArray.length(); i++){
                 JSONObject obj = jsonArray.getJSONObject(0);
                 Ubicaciones ubicaciones = new Ubicaciones();
-                ubicaciones.idUbicacion = obj.getInt("IDUBICACION");
-                ubicaciones.nomUbicacion = obj.getString("NOMUBICACION");
+                ubicaciones.idUbicacion = obj.getInt("UBICACION_ID");
+                ubicaciones.nomUbicacion = obj.getString("UBICACION_NOMBRE");
                 lista.add(ubicaciones);
             }
         } catch (Exception e){

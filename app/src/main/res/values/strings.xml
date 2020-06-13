@@ -200,6 +200,11 @@
     <string name="menu_item_consultar">Consultar %s</string>
     <string name="menu_item_actualizar">Actualizar %s</string>
     <string name="menu_item_eliminar">Eliminar %s</string>
+    <string name="menu_item_insertar_ws">Insertar %s (WebService)</string>
+    <string name="menu_item_lista_ws">Lista %s (WebService)</string>
+    <string name="menu_item_consultar_ws">Consultar %s (WebService)</string>
+    <string name="menu_item_actualizar_ws">Actualizar %s (WebService)</string>
+    <string name="menu_item_eliminar_ws">Eliminar %s (WebService)</string>
 
     <!-- Documento -->
     <string name="tipo_de_producto">Tipo de producto:</string>

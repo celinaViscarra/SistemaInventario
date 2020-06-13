@@ -210,5 +210,10 @@
     <string name="btn_consultar_tipoproducto_ws">Consult Product Type (WebService)</string>
     <string name="btn_eliminar_tipoproducto_ws">Delete Product Type (WebService)</string>
     <string name="btn_actualizar_tipoproducto_ws">Update Product Type (WebService)</string>
+    <string name="menu_item_insertar_ws">Insert %s (WebService)</string>
+    <string name="menu_item_lista_ws">List %s (WebService)</string>
+    <string name="menu_item_consultar_ws">Consult %s (WebService)</string>
+    <string name="menu_item_actualizar_ws">Update %s (WebService)</string>
+    <string name="menu_item_eliminar_ws">Delete %s (WebService)</string>
 
 </resources>

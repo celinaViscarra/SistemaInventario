@@ -449,19 +449,19 @@ public abstract class ControlBD extends RoomDatabase {
         OpcionCrud o76 = new OpcionCrud("076","UbicacionesListaActivity",6);
 
         //Ubicaciones ws
-        OpcionCrud o77 = new OpcionCrud("077","UbicacionesInsertarWS",19);
-        OpcionCrud o78 = new OpcionCrud("078","UbicacionesEliminarWS",19);
-        OpcionCrud o79 = new OpcionCrud("079","UbicacionesConsultarWS",19);
-        OpcionCrud o80 = new OpcionCrud("080","UbicacionesActualizarWS",19);
+        OpcionCrud o77 = new OpcionCrud("077","UbicacionesInsertarWSActivity",19);
+        OpcionCrud o78 = new OpcionCrud("078","UbicacionesEliminarWSActivity",19);
+        OpcionCrud o79 = new OpcionCrud("079","UbicacionesConsultarWSActivity",19);
+        OpcionCrud o80 = new OpcionCrud("080","UbicacionesActualizarWSActivity",19);
 
         //Lista de TipoProducto
         OpcionCrud o81 = new OpcionCrud("081","TipoProductoListaActivity",7);
 
         //TipoProducto ws
-        OpcionCrud o82 = new OpcionCrud("082","TipoProductoInsertarWS",20);
-        OpcionCrud o83 = new OpcionCrud("083","TipoProductoEliminarWS",20);
-        OpcionCrud o84 = new OpcionCrud("084","TipoProductoConsultarWS",20);
-        OpcionCrud o85 = new OpcionCrud("085","TipoProductoActualizarWS",20);
+        OpcionCrud o82 = new OpcionCrud("082","TipoProductoInsertarWSActivity",20);
+        OpcionCrud o83 = new OpcionCrud("083","TipoProductoEliminarWSActivity",20);
+        OpcionCrud o84 = new OpcionCrud("084","TipoProductoConsultarWSActivity",20);
+        OpcionCrud o85 = new OpcionCrud("085","TipoProductoActualizarWSActivity",20);
 
         //Sustituciones ws
         OpcionCrud o86 = new OpcionCrud("086","SustitucionesInsertarWSActivity",21);

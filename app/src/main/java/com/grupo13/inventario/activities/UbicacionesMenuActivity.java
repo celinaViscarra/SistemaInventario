@@ -21,14 +21,22 @@ public class UbicacionesMenuActivity extends ListActivity {
             R.string.menu_item_lista,
             R.string.menu_item_consultar,
             R.string.menu_item_actualizar,
-            R.string.menu_item_eliminar
+            R.string.menu_item_eliminar,
+            R.string.menu_item_insertar_ws,
+            R.string.menu_item_consultar_ws,
+            R.string.menu_item_actualizar_ws,
+            R.string.menu_item_eliminar_ws,
     };
     String [] activities = {
             "UbicacionesInsertarActivity",
-            "UbicacionesListaActivity,",
+            "UbicacionesListaActivity",
             "UbicacionesConsultarActivity",
             "UbicacionesActualizarActivity",
-            "UbicacionesEliminarActivity"
+            "UbicacionesEliminarActivity",
+            "UbicacionesInsertarWSActivity",
+            "UbicacionesConsultarWSActivity",
+            "UbicacionesActualizarWSActivity",
+            "UbicacionesEliminarWSActivity"
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
