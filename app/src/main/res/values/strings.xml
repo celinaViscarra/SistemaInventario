@@ -106,6 +106,7 @@
     <string name="btn_consultar_tipoproducto">Consultar TipoProducto</string>
     <string name="btn_eliminar_tipoproducto">Eliminar TipoProducto</string>
     <string name="btn_actualizar_tipoproducto">Actualizar TipoProducto</string>
+    <string name="tipoProducto">TipoProducto</string>
 
 
     <!-- Ubicaciones -->
@@ -120,6 +121,10 @@
     <string name="btn_consultar_ubicacion">Consultar Ubicacion</string>
     <string name="btn_actualizar_ubicacion">Actualizar Ubicacion</string>
     <string name="ubicacion">Ubicacion</string>
+    <string name="btn_insertar_ubicacion_ws">Insertar Ubicacion (WebService)</string>
+    <string name="btn_eliminar_ubicacion_ws">Eliminar Ubicacion (WebService)</string>
+    <string name="btn_consultar_ubicacion_ws">Consultar Ubicacion (WebService)</string>
+    <string name="btn_actualizar_ubicacion_ws">Actualizar Ubicacion (WebService)</string>
 
 
     <!-- Movimiento inventario -->

@@ -197,5 +197,10 @@
     <string name="consultar_participaciondocente">Consult Teacher Participation</string>
     <string name="eliminar_participaciondocente">Delete Teacher Participation</string>
     <string name="ubicacion">Location</string>
+    <string name="tipoProducto">Product Type</string>
+    <string name="btn_insertar_ubicacion_ws">Insert Location (WebService)</string>
+    <string name="btn_eliminar_ubicacion_ws">Delete Location (WebService)</string>
+    <string name="btn_consultar_ubicacion_ws">Consult Location (WebService)</string>
+    <string name="btn_actualizar_ubicacion_ws">Update Location (WebService)</string>
 
 </resources>
