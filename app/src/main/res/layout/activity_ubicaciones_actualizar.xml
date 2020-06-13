@@ -39,6 +39,7 @@
     </LinearLayout>
     <Button
         android:text="@string/btn_actualizar_ubicacion"
+        android:onClick="actualizarUbicaciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
