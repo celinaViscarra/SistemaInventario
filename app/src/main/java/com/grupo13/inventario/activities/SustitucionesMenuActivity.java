@@ -18,13 +18,21 @@ public class SustitucionesMenuActivity extends ListActivity {
             "Insertar Sustitucion",
             "Consultar Sustitucion",
             "Actualizar Sustitucion",
-            "Eliminar Sustitucion"
+            "Eliminar Sustitucion",
+            "Insertar Sustitucion WebService",
+            "Consultar Sustitucion WebService",
+            "Actualizar Sustitucion WebService",
+            "Eliminar Sustitucion WebService"
     };
     String[] activities = {
             "SustitucionesInsertarActivity",
             "SustitucionesConsultarActivity",
             "SustitucionesActualizarActivity",
-            "SustitucionesEliminarActivity"
+            "SustitucionesEliminarActivity",
+            "SustitucionesInsertarWSActivity",
+            "SustitucionesConsultarWSActivity",
+            "SustitucionesActualizarWSActivity",
+            "SustitucionesEliminarWSActivity"
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {

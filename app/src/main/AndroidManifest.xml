@@ -12,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.TipoProductoActualizarWSActivity"></activity>
+        <activity android:name=".activities.SustitucionesActualizarWSActivity"></activity>
+        <activity android:name=".activities.SustitucionesConsultarWSActivity" />
+        <activity android:name=".activities.SustitucionesEliminarWSActivity" />
+        <activity android:name=".activities.SustitucionesInsertarWSActivity" />
+        <activity android:name=".activities.TipoProductoActualizarWSActivity" />
         <activity android:name=".activities.TipoProductoConsultarWSActivity" />
         <activity android:name=".activities.TipoProductoEliminarWSActivity" />
         <activity android:name=".activities.TipoProductoInsertarWSActivity" />
