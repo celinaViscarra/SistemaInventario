@@ -72,6 +72,6 @@ public class UbicacionesConsultarWSActivity extends AppCompatActivity {
     }
     public void limpiar(View v){
         edtUbicacionID.setText("");
-        edtUbicacionID.setText("");
+        edtNombreUbicacion.setText("");
     }
 }

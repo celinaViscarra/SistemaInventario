@@ -43,7 +43,7 @@ public class UbicacionesActualizarWSActivity extends AppCompatActivity {
     public void actualizarUbicacionesWS(View v){
         String mensaje = "";
         String ubicacion_id = edtUbicacionID.getText().toString();
-        String ubicacion_nombre = edtNombreUbicacion.toString();
+        String ubicacion_nombre = edtNombreUbicacion.getText().toString();
 
         if (!ubicacion_id.isEmpty() && !ubicacion_nombre.isEmpty()){
             try {
