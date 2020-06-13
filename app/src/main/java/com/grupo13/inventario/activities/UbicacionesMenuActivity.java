@@ -13,15 +13,19 @@ import android.widget.Toast;
 import com.grupo13.inventario.R;
 import com.grupo13.inventario.singleton.Permisos;
 
+import java.util.ArrayList;
+
 public class UbicacionesMenuActivity extends ListActivity {
-    String[] menu = {
-            "Insertar Ubicacion",
-            "Consultar Ubicacion",
-            "Actualizar Ubicacion",
-            "Eliminar Ubicacion"
+    int[] menu = {
+            R.string.menu_item_insertar,
+            R.string.menu_item_lista,
+            R.string.menu_item_consultar,
+            R.string.menu_item_actualizar,
+            R.string.menu_item_eliminar
     };
     String [] activities = {
             "UbicacionesInsertarActivity",
+            "UbicacionesListaActivity,",
             "UbicacionesConsultarActivity",
             "UbicacionesActualizarActivity",
             "UbicacionesEliminarActivity"
@@ -30,7 +34,13 @@ public class UbicacionesMenuActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_ubicaciones_menu);
-        setListAdapter(new ArrayAdapter<String >(this,android.R.layout.simple_list_item_1,menu));
+        ArrayList<String> menuStrings = new ArrayList<>();
+        for (int pivote: menu){
+            String elementoMenu = String.format(getString(pivote),getString(R.string.nomUbicacion));
+            menuStrings.add(elementoMenu);
+        }
+
+        setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuStrings));
     }
 
     @Override
