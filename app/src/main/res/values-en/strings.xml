@@ -202,5 +202,9 @@
     <string name="btn_eliminar_ubicacion_ws">Delete Location (WebService)</string>
     <string name="btn_consultar_ubicacion_ws">Consult Location (WebService)</string>
     <string name="btn_actualizar_ubicacion_ws">Update Location (WebService)</string>
+    <string name="btn_insertar_tipoproducto_ws">Insert Product Type (WebService)</string>
+    <string name="btn_consultar_tipoproducto_ws">Consult Product Type (WebService)</string>
+    <string name="btn_eliminar_tipoproducto_ws">Delete Product Type (WebService)</string>
+    <string name="btn_actualizar_tipoproducto_ws">Update Product Type (WebService)</string>
 
 </resources>
