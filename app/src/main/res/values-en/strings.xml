@@ -196,5 +196,6 @@
     <string name="actualizar_participaciondocente">Update Teacher Participation</string>
     <string name="consultar_participaciondocente">Consult Teacher Participation</string>
     <string name="eliminar_participaciondocente">Delete Teacher Participation</string>
+    <string name="ubicacion">Location</string>
 
 </resources>

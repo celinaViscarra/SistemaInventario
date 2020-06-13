@@ -36,7 +36,7 @@ public class UbicacionesMenuActivity extends ListActivity {
         //setContentView(R.layout.activity_ubicaciones_menu);
         ArrayList<String> menuStrings = new ArrayList<>();
         for (int pivote: menu){
-            String elementoMenu = String.format(getString(pivote),getString(R.string.nomUbicacion));
+            String elementoMenu = String.format(getString(pivote),getString(R.string.ubicacion));
             menuStrings.add(elementoMenu);
         }
 

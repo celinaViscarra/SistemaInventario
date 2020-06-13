@@ -119,6 +119,7 @@
     <string name="btn_eliminar_ubicacion">Eliminar Ubicacion</string>
     <string name="btn_consultar_ubicacion">Consultar Ubicacion</string>
     <string name="btn_actualizar_ubicacion">Actualizar Ubicacion</string>
+    <string name="ubicacion">Ubicacion</string>
 
 
     <!-- Movimiento inventario -->

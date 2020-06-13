@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.UbicacionesListaActivity"></activity>
+        <activity android:name=".activities.UbicacionesInsertarWSActivity"></activity>
+        <activity android:name=".activities.UbicacionesListaActivity" />
         <activity android:name=".activities.MotivoActualizarWSActivity" />
         <activity android:name=".activities.MotivoConsultarWSActivity" />
         <activity android:name=".activities.MotivoEliminarWSActivity" />
