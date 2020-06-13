@@ -2,6 +2,13 @@
     <string name="app_name">Sistema Inventario</string>
     <string name="limpiar">Limpiar</string>
 
+    <!-- ERRORES -->
+    <string name="error_ingresar">Error al tratar de ingresar el registro a la Base de Datos.</string>
+    <string name="exito_ingresar">Insertado en la posicion</string>
+    <string name="error_ingresar_ws">No se pudo ingresar el dato.</string>
+    <string name="exito_ingresar_ws">Insertado con exito.</string>
+    <string name="campos_vacios">Revisar que ningun campo de texto vaya vacío</string>
+
 
     <!-- CRUD AUTOR -->
     <string name="autor_id">ID Autor</string>
@@ -11,6 +18,7 @@
     <string name="autor_consultar">Consultar Autor</string>
     <string name="autor_eliminar">Eliminar Autor</string>
     <string name="autor_actualizar">Actualizar Autor</string>
+    <string name="autor_listar">Listar Autores</string>
 
     <!-- CRUD EQUIPO INFORMATICO -->
     <string name="equipo_id">ID Equipo</string>

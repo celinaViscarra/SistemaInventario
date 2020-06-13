@@ -3,15 +3,24 @@
     <string name="app_name">Inventory System</string>
     <string name="limpiar">Clean</string>
 
+    <!-- ERrORES -->
+    <string name="error_ingresar">There was a problem trying to insert in DB.</string>
+    <string name="exito_ingresar">Inserted at position</string>
+    <string name="error_ingresar_ws">There was a problem inserting.</string>
+    <string name="exito_ingresar_ws">Inserted succesfully</string>
+    <string name="campos_vacios">All fields are required</string>
+
 
     <!-- CRUD AUTOR -->
     <string name="autor_id">Author ID</string>
     <string name="autor_nombre">Names</string>
-    <string name="autor_apellido">Surnames</string>
+    <string name="autor_apellido">Last name</string>
     <string name="autor_insertar">Add Author</string>
     <string name="autor_consultar">Consult Author</string>
     <string name="autor_eliminar">Delete Author</string>
     <string name="autor_actualizar">Update Author</string>
+    <string name="autor_listar">List Authors</string>
+
 
     <!-- CRUD EQUIPO INFORMATICO -->
     <string name="equipo_id">Equipment ID</string>
