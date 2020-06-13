@@ -10,6 +10,7 @@ import com.grupo13.inventario.modelo.DetalleAutor;
 import com.grupo13.inventario.modelo.Documento;
 import com.grupo13.inventario.modelo.Idiomas;
 import com.grupo13.inventario.modelo.TipoProducto;
+import com.grupo13.inventario.modelo.Ubicaciones;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -195,6 +196,24 @@ public class ControlWS {
             }
         }  catch (Exception e) {
             Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
+            return null;
+        }
+        return lista;
+    }
+
+    public static List<Ubicaciones> obtenerListaUbicaciones(String json, Context ctx){
+        List<Ubicaciones> lista = new ArrayList<>();
+        try {
+            JSONArray jsonArray = new JSONArray(json);
+            for(int i = 0; i < jsonArray.length(); i++){
+                JSONObject obj = jsonArray.getJSONObject(0);
+                Ubicaciones ubicaciones = new Ubicaciones();
+                ubicaciones.idUbicacion = obj.getInt("IDUBICACION");
+                ubicaciones.nomUbicacion = obj.getString("NOMUBICACION");
+                lista.add(ubicaciones);
+            }
+        } catch (Exception e){
+            Toast.makeText(ctx,"Error en parseo de JSON",Toast.LENGTH_LONG).show();
             return null;
         }
         return lista;
