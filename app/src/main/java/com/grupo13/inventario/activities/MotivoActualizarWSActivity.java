@@ -45,7 +45,7 @@ public class MotivoActualizarWSActivity extends AppCompatActivity {
         String motivo_id = edtIDConsultaMotivo.getText().toString();
         String motivo_nombre = edtNombreConsultaMotivo.getText().toString();
 
-        if(!motivo_id.isEmpty() && !motivo_nombre.isEmpty()) {
+        if(!motivo_id.isEmpty() || !motivo_nombre.isEmpty()) {
             try {
                 JSONObject elementoActualizar = new JSONObject();
                 elementoActualizar.put("motivo_id", motivo_id);

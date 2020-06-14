@@ -93,6 +93,10 @@
     <string name="btn_eliminar_sustitucion">Delete Substitution</string>
     <string name="btn_consultar_sustitucion">Consult Substitution</string>
     <string name="btn_actualizar_sustitucion">Update Substitution</string>
+    <string name="btn_agregar_sustitucion_ws">Add Substitution (WebService)</string>
+    <string name="btn_eliminar_sustitucion_ws">Delete Substitution (WebService)</string>
+    <string name="btn_consultar_sustitucion_ws">Consult Substitution (WebService)</string>
+    <string name="btn_actualizar_sustitucion_WS">Update Substitution (WebService)</string>
 
     <!-- TipoProducto -->
     <string name="insertarTipoProducto">Insert ProductType</string>
