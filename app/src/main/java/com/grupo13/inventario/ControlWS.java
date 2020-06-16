@@ -13,6 +13,7 @@ import com.grupo13.inventario.modelo.EquipoInformatico;
 import com.grupo13.inventario.modelo.Idiomas;
 import com.grupo13.inventario.modelo.TipoProducto;
 import com.grupo13.inventario.modelo.Ubicaciones;
+import com.grupo13.inventario.singleton.MessageHandlerSingleton;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -60,7 +61,7 @@ public class ControlWS {
                 respuesta = EntityUtils.toString(entidad);
             }
         } catch (Exception e) {
-            Toast.makeText(ctx, "Error en la conexion", Toast.LENGTH_SHORT).show();
+            mostrarMensajesError(ctx, "Error en la conexion");
             Log.v("Error de conexion: ", e.toString());
         }
         return respuesta;
@@ -90,7 +91,7 @@ public class ControlWS {
             }
         }
         catch(Exception e){
-            Toast.makeText(ctx, "Error en la conexion", Toast.LENGTH_SHORT).show();
+            mostrarMensajesError(ctx, "Error en la conexion");
             Log.v("Error de conexion: ", e.toString());
         }
         return respuesta;
@@ -114,7 +115,7 @@ public class ControlWS {
                 documentos.add(doc);
             }
         } catch (Exception e) {
-            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
+            mostrarMensajesError(ctx, "Error en parseo de JSON");
             return null;
         }
         return documentos;
@@ -139,7 +140,7 @@ public class ControlWS {
                 idiomas.add(idioma);
             }
         }  catch (Exception e) {
-            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
+            mostrarMensajesError(ctx, "Error en parseo de JSON");
             return null;
         }
         //Devolvemos los idiomas.
@@ -159,7 +160,7 @@ public class ControlWS {
                 lista.add(tipo);
             }
         }  catch (Exception e) {
-            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
+            mostrarMensajesError(ctx, "Error en parseo de JSON");
             return null;
         }
         return lista;
@@ -179,7 +180,7 @@ public class ControlWS {
                 lista.add(detalle);
             }
         }  catch (Exception e) {
-            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
+            mostrarMensajesError(ctx, "Error en parseo de JSON");
             return null;
         }
         return lista;
@@ -198,7 +199,7 @@ public class ControlWS {
                 lista.add(autor);
             }
         }  catch (Exception e) {
-            Toast.makeText(ctx, "Error en parseo de JSON", Toast.LENGTH_LONG).show();
+            mostrarMensajesError(ctx, "Error en parseo de JSON");
             return null;
         }
         return lista;
@@ -216,7 +217,7 @@ public class ControlWS {
                 lista.add(ubicaciones);
             }
         } catch (Exception e){
-            Toast.makeText(ctx,"Error en parseo de JSON",Toast.LENGTH_LONG).show();
+            mostrarMensajesError(ctx, "Error en parseo de JSON");
             return null;
         }
         return lista;
@@ -237,7 +238,7 @@ public class ControlWS {
                 lista.add(catalogoEquipo);
             }
         } catch (Exception e){
-            Toast.makeText(ctx,"Error en parseo de JSON",Toast.LENGTH_LONG).show();
+            mostrarMensajesError(ctx, "Error en parseo de JSON");
             return null;
         }
         return lista;
@@ -260,9 +261,19 @@ public class ControlWS {
                 lista.add(equipoInformatico);
             }
         } catch (Exception e){
-            Toast.makeText(ctx,"Error en parseo de JSON",Toast.LENGTH_LONG).show();
+            mostrarMensajesError(ctx, "Error en parseo de JSON");
             return null;
         }
         return lista;
+    }
+
+    // Metodo encargado de mostrar mensajes de TOAST en el hilo principal, desde subprocesos
+    public static void mostrarMensajesError(Context context, String mensaje) {
+        MessageHandlerSingleton.getInstance().getHandler().post(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(context, mensaje, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
