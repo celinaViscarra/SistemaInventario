@@ -70,7 +70,7 @@ public class SustitucionesActualizarWSActivity extends AppCompatActivity {
                 if (resultado == 1) {
                     mensaje = "Actualizado con exito.";
                 } else
-                    mensaje = "El dato no existe.";
+                    mensaje = "Complete los campos o El dato no existe.";
 
             } catch (JSONException e) {
                 mensaje = "Error en el parseo.";
