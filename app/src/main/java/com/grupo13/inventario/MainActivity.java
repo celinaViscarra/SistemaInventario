@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.grupo13.inventario.activities.LoginActivity;
+import com.grupo13.inventario.singleton.MessageHandlerSingleton;
 import com.grupo13.inventario.singleton.Permisos;
 
 import java.util.ArrayList;
@@ -155,6 +156,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+        // Crear una referencia al hilo principal
+        MessageHandlerSingleton.getInstance();
 
     }
 
