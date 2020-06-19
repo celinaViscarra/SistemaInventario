@@ -225,6 +225,10 @@ public abstract class ControlBD extends RoomDatabase {
         u2.nomUbicacion = "EII";
         long idU2 = ubicacionesDao().insertarUbicaciones(u2);
 
+        Ubicaciones u3 = new Ubicaciones();
+        u3.nomUbicacion = "LCOMP-1";
+        ubicacionesDao().insertarUbicaciones(u3);
+
         Categorias cate = new Categorias();
         cate.nomCategoria = "Equipo informatico";
         long idC = categoriasDao().insertarCategoria(cate);
