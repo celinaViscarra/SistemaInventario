@@ -66,7 +66,7 @@ public class CatalogoEquipoInsertarActivity extends AppCompatActivity {
                     if (catalogos == 0 || catalogos == -1) {
                         mensaje = "ERROR AL INSERTAR CATALÓGO EQUIPO";
                     } else {
-                        mensaje = String.format("Registro insertado en la posicion %d", catalogo);
+                        mensaje = String.format("Registro insertado en la posicion %d", catalogos);
                     }
                 } else {
                     mensaje = "Por favor, seleccione una opcion valida.";
