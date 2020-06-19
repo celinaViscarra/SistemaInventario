@@ -77,11 +77,12 @@ public class UbicacionesListaActivity extends AppCompatActivity {
         }
         @Override
         protected String doInBackground(String... strings){
+            ubicaciones = new ArrayList<>();
             //Empieza consulta, revisamos en que modo tenemos los datos.
             switch (modo_datos){
                 //Caso 1: Modo SQLite
                 case 1:{
-                    ubicaciones = helper.ubicacionesDao().obtenerUbicaciones();
+                    ubicaciones.addAll(helper.ubicacionesDao().obtenerUbicaciones());
                     break;
                 }
                 //Caso 2: Modo WebService
@@ -90,7 +91,8 @@ public class UbicacionesListaActivity extends AppCompatActivity {
                     String jsonUbicaciones = ControlWS.get(url,ctx);
                     //Segundo paso: convertimos a una lista el json, finalmente tenemos
                     //los documentos que estaban guardados en el WS.
-                    ubicaciones = ControlWS.obtenerListaUbicaciones(jsonUbicaciones,ctx);
+                    if(!jsonUbicaciones.isEmpty())
+                        ubicaciones.addAll(ControlWS.obtenerListaUbicaciones(jsonUbicaciones,ctx));
                     break;
                 }
             }

@@ -75,15 +75,17 @@ public class TipoProductoListaActivity extends AppCompatActivity {
         }
         @Override
         protected String doInBackground(String... strings){
+            tipoProductos = new ArrayList<>();
             switch (modo_datos){
                 case 1:{
-                    tipoProductos = helper.tipoProductoDao().obtenerTipos();
+                    tipoProductos.addAll(helper.tipoProductoDao().obtenerTipos());
                     break;
                 }
                 case 2:{
 
                     String jsonTipoProducto = ControlWS.get(url,ctx);
-                    tipoProductos = ControlWS.obtenerListaTipoProducto(jsonTipoProducto,ctx);
+                    if(!jsonTipoProducto.isEmpty())
+                    tipoProductos.addAll(ControlWS.obtenerListaTipoProducto(jsonTipoProducto,ctx));
                     break;
                 }
             }
