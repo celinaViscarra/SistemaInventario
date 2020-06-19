@@ -111,7 +111,6 @@ public class SustitucionesActualizarActivity extends AppCompatActivity {
         for(EquipoInformatico equipoInformaticor: equipoInformaticosRees){
             nomEquiposInfoRees.add("ID: "+equipoInformaticor.codEquipo+" Estado: "+equipoInformaticor.estadoEquipo);
         }
-        nomEquiposInfoRees.add(null);
         for(Docente docente: docentes){
             nomDocentes.add(docente.nomDocente);
         }
