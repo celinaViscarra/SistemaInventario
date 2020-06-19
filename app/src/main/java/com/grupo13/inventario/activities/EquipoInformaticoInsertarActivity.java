@@ -194,13 +194,16 @@ public class EquipoInformaticoInsertarActivity extends AppCompatActivity {
         }
         @Override
         protected String doInBackground(String... strings) {
+            catalogos = new ArrayList<>();
+            tiposProducto = new ArrayList<>();
+            ubicaciones = new ArrayList<>();
             //Empieza consulta, revisamos en que modo tenemos los datos.
             switch (modo_datos){
                 //Caso 1: Modo SQLite
                 case 1:{
-                    catalogos = helper.catalogoEquipoDao().obtenerCatalogoEquipo();
-                    tiposProducto = helper.tipoProductoDao().obtenerTipos();
-                    ubicaciones = helper.ubicacionesDao().obtenerUbicaciones();
+                    catalogos.addAll(helper.catalogoEquipoDao().obtenerCatalogoEquipo());
+                    tiposProducto.addAll(helper.tipoProductoDao().obtenerTipos());
+                    ubicaciones.addAll(helper.ubicacionesDao().obtenerUbicaciones());
                     break;
                 }
                 //Caso 2: Modo WebService
@@ -208,10 +211,11 @@ public class EquipoInformaticoInsertarActivity extends AppCompatActivity {
                     String jsonCatalogo = ControlWS.get(urlCatalogo, ctx);
                     String jsonTiposProducto = ControlWS.get(urlTipoProducto, ctx);
                     String jsonUbicaciones = ControlWS.get(urlUbicaciones, ctx);
-
-                    catalogos = ControlWS.obtenerCatalogoEquipo(jsonCatalogo, ctx);
-                    tiposProducto = ControlWS.obtenerListaTipoProducto(jsonTiposProducto, ctx);
-                    ubicaciones = ControlWS.obtenerListaUbicaciones(jsonUbicaciones, ctx);
+                    if(!(jsonCatalogo.isEmpty()&&jsonTiposProducto.isEmpty()&&jsonUbicaciones.isEmpty())){
+                        catalogos = ControlWS.obtenerCatalogoEquipo(jsonCatalogo, ctx);
+                        tiposProducto = ControlWS.obtenerListaTipoProducto(jsonTiposProducto, ctx);
+                        ubicaciones = ControlWS.obtenerListaUbicaciones(jsonUbicaciones, ctx);
+                    }
                     break;
                 }
             }

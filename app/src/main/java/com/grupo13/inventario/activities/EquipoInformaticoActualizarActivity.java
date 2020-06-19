@@ -198,14 +198,18 @@ public class EquipoInformaticoActualizarActivity extends AppCompatActivity {
         }
         @Override
         protected String doInBackground(String... strings) {
+            catalogos = new ArrayList<>();
+            tiposProducto = new ArrayList<>();
+            ubicaciones = new ArrayList<>();
+            equipos = new ArrayList<>();
             //Empieza consulta, revisamos en que modo tenemos los datos.
             switch (modo_datos){
                 //Caso 1: Modo SQLite
                 case 1:{
-                    catalogos = helper.catalogoEquipoDao().obtenerCatalogoEquipo();
-                    tiposProducto = helper.tipoProductoDao().obtenerTipos();
-                    ubicaciones = helper.ubicacionesDao().obtenerUbicaciones();
-                    equipos = helper.equipoInformaticoDao().obtenerEquiposInformaticos();
+                    catalogos.addAll(helper.catalogoEquipoDao().obtenerCatalogoEquipo());
+                    tiposProducto.addAll(helper.tipoProductoDao().obtenerTipos());
+                    ubicaciones.addAll(helper.ubicacionesDao().obtenerUbicaciones());
+                    equipos.addAll(helper.equipoInformaticoDao().obtenerEquiposInformaticos());
                     break;
                 }
                 //Caso 2: Modo WebService
@@ -215,11 +219,12 @@ public class EquipoInformaticoActualizarActivity extends AppCompatActivity {
                     String jsonUbicaciones = ControlWS.get(urlUbicaciones, ctx);
                     String jsonEquipos = ControlWS.get(urlEquipos, ctx);
 
-
-                    catalogos = ControlWS.obtenerCatalogoEquipo(jsonCatalogo, ctx);
-                    tiposProducto = ControlWS.obtenerListaTipoProducto(jsonTiposProducto, ctx);
-                    ubicaciones = ControlWS.obtenerListaUbicaciones(jsonUbicaciones, ctx);
-                    equipos = ControlWS.obtenerEquipoInformatico(jsonEquipos, ctx);
+                    if(!(jsonCatalogo.isEmpty()&&jsonTiposProducto.isEmpty()&&jsonUbicaciones.isEmpty()&&jsonEquipos.isEmpty())){
+                        catalogos.addAll(ControlWS.obtenerCatalogoEquipo(jsonCatalogo, ctx));
+                        tiposProducto.addAll(ControlWS.obtenerListaTipoProducto(jsonTiposProducto, ctx));
+                        ubicaciones.addAll(ControlWS.obtenerListaUbicaciones(jsonUbicaciones, ctx));
+                        equipos.addAll(ControlWS.obtenerEquipoInformatico(jsonEquipos, ctx));
+                    }
                     break;
                 }
             }

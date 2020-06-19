@@ -131,11 +131,12 @@ public class EquipoInformaticoEliminarActivity extends AppCompatActivity {
         }
         @Override
         protected String doInBackground(String... strings) {
+            equipos = new ArrayList<>();
             //Empieza consulta, revisamos en que modo tenemos los datos.
             switch (modo_datos){
                 //Caso 1: Modo SQLite
                 case 1:{
-                    equipos = helper.equipoInformaticoDao().obtenerEquiposInformaticos();
+                    equipos.addAll(helper.equipoInformaticoDao().obtenerEquiposInformaticos());
                     break;
                 }
                 //Caso 2: Modo WebService
@@ -144,7 +145,8 @@ public class EquipoInformaticoEliminarActivity extends AppCompatActivity {
                     String jsonEquipos = ControlWS.get(url, ctx);
                     //Segundo paso: convertimos a una lista el json, finalmente tenemos
                     //los documentos que estaban guardados en el WS.
-                    equipos = ControlWS.obtenerEquipoInformatico(jsonEquipos, ctx);
+                    if(!jsonEquipos.isEmpty())
+                        equipos.addAll(ControlWS.obtenerEquipoInformatico(jsonEquipos, ctx));
                     break;
                 }
             }
