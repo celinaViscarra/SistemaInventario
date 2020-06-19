@@ -125,12 +125,16 @@ public class DocumentoInsertarActivity extends AppCompatActivity {
                     params.add(new BasicNameValuePair("elementoInsertar",elementoInsertar.toString()));
 
                     String respuesta = ControlWS.post(urlInsertDocumento, params, this);
-                    //Traemos el objeto json de la respuesta
-                    JSONObject resp = new JSONObject(respuesta);
-                    //Sacamos el resultado como un entero
-                    int resultado = resp.getInt("resultado");
-                    if(resultado == 1){
-                        mensaje = "Insertado con exito.";
+                    if(!respuesta.equals("")){
+                        //Traemos el objeto json de la respuesta
+                        JSONObject resp = new JSONObject(respuesta);
+                        //Sacamos el resultado como un entero
+                        int resultado = resp.getInt("resultado");
+                        if(resultado == 1){
+                            mensaje = "Insertado con exito.";
+                        }else{
+                            mensaje = "No se pudo ingresar el dato.";
+                        }
                     }else{
                         mensaje = "No se pudo ingresar el dato.";
                     }
@@ -170,21 +174,24 @@ public class DocumentoInsertarActivity extends AppCompatActivity {
         }
         @Override
         protected String doInBackground(String... strings) {
+            idiomas = new ArrayList<>();
+            tiposProducto = new ArrayList<>();
             //Empieza consulta, revisamos en que modo tenemos los datos.
             switch (modo_datos){
                 //Caso 1: Modo SQLite
                 case 1:{
-                    idiomas = helper.idiomasDao().obtenerIdiomas();
-                    tiposProducto = helper.tipoProductoDao().obtenerTipos();
+                    idiomas.addAll(helper.idiomasDao().obtenerIdiomas());
+                    tiposProducto.addAll(helper.tipoProductoDao().obtenerTipos());
                     break;
                 }
                 //Caso 2: Modo WebService
                 case 2:{
                     String jsonIdiomas = ControlWS.get(urlIdioma, ctx);
                     String jsonTiposProducto = ControlWS.get(urlTipoProducto, ctx);
-
-                    idiomas = ControlWS.obtenerListaIdioma(jsonIdiomas, ctx);
-                    tiposProducto = ControlWS.obtenerListaTipoProducto(jsonTiposProducto, ctx);
+                    if(!(jsonIdiomas.equals("")&&jsonTiposProducto.equals(""))){
+                        idiomas.addAll(ControlWS.obtenerListaIdioma(jsonIdiomas, ctx));
+                        tiposProducto.addAll(ControlWS.obtenerListaTipoProducto(jsonTiposProducto, ctx));
+                    }
                     break;
                 }
             }

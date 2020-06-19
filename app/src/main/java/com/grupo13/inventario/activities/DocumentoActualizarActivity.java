@@ -195,13 +195,16 @@ public class DocumentoActualizarActivity extends AppCompatActivity {
         //Paso 2: la consulta que se hace en otro hilo.
         @Override
         protected String doInBackground(String... strings) {
+            idiomas = new ArrayList<>();
+            documentos = new ArrayList<>();
+            tiposProducto = new ArrayList<>();
             //Empieza consulta, revisamos en que modo tenemos los datos.
             switch (modo_datos){
                 //Caso 1: Modo SQLite
                 case 1:{
-                    idiomas = helper.idiomasDao().obtenerIdiomas();
-                    tiposProducto = helper.tipoProductoDao().obtenerTipos();
-                    documentos = helper.documentoDao().obtenerDocumentos();
+                    idiomas.addAll(helper.idiomasDao().obtenerIdiomas());
+                    tiposProducto.addAll(helper.tipoProductoDao().obtenerTipos());
+                    documentos.addAll(helper.documentoDao().obtenerDocumentos());
                     break;
                 }
                 //Caso 2: Modo WebService
@@ -209,10 +212,11 @@ public class DocumentoActualizarActivity extends AppCompatActivity {
                     String jsonIdiomas = ControlWS.get(urlIdioma, ctx);
                     String jsonTiposProducto = ControlWS.get(urlTipoProducto, ctx);
                     String jsonDocumento = ControlWS.get(urlDocumento, ctx);
-
-                    idiomas = ControlWS.obtenerListaIdioma(jsonIdiomas, ctx);
-                    tiposProducto = ControlWS.obtenerListaTipoProducto(jsonTiposProducto, ctx);
-                    documentos = ControlWS.obtenerListaDocumento(jsonDocumento, ctx);
+                    if(!(jsonIdiomas.isEmpty()&&jsonTiposProducto.isEmpty()&&jsonDocumento.isEmpty())){
+                        idiomas = ControlWS.obtenerListaIdioma(jsonIdiomas, ctx);
+                        tiposProducto = ControlWS.obtenerListaTipoProducto(jsonTiposProducto, ctx);
+                        documentos = ControlWS.obtenerListaDocumento(jsonDocumento, ctx);
+                    }
                     break;
                 }
             }

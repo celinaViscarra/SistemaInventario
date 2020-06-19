@@ -185,6 +185,9 @@ public class DocumentoConsultarActivity extends AppCompatActivity {
         //Paso 2: la consulta que se hace en otro hilo.
         @Override
         protected String doInBackground(String... strings) {
+            documentos = new ArrayList<>();
+            idiomas = new ArrayList<>();
+            tiposProducto = new ArrayList<>();
             //Empieza consulta, revisamos en que modo tenemos los datos.
             switch (modo_datos){
                 //Caso 1: Modo SQLite
@@ -199,10 +202,11 @@ public class DocumentoConsultarActivity extends AppCompatActivity {
                     String jsonIdiomas = ControlWS.get(urlIdioma, ctx);
                     String jsonTiposProducto = ControlWS.get(urlTipoProducto, ctx);
                     String jsonDocumento = ControlWS.get(urlDocumento, ctx);
-
-                    idiomas = ControlWS.obtenerListaIdioma(jsonIdiomas, ctx);
-                    tiposProducto = ControlWS.obtenerListaTipoProducto(jsonTiposProducto, ctx);
-                    documentos = ControlWS.obtenerListaDocumento(jsonDocumento, ctx);
+                    if(!(jsonDocumento.equals("")&&jsonTiposProducto.equals("")&&jsonIdiomas.equals(""))){
+                        idiomas = ControlWS.obtenerListaIdioma(jsonIdiomas, ctx);
+                        tiposProducto = ControlWS.obtenerListaTipoProducto(jsonTiposProducto, ctx);
+                        documentos = ControlWS.obtenerListaDocumento(jsonDocumento, ctx);
+                    }
                     break;
                 }
             }

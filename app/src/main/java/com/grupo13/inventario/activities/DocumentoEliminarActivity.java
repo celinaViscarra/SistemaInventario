@@ -130,11 +130,12 @@ public class DocumentoEliminarActivity extends AppCompatActivity {
         }
         @Override
         protected String doInBackground(String... strings) {
+            documentos = new ArrayList<>();
             //Empieza consulta, revisamos en que modo tenemos los datos.
             switch (modo_datos){
                 //Caso 1: Modo SQLite
                 case 1:{
-                    documentos = helper.documentoDao().obtenerDocumentos();
+                    documentos.addAll(helper.documentoDao().obtenerDocumentos());
                     break;
                 }
                 //Caso 2: Modo WebService
@@ -143,7 +144,8 @@ public class DocumentoEliminarActivity extends AppCompatActivity {
                     String jsonDocumentos = ControlWS.get(url, ctx);
                     //Segundo paso: convertimos a una lista el json, finalmente tenemos
                     //los documentos que estaban guardados en el WS.
-                    documentos = ControlWS.obtenerListaDocumento(jsonDocumentos, ctx);
+                    if(!jsonDocumentos.equals(""))
+                        documentos.addAll(ControlWS.obtenerListaDocumento(jsonDocumentos, ctx));
                     break;
                 }
             }
