@@ -156,18 +156,19 @@ public class AutorConsultarActivity extends AppCompatActivity {
         //Paso 2: la consulta que se hace en otro hilo.
         @Override
         protected String doInBackground(String... strings) {
+            autores = new ArrayList<>();
             //Empieza consulta, revisamos en que modo tenemos los datos.
             switch (modo_datos){
                 //Caso 1: Modo SQLite
                 case 1:{
-                    autores = helper.autorDao().obtenerAutores();
+                    autores.addAll(helper.autorDao().obtenerAutores());
                     break;
                 }
                 //Caso 2: Modo WebService
                 case 2:{
-                    String jsonAutor = ControlWS.get(urlAutorLista, ctx);
-
-                    autores = ControlWS.obtenerListaAutor(jsonAutor, ctx);
+                    String jsonAutores = ControlWS.get(urlAutorLista, ctx);
+                    if(!jsonAutores.isEmpty())
+                        autores.addAll(ControlWS.obtenerListaAutor(jsonAutores, ctx));
                     break;
                 }
             }

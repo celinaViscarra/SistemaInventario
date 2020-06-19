@@ -164,18 +164,19 @@ public class AutorActualizarActivity extends AppCompatActivity {
         }
         @Override
         protected String doInBackground(String... strings) {
+            autores = new ArrayList<>();
             //Empieza consulta, revisamos en que modo tenemos los datos.
             switch (modo_datos){
                 //Caso 1: Modo SQLite
                 case 1:{
-                    autores = helper.autorDao().obtenerAutores();
+                    autores.addAll(helper.autorDao().obtenerAutores());
                     break;
                 }
                 //Caso 2: Modo WebService
                 case 2:{
                     String jsonAutores = ControlWS.get(urlAutorListar, ctx);
-
-                    autores = ControlWS.obtenerListaAutor(jsonAutores, ctx);
+                    if(!jsonAutores.isEmpty())
+                        autores.addAll(ControlWS.obtenerListaAutor(jsonAutores, ctx));
                     break;
                 }
             }

@@ -131,18 +131,19 @@ public class AutorEliminarActivity extends AppCompatActivity {
         }
         @Override
         protected String doInBackground(String... strings) {
+            autores = new ArrayList<>();
             //Empieza consulta, revisamos en que modo tenemos los datos.
             switch (modo_datos){
                 //Caso 1: Modo SQLite
                 case 1:{
-                    autores = helper.autorDao().obtenerAutores();
+                    autores.addAll(helper.autorDao().obtenerAutores());
                     break;
                 }
                 //Caso 2: Modo WebService
                 case 2:{
-                    //Primer paso del WS: Traemos el json que nos devuelve el WS
-                    String jsonDocumentos = ControlWS.get(urlListado, ctx);
-                    autores = ControlWS.obtenerListaAutor(jsonDocumentos, ctx);
+                    String jsonAutores = ControlWS.get(urlListado, ctx);
+                    if(!jsonAutores.isEmpty())
+                        autores.addAll(ControlWS.obtenerListaAutor(jsonAutores, ctx));
                     break;
                 }
             }
