@@ -74,19 +74,21 @@ public class DetalleAutorListaActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             //Empieza consulta, revisamos en que modo tenemos los datos.
+            detallesAutor = new ArrayList<>();
             switch (modo_datos){
                 //Caso 1: Modo SQLite
                 case 1:{
-                    detallesAutor = helper.detalleAutorDao().obtenerDetalles();
+                    detallesAutor.addAll(helper.detalleAutorDao().obtenerDetalles());
                     break;
                 }
                 //Caso 2: Modo WebService
                 case 2:{
                     //Primer paso del WS: Traemos el json que nos devuelve el WS
-                    String jsonDocumentos = ControlWS.get(url, ctx);
+                    String jsonDetalles = ControlWS.get(url, ctx);
                     //Segundo paso: convertimos a una lista el json, finalmente tenemos
                     //los documentos que estaban guardados en el WS.
-                    detallesAutor = ControlWS.obtenerListaDetalleAutor(jsonDocumentos, ctx);
+                    if(!jsonDetalles.isEmpty())
+                        detallesAutor.addAll(ControlWS.obtenerListaDetalleAutor(jsonDetalles, ctx));
                     break;
                 }
             }

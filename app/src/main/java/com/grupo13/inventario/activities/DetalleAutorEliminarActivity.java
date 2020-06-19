@@ -153,18 +153,21 @@ public class DetalleAutorEliminarActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings){
+            documentos = new ArrayList<>();
+            autores = new ArrayList<>();
             switch (modo_datos){
                 case 1:{
-                    documentos = helper.documentoDao().obtenerDocumentos();
-                    autores = helper.autorDao().obtenerAutores();
+                    documentos.addAll(helper.documentoDao().obtenerDocumentos());
+                    autores.addAll(helper.autorDao().obtenerAutores());
                     break;
                 }
                 case 2:{
                     String jsonDocumentos = ControlWS.get(urlDocumentos, ctx);
                     String jsonAutores = ControlWS.get(urlAutores, ctx);
-
-                    documentos = ControlWS.obtenerListaDocumento(jsonDocumentos, ctx);
-                    autores = ControlWS.obtenerListaAutor(jsonAutores, ctx);
+                    if(!(jsonDocumentos.isEmpty()&&jsonAutores.isEmpty())){
+                        documentos = ControlWS.obtenerListaDocumento(jsonDocumentos, ctx);
+                        autores = ControlWS.obtenerListaAutor(jsonAutores, ctx);
+                    }
                     break;
                 }
             }
