@@ -118,6 +118,6 @@ public class DescargosActualizarActivity extends AppCompatActivity {
 
         idDescargo.setAdapter(descargoAdapter);
         idOrigen.setAdapter(origenAdaptaer);
-        idDestino.setAdapter(descargoAdapter);
+        idDestino.setAdapter(destinoAdaptaer);
     }
 }

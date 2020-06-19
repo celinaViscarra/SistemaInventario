@@ -51,6 +51,7 @@ public class Sustituciones {
     @ColumnInfo(name = "equipo_obsoleto_id")
     public int idEquipoObsoleto;
 
+    @NonNull
     @ColumnInfo(name = "equipo_reemplazo_id")
     public int idEquipoReemplazo;
 

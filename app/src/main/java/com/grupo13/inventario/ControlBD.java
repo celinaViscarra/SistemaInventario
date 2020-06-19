@@ -49,7 +49,7 @@ import java.util.List;
                 Usuario.class
         },
         exportSchema = false,
-        version = 3
+        version = 4
 )
 @TypeConverters({Conversor.class})
 public abstract class ControlBD extends RoomDatabase {
@@ -117,6 +117,11 @@ public abstract class ControlBD extends RoomDatabase {
         MD13017.nomAutor = "Bryan";
         MD13017.apeAutor = "Marín";
         autorDao().insertarAutor(MD13017);
+
+        Autor pruebaAutor = new Autor();
+        pruebaAutor.nomAutor = "Autor";
+        pruebaAutor.apeAutor = "Prueba";
+        autorDao().insertarAutor(pruebaAutor);
 
 
         Docente docente1 = new Docente();
@@ -311,10 +316,23 @@ public abstract class ControlBD extends RoomDatabase {
         equipoInformatico.tipo_producto_id = (int) idTp;
         long idEquipoInfor = equipoInformaticoDao().insertarEquipoInformatico(equipoInformatico);
 
+        EquipoInformatico equipoInformatico2 = new EquipoInformatico();
+        equipoInformatico2.fechaAdquisicion = Date.valueOf("2019-09-24");
+        equipoInformatico2.estadoEquipo = "NUEVO";
+        equipoInformatico2.codEquipo = "EQ0002";
+        equipoInformatico2.ubicacion_id = (int) idU;
+        equipoInformatico2.catalogo_id = c1.idCatalogo;
+        equipoInformatico2.tipo_producto_id = (int) idTp;
+        equipoInformaticoDao().insertarEquipoInformatico(equipoInformatico2);
+
 
         TipoMovimiento tipoMov1 = new TipoMovimiento();
         tipoMov1.nombreTipoMoviento = "Prestamo de equipo";
         long idTMov = tipoMovimientoDao().insertarTipoMovimiento(tipoMov1);
+
+        TipoMovimiento tipoMov2 = new TipoMovimiento();
+        tipoMov2.nombreTipoMoviento = "Asignacion";
+        tipoMovimientoDao().insertarTipoMovimiento(tipoMov2);
 
         MovimientoInventario movInventa = new MovimientoInventario();
         movInventa.descripcion = "Prestamo de una compu";
@@ -337,6 +355,10 @@ public abstract class ControlBD extends RoomDatabase {
         movInventa2.docentes_id = (int) idDoce;
         movInventa2.equipo_id = (int) idEquipoInfor;
         long idMovInv2 = movimientoInventarioDao().insertarMovimientoInventario(movInventa2);
+
+        Motivo motivoPrueba = new Motivo();
+        motivoPrueba.nomMotivo = "Motivo prueba sustitucion";
+        motivoDao().insertarMotivo(motivoPrueba);
 
         // Datos para el login y los permisos
 
