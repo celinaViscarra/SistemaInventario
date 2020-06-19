@@ -84,30 +84,33 @@ public class ControlWS {
 
     public static String post(String url, List<NameValuePair> params, Context ctx){
         String respuesta = "";
-        try{
-            //Estableciendo tiempo de espera del servicio
-            HttpParams parametros = new BasicHttpParams();
-            HttpConnectionParams.setConnectionTimeout(parametros, 300);
-            HttpConnectionParams.setSoTimeout(parametros, 5000);
+        if(revisarConexion(ctx)){
+            try{
+                //Estableciendo tiempo de espera del servicio
+                HttpParams parametros = new BasicHttpParams();
+                HttpConnectionParams.setConnectionTimeout(parametros, 300);
+                HttpConnectionParams.setSoTimeout(parametros, 5000);
 
-            //Creando objetos de conexion
-            HttpClient cliente = new DefaultHttpClient(parametros);
-            HttpPost httpPost = new HttpPost(url);
-            httpPost.setEntity(new UrlEncodedFormEntity(params));
-            Log.v("Peticion",url);
-            Log.v("POST", httpPost.toString());
-            HttpResponse response = cliente.execute(httpPost);
-            StatusLine estado = response.getStatusLine();
-            int codigoEstado = estado.getStatusCode();
-            if(codigoEstado == 200){
-                //Diferencia con la guia, usaremos post para traer datos.
-                HttpEntity entidad = response.getEntity();
-                respuesta = EntityUtils.toString(entidad);
+                //Creando objetos de conexion
+                HttpClient cliente = new DefaultHttpClient(parametros);
+                HttpPost httpPost = new HttpPost(url);
+                httpPost.setEntity(new UrlEncodedFormEntity(params));
+                Log.v("Peticion",url);
+                Log.v("POST", httpPost.toString());
+                HttpResponse response = cliente.execute(httpPost);
+                StatusLine estado = response.getStatusLine();
+                int codigoEstado = estado.getStatusCode();
+                if(codigoEstado == 200){
+                    HttpEntity entidad = response.getEntity();
+                    respuesta = EntityUtils.toString(entidad);
+                }
             }
-        }
-        catch(Exception e){
-            mostrarMensajesError(ctx, "Error en la conexion");
-            Log.v("Error de conexion: ", e.toString());
+            catch(Exception e){
+                mostrarMensajesError(ctx, "Error en la conexion");
+                Log.v("Error de conexion: ", e.toString());
+            }
+        }else{
+            mostrarMensajesError(ctx, "No está conectado a internet.");
         }
         return respuesta;
     }
@@ -147,7 +150,6 @@ public class ControlWS {
                 //Recuperamos un objeto JSON del arreglo.
                 JSONObject obj = jsonArray.getJSONObject(i);
                 Idiomas idioma = new Idiomas();
-                //TODO: siempre que extraigan un valor del json ponganlo en mayuscula
                 //porque la base de datos del WS asi lo devuelve.
                 idioma.idIdioma = obj.getInt("IDIOMA_ID");
                 idioma.nombreIdioma = obj.getString("IDIOMA_NOMBRE");
