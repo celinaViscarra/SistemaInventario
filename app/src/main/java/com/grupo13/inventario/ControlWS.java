@@ -2,6 +2,8 @@ package com.grupo13.inventario;
 
 import android.content.Context;
 import android.content.Entity;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -41,28 +43,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControlWS {
+
+    private static boolean revisarConexion(Context ctx) {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
     public static String get(String url, Context ctx){
         String respuesta = "";
-        //Estableciendo tiempo de espera del servicio
-        HttpParams parametros = new BasicHttpParams();
-        HttpConnectionParams.setConnectionTimeout(parametros, 300);
-        HttpConnectionParams.setSoTimeout(parametros, 5000);
+        //Primero revisar si tienen conexion
+        if(revisarConexion(ctx)){
+            //Estableciendo tiempo de espera del servicio
+            HttpParams parametros = new BasicHttpParams();
+            HttpConnectionParams.setConnectionTimeout(parametros, 300);
+            HttpConnectionParams.setSoTimeout(parametros, 5000);
 
-        //Creando objetos de conexion
-        HttpClient cliente = new DefaultHttpClient(parametros);
-        HttpGet httpGet = new HttpGet(url);
-        try{
-            HttpResponse httpResponse = cliente.execute(httpGet);
-            StatusLine estado = httpResponse.getStatusLine();
-            int codigoEstado = estado.getStatusCode();
-            if(codigoEstado == 200){
-                System.out.println("Llegue");
-                HttpEntity entidad = httpResponse.getEntity();
-                respuesta = EntityUtils.toString(entidad);
+            //Creando objetos de conexion
+            HttpClient cliente = new DefaultHttpClient(parametros);
+            HttpGet httpGet = new HttpGet(url);
+            try{
+                HttpResponse httpResponse = cliente.execute(httpGet);
+                StatusLine estado = httpResponse.getStatusLine();
+                int codigoEstado = estado.getStatusCode();
+                if(codigoEstado == 200){
+                    System.out.println("Llegue");
+                    HttpEntity entidad = httpResponse.getEntity();
+                    respuesta = EntityUtils.toString(entidad);
+                }
+            } catch (Exception e) {
+                mostrarMensajesError(ctx, "Error en la conexion");
+                Log.v("Error de conexion: ", e.toString());
             }
-        } catch (Exception e) {
-            mostrarMensajesError(ctx, "Error en la conexion");
-            Log.v("Error de conexion: ", e.toString());
+        }else{
+            mostrarMensajesError(ctx, "No está conectado a internet.");
         }
         return respuesta;
     }
