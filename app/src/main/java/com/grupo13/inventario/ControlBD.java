@@ -59,7 +59,7 @@ public abstract class ControlBD extends RoomDatabase {
     public static synchronized ControlBD getInstance(Context context){
         if(instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),ControlBD.class,DB_NAME)
-            .fallbackToDestructiveMigration().allowMainThreadQueries().build();
+            .setJournalMode(JournalMode.TRUNCATE).fallbackToDestructiveMigration().allowMainThreadQueries().build();
         }
         return instance;
     }
